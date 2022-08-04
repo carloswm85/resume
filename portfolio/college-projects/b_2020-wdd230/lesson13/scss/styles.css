@@ -1,0 +1,814 @@
+@import url("https://fonts.googleapis.com/css2?family=Poly:ital@0;1&display=swap");
+/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
+/* Document
+   ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in
+ *    IE on Windows Phone and in iOS.
+ */
+html {
+  -webkit-text-size-adjust: 100%;
+  /* 2 */ }
+
+  /* Sections
+	 ========================================================================== */
+/**
+ * Remove the margin in all browsers (opinionated).
+ */
+body {
+  margin: 0; }
+
+/**
+ * Add the correct display in IE 9-.
+ */
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block; }
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+  /* Grouping content
+	 ========================================================================== */
+/**
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in IE.
+ */
+figcaption,
+figure,
+main {
+  /* 1 */
+  display: block; }
+
+/**
+ * Add the correct margin in IE 8.
+ */
+figure {
+  margin: 1em 40px; }
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */ }
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */ }
+
+  /* Text-level semantics
+	 ========================================================================== */
+/**
+ * 1. Remove the gray background on active links in IE 10.
+ * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
+ */
+a {
+  background-color: transparent;
+  /* 1 */
+  -webkit-text-decoration-skip: objects;
+  /* 2 */ }
+
+/**
+ * 1. Remove the bottom border in Chrome 57- and Firefox 39-.
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */ }
+
+/**
+ * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+ */
+b,
+strong {
+  font-weight: inherit; }
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder; }
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */ }
+
+/**
+ * Add the correct font style in Android 4.3-.
+ */
+dfn {
+  font-style: italic; }
+
+/**
+ * Add the correct background and color in IE 9-.
+ */
+mark {
+  background-color: #ff0;
+  color: #000; }
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 80%; }
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sub {
+  bottom: -0.25em; }
+
+sup {
+  top: -0.5em; }
+
+  /* Embedded content
+	 ========================================================================== */
+/**
+ * Add the correct display in IE 9-.
+ */
+audio,
+video {
+  display: inline-block; }
+
+/**
+ * Add the correct display in iOS 4-7.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+/**
+ * Remove the border on images inside links in IE 10-.
+ */
+img {
+  border-style: none; }
+
+/**
+ * Hide the overflow in IE.
+ */
+svg:not(:root) {
+  overflow: hidden; }
+
+  /* Forms
+	 ========================================================================== */
+/**
+ * 1. Change the font styles in all browsers (opinionated).
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: sans-serif;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
+  margin: 0;
+  /* 2 */ }
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input {
+  /* 1 */
+  overflow: visible; }
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select {
+  /* 1 */
+  text-transform: none; }
+
+/**
+ * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */ }
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0; }
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText; }
+
+/**
+ * Correct the padding in Firefox.
+ */
+fieldset {
+  padding: 0.35em 0.75em 0.625em; }
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+legend {
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */ }
+
+/**
+ * 1. Add the correct display in IE 9-.
+ * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */ }
+
+/**
+ * Remove the default vertical scrollbar in IE.
+ */
+textarea {
+  overflow: auto; }
+
+/**
+ * 1. Add the correct box sizing in IE 10-.
+ * 2. Remove the padding in IE 10-.
+ */
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */ }
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
+ */
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */ }
+
+  /* Interactive
+	 ========================================================================== */
+/*
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in Edge, IE, and Firefox.
+ */
+details,
+menu {
+  display: block; }
+
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item; }
+
+  /* Scripting
+	 ========================================================================== */
+/**
+ * Add the correct display in IE 9-.
+ */
+canvas {
+  display: inline-block; }
+
+/**
+ * Add the correct display in IE.
+ */
+template {
+  display: none; }
+
+  /* Hidden
+	 ========================================================================== */
+/**
+ * Add the correct display in IE 10-.
+ */
+[hidden] {
+  display: none; }
+
+/* This variable quickly adds border through
+text-shadow property. */
+/* Main Primary color */
+/* Main Secondary color */
+/* Main Complement color */
+/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%; }
+
+/*----------- apply a natural box layout model to all elements --------------*/
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* HTML ELEMENTS */
+h1, h2, h3, p, a, table, span, li, form {
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-family: "Open Sans";
+  margin: 0; }
+
+h2 {
+  margin: 0 0 0.8em 0;
+  font-weight: 700;
+  padding: 0 0.5em;
+  text-align: center; }
+
+header {
+  border-top: 1px solid #036D8B;
+  border-bottom: 1px solid #036D8B; }
+  header .header-top {
+    display: flex; }
+  header button {
+    border: #036D8B solid 1px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    margin: auto 20px auto auto;
+    font-size: 2.6em;
+    color: white;
+    width: 56px;
+    height: 56px;
+    background-color: rgba(0, 0, 0, 0); }
+  header nav {
+    grid-area: 3 / 1 / 4 / 4;
+    border-bottom: 1px solid #036D8B; }
+    header nav ul {
+      width: 100%;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      text-decoration: none; }
+    header nav li a {
+      text-decoration: none;
+      text-align: center;
+      font-weight: 700;
+      display: block;
+      padding: 1rem;
+      border-top: 1px solid #69D4F2; }
+    header nav li a:hover {
+      background-color: #69D4F2; }
+
+footer {
+  margin: 0;
+  padding-top: 1em; }
+  footer p {
+    font-size: 1.5em;
+    line-height: 2em; }
+  footer .footer-social {
+    display: flex;
+    justify-content: space-evenly; }
+    footer .footer-social img {
+      width: 80px;
+      height: auto; }
+  footer .footer-bot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1em;
+    padding-bottom: 1em; }
+    footer .footer-bot span {
+      font-size: 1.2em;
+      margin: 0.2em 0; }
+
+form {
+  padding: 1em 0;
+  margin: 0; }
+  form fieldset {
+    border: none; }
+  form div {
+    margin: 0.5em 0;
+    text-align: center; }
+  form input, form select {
+    color: gray;
+    font-size: 1.3em;
+    height: 2.5em; }
+  form select.location {
+    width: 100%; }
+  form .time {
+    width: 49%; }
+  form .scooters {
+    width: 60%;
+    float: left; }
+  form .submit-button {
+    background-color: #E08000;
+    color: white;
+    font-weight: 700;
+    font-size: 1.5em;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    border: 2px solid white;
+    width: 100px;
+    float: right; }
+
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  width: 100%;
+  font-weight: 600;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+  table td, table thead {
+    border: 2px solid white; }
+  table tr {
+    height: 2em; }
+  table .centered {
+    text-align: center; }
+  table .margined {
+    padding-left: 4px; }
+
+section {
+  padding: 0;
+  margin: 0; }
+
+img, picture {
+  display: block;
+  width: 100%;
+  height: auto; }
+
+/* TESTING ZONE */
+.test {
+  border: dashed red 2px; }
+
+/* CLASSES */
+/* For All */
+.max-sized {
+  max-width: 950px;
+  margin: 0 auto; }
+
+.div-centered {
+  margin: 0 auto; }
+
+/* Logo */
+.logo-box {
+  display: flex;
+  padding: 0.5em;
+  width: 230px; }
+  .logo-box h1 {
+    margin: 0.1em 0 0 0.3em; }
+  .logo-box span {
+    margin: 0.1em 0 0 1.8em; }
+  .logo-box picture {
+    width: 70px;
+    height: auto; }
+
+/* Navigation */
+a.current {
+  font-size: 1.1em;
+  text-shadow: none; }
+
+.hide, .form-hide {
+  display: none; }
+
+/* HOME Page */
+.table-weather {
+  max-width: 470px;
+  margin-bottom: 1em; }
+
+.table-forecast {
+  max-width: 450px; }
+
+.container-rentals {
+  background-color: #1D92B3; }
+
+/* RENTALS Page */
+.table-rentals-2 {
+  max-width: 680px;
+  line-height: 1.5em; }
+
+/* RESERVATIONS Page */
+.container-information {
+  padding: 1.2em 0; }
+  .container-information ul {
+    padding: 1em;
+    border: 1px solid black;
+    background-color: white;
+    padding-left: 2em;
+    margin-bottom: 0; }
+  .container-information li {
+    color: black;
+    text-shadow: none;
+    font-size: 1.2em; }
+    .container-information li a {
+      text-shadow: none;
+      color: blue; }
+
+.container-picture-separator {
+  margin: auto; }
+
+.container-reservation-form {
+  border: white solid 2px;
+  margin: 1em auto;
+  margin-bottom: 0;
+  border-radius: 10px;
+  background-color: #69D4F2;
+  padding-top: 1em; }
+  .container-reservation-form h2 {
+    margin: 0; }
+  .container-reservation-form legend {
+    background-color: #00BAEF;
+    border: 1px solid black;
+    color: white;
+    font-family: "Open Sans";
+    font-size: 1.1em;
+    font-weight: 700;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    padding: 0.5em 1em; }
+  .container-reservation-form fieldset {
+    max-width: 650px;
+    border-radius: 10px;
+    margin: 0 auto 1em auto;
+    background-color: white;
+    border: 1px solid black;
+    padding-bottom: 1em; }
+  .container-reservation-form fieldset, .container-reservation-form p {
+    font-weight: 700;
+    color: black;
+    text-shadow: none; }
+  .container-reservation-form fieldset > p {
+    line-height: 1.5em; }
+  .container-reservation-form .top {
+    max-width: 400px;
+    display: block;
+    margin: 1.5em auto auto auto; }
+    .container-reservation-form .top input, .container-reservation-form .top select, .container-reservation-form .top textarea {
+      color: gray;
+      display: block;
+      width: 100%;
+      margin: 0.2EM auto;
+      background-color: rgba(0, 0, 0, 0.1);
+      border-radius: 5px; }
+    .container-reservation-form .top textarea {
+      height: 250px;
+      line-height: 2em; }
+  .container-reservation-form .closer {
+    margin-top: 0.5em; }
+  .container-reservation-form .submit-button {
+    display: block;
+    width: 96%;
+    max-width: 280px;
+    float: none;
+    margin: 10px auto; }
+  .container-reservation-form input:required, .container-reservation-form select:required {
+    border-left: red solid 5px; }
+  .container-reservation-form input:required:valid, .container-reservation-form select:required:valid {
+    border-left: green solid 5px; }
+
+.extra-padding-vertical {
+  padding: 1em 0; }
+
+/* TOURS Page */
+.container-tours-information {
+  padding: 1.2em 1em;
+  background-color: white;
+  border: 1px solid black;
+  padding-left: 2em;
+  padding-bottom: 2.5em; }
+  .container-tours-information h2, .container-tours-information h3, .container-tours-information p, .container-tours-information a, .container-tours-information li {
+    line-height: 1.5em;
+    color: #474444;
+    text-shadow: none; }
+  .container-tours-information h2 {
+    font-size: 1.5em;
+    margin-top: 1em; }
+  .container-tours-information h3 {
+    margin-top: 1.2em; }
+  .container-tours-information ul {
+    margin-top: 0.4em; }
+
+/* CONTACT Page */
+.container-map {
+  padding: 0;
+  margin-bottom: 1em; }
+  .container-map #map {
+    height: 400px;
+    width: 100%; }
+  .container-map ol {
+    padding: 1em;
+    border: 1px solid black;
+    background-color: white;
+    padding-left: 2em;
+    margin-bottom: 0; }
+  .container-map li, .container-map h2 {
+    color: black;
+    text-shadow: none;
+    font-size: 1.2em; }
+
+/* Other Pages */
+.information {
+  margin: 0;
+  padding: 0.5em 0;
+  text-align: center;
+  font-size: 1.2em;
+  background-color: red; }
+  .information span {
+    margin: 0; }
+
+.container-thanks {
+  background-color: white;
+  padding: 1em;
+  border: 1px solid black; }
+  .container-thanks p {
+    color: black;
+    font-size: 1.2em;
+    text-shadow: none; }
+
+.container-credits {
+  background-color: white;
+  border: solid 1px black;
+  padding: 1em;
+  padding-left: 2em; }
+  .container-credits h3, .container-credits li, .container-credits a {
+    color: black;
+    text-shadow: none; }
+
+/* TEST CODE */
+.border-red {
+  border: red 1px solid; }
+
+/* BACKGROUND Gradients */
+.background-blue {
+  background: #00baef;
+  background: -moz-linear-gradient(top, #00baef 0%, #036d8b 100%);
+  background: -webkit-linear-gradient(top, #00baef 0%, #036d8b 100%);
+  background: linear-gradient(to bottom, #00baef 0%, #036d8b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00baef', endColorstr='#036d8b',GradientType=0 ); }
+
+.background-blue-2 {
+  background: #00baef;
+  background: -moz-linear-gradient(top, #00baef 0%, #7db9e8 100%);
+  background: -webkit-linear-gradient(top, #00baef 0%, #7db9e8 100%);
+  background: linear-gradient(to bottom, #00baef 0%, #7db9e8 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00baef', endColorstr='#7db9e8',GradientType=0 ); }
+
+.background-green {
+  background: #83cf00;
+  background: -moz-linear-gradient(top, #83cf00 0%, #9ffc00 100%);
+  background: -webkit-linear-gradient(top, #83cf00 0%, #9ffc00 100%);
+  background: linear-gradient(to bottom, #83cf00 0%, #9ffc00 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#83cf00', endColorstr='#9ffc00',GradientType=0 ); }
+
+@media only screen and (min-width: 768px) {
+  header button {
+    display: none; }
+  header nav {
+    border-top: 1px solid #69D4F2; }
+    header nav ul {
+      display: flex;
+      justify-content: space-evenly; }
+    header nav ul li a {
+      border-top: none; }
+
+  /* Tables */
+  .table-rentals {
+    max-width: 700px; }
+
+  .container-call {
+    position: relative; }
+    .container-call form {
+      width: 400px;
+      float: left;
+      position: absolute;
+      top: 1em;
+      left: 1em; }
+      .container-call form fieldset {
+        border: solid 1px #01465A;
+        background-color: rgba(105, 212, 242, 0.7); }
+      .container-call form input, .container-call form select {
+        font-size: 1.3em;
+        height: 1.3em; }
+      .container-call form .submit-button {
+        height: 40px; }
+      .container-call form section {
+        padding: 0.5em 0; }
+
+  .container-rentals {
+    border: 1px solid white;
+    margin: 1em auto;
+    padding: 1em; }
+
+  .container-rentals-2 {
+    padding: 2em 0; }
+
+  .container-weather {
+    position: relative;
+    padding: 0; }
+    .container-weather div {
+      width: 400px;
+      float: right;
+      position: absolute;
+      top: 4em;
+      right: 3em; }
+      .container-weather div table {
+        border: solid 1px #01465A;
+        background-color: rgba(105, 212, 242, 0.7); }
+
+  .hide {
+    display: block; } }
+/*
+	The partials files are:
+		_normalize.scss
+		_small.scss
+		_medium.scss
+		_large.scss
+		_variables.scss
+*/
+
+/*# sourceMappingURL=styles.css.map */

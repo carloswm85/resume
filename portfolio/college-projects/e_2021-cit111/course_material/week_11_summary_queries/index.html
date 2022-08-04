@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang='en-us'>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Summary Queries</title>
+    <link href="../text/css/outline_styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <h1>Summary Queries</h1>
+        <p>
+            Summary queries are queries that contain one or more aggregate functions.
+        </p>
+        <h2>Aggregate Functions</h2>
+        <p>
+            Aggregate functions operate on a set of rows to calculate and return a single value. For example, determining how many rows are returned; adding up values; or finding the highest, lowest, or average values in a column or group of the result set.
+        </p>
+        <h2>Common SQL Aggregate Functions</h2>
+        <table>
+            <tr>
+                <td>
+                    <h3>AVG()</h3>
+                    <td>
+                        <h3>Returns a column’s average value</h3>
+            </tr>
+            <tr>
+                <td>
+                    <h3>SUM()</h3>
+                </td>
+                <td>
+                    <h3>Returns the sum of a column’s values</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>MAX()</h3>
+                </td>
+                <td>
+                    <h3>Returns a column’s highest value</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>MIN()</h3>
+                </td>
+                <td>
+                    <h3>Returns a column’s lowest value</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>COUNT()</h3>
+                </td>
+                <td>
+                    <h3>Returns the number of rows in a column</h3>
+                </td>
+            </tr>
+        </table>
+        <h3>The AVG() Function Syntax:</h3>
+        <h3 class="syntax">AVG([ALL| DISTINCT] expression)</h3>
+        <pre>
+
+ SELECT AVG(salary) AS ‘Average Salary’
+ FROM salaries
+			</pre>
+        <table class="results">
+            <tr>
+                <th>Average Salary</th>
+            </tr>
+            <tr>
+                <td>64238.8072</td>
+            </tr>
+        </table>
+        <h3>THE SUM() Function Syntax:</h3>
+        <h3 class="syntax">SUM([ALL| DISTINCT] expression)</h3>
+
+        <pre>
+
+ SELECT SUM(salary) AS ‘Total of all Salaries’
+ FROM salaries
+			</pre>
+
+        <table class="results">
+            <tr>
+                <th>Total of all Salaries</th>
+            </tr>
+            <tr>
+                <td>609497803</td>
+            </tr>
+        </table>
+        <h3>The MAX() Function Syntax:</h3>
+        <h3 class="syntax">MAX([ALL| DISTINCT] expression)</h3><br><br>
+        <h3>THE MIN() Function Syntax:</h3>
+        <h3 class="syntax">MIN([ALL| DISTINCT] expression)</h3>
+
+        <pre>
+
+ SELECT MAX(salary) AS ‘Highest Salary’, MIN(salary) As ‘Lowest Salary’
+ FROM salaries
+			</pre>
+
+        <table class="results">
+            <tr>
+                <th>Highest Salary</th>
+                <th>Lowest Salary</th>
+            </tr>
+            <tr>
+                <td>136004</td>
+                <td>39264</td>
+            </tr>
+        </table>
+        <h3>THE COUNT() Function Syntax:</h3>
+        <h3 class="syntax">COUNT([ALL| DISTINCT] expression)</h3>
+
+        <pre>
+
+ SELECT COUNT(*) AS ‘Number of Employees’
+ FROM employees
+			</pre>
+
+        <table class="results">
+            <tr>
+                <th>Number of Employees</th>
+            </tr>
+            <tr>
+                <td>9488</td>
+            </tr>
+        </table>
+        <p>
+            The ALL keyword is assumed with aggregate functions. You don’t have to include it. This means all rows are included in the aggregate function, which is the default.
+        </p>
+
+        <pre>
+
+ SELECT AVG(ALL prod_price) AS ‘Average Price’
+ FROM products
+			</pre>
+
+        <p>
+            All product prices are included in the average calculation.
+        </p>
+        <p>
+            You can use the DISTINCT keyword instead to include only unique values.
+        </p>
+
+        <pre>
+
+ SELECT AVG(DISTINCT prod_price) AS ‘Average Price’
+ FROM products
+			</pre>
+
+        <p>
+            So if there are multiple products with the same price, that price will only be included once in the average calculation.
+        </p>
+        <h2>
+            Creating Groups
+        </h2>
+        <p>
+            In previous examples the aggregate functions summarized data across all rows in the given table. Creating groups allows you to summarize subsets of table contents.
+        </p>
+        <p>
+            We will use the GROUP BY clause to do this. The GROUP BY clause is used when you have an aggregate function that you want to use on the grouped data.
+        </p><br>
+        <h3>SELECT statement with GROUP BY and HAVING clause syntax:</h3>
+        <h3 class="syntax">
+            SELECT select_list <br> FROM table_source <br> [WHERE search_condition] <br> [GROUP BY group-by_list] <br> [HAVING search_condition] <br> [ORDER BY order_by_list] <br>
+        </h3>
+
+        <pre>
+
+ SELECT vendor_id, COUNT(*) AS ‘Number of Products’
+ FROM products 
+ GROUP BY vendor_id
+			</pre>
+
+        <p>
+            The GROUP BY clause sorts the data and groups by vendors, then the COUNT function is used to count the number of products for each vendor. So you’d have a count once per vendor rather than for the entire table.
+        </p>
+        <table class="results">
+            <tr>
+                <th>vendor_id</th>
+                <th>Number of Products</th>
+            </tr>
+            <tr>
+                <td>021</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>044</td>
+                <td>23</td>
+            </tr>
+            <tr>
+                <td>121</td>
+                <td>31</td>
+            </tr>
+        </table>
+        <h2>
+            Filtering Groups
+        </h2>
+        <p>
+            The HAVING clause also works with aggregate functions and allows you to filter the groups (or in other words specify which groups to include or not include). It works a lot like the WHERE clause but the WHERE clause filters rows and the HAVING clause
+            filters groups.
+        </p>
+
+        <pre>
+
+ SELECT vendor_id, COUNT(*) AS ‘Number of Products’
+ FROM products
+ GROUP BY vendor_id
+ HAVING COUNT(*) > 20
+			</pre>
+
+        <table class="results">
+            <tr>
+                <th>vendor_id</th>
+                <th>Number of Products</th>
+            </tr>
+            <tr>
+                <td>044</td>
+                <td>23</td>
+            </tr>
+            <tr>
+                <td>121</td>
+                <td>31</td>
+            </tr>
+        </table>
+        <p>
+            The HAVING clause filters the vendors after they are grouped and shows only the vendors with the number of products over 20.
+        </p>
+        <p>
+            You can use WHERE and HAVING together. If you want to only include product prices greater than $10 and then show the number of products that result grouped by vendors for those vendors who have more than 20 products.
+        </p>
+
+        <pre>
+ SELECT vendor_id, COUNT(*) AS ‘Number of Products’
+ FROM products
+ WHERE product_price > 10
+ GROUP BY vendor_id
+ HAVING COUNT(*)  > 20
+			</pre>
+
+        <table class="results">
+            <tr>
+                <th>vendor_id</th>
+                <th>Number of Products</th>
+            </tr>
+            <tr>
+                <td>121</td>
+                <td>25</td>
+            </tr>
+        </table>
+        <p>
+            The ROLLUP operator can be used with grouping and aggregates allowing you to add one or more summary rows to your results. A summary row will show up for every group you have.
+        </p>
+
+        <pre>
+
+ SELECT vendor_id, SUM(product_price) AS ‘Total of Product Prices’
+ FROM products
+ WHERE vendor_id &lt; 15
+ GROUP BY vendor_id WITH ROLLUP
+			</pre>
+
+        <table class="results">
+            <tr>
+                <th>vendor_id</th>
+                <th>Total of Product Prices</th>
+            </tr>
+            <tr>
+                <td>010</td>
+                <td>121.87</td>
+            </tr>
+            <tr>
+                <td>011</td>
+                <td>242.21</td>
+            </tr>
+            <tr>
+                <td>012</td>
+                <td>450.43</td>
+            </tr>
+            <tr>
+                <td>013</td>
+                <td>312.12</td>
+            </tr>
+            <tr>
+                <td>014</td>
+                <td>576.94</td>
+            </tr>
+            <tr>
+                <td>NULL</td>
+                <td>1703.57</td>
+            </tr>
+        </table>
+        <p>
+            The summary row shows up as the bottom row and totals all the totals into a grand total.
+        </p>
+        <h2>SELECT Clause Syntax Order</h2>
+        <p>
+            The order of how you must write the code.
+        </p>
+        <h3>SELECT</h3>
+        <h3>FROM</h3>
+        <h3>WHERE</h3>
+        <h3>GROUP BY</h3>
+        <h3>HAVING</h3>
+        <h3>ORDER BY</h3>
+        <h3>LIMIT</h3>
+        <h2>SELECT Order of Execution</h2>
+        <p>
+            The written order, or the syntax order of how we write a query differs from the order of how the query is actually executed. It’s important to understand the order of execution so you know what results are accessible where.
+        </p>
+        <h3>FROM</h3>
+        <h3>WHERE</h3>
+        <h3>GROUP BY</h3>
+        <h3>HAVING</h3>
+        <h3>SELECT</h3>
+        <h3>ORDER BY</h3>
+        <h3>LIMIT</h3>
+        <p>
+            The data from the entire table(s) is retrieved, then that is filtered by the WHERE criteria. Then that resulting data is grouped and filtered by the HAVING criteria. The columns, calculations or functions that will show up are determined in SELECT. Then
+            that resulting data is sorted and then limited.
+        </p>
+    </main>
+</body>
+
+</html>

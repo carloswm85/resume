@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link id="custom-css" rel="stylesheet" href="https://carloswm85.github.io/css/public-styles/dark-orange.css">
+	<link rel="icon" href="../favicon.png" type="image/png">
+
+	<title>WDD330 - Week 02</title>
+</head>
+
+<body>
+	<div class="go-back">
+		<a href="../../../">&#8666;</a>
+	</div>
+
+	<h1>Week 02</h1>
+
+	<!-- Instructions -->
+	<section class="border-bottom">
+		<p>Open the console for reading some code.</p>
+		<p><a href="https://byui-cit.github.io/cit261/prepare/week02.html">https://byui-cit.github.io/cit261/prepare/week02.html &#8663;</a></p>
+	</section>
+
+	<!-- Raw Files -->
+	<section class="border-bottom">
+		<h2>Reading Exercise Raw Files</h2>
+
+		<ul>
+			<li><a href="script.js" target="_blank">script.js &#8663;</a></li>
+		</ul>
+	</section>
+
+	<!-- Reading Section -->
+	<section class="border-bottom">
+		<h2>Readings</h2>
+
+		<ol>
+			<li>Novice to Ninja
+				<ul>
+					<li>Ch2: Programming basics <span class="lime">→</span> Much of this should be review, but pay special attention to the sections on variables, scope, converting/parsing, and template literals. <span class="lime">→</span> <span class="red">Read</span>
+						<ul>
+							Notes on this reading:
+							<li>Good comments and documentation is something I've always appreciated. Grammar is also soemthing I pay attention to when I'm writing in any language: I really like to follow good practices and best standards. </li>
+							<li><code class="code-inline code-style">var</code> and <code class="code-inline code-style">let</code> have always given me some trouble when learning their differences in JS. Here I learned that the main difference is that <code class="code-inline code-style">let</code> and <code class="code-inline code-style">const</code> have block scope(d). They also prevent you from overwriting any built-in methods by assignment, which is generally frowned upon, whereas using <code class="code-inline code-style">var</code> doesn't.</li>
+							<li>"<code class="code-inline code-style">let</code> as used in formalized mathematics (especially the writing of proofs) indicates that the current instance of a variable exists only for the scope of that logical idea.", from a StackOverflow <a href="https://stackoverflow.com/a/43193811/7389293">answer</a>.</li>
+							<li>"<code class="code-inline code-style">let</code> implements restricted scope of functions, in block structures.", <a href="https://stackoverflow.com/a/37917089/7389293">here</a>.</li>
+							<li>Use <code class="code-inline code-style">const</code> whenever possible.</li>
+							<li>Variables that start with an underscore <code class="code-inline code-style">_</code> generally refer to private properties and methods./li>
+							<li>Direct assignment (in primitive data types) and, assignment by reference (in objetcs), is always an interesting topic.</li>
+							<li>String literals Vs String objects, always good to remember the difference. Some other caveats on strings are mentioned, which is cool.</li>
+							<li>Template literals and interpolation: <code class="code-inline code-style">`She said, "I'm going to be ${ age + 1} years old next year."`</code>... Using backticks <code class="code-inline code-style">`</code></li>
+							<li>Symbols primitive data type: <code class="code-inline code-style">const uniqueID = Symbol('this is a description of the symbol');</code>, which main use-case is as object property keys.</li>
+							<li>JS is <strong>weakly typed</strong> or <strong>loosely typed</strong> language. This means you don't need to explicitly speficy what data-type a variable is when you declare it. <strong>Strongly typed</strong> languages are: Java, Swift, TypeScript.</li>
+							<li><strong>FALSY</strong> boolean values: <code class="code-inline code-style">""</code>, <code class="code-inline code-style">''</code>, <code class="code-inline code-style">``</code>, <code class="code-inline code-style">0</code>, <code class="code-inline code-style">-0</code>, <code class="code-inline code-style">NaN</code>, <code class="code-inline code-style">false</code>, <code class="code-inline code-style">null</code>, <code class="code-inline code-style">undefined</code>. In other languages, zero and empty strings are not falsy.</li>
+							<li>JS uses <strong>Lazy Evaluation</strong> of logical statements: This means it stops evaluating any further operands once the result is clear. This means:
+								<ul>
+									<li>"For example, for a logical AND expression to be true, all the operands have to be true; if any of them are false, there is no point checking any subsequent operands as the result will still be false. Similarly, for a logical OR to be true, only one of the operands has to be true; hence, as soon as an operand is evaluated to true, the result is returned as true and any subsequent operands won’t be checked as the result is of no consequence." </li>
+								</ul>
+							</li>
+							<li>Logical operators can be used to check if compound statements are true or false.</li>
+						</ul>
+					</li>
+					<li>Ch3: Arrays, Logic, and Loops <span class="lime">→</span> Again much of this should feel like review. Pay special attention to the section on array methods. <span class="lime">→</span> <span class="red">Read</span>
+						<ul>
+							Notes on this reading:
+							<li>Review of ARRAYS, their properties and methods. Multidimensional arrays. Arrays are ordered list of values.</li>
+							<li><i>Callbacks</i> are mentioned when talking about array sorting. Callbacks are functions passed as an argument to a function. It the book's case when dealing with <code class="code-inline code-style">myArray.sort();</code>. This topic is covered in chapter 4 of the book.</i></li>
+							<li>Review of SETS: Ordered lists of non-duplicate values. Data structure that represents a collection of unique values, so it cannot include any duplicate values. They offer a useful way to keep track of data without having to check if any values have been duplicated. Example: <code class="code-inline code-style">const list = new Set();</code>. Sets can be worked with arrays in many different ways.</li>
+							<li>Review of MAPS: Ordered lists of key-value pairs. Convenient way of keeping a list of key and value pairs. They're similar to hashes, or hash-tables or dictionaries. Example: <code class="code-inline code-style">const myMap = new Map();</code></li>
+							<li>Review of logical conditions: <code class="code-inline code-style">if</code> <code class="code-inline code-style">else</code> statements, ternary operator, <code class="code-inline code-style">switch</code> statement, <code class="code-inline code-style">while</code> loop, <code class="code-inline code-style">do ... while</code> loop, <code class="code-inline code-style">for</code> loop.</li>
+							<li>Loop examples on data structures
+								<ul>
+									<li>Arrays and sets: <code class="code-inline code-style">for (const letter of letters) { console.log(letter); }</code></li>
+									<li>Maps: <code class="code-inline code-style">for (const key of numbers.keys()) { console.log(key); }</code></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>Ch4: Functions <span class="lime">→</span> Note that there are multiple ways to declare a function in Javascript. Pay close attention to the concept of callbacks as well. <span class="lime">→</span> <span class="red">Read</span>
+						<ul>Notes on this reading:
+							<li>Functions are first-class objects, so they they behave like other objects and primitive data types. They can be assigned to variables, stored in arrays and even be returned by another functions.</li>
+							<li>Cases:
+								<ul>
+									<li><span class="orange">Function Literal → Function Declaration</span>: <code class="code-inline code-style">function hello() { ... }</code></li>
+									<li><span class="orange">Function Literal → Function Expression (Anonymous function)</span>: <code class="code-inline code-style">const goodbye = function() { ... };</code> Notice the semicolon at the end of the assignment. Remember: If you have assigned a function to a variable, (this is made by mere reference) you need to place a parenthesis after the variable to invoke it as a function.</li>
+									<li><span class="orange">Using constructor</span>: <code class="code-inline code-style">const hi = new Function(' /* code */ ');</code></li>
+									<li><span class="orange">Arrow functions</span>: <code class="code-inline code-style">const square = x => x * x;</code> or <code class="code-inline code-style">const add = (x,y) => x + y;</code> or <code class="code-inline code-style">const hello = () => alert('Hello World!');</code>
+										<ul>
+											<li>are always anonymous,</li>
+											<li>less verbose and good for short one-liner uses,</li>
+											<li>always assigned to a variable,</li>
+											<li>can be without inside-block if one-liner in simplest case,</li>
+											<li>single parameters do not need parentheses,</li>
+											<li>return keyword is not required in simplest case,</li>
+											<li>they don't bind their own value of <code class="code-inline code-style">this</code> to the function.</li>
+										</ul>
+								</ul>
+							</li>
+							<li><code class="code-inline code-style">myFunction.name</code> returns <code class="code-inline code-style">
+									<< 'myFunction' </code>, which is the name of the function. Which is useful when debugging.</li> <li>Parameters and Arguments:
+										<ul>
+											<li>Paramenter: Parameters are set the the function is <i>defined</i>.</li>
+											<li>Argument: Arguments are set provided to the function when it is <i>invoked</i>.</li>
+										</ul>
+							</li>
+							<li><code class="code-inline code-style">arguments</code>: <code class="code-inline code-style">function arguments() { return arguments; }</code> arguments is somewhat like an array, but it is an object..</li>
+							<li><code class="code-inline code-style">rest</code>: <code class="code-inline code-style">function rest(...args) { return args; }</code> args is an actual array. This type of function can take any amount of parameters.</li>
+							<li>HOISTING: The JavaScript interpreter’s action of moving all variable and function declarations to the top of the current scope, regardless of where they are defined.
+								<ul>
+									<li>Functions that are defined using a function declaration are automatically hoisted, meaning they can be invoked before they have been defined.</li>
+									<li>Variable Hoisting:
+									<li>Variable declarations that use the <code class="cyan">var</code> keyword are automatically moved to the top of the current scope.</li>
+									<li>Variable assignment is not hoisted, however. This means that a variable assigned at the end of a function will have a value of undefined until the assignment is made.</li>
+									<li>An error will be thrown if you attempt to refer to a variable before it has been declared using <code class="code-inline code-style">const</code> and <code class="code-inline code-style">let</code>.</li>
+									<li>A function expression (where an anonymous function is assigned to a variable) is hoisted in a similar way to variables.</li>
+							</li>
+						</ul>
+					</li>
+					<li>CALLBACKS: Use of functions as parameters.
+						A function that is passed as an argument to another is known as a <i>callback</i>.
+						Example: <code class="code-inline code-style">function dance() { console.log("Dance!"); }</code>, then use as a callback when signing, <code class="code-inline code-style">sing('Let It Go', dance);</code>. Which means that when signing, also dancing.
+						Sorting arrays with a callback: <code class="code-inline code-style">function numerically(a, b) { return a-b; }</code>, then <code class="code-inline code-style">[1,3,12,5,23,18,7].sort(numerically);</code>, then <code class="code-inline code-style">
+							<< [1, 3, 5, 7, 12, 18, 23]</code>. Array Iterators (with callbacks): <code class="code-inline code-style">colors.forEach( (color,index) => console.log(`Color at position ${index} is ${color}`) );
+						</code>
+						Maps: <code class="code-inline code-style">[1,2,3].map( square )</code>, or <code class="code-inline code-style">[1,2,3].map( x => 2 * x);</code>
+						reduce(): <code class="code-inline code-style">[1,2,3,4,5].reduce( (acc,val) => prev + val );</code>
+						filtr(): <code class="code-inline code-style">array.filter(Boolean);</code>
+						Chaining Iterators: <code class="code-inline code-style">[1,2,3].map( x => x*x ).reduce((acc,x) => acc + x );</code>
+					</li>
+				</ul>
+			</li>
+			</ul>
+			</li>
+
+
+			<li>Code Sandbox, from Eloquent Javascript, take a loo to this week's JS file: <a href="https://eloquentjavascript.net/code/">Here &#8663;</a> <span class="lime">→</span> <span class="red">Done</span></li>
+
+			<li>Chapters 2-4 of <a href="https://eloquentjavascript.net/index.html">Eloquent JavaScript (EJS) &#8663;</a> <span class="lime">→</span> <span class="red">Read</span>
+				<ul>
+					Notes:
+					<li>Quotes:
+						<blockquote>"We think we are creating the system for our own purposes. We believe we are making it in our own image... But the computer is not really like us. It is a projection of a very slim part of ourselves: that portion devoted to logic, order, rule, and clarity."<span class="quote-reference">Ullman, Close to the Machine: Technophilia and its Discontents</span></blockquote>
+						<blockquote>"When action grows unprofitable, gather information; when information grows unprofitable, sleep."<span class="quote-reference">Ursula K. Le Guin, The Left Hand of Darkness</span></blockquote>
+						<!-- <blockquote>"CONTENT"<span class="quote-reference">REFERENCE</span></blockquote> -->
+					</li>
+					<li>Recursion: <code class="code-inline code-style">function power(base, exponent) { if (exponent == 0) { return 1; } else { return base * power(base, exponent - 1); } }</code></li>
+					<li>Numbers, Booleans, and strings are the atoms that <i>DATA STRUCTURES</i> are built from. Many types of information require more than one atom, though. Objects allow us to group values—including other objects—to build more complex structures.</li>
+					<li>There are some named properties in arrays, such as length and a number of methods. <span class="cyan"><i>Methods are functions that live in properties</i></span> and (usually) act on the value they are a property of.</li>
+					<li>You can iterate over arrays using a special kind of for loop: <code class="code-inline code-style">for (let element of array) { ... }</code>.</li>
+				</ul>
+			</li>
+
+			<li>From all the resources available, this one was the only one I found interesting at just a glance: <a href="https://javascript30.com/" target="blank_">JavaScript30 &#8663;</a> <span class="lime">→</span> <span class="red">Done</span>
+				<ul>
+					Watched videos, and written code (so far):
+					<li>Video: <span class="lime">00 Getting Setup</span> | Code: None</li>
+				</ul>
+			</li>
+		</ol>
+	</section>
+
+	<!-- Vocabulary Section -->
+	<section class="border-bottom" id="vocabulary">
+		<h2>Vocabulary</h2>
+		<ol>
+			<li><code class="code-inline code-style">Memory Leaks</code>: Occur when a program retains references to values that can no longer be accessed in its memory.</li>
+			<li><code class="code-inline code-style">Garbage collection</code>: Dynamic memory management technique, which is the process of automatically removing items from memory that are no longer required by the program.</li>
+			<li>Refactoring: The process of improving the code’s structure and maintainability without changing its behavior.</li>
+			<li><b>Type Coersion</b>: It happens when the operands of an operator are of different types. For example: <code class="code-inline code-style">'2' * 8</code> will be printed as <code class="code-inline code-style">
+					<< 16</code> because the string of <code class="code-inline code-style">2
+				</code> is coerced into a number. Similar coercions are performed between other data types.</li>
+			<li>Dry Principle: "Don't Repeat Yourself" (that's why we use functions!), every part of the program should be written only once.</li>
+			<li>Bindings: How does a program keep an internal state? How does it remember things? To catch and hold values in new and old variables. Bindings can be used to file pieces of data under a name, and they are useful for tracking state in your program.</li>
+			<li>Environment: The collection of bindings and their values that exist at a given time is called the environment. When a program starts up, this environment is not empty. It always contains bindings that are part of the language standard, and most of the time, it also has bindings that provide ways to interact with the surrounding system. For example, in a browser, there are functions to interact with the currently loaded website and to read mouse and keyboard input. The environment is the set of bindings that are defined. JavaScript systems always put a number of useful standard bindings into your environment.</li>
+			<li>JSON: If you want to save data in a file for later or send it to another computer over the network, you have to somehow convert these tangles of memory addresses to a description that can be stored or sent. What we can do is <i>serialize</i> the data. That means it is converted into a flat description. A popular serialization format is called JSON (pronounced “Jason”), which stands for JavaScript Object Notation. JSON looks similar to JavaScript’s way of writing arrays and objects, with a few restrictions. All property names have to be surrounded by double quotes, and only simple data expressions are allowed—no function calls, bindings, or anything that involves actual computation. Comments are not allowed in JSON. JavaScript gives us the functions <code class="code-inline code-style">JSON.stringify</code> and <code class="code-inline code-style">JSON.parse</code> to convert data to and from this format.</li>
+		</ol>
+
+	</section>
+	<!-- Assignment Section -->
+	<section class="border-bottom">
+		<h2>Assignments</h2>
+		<ol>
+			<li>Weekly Report: <a href="report.html">Here &#8667;</a></li>
+			<li>Team Activity: <a href="team.html">Here &#8667;</a></li>
+		</ol>
+	</section>
+
+	<!-- Extra Section -->
+	<section class="border-bottom">
+		<h2>Extra Stuffs</h2>
+		<ol>
+			<li>None.</li>
+		</ol>
+	</section>
+
+	<!-- Footer -->
+	<footer>
+		<p>
+			By Carlos - Last edit: <span class="last-edit"></span>
+		</p>
+	</footer>
+</body>
+
+<script src="script.js"></script>
+
+</html>

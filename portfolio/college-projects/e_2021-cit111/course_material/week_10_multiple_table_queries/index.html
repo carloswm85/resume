@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang='en-us'>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Multiple Table Queries</title>
+    <link href="../text/css/outline_styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <h1>Retrieving Data from Multiple Tables</h1>
+
+        <p>Because a relational database consists of many tables linked with related columns, each individual table is usually incomplete for most business purposes. Different table’s data usually needs to be combined to give complete results for business
+            purposes. In order to retrieve data from more than one table you use a JOIN. The data that had been split apart during normalization can be joined back together in one result set. The JOIN is based on the related column between the tables.
+            A table is related to another table with a foreign key. It is usually with this relationship of the primary key of one table and the foreign key of the other table, which are the matching columns that are used with the JOIN operator.</p>
+
+        <h2>There are different types of JOINS:</h2>
+        <pre>
+  <strong>INNER JOIN      </strong> 
+      Returns rows that have matching values in both tables	
+  <strong>LEFT JOIN       </strong> 
+      Returns all rows from the left table, and matched rows from the right table
+  <strong>RIGHT JOIN      </strong> 
+      Returns all rows from the right table, and matching rows from the left table
+  <strong>FULL OUTER JOIN </strong> 
+      Returns all rows from both tables, even if there is not a related key
+        </pre>
+
+        <p>Let’s take a look at the ERD and the same 3 tables with data.</p>
+
+
+        <div class='erd-data'>
+            <img class='img-holder' src="images/erd_1.jfif" alt="photo of the erd for the magazine table">
+
+            <div id='table-1'>
+                <table class='multi-table'>
+                    <tr>
+                        <th>magKey </th>
+                        <th>magName</th>
+                        <th>magPrice</th>
+                    </tr>
+                    <tr>
+                        <td>1 </td>
+                        <td>Fishing in the Mojave </td>
+                        <td>13.95</td>
+                    </tr>
+                    <tr>
+                        <td>2 </td>
+                        <td>Car Racing Made Easy </td>
+                        <td>15.45</td>
+                    </tr>
+                    <tr>
+                        <td>3 </td>
+                        <td>Pine Cone Computing </td>
+                        <td>17.50</td>
+                    </tr>
+                    <tr>
+                        <td>4 </td>
+                        <td>Cooking Like Mad </td>
+                        <td>18.00</td>
+                    </tr>
+                    <tr>
+                        <td>5 </td>
+                        <td>If Only I Could Sing </td>
+                        <td>12.45</td>
+                    </tr>
+                    <tr>
+                        <td>6 </td>
+                        <td>Beautiful Birds </td>
+                        <td>12.45</td>
+                    </tr>
+                    <tr>
+                        <td>7 </td>
+                        <td>Corn Shucking for Fun and Profit </td>
+                        <td>15.05</td>
+                    </tr>
+                    <tr>
+                        <td>8 </td>
+                        <td>MySQL Magic </td>
+                        <td>10.95</td>
+                    </tr>
+                </table>
+            </div>
+            <div id='table-2'>
+                <table class="multi-table">
+                    <tr>
+                        <th> subKey </th>
+                        <th> magKey </th>
+                        <th> scribKey </th>
+                        <th> subStartDate</th>
+                        <th>SubLength</th>
+                    </tr>
+                    <tr>
+                        <td> 1 </td>
+                        <td> 1 </td>
+                        <td> 1 </td>
+                        <td>2011-03-01 </td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td> 2 </td>
+                        <td> 2 </td>
+                        <td> 2 </td>
+                        <td>2011-03-01 </td>
+                        <td>14</td>
+                    </tr>
+                    <tr>
+                        <td> 3 </td>
+                        <td> 6 </td>
+                        <td> 3 </td>
+                        <td>2012-02-01 </td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td> 4 </td>
+                        <td> 6 </td>
+                        <td> 5 </td>
+                        <td>2012-02-01 </td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td> 5 </td>
+                        <td> 4 </td>
+                        <td> 3 </td>
+                        <td>2011-09-01 </td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td> 6 </td>
+                        <td> 7 </td>
+                        <td> 5 </td>
+                        <td>2012-07-01 </td>
+                        <td>24</td>
+                    </tr>
+                    <tr>
+                        <td> 7 </td>
+                        <td> 7 </td>
+                        <td> 4 </td>
+                        <td>2012-08-01 </td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td> 8 </td>
+                        <td> 1 </td>
+                        <td> 3 </td>
+                        <td>2011-05-01 </td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td> 9 </td>
+                        <td> 1 </td>
+                        <td> 4 </td>
+                        <td>2011-09-01 </td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td> 10 </td>
+                        <td> 5 </td>
+                        <td> 3 </td>
+                        <td>2011-12-01 </td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td> 11 </td>
+                        <td> 3 </td>
+                        <td> 3 </td>
+                        <td>2011-05-01 </td>
+                        <td>18</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="table-3">
+                <table class='multi-table'>
+                    <tr>
+                        <th>scribKey</th>
+                        <th>lastName</th>
+                        <th>firstName</th>
+                        <th>address</th>
+                        <th>city</th>
+                        <th>state</th>
+                        <th>zip</th>
+                    </tr>
+                    <tr>
+                        <td>1 </td>
+                        <td>Johnston </td>
+                        <td>Julie </td>
+                        <td>10336 NE 187th St</td>
+                        <td> Bothell </td>
+                        <td>WA </td>
+                        <td>98012</td>
+                    </tr>
+                    <tr>
+                        <td>2 </td>
+                        <td>Anderson </td>
+                        <td>Albert </td>
+                        <td>220 K Street Southeast</td>
+                        <td> Auburn </td>
+                        <td>WA </td>
+                        <td>98002</td>
+                    </tr>
+                    <tr>
+                        <td>3 </td>
+                        <td>Sanders </td>
+                        <td>Samantha </td>
+                        <td>316 Union Ave</td>
+                        <td> Snohomish </td>
+                        <td>WA </td>
+                        <td>98290</td>
+                    </tr>
+                    <tr>
+                        <td>4 </td>
+                        <td>Jimenez </td>
+                        <td>Jose </td>
+                        <td>187 27th Ave</td>
+                        <td> Seattle </td>
+                        <td>WA </td>
+                        <td>98122</td>
+                    </tr>
+                    <tr>
+                        <td>5 </td>
+                        <td>Lamont </td>
+                        <td>Lucy </td>
+                        <td>175 Smokey Point Dr</td>
+                        <td> Lakewood </td>
+                        <td>WA </td>
+                        <td>98409</td>
+                    </tr>
+                    <tr>
+                        <td>6 </td>
+                        <td>Wong </td>
+                        <td>Walter </td>
+                        <td>1073 South 323rd Street</td>
+                        <td> Federal Way </td>
+                        <td>WA </td>
+                        <td>98003 </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <p>Using single table queries, you could get information like a list of the magazine subscribers or a list of the magazines. But to get useful information like all the subscribers of a certain magazine, you would need to use a JOIN clause.</p>
+        <h2>INNER JOIN</h2>
+        <p>The most common way to join tables is with an INNER JOIN. There are different ways to write the syntax to join tables but we will be using the explicit syntax, which is considered the “best practice” way to write the syntax for a join.</p>
+        <pre>
+
+ SELECT select_list
+ FROM table_1
+     JOIN table_2
+         ON join_condition_1
+     JOIN table_3
+         ON join_condition_2 [. . .]
+         
+</pre>
+        <p>To create the join you specify all the tables that will have data that will be included in the result set or the filtering condition and specify how they are related to each other. Nothing in the database table definitions can instruct MySQL how
+            to join the tables; we have to do that ourselves.</p>
+
+        <p>Lets join two of the tables together. Say we need to have a list of the subscribers names and subscription start dates that belong to each person. Some people have more than one magazine that they subscribe to, so there might be people listed
+            more than once with different subscription start dates.</p>
+        <pre>
+
+ SELECT lastName, firstName, subStartDate    
+
+</pre>
+
+        <p>We know that for this query’s SELECT we will have columns from more than one table. The first and last name from the subscriber table and the subscription start date from the subscription table. We don’t have a filter, or WHERE clause in this
+            case, but if we did, we’d also want to take in to consideration what table column was being used there as well. But, in our case, we know we need to join the subscriber and the subscription tables together.</p>
+
+
+        <p>With an INNER JOIN only people who actually have a subscription, and only subscription start dates that correspond to subscribers will show up. Remember: INNER JOINS will only return rows that have <strong>matching values in both tables</strong>.
+        </p>
+
+        <p>The INNER JOIN keyword follows the first table and specifies which table you are joining to the first table. Then the ON clause specifies the relationship between the two tables; which are the columns that each table has in common. In our case
+            the scribKey as the primary key from the subscriber table and the scribKey as the foreign key from the subscription table. </p>
+
+
+        <pre>
+
+ FROM subscriber 
+     INNER JOIN subscription
+         ON subscriber.scribKey = subscription.scribKey
+    
+</pre>
+
+
+        <p>Because, in our case, the primary and foreign key have the exact same name, we must qualify the column name by preceding it with the table name and a period. Each of the two tables is represented, this is important because MySQL needs to know
+            from which table the column name came from.</p>
+
+        <h3>Here is the whole query with an ORDER BY to sort by last name.</h3>
+        <pre>
+
+ SELECT lastName, firstName, subStartDate
+ FROM subscriber 
+     INNER JOIN subscription
+         ON subscriber.subKey = subscription.subKey
+ ORDER BY lastName;
+   
+</pre>
+
+        <table class='results'>
+            <tr>
+                <th>lastName</th>
+                <th>firstName</th>
+                <th>subStartDate</th>
+            </tr>
+            <tr>
+                <td>Anderson</td>
+                <td> Albert </td>
+                <td> 2011-03-01</td>
+            </tr>
+            <tr>
+                <td>Jimenez </td>
+                <td> Jose </td>
+                <td> 2012-08-01 </td>
+            </tr>
+            <tr>
+                <td>Jimenez </td>
+                <td> Jose </td>
+                <td> 2011-09-01 </td>
+            </tr>
+            <tr>
+                <td>Johnston</td>
+                <td> Julie </td>
+                <td> 2011-03-01</td>
+            </tr>
+            <tr>
+                <td>Lamont </td>
+                <td>Lucy </td>
+                <td> 2012-07-01</td>
+            </tr>
+            <tr>
+                <td>Lamont </td>
+                <td>Lucy </td>
+                <td> 2012-02-01
+                </td>
+            </tr>
+            <tr>
+                <td>Sanders </td>
+                <td> Samantha</td>
+                <td> 2011-05-01 </td>
+            </tr>
+            <tr>
+                <td>Sanders </td>
+                <td> Samantha</td>
+                <td> 2011-12-01 </td>
+            </tr>
+            <tr>
+                <td>Sanders </td>
+                <td> Samantha</td>
+                <td> 2012-02-01 </td>
+            </tr>
+            <tr>
+                <td>Sanders </td>
+                <td> Samantha</td>
+                <td> 2011-05-01 </td>
+            </tr>
+            <tr>
+                <td>Sanders </td>
+                <td> Samantha</td>
+                <td> 2011-09-01 </td>
+            </tr>
+        </table>
+        <p>Now we have a result set with data from two different tables. We can see that most of our subscribers have a subscription to more than one magazine and therefore have a number of different start dates.</p>
+
+        <p>Let’s look at another INNER JOIN. In this example we will be joining all 3 tables. We will be using table aliases for each table that we can then use to qualify the tables in the ON clause. ‘sr’ to represent ‘subscriber’, ‘sn’ to represent ‘subscription’,
+            and m to represent magazine. You can use the keyword AS before each alias, but it is optional.</p>
+        <p>Once you give a table an alias you must refer to that alias throughout the query if you need to qualify any column names.</p>
+
+        <p>We will also be using just the keyword JOIN instead of INNER JOIN, they keyword INNER is optional. Both JOIN and INNER JOIN mean exactly the same thing. When you use the keyword JOIN it is assumed that you are using INNER JOIN.</p>
+
+        <p>This query will get a list of people who subscribe to the magazine called ‘Beautiful Birds’. </p>
+        <pre>
+
+ SELECT lastName Last_Name, firstName First_Name
+ FROM subscriber sr
+     JOIN subscription sn
+         ON sr.subKey = sn.subKey
+     JOIN magazine m
+         ON sn.magKey = m.magKey
+ WHERE magName = ‘Beautiful Birds’ 
+ ORDER BY last_Name;
+
+</pre>
+        <table class='results'>
+            <tr>
+                <th>Last_Name</th>
+                <th>First_Name</th>
+            </tr>
+            <tr>
+                <td>Lamont </td>
+                <td>Lucy</td>
+            </tr>
+            <tr>
+                <td>Sanders </td>
+                <td>Samantha</td>
+            </tr>
+        </table>
+        <p>We can see that we want the first and last names again, which is only from one table but in order to see who has subscribed to ‘Beautiful Birds’ we have to include a WHERE clause that uses magName from the magazine table. So we are using data
+            from multiple tables. Because the subscriber table that lists the people and the magazine table that lists the magazines do not have a common key that related the two we will have to use the linking subscription table in our join as well.
+            So we join the subscriber table to the subscription table using the related column of subKey. Then we join the magazine table to the subscription table using the related column of magKey.</p>
+
+        <h2>Order of Execution</h2>
+        <p>Let’s take a minute to look at the Order of Execution with joins. Remember: The order that we write the syntax of our queries is <strong>not</strong> the order that the clauses actually execute. All of the SQL clauses have complex interdependencies
+            on each other, and they need to execute in a certain order to behave properly. The execution order is:</p>
+        <pre>
+
+ 1. FROM and JOIN
+ 2. WHERE
+ 3. SELECT
+ 4. ORDER BY
+
+</pre>
+        <p>Using the last query we looked at, the FROM is the first thing that executes. Before anything else all the rows from all the tables are retrieved. This gets us the total working set of data that is being queried. JOIN is an operator of FROM, not
+            an independent clause so it executes at the same time as FROM.</p>
+        <table class="results">
+            <tr>
+                <th>scribKey</th>
+                <th>lastName</th>
+                <th>firstName</th>
+                <th>address</th>
+                <th>city</th>
+                <th>state</th>
+                <th>zip</th>
+                <th>subKey</th>
+                <th>magKey</th>
+                <th>scribKey</th>
+                <th>subStartDate</th>
+                <th>subLength</th>
+                <th>magKey</th>
+                <th>magName</th>
+                <th>magPrice</th>
+            </tr>
+            <tr>
+                <td>1 </td>
+                <td>Johnston </td>
+                <td> Julie </td>
+                <td>10336 NE 187th St </td>
+                <td> Bothell </td>
+                <td>WA</td>
+                <td>98012</td>
+                <td> 1 </td>
+                <td>1 </td>
+                <td>1 </td>
+                <td>2011-03-01 </td>
+                <td>12 </td>
+                <td>1 </td>
+                <td>Fishing in the Mojave </td>
+                <td> 13.95</td>
+            </tr>
+            <tr>
+                <td>3 </td>
+                <td>Sanders </td>
+                <td> Samantha </td>
+                <td>316 Union Ave </td>
+                <td> Snohomish </td>
+                <td>WA</td>
+                <td>98290</td>
+                <td> 8 </td>
+                <td>1 </td>
+                <td>3 </td>
+                <td>2011-05-01 </td>
+                <td>12 </td>
+                <td>1 </td>
+                <td>Fishing in the Mojave </td>
+                <td> 13.95</td>
+            </tr>
+            <tr>
+                <td>4 </td>
+                <td>Jimenez </td>
+                <td> Jose </td>
+                <td>187 27th Ave </td>
+                <td> Seattle </td>
+                <td>WA</td>
+                <td>98122</td>
+                <td> 9 </td>
+                <td>1 </td>
+                <td>4 </td>
+                <td>2011-09-01 </td>
+                <td>12 </td>
+                <td>1 </td>
+                <td>Fishing in the Mojave </td>
+                <td> 13.95</td>
+            </tr>
+            <tr>
+                <td>2 </td>
+                <td>Anderson </td>
+                <td> Albert </td>
+                <td>220 K Street Southeast</td>
+                <td> Auburn </td>
+                <td>WA</td>
+                <td>98002</td>
+                <td> 2 </td>
+                <td>2 </td>
+                <td>2 </td>
+                <td>2011-03-01 </td>
+                <td>14 </td>
+                <td>2 </td>
+                <td>Car Racing Made Easy </td>
+                <td> 15.45</td>
+            </tr>
+            <tr>
+                <td>3 </td>
+                <td>Sanders </td>
+                <td> Samantha </td>
+                <td>316 Union Ave </td>
+                <td> Snohomish </td>
+                <td>WA</td>
+                <td>98290 </td>
+                <td>11 </td>
+                <td>3 </td>
+                <td>3 </td>
+                <td>2011-05-01 </td>
+                <td>18 </td>
+                <td>3 </td>
+                <td>Pine Cone Computing </td>
+                <td> 17.50</td>
+            </tr>
+            <tr>
+                <td>3 </td>
+                <td>Sanders </td>
+                <td> Samantha </td>
+                <td>316 Union Ave </td>
+                <td> Snohomish </td>
+                <td>WA</td>
+                <td>98290</td>
+                <td> 5 </td>
+                <td>4 </td>
+                <td>3 </td>
+                <td>2011-09-01 </td>
+                <td>12 </td>
+                <td>4 </td>
+                <td>Cooking Like Mad </td>
+                <td> 18.00</td>
+            </tr>
+            <tr>
+                <td>3 </td>
+                <td>Sanders </td>
+                <td> Samantha </td>
+                <td>316 Union Ave </td>
+                <td> Snohomish </td>
+                <td>WA</td>
+                <td>98290 </td>
+                <td>10 </td>
+                <td>5 </td>
+                <td>3 </td>
+                <td>2011-12-01 </td>
+                <td>12 </td>
+                <td>5 </td>
+                <td>If Only I Could Sing </td>
+                <td> 12.45</td>
+            </tr>
+            <tr>
+                <td>3 </td>
+                <td>Sanders </td>
+                <td> Samantha </td>
+                <td>316 Union Ave </td>
+                <td> Snohomish </td>
+                <td>WA</td>
+                <td>98290</td>
+                <td> 3 </td>
+                <td>6 </td>
+                <td>3 </td>
+                <td>2012-02-01 </td>
+                <td>12 </td>
+                <td>6 </td>
+                <td>Beautiful Birds </td>
+                <td> 12.45</td>
+            </tr>
+            <tr>
+                <td>5 </td>
+                <td>Lamont </td>
+                <td> Lucy </td>
+                <td>175 Smokey Point Dr </td>
+                <td>Lakewood </td>
+                <td>WA</td>
+                <td>98409</td>
+                <td> 4 </td>
+                <td>6 </td>
+                <td>5 </td>
+                <td>2012-02-01 </td>
+                <td>12 </td>
+                <td>6 </td>
+                <td>Beautiful Birds </td>
+                <td> 12.45</td>
+            </tr>
+            <tr>
+                <td>5 </td>
+                <td>Lamont </td>
+                <td> Lucy </td>
+                <td>175 Smokey Point Dr </td>
+                <td>Lakewood </td>
+                <td>WA</td>
+                <td>98409</td>
+                <td> 6 </td>
+                <td>7 </td>
+                <td>5 </td>
+                <td>2012-07-01 </td>
+                <td>24 </td>
+                <td>7 </td>
+                <td>Corn Shucking for Fun and Profit </td>
+                <td> 15.05</td>
+            </tr>
+            <tr>
+                <td>4 </td>
+                <td>Jimenez </td>
+                <td> Jose </td>
+                <td>187 27th Ave </td>
+                <td> Seattle </td>
+                <td>WA</td>
+                <td>98122</td>
+                <td> 7 </td>
+                <td>7 </td>
+                <td>4 </td>
+                <td>2012-08-01 </td>
+                <td>12 </td>
+                <td>7 </td>
+                <td>Corn Shucking for Fun and Profit </td>
+                <td> 15.05</td>
+            </tr>
+        </table>
+
+        <p>So now that we have our set of data, let’s filter it down to exactly what we want. That’s done with WHERE next. With WHERE we can throw away the data we don’t need by setting up conditions on what it is exactly we want or don’t want. The WHERE
+            then narrows down the set of data. </p>
+
+        <table class="results">
+            <tr>
+                <th>scribKey</th>
+                <th>lastName</th>
+                <th>firstName</th>
+                <th>address</th>
+                <th>city</th>
+                <th>state</th>
+                <th>zip</th>
+                <th>subKey</th>
+                <th>magKey</th>
+                <th>subKey</th>
+                <th>subStartDate</th>
+                <th>subLength</th>
+                <th>magKey</th>
+                <th>magName</th>
+                <th>magPrice</th>
+            </tr>
+            <tr>
+                <td>3 </td>
+                <td>Sanders </td>
+                <td> Samantha </td>
+                <td>316 Union Ave </td>
+                <td> Snohomish </td>
+                <td>WA</td>
+                <td>98290</td>
+                <td> 3 </td>
+                <td>6 </td>
+                <td>3 </td>
+                <td>2012-02-01 </td>
+                <td>12 </td>
+                <td>6 </td>
+                <td>Beautiful Birds </td>
+                <td> 12.45</td>
+            </tr>
+            <tr>
+                <td>5 </td>
+                <td>Lamont </td>
+                <td> Lucy </td>
+                <td>175 Smokey Point Dr </td>
+                <td>Lakewood </td>
+                <td>WA</td>
+                <td>98409</td>
+                <td> 4 </td>
+                <td>6 </td>
+                <td>5 </td>
+                <td>2012-02-01 </td>
+                <td>12 </td>
+                <td>6 </td>
+                <td>Beautiful Birds </td>
+                <td> 12.45</td>
+            </tr>
+        </table>
+        <p>The data is filtered but all columns included at this point. SELECT now executes and we can specify which columns we want to show up.</p>
+
+        <table class='results'>
+            <tr>
+                <th>Last_Name</th>
+                <th>First_Name</th>
+            </tr>
+            <tr>
+                <td>Sanders </td>
+                <td>Samantha</td>
+            </tr>
+            <tr>
+                <td>Lamont </td>
+                <td>Lucy</td>
+            </tr>
+        </table>
+
+        <p>Then the ORDER BY executes and sorts the results</p>
+
+        <table class='results'>
+            <tr>
+                <th>Last_Name</th>
+                <th>First_Name</th>
+            </tr>
+            <tr>
+                <td>Lamont </td>
+                <td>Lucy</td>
+            </tr>
+            <tr>
+                <td>Sanders </td>
+                <td>Samantha</td>
+            </tr>
+        </table>
+
+        <h2>OUTER JOIN</h2>
+
+        <p>Another type of join is the OUTER JOIN. This type of join returns all rows from one table and just the matched rows from another table. </p>
+
+        <p>Let’s take a look at the ERD and the same 3 tables with data again.</p>
+
+        <div class='erd-data'>
+            <img class='img-holder' src="images/erd_1.jfif" alt="photo of the erd for the magazine table">
+
+            <div id='table-1'>
+                <table class='multi-table'>
+                    <tr>
+                        <th>magKey </th>
+                        <th>magName</th>
+                        <th>magPrice</th>
+                    </tr>
+                    <tr>
+                        <td>1 </td>
+                        <td>Fishing in the Mojave </td>
+                        <td>13.95</td>
+                    </tr>
+                    <tr>
+                        <td>2 </td>
+                        <td>Car Racing Made Easy </td>
+                        <td>15.45</td>
+                    </tr>
+                    <tr>
+                        <td>3 </td>
+                        <td>Pine Cone Computing </td>
+                        <td>17.50</td>
+                    </tr>
+                    <tr>
+                        <td>4 </td>
+                        <td>Cooking Like Mad </td>
+                        <td>18.00</td>
+                    </tr>
+                    <tr>
+                        <td>5 </td>
+                        <td>If Only I Could Sing </td>
+                        <td>12.45</td>
+                    </tr>
+                    <tr>
+                        <td>6 </td>
+                        <td>Beautiful Birds </td>
+                        <td>12.45</td>
+                    </tr>
+                    <tr>
+                        <td>7 </td>
+                        <td>Corn Shucking for Fun and Profit </td>
+                        <td>15.05</td>
+                    </tr>
+                    <tr>
+                        <td>8 </td>
+                        <td>MySQL Magic </td>
+                        <td>10.95</td>
+                    </tr>
+                </table>
+            </div>
+            <div id='table-2'>
+                <table class="multi-table">
+                    <tr>
+                        <th> subKey </th>
+                        <th> magKey </th>
+                        <th> scribKey </th>
+                        <th> subStartDate</th>
+                        <th>SubLength</th>
+                    </tr>
+                    <tr>
+                        <td> 1 </td>
+                        <td> 1 </td>
+                        <td> 1 </td>
+                        <td>2011-03-01 </td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td> 2 </td>
+                        <td> 2 </td>
+                        <td> 2 </td>
+                        <td>2011-03-01 </td>
+                        <td>14</td>
+                    </tr>
+                    <tr>
+                        <td> 3 </td>
+                        <td> 6 </td>
+                        <td> 3 </td>
+                        <td>2012-02-01 </td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td> 4 </td>
+                        <td> 6 </td>
+                        <td> 5 </td>
+                        <td>2012-02-01 </td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td> 5 </td>
+                        <td> 4 </td>
+                        <td> 3 </td>
+                        <td>2011-09-01 </td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td> 6 </td>
+                        <td> 7 </td>
+                        <td> 5 </td>
+                        <td>2012-07-01 </td>
+                        <td>24</td>
+                    </tr>
+                    <tr>
+                        <td> 7 </td>
+                        <td> 7 </td>
+                        <td> 4 </td>
+                        <td>2012-08-01 </td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td> 8 </td>
+                        <td> 1 </td>
+                        <td> 3 </td>
+                        <td>2011-05-01 </td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td> 9 </td>
+                        <td> 1 </td>
+                        <td> 4 </td>
+                        <td>2011-09-01 </td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td> 10 </td>
+                        <td> 5 </td>
+                        <td> 3 </td>
+                        <td>2011-12-01 </td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td> 11 </td>
+                        <td> 3 </td>
+                        <td> 3 </td>
+                        <td>2011-05-01 </td>
+                        <td>18</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="table-3">
+                <table class='multi-table'>
+                    <tr>
+                        <th>scribKey</th>
+                        <th>lastName</th>
+                        <th>firstName</th>
+                        <th>address</th>
+                        <th>city</th>
+                        <th>state</th>
+                        <th>zip</th>
+                    </tr>
+                    <tr>
+                        <td>1 </td>
+                        <td>Johnston </td>
+                        <td>Julie </td>
+                        <td>10336 NE 187th St</td>
+                        <td> Bothell </td>
+                        <td>WA </td>
+                        <td>98012</td>
+                    </tr>
+                    <tr>
+                        <td>2 </td>
+                        <td>Anderson </td>
+                        <td>Albert </td>
+                        <td>220 K Street Southeast</td>
+                        <td> Auburn </td>
+                        <td>WA </td>
+                        <td>98002</td>
+                    </tr>
+                    <tr>
+                        <td>3 </td>
+                        <td>Sanders </td>
+                        <td>Samantha </td>
+                        <td>316 Union Ave</td>
+                        <td> Snohomish </td>
+                        <td>WA </td>
+                        <td>98290</td>
+                    </tr>
+                    <tr>
+                        <td>4 </td>
+                        <td>Jimenez </td>
+                        <td>Jose </td>
+                        <td>187 27th Ave</td>
+                        <td> Seattle </td>
+                        <td>WA </td>
+                        <td>98122</td>
+                    </tr>
+                    <tr>
+                        <td>5 </td>
+                        <td>Lamont </td>
+                        <td>Lucy </td>
+                        <td>175 Smokey Point Dr</td>
+                        <td> Lakewood </td>
+                        <td>WA </td>
+                        <td>98409</td>
+                    </tr>
+                    <tr>
+                        <td>6 </td>
+                        <td>Wong </td>
+                        <td>Walter </td>
+                        <td>1073 South 323rd Street</td>
+                        <td> Federal Way </td>
+                        <td>WA </td>
+                        <td>98003 </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <p>Notice there is one subscriber ‘Walter Wong’ that is not subscribed to any magazine yet. There is also one magazine ‘MySQL Magic’ that has no subscribers yet. When we do an inner join as we did above, Walter never showed up because there was no
+            matching foreign key that matched his primary scribKey. In other words, there was no scribKey 6 in the linking table as a foreign key. What if we wanted to show all subscribers last and first name and their subscription start dates even if
+            that subscriber hadn’t subscribed to a magazine yet. We would have to use an OUTER JOIN. </p>
+
+        <pre>
+
+ SELECT lastName, firstName, subStartDate
+ FROM subscriber 
+     LEFT OUTER JOIN subscription
+         ON subscriber.scribKey = subscription.scribKey
+ ORDER BY lastName;
+        
+        </pre>
+
+        <table class="results">
+            <tr>
+                <th>lastName</th>
+                <th>firstName</th>
+                <th>subStartDate</th>
+            </tr>
+            <tr>
+                <td>Anderson </td>
+                <td> Albert </td>
+                <td>2011-03-01</td>
+            </tr>
+            <tr>
+                <td>Jimenez </td>
+                <td> Jose </td>
+                <td>2012-08-01</td>
+            </tr>
+            <tr>
+                <td>Jimenez </td>
+                <td> Jose </td>
+                <td>2011-09-01 </td>
+            </tr>
+            <tr>
+                <td>Johnston </td>
+                <td> Julie </td>
+                <td>2011-03-01 </td>
+            </tr>
+            <tr>
+                <td>Lamont </td>
+                <td> Lucy </td>
+                <td>2012-07-01 </td>
+            </tr>
+            <tr>
+                <td>Lamont </td>
+                <td> Lucy </td>
+                <td>2012-02-01 </td>
+            </tr>
+            <tr>
+                <td>Sanders </td>
+                <td> Samantha </td>
+                <td>2011-05-01 </td>
+            </tr>
+            <tr>
+                <td>Sanders </td>
+                <td> Samantha </td>
+                <td>2011-12-01 </td>
+            </tr>
+            <tr>
+                <td>Sanders </td>
+                <td> Samantha </td>
+                <td>2012-02-01 </td>
+            </tr>
+            <tr>
+                <td>Sanders </td>
+                <td> Samantha </td>
+                <td>2011-05-01 </td>
+            </tr>
+            <tr>
+                <td>Sanders </td>
+                <td> Samantha </td>
+                <td>2011-09-01 </td>
+            </tr>
+            <tr>
+                <td>Wong </td>
+                <td>Walter </td>
+                <td>NULL</td>
+            </tr>
+        </table>
+
+
+        <p>The keywords LEFT OUTER JOIN specified that all records from the table on the left would be returned and only the matching rows from the other table are returned. Because Walter Wong was from the subscriber table (the table on the left in the
+            query) he showed up. But notice that the subscription start date is null (there is no foreign key in the subscription table and therefore no subscription start date. So all the rows are returned from the subscriber table and only the matching
+            rows of the subscription table.</p>
+
+        <p>RIGHT JOIN is used the same way but refers to the table on the right as the table that will have all the rows in the result set. So the query above could be rewritten as follows and get the same results.</p>
+
+        <pre>
+
+ SELECT lastName, firstName, subStartDate
+ FROM subscription 
+     RIGHT OUTER JOIN subscriber
+         ON subscriber.scribKey = subscription.scribKey
+ ORDER BY lastName;
+
+</pre>
+
+        <p>Usually a LEFT JOIN is used placing the table you want all the results from first (or on the left) so RIGHT JOIN doesn’t have to ever be used.</p>
+
+        <p>Let’s look at a join that uses all 3 tables. </p>
+
+        <p>If we wanted all the magazines and their associated subscribers, even if they didn’t have any subscribers, we’d use an outer join. This time we will use the keywords LEFT JOIN. The keyword OUTER is optional. Using just LEFT JOIN will be exactly
+            the same.</p>
+
+        <pre>
+
+ SELECT magName, magPrice, lastName, firstName
+ FROM magazine 
+     LEFT JOIN subscription
+         ON magazine.magKey = subscription.magKey
+     LEFT JOIN subscriber
+         ON subscription.scribKey = subscriber.scribKey
+ ORDER BY lastName;
+
+ </pre>
+
+
+        <table class="results">
+            <tr>
+                <th>magName</th>
+                <th>magPrice</th>
+                <th>lastName</th>
+                <th>firstName</th>
+            </tr>
+            <tr>
+                <td>MySQL Magic </td>
+                <td>10.95 </td>
+                <td> null </td>
+                <td> null</td>
+            </tr>
+            <tr>
+                <td>Car Racing Made Easy </td>
+                <td>15.45 </td>
+                <td> Anderson </td>
+                <td> Albert</td>
+            </tr>
+            <tr>
+                <td>Fishing in the Mojave </td>
+                <td>13.95 </td>
+                <td> Jimenez </td>
+                <td> Jose</td>
+            </tr>
+            <tr>
+                <td>Corn Shucking for Fun and Profit </td>
+                <td>15.05 </td>
+                <td> Jimenez </td>
+                <td> Jose</td>
+            </tr>
+            <tr>
+                <td>Fishing in the Mojave </td>
+                <td>13.95 </td>
+                <td> Johnston </td>
+                <td> Julie</td>
+            </tr>
+            <tr>
+                <td>Beautiful Birds </td>
+                <td>12.45 </td>
+                <td> Lamont </td>
+                <td> Lucy</td>
+            </tr>
+            <tr>
+                <td>Corn Shucking for Fun and Profit </td>
+                <td>15.05 </td>
+                <td> Lamont </td>
+                <td> Lucy</td>
+            </tr>
+            <tr>
+                <td>Cooking Like Mad </td>
+                <td>18.00 </td>
+                <td> Sanders </td>
+                <td> Samantha</td>
+            </tr>
+            <tr>
+                <td>If Only I Could Sing </td>
+                <td>12.45 </td>
+                <td> Sanders </td>
+                <td> Samantha</td>
+            </tr>
+            <tr>
+                <td>Beautiful Birds </td>
+                <td>12.45 </td>
+                <td> Sanders </td>
+                <td> Samantha</td>
+            </tr>
+            <tr>
+                <td>Fishing in the Mojave </td>
+                <td>13.95 </td>
+                <td> Sanders </td>
+                <td> Samantha</td>
+            </tr>
+            <tr>
+                <td>Pine Cone Computing </td>
+                <td>17.50 </td>
+                <td> Sanders </td>
+                <td> Samantha</td>
+            </tr>
+        </table>
+        <p>Now all the rows from the magazine table show up even if the magazine has no subscriptions associate with it. ‘MySQL Magic’ is a magazine that has no associated foreign key in another table. Therefore it shows null for both the last and first
+            name, since no one has subscribed to it yet.</p>
+
+        <h2>FULL OUTER JOIN</h2>
+
+        <p>Full outer joins are not very common but worth mentioning here. A full outer join will return all rows from both tables, even if there is not a related key. So if we wanted all magazines and all subscribers even if they didn’t have related records
+            we would use the keyword UNION to combine the rows of two different results sets together to simulate a full outer join. Both result sets must return the same number of columns and the corresponding columns must have compatible data types.</p>
+
+        <pre>
+
+ SELECT magName, magPrice, lastName, firstName, subStartDate
+ FROM magazine m 
+     LEFT JOIN subscription sn
+         ON m.magKey = sn.magKey
+     LEFT JOIN subscriber sr
+         ON sn.subKey = sr.subKey
+ UNION
+ SELECT magName, magPrice, lastName, firstName, subStartDate
+ FROM magazine m 
+     RIGHT JOIN subscription sn
+         ON m.magazineKey = sn.magazineKey
+     RIGHT JOIN subscriber sr
+         ON sn.subscriberKey = sr.subscriberKey;
+
+</pre>
+        <table class="results">
+            <tr>
+                <th>magName</th>
+                <th>magPrice</th>
+                <th>lastName</th>
+                <th>firstName</th>
+                <th>subStartDate</th>
+            </tr>
+            <tr>
+                <td>Fishing in the Mojave </td>
+                <td> 13.95</td>
+                <td> Johnston </td>
+                <td> Julie </td>
+                <td> 2011-03-01</td>
+            </tr>
+            <tr>
+                <td>Fishing in the Mojave </td>
+                <td> 13.95</td>
+                <td> Sanders </td>
+                <td> Samantha </td>
+                <td> 2011-05-01</td>
+            </tr>
+            <tr>
+                <td>Fishing in the Mojave </td>
+                <td> 13.95</td>
+                <td> Jimenez </td>
+                <td> Jose </td>
+                <td> 2011-09-01</td>
+            </tr>
+            <tr>
+                <td>Car Racing Made Easy </td>
+                <td> 15.45</td>
+                <td> Anderson </td>
+                <td> Albert </td>
+                <td> 2011-03-01</td>
+            </tr>
+            <tr>
+                <td>Pine Cone Computing </td>
+                <td> 17.50</td>
+                <td> Sanders </td>
+                <td> Samantha </td>
+                <td> 2011-05-01</td>
+            </tr>
+            <tr>
+                <td>Cooking Like Mad </td>
+                <td> 18.00</td>
+                <td> Sanders </td>
+                <td> Samantha </td>
+                <td> 2011-09-01</td>
+            </tr>
+            <tr>
+                <td>If Only I Could Sing </td>
+                <td> 12.45</td>
+                <td> Sanders </td>
+                <td> Samantha </td>
+                <td> 2011-12-01</td>
+            </tr>
+            <tr>
+                <td>Beautiful Birds </td>
+                <td> 12.45</td>
+                <td> Sanders </td>
+                <td> Samantha </td>
+                <td> 2012-02-01</td>
+            </tr>
+            <tr>
+                <td>Beautiful Birds </td>
+                <td> 12.45</td>
+                <td> Lamont </td>
+                <td> Lucy </td>
+                <td> 2012-02-01</td>
+            </tr>
+            <tr>
+                <td>Corn Shucking for Fun and Profit</td>
+                <td> 15.05</td>
+                <td> Lamont </td>
+                <td> Lucy </td>
+                <td> 2012-07-01</td>
+            </tr>
+            <tr>
+                <td>Corn Shucking for Fun and Profit</td>
+                <td> 15.05</td>
+                <td> Jimenez </td>
+                <td> Jose </td>
+                <td> 2012-08-01</td>
+            </tr>
+            <tr>
+                <td>MySQL Magic </td>
+                <td> 10.95</td>
+                <td> null </td>
+                <td> null </td>
+                <td> null</td>
+            </tr>
+            <tr>
+                <td>null </td>
+                <td> null </td>
+                <td> Wong </td>
+                <td> Walter </td>
+                <td> null</td>
+            </tr>
+        </table>
+
+        <p>Notice how MySQL Magic shows up even though no one has subscribed to it and how Walter Wong shows up even though he has not subscribed to any magazines. Again, full outer joins are rare but might be used with something like exception reports,
+            which are used to discover abnormal data that might need attention.</p>
+
+
+
+
+
+
+
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="../favicon.png" type="image/png">
+  
+  <title>WDD330 | W01, Story Writer</title>
+
+  <script>
+    function loadStory() {
+      var storyName = document.getElementById("name_input").value;
+      var storyHTML = localStorage.getItem(storyName);
+      document.getElementById("story_editor").value = storyHTML;
+
+      console.log("loadStory(): storyName → " + storyName);
+      console.log("loadStory(): storyHTML → " + storyHTML);
+    }
+
+    function saveStory() {
+      var storyName = document.getElementById("name_input").value;
+      var storyHTML = document.getElementById("story_editor").value;
+      localStorage.setItem(storyName, storyHTML);
+
+      console.log("saveStory(): storyName → " + storyName);
+      console.log("saveStory(): storyHTML → " + storyHTML);
+    }
+
+    function displayStory() {
+      var storyHTML = document.getElementById("story_editor").value;
+      document.getElementById("story_display").innerHTML = storyHTML;
+
+      console.log("displayStory(): storyHTML → " + storyHTML);
+    }
+
+  </script>
+
+</head>
+
+<body>
+  <div class="go-back">
+    <a href="index.html">&#8666;</a>
+  </div>
+
+  <h1>Practice W01</h1>
+
+  <p class="italic">Create, save, edit and display stories.</p>
+
+  <div>
+    Story Name: <input id="name_input" type="text">
+    <div class="button-container">
+      <button onclick="loadStory()">Find and Edit It</button>
+      <button onclick="saveStory()">Save It</button>
+      <button onclick="displayStory()">Display It</button>
+    </div>
+    <textarea id="story_editor" placeholder="Write a totally awesome story here."></textarea>
+  </div>
+
+  <div>
+    <h2>Display Area</h2>
+
+    <p class="italic">Story will be displayed down below.</p>
+    <section id="story_display"></section>
+  </div>
+
+
+</body>
+
+</html>

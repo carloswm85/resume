@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link id="custom-css" rel="stylesheet" href="https://carloswm85.github.io/css/public-styles/dark-orange.css">
+	<link rel="icon" href="../favicon.png" type="image/png">
+
+	<link rel="stylesheet" href="../libraries/highlight/styles/default.min.css">
+	<script src="../libraries/highlight/highlight.min.js"></script>
+	<script>
+		hljs.highlightAll();
+
+	</script>
+
+	<title>WDD330 - Week 07</title>
+</head>
+
+<body>
+	<div class="go-back">
+		<a href="../../../">&#8666;</a>
+	</div>
+
+	<h1>Week 07</h1>
+
+	<!-- Instructions -->
+	<section class="border-bottom">
+		<h2>This week readings assignment:</h2>
+
+		<p><a href="../../course-content/prepare/week07.html">/cit261/prepare/week07.html &#8663;</a></p>
+	</section>
+
+	<!-- Raw Files -->
+	<section class="border-bottom" id="raw">
+		<h2>Reading Exercises (raw and interpreted) Files</h2>
+
+		<ul>
+			<h3>Quick explanation</h3>
+			<li>Remember that <code class="code-inline code-style">fetch</code> returns a Promise, not the data! Also remember that we will need to tell fetch what type of data we are expecting: <code class="code-inline code-style">.text()</code> , <code class="code-inline code-style">.json()</code> , or <code class="code-inline code-style">.blob()</code> so it can process it accordingly.</li>
+			<li>We can resolve (process) a Promise in one of two ways: either with a <code class="code-inline code-style">.then()</code> , or with <code class="code-inline code-style">async/await</code> . (MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank"> Using Promises &#8663;</a>)</li>
+		</ul>
+
+		<ul>
+			<li><a href="./scripts/script.js" target="_blank">script.js &#8663;</a></li>
+			<li><a href="./scripts/promise1.js" target="_blank">promise1.js &#8663;</a></li>
+			<li><a href="./scripts/promise2.js" target="_blank">promise2.js &#8663;</a></li>
+			<li><a href="./scripts/async.js" target="_blank">async.js &#8663;</a> </li>
+			<li><a href="./scripts/closure.js" target="_blank">closure.js &#8663;</a> </li>
+			<li><a href="./scripts/functional-programming.js" target="_blank">functional-programming.js &#8663;</a> </li>
+			<li><a href="./scripts/currying.js" target="_blank">currying.js &#8663;</a> </li>
+			<li><a href="./scripts/ajax.mjs" target="_blank">ajax.mjs &#8663;</a> </li>
+			<li><a href="../week08_css-animations_using-ajax/" target="_blank">Additional notes on AJAX from Team Activity Week 08 &#8663;</a> </li>
+		</ul>
+	</section>
+
+	<!-- Reading Section -->
+	<section class="border-bottom">
+		<h2>Readings</h2>
+
+		<ul>
+			<h3>JavaScript: From Novice to Ninja</h3>
+
+			<li> <span class="lime">Ch.11 Further Functions</span>
+				<ul>
+					<li>Functions have built-in properties such as length, and can have custom properties added too. They can also have their own methods. They are <b>first-class objects</b>.</li>
+					<li>All functions have <code class="code-inline code-style">call()</code> and <code class="code-inline code-style">apply()</code> methods that can invoke a function with the value of <code class="code-inline code-style">this</code> bound to an object that is provided as an argument. This <code class="code-inline code-style">this</code> is the very first argument of any function.
+						<ul>Example, <code class="code-inline code-style">clark</code> object:
+							<pre>
+								<code class="language-javascript">
+		sayHello.call(clark, 'How do you do');
+		// >> 'How do you do, my name is Clark'
+								</code>
+							</pre>
+						</ul>
+						These are two powerful methods, as they allow generalized functions to be written that are not tied to specific objects by being methods of that object. This gives flexibility over how the functions can be used. <br>
+						<code class="code-inline code-style">apply()</code> is used with arrays.
+					</li>
+					<li>Properties are added like <code class="code-inline code-style">myFunction.description = 'The description';</code> </li>
+					<li>The <code class="code-inline code-style">myFunction.cache</code> property can be very useful for saving values for quick debugging.
+						<pre>
+						<code class="language-javascript">
+	function square(x) {
+		square.cache = square.cache || {};
+		if (!square.cache[x]) {
+			square.cache[x] = x * x;
+		}
+		return square.cache[x]
+	}
+
+	let resulta = square(2);
+	let resultb = square(3);
+
+	console.log(square.cache);
+						</code>
+					</pre>
+					</li>
+					<li><i>Immediately Invoked Function Expressions</i> or IIFEs are functions that are enclosed in parentheses and followed by double parentheses so they’re invoked. They are useful for namespacing variables and setting default values.
+						<pre><code class="language-javascript">
+	(function (term) {
+	const temp = 'World';
+	console.log(`Hello ${temp} ${term}`);
+	})(23);
+						</code></pre>
+						<ul>Use cases:
+							<li>Temporary variables. You may need to use a variable once in your code, and never again, not even being able to recover its value.</li>
+							<li>Initialization code. For run only once code. This can also be achieved using <code class="code-inline code-style">{ }</code> </li>
+							<li>Isolating your own <code class="code-inline code-style">strict mode</code> zone when working someone else's code.</li>
+							<li>Creating self-contained code blocks (modules).</li>
+						</ul>
+					</li>
+					<li>Functions are able to dynamically redefine themselves in the body of the function, depending on certain conditions. This is done by assigning an anonymous function to a variable that has the same name as the function.
+						<pre>
+							<code class="language-javascript">
+	function party(){
+		console.log('Wow this is amazing!');
+		party = function(){
+			console.log('Been there, got the T-Shirt');
+		}
+	}
+							</code>
+						</pre>
+						This is called the <b>Lazy Definition Pattern</b> and is often used when some initialization code is required the first time it’s invoked. This means the initialization can be done the first time it’s called, then the function can be redefined to what you want it to be for every subsequent invocation.
+					</li>
+					<li>A recursive function will keep invoking itself until a certain condition is met.
+						<pre>
+						<code class="language-javascript">
+	function factorial(n) {
+		if (n === 0) {
+			return 1;
+		} else {
+			return n * factorial(n - 1);
+		}
+	}
+						</code>
+					</pre>
+					</li>
+					<li>A callback is a function that’s provided as an argument to another function. Example:
+						<pre>
+							<code class="language-javascript">
+	function random(a,b,callback) {
+		
+		// if only one argument is supplied, assume the lower limit is 1
+		if (b === undefined) b = a, a = 1;
+		const result = Math.floor((b-a+1) * Math.random()) + a
+		
+		if(callback) {
+			result = callback(result);
+		}
+		return result;
+	}
+
+	function square(n) {
+		return n*n;
+	}
+
+	random(1,10,square);
+	// << 49
+							</code>
+						</pre>
+					</li>
+					<li>Callbacks are frequently used in asynchronous programming as part of the event loop. This means that a program can continue to run in a single thread while waiting for another task to be completed.</li>
+					<li>Promises can be used instead of callbacks to deal with multiple asynchronous actions in sequence. They also provide a nicer mechanism for handling errors. Examples:
+						<pre>
+									<code class="language-javascript">
+	const promise = new Promise((resolve, reject) => {
+		const n = dice.roll();
+			setTimeout(() => {
+				(n > 3) ? resolve(n) : reject(n);
+			}, n * 1000);
+	});
+
+	promise.then(
+		// fullfilled promise
+		result => console.log(`Yeah, baby! ${result}`),
+	).catch(
+		// rejected promise, handled
+		result => console.log(`Oh, noes! ${result}`)
+	);
+									</code>
+								</pre>
+					</li>
+					<li>Functions that return other functions are known as higher-order functions.</li>
+					<!-- TODO: -->
+					<li>A closure is the process of keeping a reference to a variable available outside the scope of the function it was originally defined in.</li>
+					<li>A generator is created by placing an asterisk (*) after the function keyword.</li>
+					<li>A generator function will return an iterator object that provides a next() method, which returns the next value in a sequence that is defined in the generator function.</li>
+					<li> <span class="lime">Functional programming</span> involves breaking processes down into steps that can be applied as a series of functions. JavaScript has always supported functional-style programming due to functions being first-class objects. Its main features are:
+						<ul>
+							<li>The ability to pass functions as arguments,</li>
+							<li>return them from other functions, </li>
+							<li>and use anonymous functions</li>
+							<li>and closures,</li>
+						</ul>
+						are all fundamental elements of functional programming that JavaScript excels at.
+					</li>
+					<li>A key aspect of functional programming is its use of pure functions. Pure functions are functions that don’t rely on the state of the code they are called from, have no side-effects, and always give the same result when given the same arguments (referential transparency).</li>
+					<li>Currying or "partial application" is the process of applying one argument at a time to a function. A new function is returned until all the arguments have been used.</li>
+				</ul>
+			</li>
+
+			<li> <span class="lime">Ch.13 AJAX</span>
+				<ul>
+					<li> Ajax was a neat acronym coined by Jesse James Garrett in 2005 in the article “Ajax: A New Approach to Web Applications”, that referred to the different parts of the process being used: Asynchronous JavaScript and XML:
+						<img src="images/ajax.png" alt="no image">
+						Also, keep in mind:
+						<img src="images/cors.png" alt="no image">
+						<img src="images/apis.png" alt="no image">
+						<img src="images/http.png" alt="no image">
+					</li>
+					<li>Ajax is a technique for sending and receiving data asynchronously in the background, between the client and the server. Thanks to Ajax, web pages are no longer static, but dynamic applications.</li>
+					<li>Ajax allows JavaScript to request resources from a server on behalf of the client. The data can be sent in many forms, but it is usually in JSON. That's probably the most common format for AJAX responses. The json() method is used to deal with these by transforming a stream of JSON data into a promise that resolves to a JavaScript object.</li>
+					<li>Ajax can be used for making partial page updates without having to do a full page reload.</li>
+					<li>Ajax can be used for communicating with external APIs.</li>
+					<li>Ajax requests can be made using the Fetch API. This interface allows the communication with the server. Consequently, a server is required when requesting resources using Ajax. Typically this involves using a server-side language, such as PHP, Ruby, Node.js, or .NET to serve the data response following an Ajax request (usually from a back-end database).
+						<ul>Notes:
+							<li>XMLHttpRequest object (by Microsoft) has been superseded by the <i>Fetch API</i>, which is currently a living standard for requesting and sending data asynchronously across a network.</li>
+							<li>The Fetch API uses promises to avoid "callback hell".</li>
+						</ul>
+					</li>
+					<li>The <span class="cyan">Response interface</span> allows you to control the response received from a request or to create your own <span class="lime">response objects</span>.</li>
+					<li>The <span class="cyan">Request interface</span> allows you to create a <span class="lime">request object</span> that contains information about the request being made, such as the URL and headers.</li>
+					<li>The Fetch API introduced a Headers interface, which can be used to create a Headers object, which can then be added as a property of Request and Response objects. The <span class="cyan">Headers interface</span> allows you to create HTTP headers that can be added to a request or response object. Typical information contained in headers includes the file-type of the resource, cookie information, authentication information and when the resource was last modified.</li>
+					<li>Requests can retrieve data using a GET request, or send data using a POST request.</li>
+					<li>The Fetch API <span class="cyan">FormData interface</span> makes it easier to send data from forms.</li>
+					<li>We can use the Headers, Request and Response objects to put together a typical example that sets up the URL, Request and Headers before calling the fetch() method:
+						<pre>
+						<code class="language-javascript">
+	const url = 'https:example.com/data';
+	
+	const headers = new Headers({
+		'Content-Type': 'text/plain',
+		'Accept-Charset': 'utf-8',
+		'Accept-Encoding': 'gzip,deflate'
+	});
+
+	//url + headers → request → fetch → response/error
+
+	const request = (url, {
+		headers: headers
+	})
+
+	fetch(request)
+		.then(function (response) {
+			if (response.ok) {
+				return response;
+			}
+			throw Error(response.statusText);
+		})
+		.then(response => /* do something with response */ )
+		.catch(error => console.log('There was an error!'));
+						</code>
+					</pre>
+					</li>
+
+					<li>Ajax <i>receiving information</i> full example:
+						<ul>
+							<li><a href="../additional-content/jsninja2-master/Ch 13/ajax/ajax.html" target="_blank">ajax.html &#8663;</a></li>
+							<li><a href="../additional-content/jsninja2-master/Ch 13/ajax/ajax.html.txt" target="_blank">ajax.html.txt &#8663;</a></li>
+							<li><a href="../additional-content/jsninja2-master/Ch 13/ajax/main.js" target="_blank">main.js &#8663;</a></li>
+						</ul>
+					</li>
+					<li>Ajax <i>sending information</i> full example:
+						<ul>
+							<li><a href="../additional-content/jsninja2-master/Ch 13/todo/todo.html" target="_blank">todo.html &#8663;</a></li>
+							<li><a href="../additional-content/jsninja2-master/Ch 13/todo/todo.html.txt" target="_blank">todo.html.txt &#8663;</a></li>
+							<li><a href="../additional-content/jsninja2-master/Ch 13/todo/main.js" target="_blank">main.js &#8663;</a></li>
+						</ul>
+					</li>
+
+					<li>If you don’t want to live on the edge, you could consider using a library to take care of Ajax requests. The advantage of this approach is that the library will take care of any implementation details behind the scenes – it will use the most up-to-date methods, such as the fetch API, if it’s supported, and fallback on using older methods, if required.<br>
+						The <span class="lime">jQuery</span> library is a good option for this – it has the generic ajax() method that can be used in a very similar way to the fetch() method.</li>
+
+				</ul>
+			</li>
+		</ul>
+	</section>
+
+	<!-- Assignment Section -->
+	<section class="border-bottom">
+		<h2>Assignments and Projects</h2>
+		<ol>
+			<li>Weekly Report: <a href="report.html">Here &#8667;</a></li>
+			<li>Team Activity:
+				<ul>
+					<li> Instructions: <a href="../course-content/ponder/team07.html" target="_blank">team07.html &#8663;</a> </li>
+
+		</ol>
+	</section>
+
+	<!-- Extra Section -->
+	<section class="border-bottom">
+		<h2>Extra Stuffs and Notes</h2>
+
+		<ul>
+			<li><a href="https://dev.to/tiwariaditya/why-thinking-asynchronous-is-important-in-js-part-1-4boi" target="_blank">https://dev.to/tiwariaditya/why-thinking-asynchronous-is-important-in-js-part-1-4boi &#8663;</a></li>
+			<li><a href="https://dev.to/tiwariaditya/why-thinking-asynchronous-is-important-in-js-part-2-1mmb" target="_blank">https://dev.to/tiwariaditya/why-thinking-asynchronous-is-important-in-js-part-2-1mmb &#8663;</a> </li>
+			<li><a href="https://javascript.info/async-await" target="_blank">https://javascript.info/async-await &#8663;</a> </li>
+			<li><a href="https://stackoverflow.com/a/48433898/7389293" target="_blank">https://stackoverflow.com/a/48433898/7389293 &#8663;</a> </li>
+
+		</ul>
+	</section>
+
+	<!-- Footer -->
+	<footer>
+		<p>
+			By Carlos - Last edit: <span class="last-edit"></span>
+		</p>
+	</footer>
+</body>
+
+<script src="../../source/js/other.js"></script>
+
+</html>

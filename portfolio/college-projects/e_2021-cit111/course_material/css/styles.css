@@ -1,0 +1,45 @@
+body {
+    padding: 15px;
+    background-color: #FEE8D6;
+    /* desert sand */
+}
+
+h1 {
+    font-family: Georgia, sans-serif;
+    font-size: 3em;
+}
+
+h2 {
+    font-family: Georgia, sans-serif;
+    font-size: 2em;
+    margin-top: 100px;
+}
+
+p {
+    /*font-family: Georgia, serif;*/
+    font-size: 1.5em;
+    line-height: 1.5em;
+}
+
+img {
+    width: 75%;
+    display: block;
+    margin: 0 auto;
+}
+
+#arrow {
+    height: 50px;
+    width: 80px;
+}
+
+.wide {
+    width: 100%;
+}
+
+.narrow {
+    width: 40%;
+}
+
+li {
+    list-style-type: none;
+}

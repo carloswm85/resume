@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link id="custom-css" rel="stylesheet" href="https://carloswm85.github.io/css/public-styles/dark-orange.css">
+	<link rel="icon" href="../../favicon.png" type="image/png">
+
+	<link rel="stylesheet" href="../../source/libraries/highlight/styles/default.min.css">
+	<script src="../../source/libraries/highlight/highlight.min.js"></script>
+	<script>
+		hljs.highlightAll();
+
+	</script>
+
+	<title>WDD330 - Week 09</title>
+</head>
+
+<body>
+	<div class="go-back">
+		<a href="../">&#8666;</a>
+	</div>
+
+	<h1>Week 09</h1>
+	<p>This week readings assignment:</p>
+
+	<!-- Instructions -->
+	<section class="border-bottom">
+		<p><a href="../../course-content/prepare/week09.html" target="_blank">/cit261/prepare/week09.html &#8663;</a></p>
+	</section>
+
+	<!-- Raw Files -->
+	<section class="border-bottom" id="raw">
+		<h2>Reading Exercise (raw and interpreted) Files</h2>
+
+		<!-- <p>Open the console for reading some code.</p> -->
+		<ul>
+			<li><a href="./scripts/script.js" target="_blank">script.js &#8663;</a></li>
+	</section>
+
+	<!-- Reading Section -->
+	<section class="border-bottom">
+		<h2>Readings</h2>
+
+		<ul>
+			<h3>JavaScript: Novice to Ninja</h3>
+
+			<li> <span class="lime">Ch.9 The Window Object</span>
+				<ul>
+					<li>The <code class="code-inline code-style">window</code> object is the global object in a browser.</li>
+					<li>Global variables are actually properties of the <code class="code-inline code-style">window</code> object in a browser environment.</li>
+					<li><code class="code-inline code-style">alert()</code> , <code class="code-inline code-style">confirm()</code> , and <code class="code-inline code-style">prompt()</code> are all methods of the <code class="code-inline code-style">window</code> object, and open dialogs that halt the execution of the program.</li>
+					<li>The <code class="code-inline code-style">window.navigator</code> object gives information about the user’s browser and operating system, although it can be unreliable.</li>
+					<li>The <code class="code-inline code-style">window.location</code> object provides information about the URL of the current page.</li>
+					<li>The <code class="code-inline code-style">window.history</code> object keeps information about the pages that have been visited in the session.</li>
+					<li>You can open, close, resize, and move windows (although, this doesn’t mean you should!).</li>
+					<li>The <code class="code-inline code-style">window.screen</code> object provides information about the user’s screen.</li>
+					<li><code class="code-inline code-style">document.write()</code> is an archaic method of writing text to the document and should be avoided.</li>
+					<li>Cookies can be used to store small pieces of information between requests using the <code class="code-inline code-style">document.cookie</code> property.</li>
+					<li>The <code class="code-inline code-style">window.setTimeout()</code> method can be used to invoke a function after a set amount of time. It can be canceled using the <code class="code-inline code-style">clearTimeout()</code> method.</li>
+					<li>The <code class="code-inline code-style">window.setInterval()</code> method can be used to repeatedly invoke a function. It can be stopped using the <code class="code-inline code-style">clearInterval()</code> method.</li>
+					<li>The <code class="code-inline code-style">window.requestAnimationFrame()</code> method can be used to produce smooth and optimized animation by utilizing the browser’s built-in graphics capabilities. It can be canceled using the <code class="code-inline code-style">cancelAnimationFrame()</code> method.</li>
+				</ul>
+			</li>
+
+			<li> <span class="lime">Ch.14 HTML5 APIs</span>
+				<ul>
+					<li>HTML5.1 is the latest incarnation of the Hypertext Markup Language. It covers a variety of technologies, including several APIs that are accessible using JavaScript.</li>
+					<li><code class="code-inline code-style">data-</code> attributes help to embed custom data into a web page that can then be used to enhance the user experience with JavaScript.</li>
+					<li>The <b>Web Storage API</b> allows key-value pairs to be stored on the user’s device in a similar way to cookies, but without the same storage restrictions.</li>
+					<li>The <b>Geolocation API</b> allows you to access the geographic coordinates of the user’s device, as long as the user gives permission.</li>
+					<li>The <b>Web Worker API</b> can be used to perform computationally intensive tasks in the background, which helps to avoid websites becoming unresponsive.</li>
+					<li><b>Websockets</b> are a new protocol for communicating over the internet, and allow real-time, two-way communication.</li>
+					<li>The <b>Notification API</b> allows you to display notifications on the user’s system.</li>
+					<li>The <code class="code-inline code-style">&lt;audio&gt;</code> and <code class="code-inline code-style">&lt;video&gt; </video></code> elements can be employed to embed audio tracks and video clips in a web page. They also have a <b>Media API</b> that can help control the playback using JavaScript.</li>
+					<li>The <code class="code-inline code-style">canvas</code> element can be used to dynamically draw geometric shapes, text, and images on a web page in real-time using JavaScript.</li>
+					<li>A <b>shim or polyfill</b> is a piece of code that adds support of missing features toolder browsers.</li>
+				</ul>
+			</li>
+		</ul>
+
+		<ul>
+			<h3>Modern Front-End Workflow</h3>
+
+			<ul>
+				<li>Reading: <a href="../../course-content/resources/workflow.html" target="_blank">here &#8663;</a></li>
+				<li>Keywords:
+					<ul>
+						<li> <span class="yellow">Package managers</span>: These keep track of all of the external dependencies for our app. Both development tools and libraries we might be using. It knows not only which packages to download...but tracks versions as well. We are using npm for our package manager.</li>
+						<li> <span class="yellow">Bundlers</span>: Bundlers handle the compiling, transpiling, concatinating, minifying, and moving around of assets in our project. We are using Parcel as our bundler. Another common bundler is Webpack</li>
+						<li> <span class="yellow">Task managers</span>: These keep track of what needs to be done and when. There will generally be scripts defined in the task manager for each phase of development. Our project is fairly simple so we are just using npm again for task manager. Other common managers are Grunt or Gulp</li>
+					</ul>
+				</li>
+			</ul>
+		</ul>
+	</section>
+
+	<!-- Vocabulary Section -->
+	<section class="border-bottom" id="vocabulary">
+		<h2>Vocabulary, Main Concepts</h2>
+
+		<ul>
+			<li>Nothing here.</li>
+		</ul>
+
+	</section>
+
+	<!-- Assignment Section -->
+	<section class="border-bottom">
+		<h2>Assignments and Projects</h2>
+		<ol>
+			<li>Weekly Report: <a href="report.html">Here &#8667;</a></li>
+			<li>Team Activity:
+				<ul>
+					<li>Instructions: <a href="../course-content/ponder/team09.html" target="_blank">team09.html &#8663;</a> </li>
+					<li>Team notes: <a href="team/index.html" target="_blank">team/index.html &#8663;</a> </li>
+					<li>Team assignment: <a href="team/javascript30-drums/index-START.html" target="_blank">team/javascript30-drums/index-START.html &#8663;</a> </li>
+		</ol>
+	</section>
+
+	<!-- Extra Section -->
+	<section class="border-bottom">
+		<h2>Extra Stuffs and Notes</h2>
+
+		<ul>
+			<li>Nothing here.</li>
+		</ul>
+	</section>
+
+	<!-- Footer -->
+	<footer>
+		<p>
+			By Carlos - Last edit: <span class="last-edit"></span>
+		</p>
+	</footer>
+</body>
+
+<script src="../../source/js/other.js"></script>
+
+</html>

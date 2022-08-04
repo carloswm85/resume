@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+      img {
+        width: 23%;
+      }
+    </style>
+  </head>
+  <body>
+   	<h1>Click on a car</h1>
+      <img src="img/porshe911.png" id="car0" class="car" alt="Porche 911">
+      <img src="img/fiat500.png" id="car1" class="car" alt="Fiat 500">
+      <img src="img/fordfusion.png" id="car2" class="car" alt="Ford Fusion">
+      <img src="img/bmwz4.png" id="car3" class="car" alt="BMW Z4">
+ 
+    <h1 id="info"></h1>
+
+  	<script>
+  		/*var car = {
+  			year: '2010',
+  			make: 'Porche',
+  			model: '911',
+  			strinfo: function() {
+  				return 'Vehicle: ' + this.year + " " + this.make;
+  			}
+  		}
+  		var carmake = car.model;
+
+  		var message = car.strinfo();
+  		alert(carmake); */
+
+  		// Creating and accessing objects using constructor notation
+  		function Vehicle(theYear, theMake, theModel) {
+  			this.year = theYear;
+  			this.make = theMake;
+  			this.model = theModel;
+  			this.getInfo = function getInfo() {
+  				return 'Vehicle: ' + this.year + ' ' + this.make + ' '  + this.model;
+  			}
+  		}
+
+  		var car0 = new Vehicle ('2017', 'Porshe', '911');
+  		var car1 = new Vehicle ('2005', 'Fiat', '500')
+  		var car2 = new Vehicle ('2000', 'Ford', 'Fusion');
+  		var car3 = new Vehicle ('2010', 'BMW', 'Z4');
+
+
+  		function showInfo(e) {
+  			var target = e.target;
+  			
+        	var carInfo = document.getElementById('info');
+        	carInfo.textContent = window[target.id].getInfo();
+      	}
+
+      var elCar = document.querySelectorAll('.car');
+
+      elCar[0].addEventListener('click', showInfo);
+      elCar[1].addEventListener('click', showInfo);
+      elCar[2].addEventListener('click', showInfo);
+      elCar[3].addEventListener('click', showInfo);
+  	</script>
+  
+  </body>
+</html>

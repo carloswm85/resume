@@ -1,0 +1,10 @@
+@media only screen and (min-width: 37.5em) {
+  nav > ul {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  nav > ul > a {
+    width: 100%;
+  }
+}

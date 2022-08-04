@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="../../favicon.png" type="image/png">
+	<link rel="stylesheet" href="../../../source/css/styles.css">
+
+	<style>
+		p * {
+			display: block;
+		}
+
+		input[type=email] {
+			-webkit-appearance: none;
+			appearance: none;
+
+			width: 100%;
+			border: 1px solid #333;
+			margin: 0;
+
+			font-family: inherit;
+			font-size: 90%;
+
+			box-sizing: border-box;
+		}
+
+		/* This is our style for the invalid fields */
+		input:invalid {
+			border-color: #900;
+			background-color: #FDD;
+		}
+
+		input:focus:invalid {
+			outline: none;
+		}
+
+		/* This is the style of our error messages */
+		.error {
+			width: 100%;
+			padding: 0;
+
+			font-size: 80%;
+			color: white;
+			font-style: italic;
+			background-color: #900;
+			border-radius: 0 0 5px 5px;
+
+			box-sizing: border-box;
+		}
+
+		.error.active {
+			padding: 0.3em;
+		}
+	</style>
+
+<title>JS Validation</title>
+</head>
+
+<body>
+	<div class="go-back">
+		<a href="../../../">&#8666;</a>
+	</div>
+
+	<!-- Test Zone -->
+	<section class="border-bottom">
+
+		<!-- 1 -->
+		<form>
+			<label for="mail">I would like you to provide me with an e-mail address:</label>
+			<input type="email" id="mail" name="mail">
+			<button>Submit</button>
+		</form>
+
+		<!-- 2 -->
+		<form novalidate>
+			<p>
+				<label for="mail2">
+					<span>Please enter an email address:</span>
+					<input type="email" id="mail2" name="mail2" required minlength="8">
+					<span class="error" aria-live="polite"></span>
+				</label>
+			</p>
+			<button>Submit</button>
+		</form>
+
+	</section>
+
+	<!-- Footer -->
+	<footer>
+		<p>
+			By Carlos - Last edit: <span class="last-edit"></span>
+		</p>
+	</footer>
+</body>
+
+<script src="form-validation.js"></script>
+<script src="../../../source/js/other.js"></script>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="../../favicon.png" type="image/png">
+	<link rel="stylesheet" href="../../source/css/styles.css">
+
+	<link rel="stylesheet" href="../libraries/highlight/styles/default.min.css">
+	<script src="../libraries/highlight/highlight.min.js"></script>
+	<script>
+		hljs.highlightAll();
+
+	</script>
+
+	<style>
+		input {
+			background-color: #000;
+			color: white;
+		}
+
+		input:invalid {
+			border: 2px dashed red;
+		}
+
+		input:invalid:required {
+			background-image: linear-gradient(to right, black, rgb(238, 13, 238));
+		}
+
+		input:valid {
+			border: 2px solid greenyellow;
+		}
+
+	</style>
+
+	<title>Test Zone</title>
+</head>
+
+<body>
+	<div class="go-back">
+		<a href="../../../">&#8666;</a>
+	</div>
+
+	<!-- Test Zone -->
+	<section class="border-bottom">
+
+		<form>
+			<label for="choose">Would you prefer a banana or a cherry?</label>
+			<input id="choose" name="i_like" required pattern="[Bb]anana|[Cc]herry">
+			<button>Submit</button>
+		</form>
+
+	</section>
+
+
+
+	<!-- Footer -->
+	<footer>
+		<p>
+			By Carlos - Last edit: <span class="last-edit"></span>
+		</p>
+	</footer>
+</body>
+
+<script src="../../source/js/other.js"></script>
+
+</html>

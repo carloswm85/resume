@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../../source/css/styles.css">
+	<link rel="icon" href="../../favicon.png" type="image/png">
+
+	<link rel="stylesheet" href="../../libraries/highlight/styles/default.min.css">
+	<script src="../../libraries/highlight/highlight.min.js"></script>
+	<script>
+		hljs.highlightAll();
+
+	</script>
+
+	<title>WDD330 - Week 08, Team Notes</title>
+</head>
+
+<body>
+	<div class="go-back">
+		<a href="../../../">&#8666;</a>
+	</div>
+
+	<h1>Week 08: Team Notes</h1>
+
+	<!-- Readings -->
+	<section class="border-bottom">
+		<h2>Documentation for this assignment:</h2>
+		<p>These are consumption-only API — only the HTTP GET method is available on resources.</p>
+		<ul>
+			<li><a href="https://swapi.dev/documentation" target="_blank">Star Wars API Documentation &#8663;</a></li>
+			<li><a href="https://pokeapi.co/docs/v2" target="_blank">Pokemon API Documentation &#8663;</a></li>
+		</ul>
+	</section>
+
+	<!-- Examples -->
+	<section class="border-bottom">
+		<h2>Exercises</h2>
+
+		<ul>
+			<li>Practice from documentation:
+				<ul>
+					<li><a href="./practice/starwars.html" target="_blank">starwars.html &#8663;</a> ← done, but buttons are not working.</li>
+					<li><a href="./practice/starwars.js" target="_blank">starwars.js &#8663;</a> ← done</li>
+					<li><a href="./practice/pokemon.html" target="_blank">pokemon.html &#8663;</a> ← not done</li>
+					<li><a href="./practice/pokemon.js" target="_blank">pokemon.js &#8663;</a> ← not done</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+
+
+	<!-- Notes -->
+	<section class="border-bottom">
+		<h2>Notes</h2>
+
+		<ul>
+			<li>How to make calls to each endpoint.</li>
+			<li>Know the data structure.</li>
+		</ul>
+
+		<h3>Star Wars Notes</h3>
+		<ul>
+			<li>Base URL example: <code class="code-inline code-style">https://swapi.dev/api/</code></li>
+			<li>Command-line HTTP client: <a href="https://httpie.io/docs#universal" target="_blank">here &#8663;</a>
+				<ul>
+					<li><span class="cyan">HTTPie</span> is designed for testing, debugging, and generally interacting with APIs & HTTP servers. The http & https commands allow for creating and sending arbitrary HTTP requests. They use simple and natural syntax and provide formatted and colorized output.</li>
+					<li>Example:
+						<ul>
+							<li>JSON schema: <code class="code-inline code-style"> /api/&lt;resource&gt;/schema </code></li>
+							<li>Get command: <code class="code-inline code-style">$ https swapi.dev/api/planets/1/</code></li>
+							<li>Search command: <code class="code-inline code-style">$ https swapi.dev/api/people/?search=r2</code> </li>
+							<li>Other formats: <code class="code-inline code-style">$ https swapi.dev/api/planets/1/?format=wookiee</code></li>
+							<li>Root resources: <code class="code-inline code-style">http https://swapi.dev/api/</code> </li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>JSON schema generation and validation: <a href="https://github.com/jackwootton/json-schema" target="_blank">JSONSchema.Net &#8663;</a> </li>
+		</ul>
+
+		<h3>Pokemon Notes</h3>
+		<ul>
+			<li>Call example: <code class="code-inline code-style">$ http https://pokeapi.co/api/v2/ability/</code></li>
+			<li>Wrapper: <a href="https://github.com/PokeAPI/pokeapi-js-wrapper" target="_blank">pokeapi-js-wrapper &#8663;</a> </li>
+		</ul>
+	</section>
+
+	<!-- Footer -->
+	<footer>
+		<p>
+			By Carlos - Last edit: <span class="last-edit"></span>
+		</p>
+	</footer>
+</body>
+
+<script src="../../js/other.js"></script>
+
+</html>

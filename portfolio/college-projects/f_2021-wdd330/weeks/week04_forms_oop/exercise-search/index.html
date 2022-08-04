@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Seach</title>
+
+	<style>
+		form {
+			display: flex;
+			flex-direction: column;
+			width: 450px;
+		}
+	</style>
+</head>
+<body>
+	<form name="search" action="/search">
+		<input name="searchInput" type="text" placeholder="Disabled Input" disabled>
+		<input name="searchInput2" type="text" placeholder="Focused, do not use">
+		<input name="searchInput3" type="text" placeholder="Blurred, search">
+		<input name="searchInput4" type="text" placeholder="Usable">
+		<button type="submit">Search</button>
+
+		<!-- Optionally:
+
+			Submit:
+			<input type="submit" value="Submit">
+			<input type="image" src="button.png" alt="button-submit">
+
+			Reset:
+			<button type="reset">Reset</button>
+			
+		-->
+
+	</form>	
+
+	<script src="main-search.js"></script>
+</body>
+</html>

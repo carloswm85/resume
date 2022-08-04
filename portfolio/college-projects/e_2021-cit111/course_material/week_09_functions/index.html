@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang='en-us'>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Functions</title>
+    <link href="../text/css/outline_styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <h1>Functions</h1>
+        
+        <p>In MySQL, a function is a stored program that returns a value or manipulated text. This allows us to perform manipulations on the data before retrieving or saving it. Functions have a name that you refer to and can also accept one or more parameters that can be passed into the function. </p>
+        <h3 class="syntax"><function name>(parameter1, parameter2, ...)</h3>
+        <p>
+           In this lesson, we will be looking at scalar functions that operate on the individual rows of a table.  Scalar means the function will work on a single entity of data, not a group of data together. So if the function is used with a table with many rows the function will work on each single value or entity of data in each row.
+        
+        <h2>Types of Functions:</h2>
+        
+        <table>
+          <tr>
+            <td>Text</td>
+            <td>used to manipulate strings of text</td>
+          </tr>
+          <tr>
+            <td>Numeric</td>
+            <td>used to perform mathematical operations on numeric data</td>
+          </tr>
+          <tr>
+            <td>Date & Time</td>
+            <td>used to manipulate data and time values and to extract specific components</td>
+          </tr>
+          <tr>
+            <td>System</td>
+            <td>returns information specific to the DBMS being used</td>
+          </tr>
+        </table>
+        
+        
+        <p>
+            We will be going over some of the more common text, numeric, and date & time functions. 
+        </p>
+        <h2>Commonly used Text-manipulation or String Functions</h2>
+        
+        <table>
+          <tr>
+            <th>Function</td>
+            <th>Description</td>
+          </tr>
+          <tr>
+            <td>CONCAT(string, string)</td>
+            <td>Returns all the string combined into one string</td>
+          </tr>
+          <tr>
+            <td>LEFT(string, length)</td>
+            <td>Returns characters from the left of the string</td>
+          </tr>
+          <tr>
+            <td>RIGHT(string, length)</td>
+            <td>Returns characters from the right of the string</td>
+          </tr>
+          <tr>
+            <td>LTRIM(string)</td>
+            <td>Trims white space from the left of the string</td>
+          </tr>
+          <tr>
+            <td>RTRIM(string)</td>
+            <td>Trims white space from the right of the string</td>
+          </tr>
+          <tr>
+            <td>TRIM( string)</td>
+            <td>Trims white space from the left and right of the string</td>
+          </tr>
+          <tr>
+            <td>LENGTH(string) </td>
+            <td>Returns the length of characters of the string</td>
+          </tr>
+          <tr>
+            <td>LOWER(string)</td>
+            <td>Converts the string to lowercase</td>
+          </tr>
+          <tr>
+            <td>UPPER(string)</td>
+            <td>Converts the string to uppercase</td>
+          </tr>
+          <tr>
+            <td>LOCATE(find, search, start)</td>
+            <td>Find a substring within the string</td>
+          </tr>
+          <tr>
+            <td>SUBSTRING(string, start, length )</td>
+            <td>Return characters from within a string</td>
+          </tr>
+        </table>
+        
+        <p>
+            Let’s use the key table to demonstrate some of the functions.
+        </p>
+        <pre>
+ SELECT * FROM key
+         </pre>
+    
+    <table class='results'>
+            <tr>
+                <th>keyword_id</th>
+                <th>keyword</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>sky</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>landscape</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>people</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>nature</td>
+            </tr>
+        </table>
+       
+        <pre>
+
+ SELECT CONCAT(‘The primary key of  ‘, keyword, ‘ is ‘, keyword_id) AS new_string, 
+ FROM key
+ WHERE keyword_id = 1
+
+            </pre>
+    
+    <table class='results'>
+            <tr>
+                <th>new_string</th>
+            </tr>
+            <tr>
+                <td>The primary key of sky is 1</td>
+            </tr>
+     </table>
+        <p>
+           The result is made up of string literals inside quotes and column values all combined into one new string.   
+        </p>
+    
+        <pre>
+
+ SELECT  LEFT(keyword, 4), LENGTH(keyword), UPPER(keyword)
+ FROM key
+ WHERE keyword_id = 2
+
+
+            </pre>
+    <table class='results'>
+            <tr>
+                <th>LEFT(keyword, 4)</th>
+                <th>LENGTH(keyword)</th>
+                <th>UPPER(keyword)</th>
+            </tr>
+            <tr>
+                <td>land</td>
+                <td>9</td>
+                <td>LANDSCAPE</td>
+            </tr>
+     </table>
+        <p>
+            The first column takes the string ‘landscape’ and returns 4 characters from the left.<br>
+            The second column adds up all the characters in the string ‘landscape’<br>
+            The third column converts all the letters in the string ‘landscape’ to upper case.
+        </p>
+      <p>Index numbering of the characters in the string ‘landscape’</p>
+      <table>
+        <tr>
+            <td>l</td>
+            <td>a</td>
+            <td>n</td>
+            <td>d</td>
+            <td>s</td>
+            <td>c</td>
+            <td>a</td>
+            <td>p</td>
+            <td>e</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+        </tr>
+      </table>
+        <pre>
+
+SELECT LOCATE( ‘and’, keyword), SUBSTRING(keyword, 1, 5), SUBSTRING(keyword, 7)
+FROM key
+WHERE keyword_id  = 2
+
+            </pre>
+    <table class='results'>
+            <tr>
+                <th>LOCATE(‘and’, keyword)</th>
+                <th>SUBSTRING(keyword, 1, 5)</th>
+                <th>SUBSTRING(keyword, 7)</th>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>lands</td>
+                <td>ape</td>
+            </tr>
+     </table>
+    
+    
+    
+        <p>
+            The first column searches for the substring ‘and’ inside of the string ‘landscape’ and returns the index number of where it was found. the 2nd character in is where the ‘a’ in ‘and’ starts.<br>
+            The second column starts at the first character and returns all character from there to the fifth character.<br>
+            The third column starts at the seventh character and returns the rest of the string from there.
+        </p>
+        <br><br>
+        <h2>Commonly used Numeric Functions</h2>
+    <table>
+          <tr>
+            <th>Function</td>
+            <th>Description</td>
+          </tr>
+          <tr>
+            <td>ROUND(number, length)</td>
+            <td>Returns the number rounded </td>
+          </tr>
+          <tr>
+            <td>FLOOR(number)</td>
+            <td>Returns the next smaller whole number</td>
+          </tr>
+          <tr>
+            <td>CEILING(number)</td>
+            <td>Returns the next larger whole number</td>
+          </tr>
+          <tr>
+            <td>ABS(number)</td>
+            <td>Returns the absolute value of the number</td>
+          </tr>
+          <tr>
+            <td>SQRT(number)</td>
+            <td>Returns the square root of the number</td>
+          </tr>
+          <tr>
+            <td>FORMAT(number, decimals, locale)</td>
+            <td>Returns the number is currency format</td>
+          </tr>
+    </table>
+   
+        <p>
+            Lets use the magazine table to demonstrate some of the numeric functions        
+        </p>
+
+        <pre>
+
+ SELECT * FROM magazine
+
+            </pre>
+        <table class='results'>
+            <tr>
+                <th>magKey</th>
+                <th>magName</th>
+                <th>magPrice</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Fishing in the Mojave</td>
+                <td>13.95</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Car Racing Made Easy</td>
+                <td>15.45</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Pine Cone Computing</td>
+                <td>17.50</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Cooking Like Mad</td>
+                <td>18.00</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>If Only I Could Sing</td>
+                <td>25.00</td>
+            </tr>
+     </table>
+
+     <pre>
+
+SELECT ROUND(magPrice), ROUND(magPrice, 1)
+FROM magazine
+
+
+            </pre>
+        <table class='results'>
+            <tr>
+                <th>ROUND(magPrice)</th>
+                <th>ROUND(magPrice,1)</th>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>14.0</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>15.5</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>17.5</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>18.0</td>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>25.0</td>
+            </tr>
+        </table>
+        <p>
+            The first column rounds to the nearest whole number.<br>
+            The second column rounds to one decimal place.
+        </p>
+
+         <pre>
+
+SELECT magPrice, FLOOR(magPrice), CEILING(magPrice)
+FROM magazine
+
+            </pre>
+        <table class='results'>
+            <tr>
+                <th>magPrice</th>
+                <th>FLOOR(magPrice)</th>
+                <th>CEILING(magPrice)</th>
+            </tr>
+            <tr>
+                <td>13.95</td>
+                <td>13</td>
+                <td>14</td>
+            </tr>
+            <tr>
+                <td>15.45</td>
+                <td>15</td>
+                <td>16</td>
+            </tr>
+            <tr>
+                <td>17.50</td>
+                <td>17</td>
+                <td>18</td>
+            </tr>
+            <tr>
+                <td>18.00</td>
+                <td>18</td>
+                <td>18</td>
+            </tr>
+            <tr>
+                <td>25.00</td>
+                <td>25</td>
+                <td>25</td>
+            </tr>
+            
+        </table>
+
+
+        <p>
+            The number 13.95 has the next lower whole number of 13 and next larger whole number of 14.<br>
+The number 15.45 has the next lower whole number of 15 and the next larger whole number of 16.<br>
+The number 17.50 has the next lower whole number of 17 and the next larger whole number of 18.<br>
+The number 18.00 has the next lower whole number of 18 and the next larger whole number of 18.<br>
+The number 25.00 has the next lower whole number of 25 and the next larger whole number of 25.
+
+        </p>
+        <pre>
+
+SELECT SQRT(magPrice)
+FROM magazine
+WHERE magKey = 5
+            </pre>
+
+        <table class='results'>
+            <tr>
+                <th>SQRT(magPrice)</th>
+            </tr>
+            <tr>
+                <th>5</th>
+            </tr>
+        </table>
+        <p> The square root of 25 is 5.
+        </p>
+        <p>
+            If you wanted to manipulate your magazine prices to look more like currency you can use the FORMAT function. The first parameter is the number, the second the decimal places and the third is the locale which determines the thousands separator. Ours will be ‘en_US’ to show US English formatting. 10,000 dollars will be added to each magazine price so we can see the commas placed at each thousands grouping. The CONCAT function will also be used to add the ‘$’ dollar sign to the number.    </p>
+
+<pre>
+
+SELECT CONCAT(‘$’, FORMAT(magPrice + 10000, 2, ‘en_US’)) 
+FROM magazine
+
+            </pre>
+
+        <table class='results'>
+            <tr>
+                <th>CONCAT(‘$’, FORMAT(magPrice + 10000, 2, ‘en_US’))</th>
+            </tr>
+            <tr>
+                <th>$10,013.95</th>
+            </tr>
+            <tr>
+                <th>$10,015.45</th>
+            </tr>
+            <tr>
+                <th>$10,017.50</th>
+            </tr>
+            <tr>
+                <th>$10,018.00</th>
+            </tr>
+            <tr>
+                <th>$10,025.00</th>
+            </tr>
+        </table>
+
+        <h2>Commonly used Date and Time Functions</h2>
+
+
+    <table>
+          <tr>
+            <th>Function</td>
+            <th>Description</td>
+          </tr>
+          <tr>
+            <td>YEAR(date)</td>
+            <td>Returns the year portion of a date</td>
+          </tr>
+          <tr>
+            <td>MONTH(date)</td>
+            <td>Returns the month portion of a date</td>
+          </tr>
+          <tr>
+            <td>DAY(date)</td>
+            <td>Returns the day portion of a date</td>
+          </tr>
+          <tr>
+            <td>HOUR(time)	</td>
+            <td>Returns the hour portion of a time</td>
+          </tr>
+          <tr>
+            <td>MINUTE(time)</td>
+            <td>Returns the minute portion of a time</td>
+          </tr>
+          <tr>
+            <td>SECOND(time)</td>
+            <td>Returns the second portion of a time</td>
+          </tr>
+          <tr>
+            <td>NOW()</td>
+            <td>Returns the current local time and date from your system</td>
+          </tr>
+          <tr>
+            <td>DATE_ADD(date, interval)</td>
+            <td>Adds a specified interval to a date</td>
+          </tr>
+          <tr>
+            <td>DATEDIFF(date, date)</td>
+            <td>Calculates the difference between two dates</td>
+          </tr>
+          <tr>
+            <td>DATE_FORMAT(date, format)</td>
+            <td>Returns a string for a date with specific formatting</td>
+          </tr>
+    </table>
+   
+        <p>
+            Let’s use the employee table to demonstrate some of the date and time functions.
+        </p>
+        <pre>
+
+ SELECT * FROM employee
+
+            </pre>
+        <table class='results'>
+            <tr>
+                <th>emp_id</th>
+                <th>emp_fname</th>
+                <th>emp_lname</th>
+                <th>hire_date</th>
+                <th>emp_email</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Jenny</td>
+                <td>Jensen</td>
+                <td>2013-06-15</td>
+                <td>jensenj@salon.com</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Haley</td>
+                <td>Lopez</td>
+                <td>2013-08-23</td>
+                <td>lopezh@salon.com</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Robert</td>
+                <td>Green</td>
+                <td>2014-01-03</td>
+                <td>greenr@salon.com</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Olive</td>
+                <td>Adams</td>
+                <td>2015-07-12</td>
+                <td>adamso@salon.com</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Julie</td>
+                <td>Davis</td>
+                <td>2015-10-20</td>
+                <td>davisj@salon.com</td>
+            </tr>
+     </table>
+
+    <pre>
+
+SELECT hire_date, YEAR(hire_date), MONTH(hire_date) 
+FROM employee
+
+
+            </pre>
+        <table class='results'>
+            <tr>
+                <th>hire_date</th>
+                <th>YEAR(hire_date)</th>
+                <th>MONTH(hire_date)</th>
+            </tr>
+            <tr>
+                <td>2013-06-15</td>
+                <td>2013</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>2013-08-23</td>
+                <td>2013</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>2014-01-03</td>
+                <td>2014</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>2015-07-12</td>
+                <td>2015</td>
+                <td>7</td>
+            </tr><tr>
+                <td>2015-10-20</td>
+                <td>2015</td>
+                <td>10</td>
+            </tr>
+        </table>
+        <p>
+            The YEAR function takes the hire date and extracts only the year and the MONTH function only extracts out the month from the date.      </p>
+
+    <pre>
+SELECT NOW()
+    </pre>
+        <table class='results'>
+            <tr>
+                <th>NOW()</th>
+            </tr>
+            <tr>
+                <td>2020-12-28 13:26:17</td>
+            </tr>
+        </table>
+        <p>
+            The NOW function returns the systems current date. When you run this function it will be the current date and time of your system.
+        </p>
+    <pre>
+SELECT hire_date AS Hire Date, DATE_ADD(hire_date, INTERVAL 6 MONTH) AS Six Months Later
+FROM employee
+    </pre>
+        <table class='results'>
+            <tr>
+                <th>Hire Date</th>
+                <th>Six Months Later</th>
+            </tr>
+            <tr>
+                <td>2013-06-15</td>
+                <td>2013-12-15</td>
+            </tr>
+            <tr>
+                <td>2013-08-23</td>
+                <td>2014-02-23</td>
+            </tr>
+            <tr>
+                <td>2014-01-03</td>
+                <td>2014-17-03</td>
+            </tr>
+            <tr>
+                <td>2015-07-12</td>
+                <td>2016-01-12</td>
+            </tr>
+            <tr>
+                <td>2015-10-20</td>
+                <td>2016-04-20</td>
+            </tr>
+        </table>
+        <pre>
+SELECT DATEDIFF(hire_date, 2013-01-01) AS ‘Days Between’
+FROM employee
+        </pre>
+        <table class='results'>
+            <tr>
+                <th>Days Between</th>
+            </tr>
+            <tr>
+                <td>165</td>
+            </tr>
+            <tr>
+                <td>234</td>
+            </tr>
+            <tr>
+                <td>367</td>
+            </tr>
+           <tr>
+                <td>922</td>
+            </tr>
+            <tr>
+                <td>1022</td>
+            </tr>
+        </table>
+        <p>
+            This gives the difference in days between January 1st 2013 and the hire date. If you want years, you would need to divide it by 365.      
+        </p>
+        <pre>
+SELECT DATEDIFF(hire_date, 2013-01-01) / 365 AS ‘Years Between’
+FROM employee
+        </pre>
+        <table class='results'>
+            <tr>
+                <th>Years Between</th>
+            </tr>
+            <tr>
+                <td>0.4521</td>
+            </tr>
+            <tr>
+                <td>0.641</td>
+            </tr>
+            <tr>
+                <td>1.0055</td>
+            </tr>
+           <tr>
+                <td>2.5260</td>
+            </tr>
+            <tr>
+                <td>2.8000</td>
+            </tr>
+        </table>
+        <p>
+            The DATE FORMAT function allows you to format the date so it isn’t always in the format of  yyyy-mm-dd.   
+        </p>
+        <pre>
+SELECT hire_date, DATE_FORMAT(hire_date, ‘%M %D, %Y’) AS ‘hire date formatted’
+FROM employee
+    </pre>
+        <table class='results'>
+            <tr>
+                <th>hire_date</th>
+                <th>hire date formatted</th>
+            </tr>
+            <tr>
+                <td>2013-06-15</td>
+                <td>June 15th, 2013</td>
+            </tr>
+            <tr>
+                <td>2013-08-23</td>
+                <td>August 23rd, 2013</td>
+            </tr>
+            <tr>
+                <td>2014-01-03</td>
+                <td>January 3rd, 2014</td>
+            </tr>
+            <tr>
+                <td>2015-07-12</td>
+                <td>July 12th, 2015</td>
+            </tr>
+            <tr>
+                <td>2015-10-20</td>
+                <td>October 20th, 2015</td>
+            </tr>
+        </table>
+        <p>
+            The second parameter is a format string that includes codes for formatting the different parts of the date. Here are a few of the comment codes for formatting dates:  
+        </p>
+        <table>
+            <tr>
+                <th>Format Code</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>%c</td>
+                <td>Month, numeric</td>
+            </tr>
+            <tr>
+                <td>%M</td>
+                <td>Month name</td>
+            </tr>
+            <tr>
+                <td>%e</td>
+                <td>Day of the month, numeric</td>
+            </tr>
+            <tr>
+                <td>%D</td>
+                <td>Day of the month with suffix</td>
+            </tr>
+            <tr>
+                <td>%y</td>
+                <td>Year, 2 digits</td>
+            </tr>
+            <tr>
+                <td>%Y</td>
+                <td>Year, 4 digits</td>
+            </tr><tr>
+                <td>%W</td>
+                <td>Weekday name</td>
+            </tr>
+        </table>
+        <p> There are also format codes for formatting times with the function TIME_FORMAT. But we won’t be using any of those in this course.
+        </p>
+        <p> There are many more functions than we have not covered here, but for the depth of this course, these are the text, numeric, and date & time functions we will be focusing on.
+        </p>
+    </main>
+</body>
+
+</html>

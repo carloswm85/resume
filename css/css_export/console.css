@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+:root {
+	--console: #0c0c0c;
+	--lime: #00ff00;
+	--green: #20FF12;
+	--red: red;
+	--orange: #ff6700;
+	--aqua: aqua;
+	--yellow: yellow;
+	--pink: pink;
+	--paragraph: Ubuntu;
+	--headings: 'Patrick Hand', Georgia, serif;
+	--headings-fancy: VT323, 'Courier New', Courier, monospace;
+}
+
+html {
+	background-color: var(--console);
+	color: var(--lime);
+	font-family: var(--paragraph);
+	font-size: 2em;
+}
+
+body {
+	max-width: 950px;
+	margin: 1em 1.5em;
+}
+

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link id="custom-css" rel="stylesheet" href="https://carloswm85.github.io/css/public-styles/dark-orange.css">
+	<link rel="icon" href="../favicon.png" type="image/png">
+
+	<link rel="stylesheet" href="../libraries/highlight/styles/default.min.css">
+	<script src="../libraries/highlight/highlight.min.js"></script>
+	<script>
+		hljs.highlightAll();
+
+	</script>
+
+	<title>WDD330 - Week 04</title>
+</head>
+
+<body>
+	<div class="go-back">
+		<a href="../../../">&#8666;</a>
+	</div>
+
+	<h1>Week 04</h1>
+	<p>This week readings assignment:</p>
+
+	<!-- Instructions -->
+	<section class="border-bottom">
+		<p><a href="https://byui-cit.github.io/cit261/prepare/week04.html">https://byui-cit.github.io/cit261/prepare/week04 .html &#8663;</a></p>
+	</section>
+
+	<!-- Raw Files -->
+	<section class="border-bottom" id="raw">
+		<h2>Reading Exercise (raw and interpreted) Files</h2>
+		<p>Open the console for reading some code.</p>
+
+		<ul>
+			<li><a href="script.js" target="_blank">script.js &#8663;</a></li>
+
+			<li>JavaScript: Novice to Ninja
+				<ul>
+					<li>Ch 8: Forms
+						<ul>
+							<li><a href="exercise-search/index.html" target="_blank">exercise-search/index.html &#8663;</a></li>
+							<li><a href="exercise-search/main-search.js" target="_blank">exercise-search/main-search.js &#8663;</a></li>
+							<li><a href="exercise-hero/index.html" target="_blank">exercise-hero/index.html &#8663;</a></li>
+							<li><a href="exercise-hero/main-hero.js" target="_blank">exercise-hero/main-hero.js &#8663;</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+		</ul>
+	</section>
+
+	<!-- Reading Section -->
+	<section class="border-bottom">
+		<h2>Readings</h2>
+
+		<ol>
+			<li>JavaScript: Novice to Ninja:
+				<ul>
+
+					<!-- Notes #1 -->
+					<li> <span class="yellow"> Ch8: Forms</span>:
+						<ul>
+							<li><b>Forms</b> provide user interaction with the webpage.</li>
+							<li><i>form</i> element is used to contain <i>form controls</i> such as input fields (text, password, checkbox, radio button, hidden, file, and other), select menus, buttons and others.</li>
+							<li>Forms UX: Use correct and semantic markup; make forms keyboard accesible; use WAI-ARIA labels.</li>
+							<li>Notes continue <a href="#raw">at these files &#8657;</a>.</li>
+							<li>Important:
+								<ul>
+									<li><code class="code-inline code-style">document.forms</code> will return an HTML collection of all the forms on a page.</li>
+									<li><code class="code-inline code-style">form.elements</code> will return an HTML collection of all the elements contained within a form.</li>
+									<li>Forms have <code class="code-inline code-style">focus</code> , <code class="code-inline code-style">blur</code> , and change events that fire as a user interacts with the form.</li>
+									<li>Forms also have a <code class="code-inline code-style">submit</code> event that can be used to intercept a form before it’s been submitted.</li>
+									<li>The information entered into a form can be read or updated using the <code class="code-inline code-style">value</code> property of the form controls.</li>
+									<li>The HTML5 form validation API can be used to automatically validate a form, but only at a basic level, so a custom validation script may be required.</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+
+					<!-- Notes #2 -->
+					<hr>
+					<li> <span class="yellow">Ch12: OOP</span>:
+						<ul>
+							<li>OOP: Promgramming style that involves separating and encapsulating the code into objects that have properties and methods. This object can maintain state throughout the life of the program.</li>
+							<li><span class="lime">Object literal</span>:
+								<pre><code class="language-javascript">
+	const dice = {
+		sides: 6,
+		roll() {
+			return Math.floor(this.sides * Math.random() + 1)
+		}									
+	}							
+							</code></pre>
+							</li>
+							<li><span class="lime">Constructor functions</span>. They were use before ES6. They create instances of objects. Example:
+								<pre><code class="language-javascript">
+	const Dice = function(sides = 6) {
+		this.sides = sides;
+		this.roll = function() {
+			return Math.floor(this.sides * Math.random() + 1)
+		}
+	}
+</code></pre>
+							</li>
+							<li><span class="lime">ES6 Class Declarations</span> (preferred):
+								<pre><code class="language-javascript">
+	class Dice  {
+		constructor(sides = 6) {
+			this.sides = sides;
+		}
+		roll() {
+			return Math.floor(this.sides * Math.random() + 1)
+		}
+	}
+
+	const vblueDice = new Dice(20);
+</code></pre>
+							</li>
+							<li><span class="lime">Prototypal Inheritance</span>: Every class has a <i>prototype property</i> that is shared by every instance of the class. Use <code class="code-inline code-style">.prototype</code> for adding properties and methods to already existing classes. Example:
+								<ol>
+									<pre><code class="language-javascript">
+	class Turtle {
+		constructor(name) {
+			this.name = name;
+			this.weapon = 'hands';
+		}
+		sayHi() {
+			return `Hi dude, my name is ${this.name}`;
+		}
+		attack() {
+			return `Feel the power of my ${this.weapon}!`;
+		}
+	}
+
+	Turtle.prototype.weapon = 'noobie weapon';
+	
+	Turtle.prototype.defend = function() {
+		return `I will protect you with my ${this.weapon}!`;
+	}
+	
+	const raph = new Turtle('Raphael');
+	Turtle.prototype.food = 'pizza';
+	raph.constructor.prototype;
+	// The class with the added values is displayed here.
+</code></pre>
+									<li>Difference between <i>instance properties</i> and <i>prototype properties</i>: The latter are properties shared by <b>every instance</b> of the class, while the former are not.</li>
+									<li>Any change made to the class through the prototype will affect to all of its instances.</li>
+									<li>An object instance can overwrite any properties or methods inherited from its prototype. And this "onwed" properties have precedence over those from the prototype.</li>
+									<li>When to use? When augmenting the class is necessary. To define any property that will remain the same for every instance of the class. And remeber: prototype values are <span class="orange">shallow</span>.</li>
+								</ol>
+
+							<li><span class="lime">Creating Objects From Other Objects</span>:
+								<ul>
+									<li><i>Use</i> : <code class="code-inline code-style">const mySecondObject = Object.create(myObjectLiteral);</code></li>
+									<li><i>Object based inheritance</i> :
+										<ul class="align-left">
+											<code class="code-inline code-style code-inline-block">const Superhuman = Object.create(Human);</code>
+											<code class="code-inline code-style code-inline-block">const superman = Object.create(Superhuman);</code>
+										</ul>
+									</li>
+									<li>You can always add custom properties and methods to these objects. For example:
+										<ul class="align-left">
+											<code class="code-inline code-style code-inline-block">Superhuman.realName = 'Real Name Needed';</code>
+											<code class="code-inline code-style code-inline-block">Superhuman.init = function(name, realName) { ... }</code>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li><span class="lime">Variable Scope</span>: This is how private variables are made, and how they are set public in classes, in JS. Use getters and setters. This approach gives full control over the class. Example:
+								<pre><code class="language-javascript">
+	class Turtle {
+		const _color;
+		const name;
+		constructor(name,color) {
+			this.name = name;
+			this.setColor = this.color => { return _color = color; }
+			this.getColor = () => _color;
+		}
+	}
+
+	// NOTE: This code may need to be fixed.
+							</code></pre>
+								<ul>
+									<li>Why use getters and setters: <a href="https://stackoverflow.com/questions/1568091/why-use-getters-and-setters-accessors" target="_blank">stackoverflow &#8663;</a> </li>
+								</ul>
+							</li>
+							<li><span class="lime">Prototype Chain & The Object Constructor</span>:
+								<blockquote>"When an object calls a method, the JavaScript engine will check to see if the
+									object has that method. If it doesn’t, it will check if the object’s prototype has the
+									method. If not, it will check whether the prototype’s prototype has it. This
+									continues all the way up the prototype chain, until it reaches the prototype of the
+									Object() constructor function, from which all objects in JavaScript inherit. If the
+									prototype of Object() is without the method, an error will be returned saying the
+									object doesn’t exist."<span class="quote-reference">ebook, JS: From Novice to Ninja</span></blockquote>
+
+
+								<pre><code class="language-javascript">
+Object.getPrototypeOf( //<< null
+	Object.getPrototypeOf( // << {} , apparent object literal, which is the prototype of Object() constructor function
+		Object.getPrototypeOf(turtleInstance))); // Turtle {} , which is the class
+									</code></pre>
+								The previous code reached the top of the Prototype Chain.
+							</li>
+							<li><span class="lime">Inheritance Through Extension</span>:
+								<pre><code class="language-javascript">
+class NinjaTurtle extends Turtle {
+	constructor(name) {
+		super(name);
+		this.weapon = 'hands';
+	}
+	attack() { return `Feel the power of my ${this.weapon}!` }
+}
+</code></pre>
+								<ul>
+									<li><code class="code-inline code-style">super</code> refers to the parent class. In the example above, it is used to call the constructor functions of the <i>Turtle</i> class.</li>
+								</ul>
+							<li> <span class="lime"><i>mixin()</i> ← Using Deep Copy</span>
+								<ul>
+									<li>Technique for adding properties and methods of some objects to another object, without using inheritance, without creating an <i>inheritance chain</i>.</li>
+									<li>Basic mixin functionality is provided by the <code class="code-inline code-style">Object.assign()</code> method. But there is a problem with this solution since it creates a <i>shallow copy</i>: Objects are copied only by reference.</li>
+									<li>A <i>deep copy mixin()</i> solution
+										<isindex>:
+										<pre><code class="language-javascript">
+function mixin(target,...objects) {
+	for (const object of objects) {
+		if(typeof object === 'object') {
+			for (const key of Object.keys(object)) {
+				if (typeof object[key] === 'object') {
+					target[key] = Array.isArray(object[key]) ? [] : {};
+					mixin(target[key],object[key]);
+				} else {
+				Object.assign(target,object);
+				}
+			}
+		}
+	}
+	return target;
+}
+											</code></pre>
+									</li>
+									<li>Usage example:
+										<ul class="align-left">
+											<code class="code-inline code-style code-inline-block">const a = {}, b = { foo: 'bar' }, c = { numbers: [1,2,3] };</code><br>
+											<code class="code-inline code-style code-inline-block">mixin(a,b,c);</code><br>
+											<code class="code-inline code-style code-inline-block">
+												<< { foo: 'bar' , numbers: [ 1, 2, 3 ] }</code> </ul> </li> <li>Another uses:
+													<ul>
+														<li>Add a large number of properties to an object all at one.</li>
+														<li>To create a <code class="code-inline code-style">copy()</code> method than can be used to make an exact, deep copy of an object.</li>
+														<li>Then, the copy function can be used to create a <i>factory function</i>.</li>
+														<li>To add <i>modular functionality</i>. This means: Encapsulate properties and methods in an object, then add them to other objects without the overhead of an inheritance chain being created.</li>
+														<li>Example: <code class="code-inline code-style">mixin(superman,flight,superSpeed,xRayVision);</code></li>
+													</ul>
+									</li>
+									<li><span class="lime">this</span> keyword usage:
+										<ul>
+											<li>Binding: The value of <code class="code-inline code-style">this</code> points to the object calling a method.</li>
+											<li>Chaining functions: <code class="code-inline code-style">superman.fly().move().xray();</code> Methods can be chained together and called in sequence if they return a reference to <i>this</i>.</li>
+											<li><code class="code-inline code-style">that = this</code> is used to avoid problems with nested functions.</li>
+											<li><code class="code-inline code-style">.bind(this);</code> can be used for all functions to set the value of this inside the nested function.</li>
+											<li><code class="code-inline code-style">for-of</code> and <i>arrow functions</i> can be used to avoid the use of nested functions. Arrow functions should be used when anonymous functions are
+												required in callbacks.</li>
+										</ul>
+									</li>
+
+								</ul>
+							</li>
+						</ul>
+					</li>
+			</li>
+
+			<hr>
+
+			<!-- Notes #3 -->
+			<li> <span class="yellow">Ch15: Modern JavaScript</span>:
+				<ul>
+					<li>JavaScript libraries provide methods to make common tasks easier to achieve.</li>
+					<li>Libraries can make programming much easier, but you should think carefully about whether you require a library, and which one is best for your needs.</li>
+					<li>jQuery and Lodash are two popular libraries that provide a large number of useful and well-tested functions.</li>
+					<li>npm and Yarn are package managers that can be used to install JavaScript packages, as well as any dependencies that they require.</li>
+					<li>A module is a self-contained piece of code that provides functions and methods that can then be used in other files and by other modules.</li>
+					<li>ES6 added support for modules, allowing code to be abstracted into their own self-contained files and imported into another file.</li>
+					<li>The MVC pattern is used to organize code into distinct sections that are responsible for different elements of an application.</li>
+					<li>Template files can be used to separate view code from JavaScript; they also enable dynamic code and programming logic to be used to generate markup.</li>
+					<li>React, Angular and Vue.js are popular JavaScript view libraries that render components and keep track of their state.</li>
+					<li>Minification is the process of removing any redundant characters from the code in order to reduce its file size.</li>
+					<li>Files can be compressed on the server using the gzip compression tool.</li>
+					<li>Webpack can be used to bundle multiple files into a single bundle, and automate common tasks such as transpiling, minifying code and running tests.</li>
+					<li>Before code is deployed, it should be concatenated into a single file, minified and compressed. The script tag should be placed just before the closing <code class="code-inline code-style">body</code> tag to ensure that all elements on the page have loaded before the script runs.</li>
+				</ul>
+			</li>
+			</ul>
+			</li>
+
+			<hr>
+
+			<li>Eloquent JavaScript:
+				<ul>
+					<li>Sandbox exercises for <a href="http://eloquentjavascript.net/code" target="blank_">chapters 6 and 10</a>:
+						<ul>
+							<li>TODO</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ol>
+	</section>
+
+	<!-- Vocabulary Section -->
+	<section class="border-bottom" id="vocabulary">
+		<h2>Vocabulary, Main Concepts</h2>
+
+		<ul>
+			<li>OOP:
+				<ul>
+					<li><i>Classes</i> define blueprints of objects. Objects are then created as an instance of that class.</li>
+					<li>All objects are collections of key-value paired properties.</li>
+					<li>OOP properties:</li>
+					<ul>
+						<li>Encapsulation: The inner workings are kept hidden inside the object and only the essential funcionalities are exposed to the end user.</li>
+						<li>Polymorphism: The same process can be used for different objects. Methods can be shared, but also overriden with a more specific implementation.</li>
+						<li>Inheritance: Take an existing object and inherit its properties and methods to a new one.</li>
+					</ul>
+					<li><code class="code-inline code-style">static</code> keyword. In class declarations, with "static methods" we get a class method. These methods are called by the class directly rather than by instances of the class.
+						<div><code class="code-inline code-style">Dice</code> is a class. So <code class="code-inline code-style">static description() { ... }</code> decribes what that class does, and not just what their instances do. Static methods are not available for instances.</div>
+					</li>
+					<li>The <i>object prototype</i> is live, so new properties and methods can be added to existing instances.</li>
+					<li><i>POLYMORPHISM</i>:
+						<blockquote>"The concept of polymorphism means that different objects can have the same
+							method, but implement it in different ways. The <code class="code-inline code-style">Object.prototype</code> object has a
+							<code class="code-inline code-style">toString()</code> method that is shared by all objects. This means every object created
+							in JavaScript will have a <code class="code-inline code-style">toString()</code> method. Polymorphism means that objects
+							are able to override this method with a more specific implementation. So
+							although every object has a <code class="code-inline code-style">toString()</code> method, the way it’s implemented can vary between different objects. For example, calling it on an array object will return each value in a comma-separated string."<span class="quote-reference">ebook, JS: From Novice to Ninja</span></blockquote>
+					</li>
+					<li><b>Monkey-patching</b> is the process of adding methods to built-in objects by augmenting their prototypes. This should be done with caution as it can cause unexpected behavior in the way built-in objects work.</li>
+					<li>Composition over inheritance is a design pattern where objects are composed from “building-block” objects, rather than inheriting all their properties and methods from a parent class.</li>
+				</ul>
+			</li>
+		</ul>
+
+	</section>
+
+	<!-- Assignment Section -->
+	<section class="border-bottom">
+		<h2>Assignments and Projects</h2>
+		<ol>
+			<li>Weekly Report: <a href="report.html">Here &#8667;</a></li>
+			<li>Team Activity: <a href="team/team.html" target="_blank">team.html &#8663;</a> <a href="team/team.js" target="_blank">team.js &#8663;</a> <a href="team/solution.html" target="_blank">solution.js &#8663;</a> </li>
+			<li>Quiz Ninja Project: <a href="ninja.html">Here &#8667;</a></li>
+		</ol>
+	</section>
+
+	<!-- Extra Section -->
+	<section class="border-bottom">
+		<h2>Extra Stuffs and Notes</h2>
+		<ol>
+			<li><a href="https://www.w3schools.com/jsref/met_document_addeventlistener.asp" target="_blank">addeventlistener() &#8663;</a>
+				<ul>
+					<li><code class="code-inline code-style">document.addEventListener(event, function, useCapture)</code>
+						<ul>
+							<li><code class="code-inline code-style">event</code>: Required. A String that specifies the name of the event.</li>
+							<li><code class="code-inline code-style">function</code>: Required. Specifies the function to run when the event occurs.</li>
+							<li><code class="code-inline code-style">useCapture</code>: Optional. A Boolean value that specifies whether the event should be executed in the capturing or in the bubbling phase.
+								<ul>
+									<li>true - The event handler is executed in the capturing phase.</li>
+									<li>false - Default. The event handler is executed in the bubbling phase.</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ol>
+	</section>
+
+	<!-- Footer -->
+	<footer>
+		<p>
+			By Carlos - Last edit: <span class="last-edit"></span>
+		</p>
+	</footer>
+</body>
+
+<script src="../../source/js/other.js"></script>
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!-- SCOOTS' WEBSITE -->
+<!-- Reservations Page -->
+<html lang="en-US">
+
+<!-- HEAD -->
+<head>
+	<!-- Non VISIBLE -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="~Scoots. Motor scooter rental company. This site provide information about: Services, requirements, rental process of scooter in the Mexican island of Cozumel.">	
+
+	<!-- Files -->
+	<link rel="stylesheet" href="scss/styles.css">
+
+	<!-- VISIBLE -->
+	<title>~Scoots - Rent Your Ride - CONTACT PAGE</title>
+	<link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+</head>
+
+<!-- BODY -->
+<body>
+	<!-- HEADER -->
+	<header class="background-blue">
+		<div class="max-sized">
+			<div class="header-top">
+				<div class="logo-box">
+					<!-- Logo -->
+					<picture class="logo-item">
+						<img class="logo-image" src="img/logo-70.svg" alt="Scoot's Scooter Rental Company logo.">
+					</picture>
+					
+					<div>
+						<h1 class="logo-title">~Scoots</h1>
+						<span class="logo-subtitle">Rent Your Ride</span>
+					</div>
+				</div>
+					
+				<button  onclick="toggleMenu()">&#9776;</button>
+			</div>
+					
+			<!-- Hamburguer nav -->
+			<nav id="primaryNav" class="hide">
+				<ul>				
+					<li><a href="index.html" class="">Home</a></li>
+					<li><a href="rentals.html" class="">Rentals</a></li>
+					<li><a href="reservations.html" class="">Reservations</a></li>
+					<li><a href="tours.html" class="">Tours</a></li>
+					<li><a href="contact.html" class="current">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<!-- MAIN -->
+	<main class="background-blue-2 extra-padding-vertical">
+		<div class="max-sized">
+
+			<!-- RENTAL AGREEMENT INFORMATION -->
+			<section class="container-information">
+				<h2>Remember</h2>
+				<ul>
+					<li>You can find all our available services at this <a href="rentals.html">page</a>.</li>
+					<li>You can make your reservations right away at this other <a href="reservations.html">page</a>.</li>
+				</ul>
+			</section>
+			
+			<!-- MAP -->
+			<h2>Find us at one of our rental locations</h2>
+			<div class="container-map">
+				<div id="map"></div>
+				<ol>					
+					<li>Near the "Terminal Puerta Maya" further south along the coast which caters to the cruise lines and patrons.</li>
+					<li>Near to Cozumel Ferry dock, "Playa del Carmen", near "El Centro de Cozumel".</li>
+				</ol>
+			</div>
+			
+			<script async defer	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbZTxzSuQ9DyZ6kI61U4nRomA-zg0NCsg&callback=initMap">
+			</script>
+
+			<!-- CONTACT FORM -->
+			<section class="container-reservation-form">
+				<h2>Contact Us</h2>
+				
+				<!-- FORM -->
+				<form method="" action="thanks.html" id="form-reservation">
+
+					<!-- Section 1: Personal Information -->
+					<fieldset class="fieldset-2">
+						<label class="top" for="full-name">Full Name*
+							<input type="text" name="full-name" id="full-name" placeholder="John W. Doe" pattern="[a-zA-Z]{5,50}" required>
+						</label>
+												
+						<label class="top" for="email">Email
+							<input type="email" name="email" id="email" placeholder="email@example.com" required>
+						</label>					
+					
+						<div class="top">
+							<label for="comments">
+								<textarea placeholder="Insert your comments here, please." name="comments" id="comments" maxlength="250"></textarea>
+							</label>
+						</div>
+					</fieldset>
+					
+					<!-- Button -->
+					<input type="submit" value="Send" class="submit-button">
+				
+				</form>
+			</section>
+		</div>
+	</main>
+
+	<!-- FOOTER -->
+	<footer class="background-blue">
+		<div class="max-sized">
+
+			<div class="logo-box div-centered">
+				<!-- Logo -->
+				<picture class="logo-item">
+					<img class="logo-image" src="img/logo-70.svg" alt="Scoot's Scooter Rental Company logo.">
+				</picture>
+				
+				<div>
+					<h1 class="logo-title">~Scoots</h1>
+					<span class="logo-subtitle">Rent Your Ride</span>
+				</div>
+			</div>
+	
+	
+			<h2>Find us in Social Media</h2>
+			<!-- Contact information -->
+			<div class="footer-social">
+			  <a class="anchor-social" href="https://www.facebook.com"><img class="logo-social" src="img/social/facebook.svg" alt="Facebook social media link and logo."></a>
+			  <a class="anchor-social" href="https://twitter.com"><img class="logo-social" src="img/social/twitter.svg" alt="Twitter social media link and logo."></a>
+			  <a class="anchor-social" href="https://web.whatsapp.com"><img class="logo-social" src="img/social/whatsapp.svg" alt="WhatsApp social media link and logo."></a>
+			</div>
+	
+			<!-- Social Media -->
+			<div class="footer-bot">
+				<span>&copy; ~Scoots 2020</span>
+				<span>Site by Carlos W. Mercado</span>
+				<span id="currentDate"></span>
+				<span><a href="credits.html" class="">Resource Credits</a></span>
+			</div>
+
+		</div>	
+	</footer>
+
+	<!-- SCRIPTS -->
+	<script src="js/script.js"></script>
+</body>
+</html>

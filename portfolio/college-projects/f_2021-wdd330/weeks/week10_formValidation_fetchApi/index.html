@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link id="custom-css" rel="stylesheet" href="https://carloswm85.github.io/css/public-styles/dark-orange.css">
+	<link rel="icon" href="../../favicon.png" type="image/png">
+
+	<!-- highlight.js -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/vs2015.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/javascript.min.js"></script>
+	<script>
+		hljs.highlightAll();
+
+	</script>
+
+	<title>WDD330 - Week 10</title>
+</head>
+
+<body>
+	<div class="go-back">
+		<a href="../../../">&#8666;</a>
+	</div>
+
+	<h1>Week 10</h1>
+	<p>This week readings assignment:</p>
+
+	<!-- Instructions -->
+	<section class="border-bottom">
+		<p><a href="../../course-content/prepare/week10.html" target="_blank">/cit261/prepare/week10.html &#8663;</a></p>
+	</section>
+
+	<!-- Raw Files -->
+	<section class="border-bottom" id="raw">
+		<h2>Reading Exercise (raw and interpreted) Files</h2>
+
+		<ol>
+			<li>Validation with HTML:
+				<ul>
+					<li>Live example: <a href="./exercises/validationWithHtml.html" target="_blank">validationWithHtml.html &#8663;</a></li>
+					<li>Raw HTML code: <a href="./exercises/validationWithHtml.html.txt" target="_blank">validationWithHtml.html.txt &#8663;</a></li>
+
+				</ul>
+			</li>
+
+			<li>Validation with JS:
+				<ul>
+					<li>Live example: <a href="./exercises/validationWithJS.html" target="_blank">validationWithJS.html &#8663;</a></li>
+					<li>Raw HTML code: <a href="./exercises/validationWithJS.html.txt" target="_blank">validationWithJS.html.txt &#8663;</a></li>
+					<li>JS code: <a href="exercises/form-validation.js" target="_blank">form-validation.js &#8663;</a> </l target="_blank">
+						</u3>
+					</li>
+		</ol>
+
+	</section>
+
+	<!-- Reading Section -->
+	<section class="border-bottom">
+		<h2>Readings</h2>
+
+		<ul>
+			<li> <span class="lime">MDN: Validating forms</span> → <a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation" target="_blank">here &#8663;</a>
+				<ol>
+					<li>Why Ensure The Use of Form Validation?
+						<ul>
+							<li>We want to get the right data, in the right format. Our applications won't work properly if our users' data is stored in the wrong format, is incorrect, or is omitted altogether.</li>
+							<li>We want to protect our users' data. Forcing our users to enter secure passwords makes it easier to protect their account information.</li>
+							<li>We want to protect ourselves. There are many ways that malicious users can misuse unprotected forms to damage the application (see Website security). Warning: Never trust data passed to your server from the client. Even if your form is validating correctly and preventing malformed input on the client-side, a malicious user can still alter the network request.</li>
+						</ul>
+					</li>
+
+					<li>Client Side Validation Types:
+						<ul>
+							<li>Built-in form validation, which uses HTML5 form validation features. Not customizable.</li>
+							<li>JavaScript validation is coded using JavaScript. This validation is completely customizable, but you need to create it all (or use a library).</li>
+						</ul>
+					</li>
+
+					<li>Form Constraint Validation API:
+						<ul>
+							<li>Customizing default HTML error messages is one of the most common use cases of the constraint validation API. There is no standard way to change their look and feel with CSS. They depend on the browser locale, which means that you can have a page in one language but an error message displayed in another language.</li>
+						</ul>
+					</li>
+				</ol>
+
+			</li>
+
+			<li> <span class="lime">MDN: Using Fetch</span> → <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank">here &#8663;</a>
+				<ul>
+					<li>The <i>Fetch API</i> is used for fetching resources asynchronously accros the network.</li>
+					<li>This kind of functionality was previously achieved using <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" target="_blank">XMLHttpRequest &#8663;</a> (<code class="code-inline code-style">jQuery.ajax()</code> ). Fetch provides a better alternative that can be easily used by other technologies such as <a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API" target="_blank">Service Workers &#8663;</a>.</li>
+					<li>Available interfaces:
+						<ul>
+							<li>Headers → <a href="https://developer.mozilla.org/en-US/docs/Web/API/Headers" target="_blank"> here &#8663;</a></li>
+							<li>Request → <a href="https://developer.mozilla.org/en-US/docs/Web/API/Request" target="_blank"> here &#8663;</a></li>
+							<li>Response → <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response" target="_blank"> here &#8663;</a></li>
+						</ul>
+					</li>
+					<li> <span class="yellow">Promises</span>:
+						<ul>
+
+							<li>Most basic example:
+								<pre>
+									<code class="language-javascript">
+										fetch('http://example.com/movies.json')
+											.then(response => response.json())
+											.then(data => console.log(data));
+									</code>
+								</pre>
+							</li>
+
+							<li>Here we are fetching a JSON file across the network and printing it to the console. The simplest use of fetch() takes one argument — the path to the resource you want to fetch — and does not directly return the JSON response body but instead returns a promise that resolves with a Response object.</li>
+
+							<li>The Response object, in turn, does not directly contain the actual JSON response body but is instead a representation of the entire HTTP response. So, to extract the JSON body content from the Response object, we use the json() method, which returns a second promise that resolves with the result of parsing the response body text as JSON.</li>
+
+							<li>The fetch() method can optionally accept a second parameter, an <code class="code-inline code-style">init</code> object that allows you to control a number of different settings: list of full available options, <a href="https://developer.mozilla.org/en-US/docs/Web/API/fetch" target="_blank">here &#8663;</a></li>
+						</ul>
+					</li>
+
+					<li> <span class="yellow">Requests</span> (usage examples):
+						<ul>
+							<li>Supplying request options, using fetch and async/await: <a href="" target="_blank">here &#8663;</a></li>
+							<li>Sending a request with credentials included: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#sending_a_request_with_credentials_included" target="_blank">here &#8663;</a></li>
+							<li>Uploading JSON data: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#uploading_json_data" target="_blank">here &#8663;</a></li>
+							<li>Uploading a file: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#uploading_a_file" target="_blank">here &#8663;</a></li>
+							<li>Uploading multiple files: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#uploading_multiple_files" target="_blank">here &#8663;</a></li>
+							<li>Processing a text file line by line: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#processing_a_text_file_line_by_line" target="_blank">here &#8663;</a></li>
+							<li>Checking that the fetch was successful: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#checking_that_the_fetch_was_successful" target="_blank">here &#8663;</a></li>
+							<li>Supplying your own request object: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#supplying_your_own_request_object" target="_blank">here &#8663;</a></li>
+						</ul>
+					</li>
+
+					<li> <span class="yellow">Headers</span>: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#headers" target="_blank">here &#8663;</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Headers" target="_blank">here &#8663;</a>
+						<ul>
+							<li>The Headers interface of the Fetch API allows you to perform various actions on HTTP request and response headers. These actions include retrieving, setting, adding to, and removing headers from the list of the request's headers. A headers object is a simple multi-map of names to values.</li>
+							<li>Since headers can be sent in requests and received in responses, and have various limitations about what information can and should be mutable, headers' objects have a guard property. This is not exposed to the Web, but it affects which mutation operations are allowed on the headers object. <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#guard" target="_blank">Here &#8663;</a></li>
+						</ul>
+					</li>
+
+					<li> <span class="yellow">Response</span>: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#response_objects" target="_blank">here &#8663;</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response" target="_blank">here &#8663;</a>
+						<ul>
+							<li>Response instances are returned when fetch() promises are resolved.</li>
+						</ul>
+					</li>
+
+					<li> <span class="yellow">Other topics</span>:
+						<ul>
+							<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#body" target="_blank">Body &#8663;</a></li>
+							<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#feature_detection" target="_blank">Feature detection &#8663;</a></li>
+							<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#polyfill" target="_blank">Fetch Polyfill &#8663;</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+
+	<!-- Vocabulary Section -->
+	<section class="border-bottom" id="vocabulary">
+		<h2>Vocabulary, Main Concepts</h2>
+
+		<ul>
+			<li>Nothing.</li>
+		</ul>
+
+	</section>
+
+	<!-- Assignment Section -->
+	<section class="border-bottom">
+		<h2>Assignments and Projects</h2>
+		<ol>
+			<li>Weekly Report: <a href="report.html" target="_blank">Here &#8663;</a></li>
+			<li>Team Activity:
+				<ul>
+					<li>Instructions: <a href="../../course-content/ponder/team10.html" target="_blank">team10.html &#8663;</a></li>
+					<li>Quakes activity, by team: <a href="team-activity/teams/" target="_blank">here &#8663;</a> </li>
+					<li>Quakes activity, by the teacher: <a href="team-activity/teachers-solution/" target="_blank">here &#8663;</a> </li>
+					<li>Quakes activity, by the teacher with routing: <a href="team-activity/teachers-solution-withRouting/" target="_blank">here &#8663;</a> </li>
+		</ol>
+	</section>
+
+	<!-- Extra Section -->
+	<section class="border-bottom">
+		<h2>Extra Stuffs and Notes</h2>
+
+		<ul>
+			<li>Form Constraint Validation API: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Constraint_validation" target="_blank">here &#8663;</a> You must use JavaScript if you want to take control over the look and feel of native error messages or to deal with legacy browsers that do not support HTML's built-in form validation.</li>
+			<li>Constraint Validation Guide: <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Constraint_validation" target="_blank">here &#8663;</a></li>
+			<li>Fetch examples: <a href="https://github.com/mdn/fetch-examples/" target="_blank">here &#8663;</a></li>
+		</ul>
+	</section>
+
+	<!-- Footer -->
+	<footer>
+		<p>
+			By Carlos - Last edit: <span class="last-edit"></span>
+		</p>
+	</footer>
+</body>
+
+<script src="../../source/js/other.js"></script>
+
+</html>

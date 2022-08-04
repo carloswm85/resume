@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang='en-us'>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Week 2 - How Do We Store Data?</title>
+    <link href="css/outline_styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <main>
+      <nav>
+        <div class="tab">
+            <a href="../text/week1.html"><button class="tablinks">1 Data</button></a>
+            <a href="../text/week2.html"><button class="tablinks">2 Questions</button></a>
+            <a href="../text/week3.html"><button class="active" class="tablinks">3 Datatypes</button></a>
+            <a href="../text/week4.html"><button class="tablinks">4 Relational</button></a>
+            <a href="../text/week5.html"><button class="tablinks">5 Design</button></a>
+            <a href="../text/week6.html"><button class="tablinks">6 Inserting</button></a>
+            <a href="../text/week7.html"><button class="tablinks">7 Queries</button></a>
+            <a href="../text/week8.html"><button class="tablinks">8 Functions</button></a>
+            <a href="../text/week9.html"><button class="tablinks">9 Joins</button></a>
+            <a href="../text/week10.html"><button class="tablinks">10 Aggregates</button></a>
+            <a href="../text/week11.html"><button class="tablinks">11 More</button></a>
+            </div>
+        </nav> 
+      <div id='text'>
+        <h1>3 How Do We Store Data?</h1>
+        <h2>Stored Data</h2>
+        <p>
+            Businesses depend on data stored in databases. For example, take Amazon.com. It has a vast amount of data. When you search for a product, your search text becomes a part of a question that is asked of the data (a query) for their database, and the results are sorted and filtered down to what you are looking for. The church has huge stores of data that it uses as well, for family history or for church organizations and membership records. Social media sites stores vast amounts of information on its many users.  The financial world relies of billions of transactions that are stored in databases. Banks, companies, clients, customers, vendors, orders from all sorts of retail transactions all rely on databases. 
+        </p>
+        <p>
+            Companies can also make decisions regarding their next moves by querying this data, seeing trends, patterns, and then plan accordingly. We are surrounded by data and it is growing every day. There is a need for people who can organize this data in a useful way so it can be used productively. 
+        </p>
+        <h2>Database Models</h2>
+        <p>
+            There are different types of database models for structuring the database. A database model determines the logical structure of a database and determines in which manner data can be stored, organized, and manipulated.
+        </p>
+        <h3>Older models: network and hierarchical</h3>
+        <p>
+            The hierarchical database organizes data in a tree-like structure with parents and child nodes. Each child node will only have one parent node, parents can have many child nodes. When data needs to be retrieved the whole tree is searched. This model was widely used during the mainframe era in the 60s. It can still be used for storing file systems and geographic information. It allows for high performance needs but its structure is very rigid.
+        </p>
+        <br>
+        <img src="images/hierarchical_model.png" alt="hierarchical model diagram" width="50%">
+        <br>
+        <p>
+            The network model is an extension of the hierarchical database model. With the network model, child nodes can have more than one parent. This allowed more flexibility. This was widely used before the relational model was introduced. It was difficult to implement and maintain.
+        </p>
+        <h3>Relational Model</h3>
+        <p>
+            The relational database was introduced in the 70s. A relational database model organizes data in rows and tables, which in turn can be accessed and linked to other rows and tables by sharing a common field. The relational model is by far the most common type of model and that is what we will be studying for the rest of this course, but there are other models to be aware of and understand. 
+         </p>
+          <br>
+        <img src="images/relational_model.png" alt="relatinal model diagram" width="50%">
+        <br>
+         <h3>Object-oriented models</h3>
+         <p>
+            The term object-oriented database model was first introduced in the mid 80s. An object-oriented database (OODB) is a database that represents data as an object with properties and methods. The object oriented database model is an alternative to the relational model and uses a combination of object-oriented and relational database principles to process data. This model combines database capabilities with object-oriented programming language capabilities.
+        </p>
+        <br>
+        <img src="images/object-oriented_model.png" alt="object-oriented model diagram" width="50%">
+        <br>
+        <h3>Semi-structured or Unstructured data models</h3>
+        <p>
+            With the emergence of ‘Big Data’ in the late 2000s the unstructured database had its beginning. Some databases have such a large scale that a relational database model begins to have limitations. A very large-scale relational database has to be distributed on multiple servers. Handling tables across different servers can be difficult. Also the type of data you need to store might not fit into structured relational tables easily or might take a very complex structure to make it work. In these cases, a semi-structured or unstructured database model might be used.  NoSQL is a type of unstructured database model. It stands for ‘Not Only SQL’.  They can store virtually any structure. New columns can be created easily. In fact they don’t even need a predefined schema (or data model). 
+        </p>
+        <p>
+            Relational databases just weren’t designed to handle the quantity of data, number of users, and ever-changing data requirements for large systems like Amazon and Facebook.  Even the church has used NoSQL for years to process billions of transactions. The amount of data volume in these types of systems just can’t be managed by a single relational database system. NoSQL databases can provide high performance at an extremely large scale. They can handle billions of queries in a small amount of time. NoSQL databases also have far more relaxed data model restrictions. 
+        </p>
+        <p>
+            There are, however, limitations to NoSQL databases. The data doesn’t always stay consistent across the entire database as it moves around. This affects consistency on multiple servers.  The times that transactions are saved differs from the more consistent saving times with relational systems. There are also many different NoSQL products, some with steep learning curves. Most organizations are not big enough to need an unstructured database like NoSQL. The vast majority of databases are still relational databases using SQL.
+        </p>
+        <p>
+            Popular NoSQL Database management software products include:
+            <ul>
+                <li>MongoDB – open-source, uses a weakly typed JSON structure, written in C++</li>
+                <li>Cassandra – developed at Facebook, uses distributed data storage, and is a columner database</li>
+                <li>Dynamo – Amazon proprietary database, allows documents and graphs as data</li>
+                <li>CouchDB – open source, high concurrency with strict consistency, uses JSON to store data and JavaScript as its query language</li>
+            </ul>
+        
+        <h2>Datatypes</h2>
+        <p>
+            The type of data that can be stored in relational databases is defined ahead of time. This is referred to as datatypes. Datatypes are the rules that define what data may be stored and how it is stored. We bring up the topic here because it’s important to figure out the correct datatype during the design process. Having to make changes to a datatype later after the database is developed can result in data loss. Datatypes also allow for more efficient storage and enables restrictions on data that can be entered into our database; therefore keeping our data consistent and accurate. The follow are some of the common relational datatypes we will be using in our course.</p>
+          <h3>String Datatypes</h3>
+          <table>
+            <tr>
+                <td>CHAR</td>
+                <td>Fixed-length string from 1 to 255 chars long. The length is fixed at creation.</td>
+            </tr>
+            <tr>
+                <td>VARCHAR</td>
+                <td>Variable-length string from 1 to 255 chars long. There is no max or min size set.</td>
+            </tr>
+            <tr>
+                <td>ENUM</td>
+                <td>One string from a predefined list</td>
+            </tr>
+            <tr>
+                <td>SET</td>
+                <td>Zero or more values from a predefined list</td>
+            </tr>
+        </table>
+        <h3>Numeric Datatypes</h3>
+        <table>
+            <tr>
+                <td>INT</td>
+                <td>Integer (whole number)</td>
+            </tr>
+            <tr>
+                <td>TINYINT</td>
+                <td>Integers at a smaller range -128 to 127 used for Boolean  0 and 1</td>
+            </tr>
+            <tr>
+                <td>DECIMAL</td>
+                <td>Numbers with decimal places</td>
+            </tr>
+        </table>
+        <h3>Date and Time Datatypes</h3>
+        <table>
+            <tr>
+                <td>DATE</td>
+                <td>Dates from 1000-01-01 to 9999-12-31 as YY-MM-DD</td>
+            </tr>
+            <tr>
+                <td>DATETIME</td>
+                <td>Combines DATE AND TIME</td>
+            </tr>
+            <tr>
+                <td>TIME</td>
+                <td>Time as HH:MM:SS</td>
+            </tr>
+            <tr>
+                <td>YEAR</td>
+                <td>Years ranging from 1901 to 2155</td>
+            </tr>
+        </table><br><br>
+        
+      </div>
+    </main>
+    <footer>
+        <hr>
+        <p>CIT 111 - Introduction to Databases - BYUI - andersonju</p>
+    </footer>
+        <script type="text/javascript" src="scripts/script.js">
+        </script>
+</body>
+
+</html>

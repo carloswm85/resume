@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<!-- SCOOTS' WEBSITE -->
+<!-- HOME Page -->
+<html lang="en">
+
+<!-- HEAD -->
+<head>
+	<!-- Non VISIBLE -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="~Scoots. Motor scooter rental company. This site provide information about: Services, requirements, rental process of scooter in the Mexican island of Cozumel.">	
+
+	<!-- Files -->
+	<link rel="stylesheet" href="scss/styles.css">
+
+	<!-- VISIBLE -->
+	<title>~Scoots - Rent Your Ride - HOME PAGE</title>
+	<link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+</head>
+
+<!-- BODY -->
+<body>
+	<!-- HEADER -->
+	<header class="background-blue">
+		<div class="max-sized">
+			<div class="header-top">
+				<div class="logo-box">
+					<!-- Logo -->
+					<picture class="logo-item">
+						<img class="logo-image" src="img/logo-70.svg" alt="Scoot's Scooter Rental Company logo.">
+					</picture>
+					
+					<div>
+						<h1 class="logo-title">~Scoots</h1>
+						<span class="logo-subtitle">Rent Your Ride</span>
+					</div>
+				</div>
+					
+				<button  onclick="toggleMenu()">&#9776;</button>
+			</div>
+					
+			<!-- Hamburguer nav -->
+			<nav id="primaryNav" class="hide">
+				<ul>				
+					<li><a href="index.html" class="current">Home</a></li>
+					<li><a href="rentals.html" class="">Rentals</a></li>
+					<li><a href="reservations.html" class="">Reservations</a></li>
+					<li><a href="tours.html" class="">Tours</a></li>
+					<li><a href="contact.html" class="">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<!-- MAIN -->
+	<main class="background-blue-2 extra-padding-vertical">
+		<div class="max-sized">
+			<!-- CALL TO ACTION -->
+			<section class="container-call">
+
+				<!-- First picture -->
+				<picture>
+					<source media="(min-width: 700px)" srcset="img/home/cozumel-beach-950.jpg">
+					<source media="(min-width: 518px)" srcset="img/home/cozumel-beach-768.jpg">
+					<img src="img/home/cozumel-beach-360.jpg" alt="Cozumel beach.">
+				</picture>
+							
+				<!-- FORM -->
+				<form method="" action="thanks.html" id="call-to-action">
+					<fieldset>
+						<h2>Rent Your Scooter Easily</h2>
+
+						<div>
+							<label for="location">
+								<span class="form-hide">Location</span>
+								<select name="location" id="location" class="location" required>
+										<option value="">Choose your location</option>
+									<option>Playa del Carmen</option>
+									<option>Terminal Puerta Maya</option>
+								</select>
+							</label>
+						</div>
+						
+						
+						<div>
+							<label for="arrival-date" class="sbs" >
+								<span class="form-hide">Arrival</span>
+								<input type="date" name="arrival-date" id="arrival-date" class="time" required></label> <!-- TYPE: date -->
+							<label for="arrival-time" class="call">
+								<select name="arrival-time" id="arrival-time" class="time" required>
+										<option value="">Choose time</option>
+									<option>10:30</option>
+									<option>11:00</option>
+									<option>11:30</option>
+									<option>12:00</option>
+									<option>12:30</option>
+									<option>13:00</option>
+									<option>13:30</option>
+									<option>14:00</option>
+									<option>14:30</option>
+									<option>15:00</option>
+									<option>15:30</option>
+									<option>16:00</option>
+									<option>16:30</option>
+									<option>17:00</option>
+									<option>17:30</option>
+									<option>18:00</option>
+									<option>18:30</option>
+								</select>
+							</label>
+						</div>
+						
+						<div>
+							<label for="departure-date" class="sbs" >
+								<span class="form-hide">Departure</span>
+								<input type="date" name="departure-date" id="departure-date" class="time" required></label>
+							<label for="departure-time" class="call">
+								<select name="departure-time" id="departure-time" class="time" required>
+										<option value="">Choose time</option>
+									<option>10:30</option>
+									<option>11:00</option>
+									<option>11:30</option>
+									<option>12:00</option>
+									<option>12:30</option>
+									<option>13:00</option>
+									<option>13:30</option>
+									<option>14:00</option>
+									<option>14:30</option>
+									<option>15:00</option>
+									<option>15:30</option>
+									<option>16:00</option>
+									<option>16:30</option>
+									<option>17:00</option>
+									<option>17:30</option>
+									<option>18:00</option>
+									<option>18:30</option>
+								</select>
+							</label>
+						</div>
+						
+						<div>
+							<label for="number-rentals" class="call">
+								<select name="number-rentals" id="number-rentals" class="scooters" required>
+										<option value="">Number of Rentals</option>
+									<option value="rental-1">1</option>
+									<option value="rental-2">2</option>
+									<option value="rental-3">3</option>
+									<option value="rental-4">4</option>
+									<option value="rental-5">5</option>
+								</select>
+							</label>
+
+							<input type="submit" value="GO!" class="submit-button">
+						</div>
+						
+					</fieldset>	
+				</form>
+				
+			</section>
+
+			<!-- RENTALS -->
+			<section class="container-rentals">
+
+				<picture>
+					<source media="(min-width: 700px)" srcset="img/home/scooter-shop-950.jpg">
+					<source media="(min-width: 518px)" srcset="img/home/scooter-shop-768.jpg">
+					<img src="img/home/scooter-shop-360.jpg" alt="Scooters' rental facilities.">
+				</picture>
+
+				<h2>Type of Rentals</h2>
+				
+				<!-- Rentals information -->
+				<table class="table-rentals">
+					<thead>
+						<tr class="centered">
+							<td>Type</td>
+							<td>Features</td>
+							<td>Capacity<br>(max)</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="centered">
+							<td colspan="3">Honda Motor Scooters</td>
+						</tr>	
+						<tr>
+							<td class="margined" id="type-0"></td>
+							<td class="centered" id="features-0"></td>
+							<td class="centered" id="capacity-0"></td>
+						</tr>
+						<tr>
+							<td class="margined" id="type-1"></td>
+							<td class="centered" id="features-1"></td>
+							<td class="centered" id="capacity-1"></td>
+						</tr>
+						<tr>
+							<td class="margined" id="type-2"></td>
+							<td class="centered" id="features-2"></td>
+							<td class="centered" id="capacity-2"></td>
+						</tr>
+						<tr>
+							<td colspan="3" class="centered">ATV Side-by-Side</td>
+						</tr>
+						<tr>
+							<td class="margined" id="type-3"></td>
+							<td class="centered" id="features-3"></td>
+							<td class="centered" id="capacity-3"></td>
+						</tr>
+						<tr>
+							<td colspan="3" class="centered">Jeep Rentals</td>
+						</tr>
+						<tr>
+							<td class="margined" id="type-4"></td>
+							<td class="centered" id="features-4"></td>
+							<td class="centered" id="capacity-4"></td>
+						</tr>
+						<tr>
+							<td class="margined" id="type-5"></td>
+							<td class="centered" id="features-5"></td>
+							<td class="centered" id="capacity-5"></td>
+						</tr>
+					</tbody>
+				</table>
+				
+			</section>
+
+			<!-- WEATHER CONDITIONS -->
+			<section class="container-weather">
+				<picture>
+					<source media="(min-width: 700px)" srcset="img/home/cozumel-sunset-950.jpg">
+					<source media="(min-width: 518px)" srcset="img/home/cozumel-sunset-768.jpg">
+					<img src="img/home/cozumel-sunset-360.jpg" alt="Cozumel beach.">
+				</picture>
+				
+				<div >
+					<h2>
+						Weather Summary
+						<br> on the Island
+					</h2>
+	
+					<table class="table-weather">
+						<tbody>
+							<tr>
+								<td class="centered">Current</td>
+								<td class="centered"><span id="weather-cozumel-1"></span></td>
+							</tr>
+							<tr>
+								<td class="centered">Temperature</td>
+								<td class="centered"><span id="weather-cozumel-2"></span> &#8457;</td>
+							</tr>
+							<tr>
+								<td class="centered">Humidity</td>
+								<td class="centered"><span id="weather-cozumel-3"></span> %</td>
+							</tr>
+							<tr>
+								<td class="centered">Temp. in 5 days</td>
+								<td class="centered"><span id="weather-cozumel-4"></span> &#8457;</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>				
+			</section>
+		</div>
+		
+
+	</main>
+
+	<!-- FOOTER -->
+	<footer class="background-blue">
+		<div class="max-sized">
+
+			<div class="logo-box div-centered">
+				<!-- Logo -->
+				<picture class="logo-item">
+					<img class="logo-image" src="img/logo-70.svg" alt="Scoot's Scooter Rental Company logo.">
+				</picture>
+				
+				<div>
+					<h1 class="logo-title">~Scoots</h1>
+					<span class="logo-subtitle">Rent Your Ride</span>
+				</div>
+			</div>
+	
+	
+			<h2>Find us in Social Media</h2>
+			<!-- Contact information -->
+			<div class="footer-social">
+			  <a class="anchor-social" href="https://www.facebook.com"><img class="logo-social" src="img/social/facebook.svg" alt="Facebook social media link and logo."></a>
+			  <a class="anchor-social" href="https://twitter.com"><img class="logo-social" src="img/social/twitter.svg" alt="Twitter social media link and logo."></a>
+			  <a class="anchor-social" href="https://web.whatsapp.com"><img class="logo-social" src="img/social/whatsapp.svg" alt="WhatsApp social media link and logo."></a>
+			</div>
+	
+			<!-- Social Media -->
+			<div class="footer-bot">
+				<span>&copy; ~Scoots 2020</span>
+				<span>Site by Carlos W. Mercado</span>
+				<span id="currentDate"></span>
+				<span><a href="credits.html" class="">Resource Credits</a></span>
+			</div>
+
+		</div>
+	</footer>
+	
+	<!-- SCRIPTS -->
+	<script src="js/script.js"></script>
+	<script src="js/weather.js"></script>
+	<script src="js/rentals.js"></script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang='en-us'>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD and Constraints</title>
+    <link href="../text/css/outline_styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <h1>INSERT Statement</h1>
+        
+        <h3>The INSERT Statment Syntax:</h3>
+        <h3 class="syntax">INSERT INTO table_name (column_list) VALUES (value_list)</h3>
+        <p>
+            Let’s add some data to the course table. Here are the column definitions as shown in Workbench:
+        </p>
+        <img class='narrowimg' src="images/course_definitions.png" alt="image of the course table column definitions in Workbench">
+        <p>
+            There are two different ways to add one or more rows of data to your tables with the INSERT statement. 
+        </p>
+        <p>
+            The first way is without a column list. With this method, every column in the table must have a value and it must be entered in the proper column order as it was defined in the column definitions.  
+        </p>
+        <h2>No Column List, One Row</h2>
+        <pre>
+
+ INSERT INTO course VALUES
+ (1, 'Intro to Databases', '111', 3, 1);
+            </pre>
+        <h2>No Column List, Multiple Rows</h2>
+        <pre>
+
+ INSERT INTO course VALUES
+ (2, 'Economics', '388', 4, 2),
+ (3, 'Micro Economics', '150', 3, 2),
+ (4, 'Classical Heritage', '376', 2, 3);
+            </pre>
+        <p>
+            The second way is with a column list. The columns don’t have to be in any particular order but the values that correspond to the list must be in the same order as the columns are listed in the INSERT statement. Here we have left the same order of columns that is shown in the column definition image but we don’t have to keep that order. 
+        </p>
+        <h2>Using a Column List, One Row</h2>
+        <pre>
+
+ INSERT INTO course 
+    (courseid, name, number, credit, departmentid)
+ VALUES
+    (1, 'Intro to Databases', '111', 3, 1);
+            </pre>
+        <h2>Using a Column List, Multiple Rows</h2>
+        <pre>
+
+ INSERT INTO course 
+    (courseid, name, number, credit, departmentid)
+ VALUES
+    (2, 'Economics', '388', 4, 2),
+    (3, 'Micro Economics', '150', 3, 2),
+    (4, 'Classical Heritage', '376', 2, 3);
+            </pre>
+
+        <p>
+            Let’s look at the artist table column definitions in Workbench:
+        </p>
+        <img class='narrowimg' src="images/artist_definitions.png" alt="image of the artist table column definitions in Workbench">
+        <p>
+            Here we have a few columns have a null value as the default if nothing is entered for that column value. We also have a local column with the default value of ‘n’. That column tells us whether the artist is local or not. Most artists are not local, so the value of ‘n’ will be inserted into that column if no other value is placed there as data is entered for that row. Also notice that the artist_id is set up as auto-increment. 
+        </p>
+        <p>
+            We can insert data into this table in a few different ways.
+        </p>
+        <p>
+            We can use the keyword of DEFAULT instead of an actual integer for any auto-incremented field. And we can also use NULL to leave a data value null. Or DEFAULT to enter the default value amount.
+        </p>
+        <pre>
+
+ INSERT INTO artist VALUES
+ (DEFAULT, 'Vincent', NULL, 'van Gogh', '1853', NULL, 'France', DEFAULT);
+            </pre>
+        <p>
+            Since we already defined NULL in our column definitions for mname and dod, we could have also used DEFAULT for mname and dod instead of NULL.
+        </p>
+        <p>
+            Or this INSERT would do the same thing.
+        </p>
+
+        <pre>
+
+ INSERT INTO artist 
+    (fname, lname, dob, country)
+ VALUES
+    ('Vincent', 'van Gogh', '1853', 'France');
+            </pre>
+        <p>
+            Because we have an auto-increment for artist_id it will be filled in automatically and mname, dod, and local will all just get the default values filled in automatically from the column definitions.
+        </p>
+        <br><br>
+        <p>
+            You can also enter data into your tables in the table view in Workbench without using the SQL INSERT command. When you apply the data you’ve entered, it will create an INSERT statement for you to run. When entering a string or string literal this way, you don’t have to put quotes around the string value.
+        </p>
+
+        <h1>UPDATE Statement</h1>
+        <h3>The UPDATE Statment Syntax:</h3>
+        <h3 class="syntax">UPDATE table_name <br>SET column_name = expresson <br>WHERE search_condition</h3>
+        <p>
+            To modify or edit your data that is already entered into a table you can use the UPDATE statement.
+        </p>
+        <p>
+            If we wanted to change Vincent’s first name to Vinny we would use this UPDATE statement.
+        </p>
+        <pre>
+
+ UPDATE artist 
+ SET fname = 'Vinny' 
+ WHERE artist_id = 2;
+
+            </pre>
+
+        <h1>DELETE Statement</h1>
+        <h3>The DELETE Statment Syntax:</h3>
+        <h3 class="syntax">DELETE FROM table_name <br>WHERE search_condition</h3>
+        <p>
+            To delete a row of a table we can use a DELETE statement.
+        </p>
+        <p>
+            If we wanted to delete the van Gogh row from our table we would use this DELETE statement.
+        </p>
+        <pre>
+
+ DELETE FROM artist  
+ WHERE lname = 'van Gogh';
+
+            </pre>
+
+        <p>
+            Don’t forget to always use a WHERE clause with UPDATE and DELETE otherwise every row in the table will be UPDATED or DELETED. You might need to turn off the Safe Mode in Workbench by going to ‘Preferences’ – ‘SQL Editor’ and uncheck “Safe Updates’ near the bottom of the preferences there. Remember there is no undo button once you run a UPDATE or DELETE statement. 
+        </p>
+        <p>
+            The way we create our database this week, we will not need to use the CREATE command because Workbench does that for us in the forward engineering from our ERD to the database set up. We also should not need to use DROP to delete any of our tables or any of our databases. If we need to delete a table or database from Workbench because we made a mistake or want to start over you can run a DROP statement but be careful not to drop something you don’t mean to. You can also right click the table or database name from your schema list in Workbench and drop them that way.  Be very careful with the DROP command. There is no undo button.
+        </p>
+
+        <h1>Referential Integrity and Foreign Key Constraints</h1>
+        <p>
+            Referential Integrity implies that relationships among data should be enforced. This will guarantee that relationships between rows in two tables will remain synchronized during all updates and deletes. When we create a database from our ERD diagram the foreign keys are by default mandatory (or they are already enforcing the relationships between tables. This is referred to as Foreign Key Constraints. This constraint enforces the referential integrity by guaranteeing that changes cannot be made to data in the primary key table if those changes invalidate the link to data in the foreign key table. 
+        </p>
+        <p>
+            This is important to know because, as we enter data, edit and delete data in our tables, we cannot delete a row of data that has a foreign key associated with the primary key of that row in another table. We also cannot add a row to a table with a foreign key that does not already exist as a primary key of another table. 
+        </p>
+        <p>
+            So if an attempt is made to delete a row in a primary key table or to change a primary key value, the action will fail when the deleted or changed primary key value corresponds to a foreign key value of another table. All links to that primary key would have to be deleted first before you could delete or change that primary key. Also if an attempt is made to enter a row into a table that uses a foreign key that doesn't exist as a primary key in another table, the action will fail.
+
+
+        </p>
+
+        
+    </main>
+</body>
+
+</html>

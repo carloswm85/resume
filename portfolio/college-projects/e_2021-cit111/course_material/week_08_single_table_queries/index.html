@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang='en-us'>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Summary Queries</title>
+    <link href="../text/css/outline_styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <h1>Retrieving Data from a Single Table</h1>
+
+        <h2>5 Clauses of the SELECT Statement</h2>
+        
+        <table>
+            <tr>
+                <td>SELECT</td> 
+                <td>Describes the columns in the result set</td>
+            </tr>
+            <tr>
+                <td>FROM</td>
+                <td>The table you are getting the data from</td>
+            </tr>
+                <td>WHERE</td> 
+                <td>Filters the rows, only those that match the condition </td>
+            </tr>
+            <tr>
+                <td>ORDER BY</td>
+                <td>How to sort the rows</td>
+            </tr>
+            <tr>
+                <td>LIMIT</td>
+                <td>The number of rows to return</td>
+            </tr>
+        </table>
+        <h2>SELECT and FROM Statements</h2>
+
+        <p>The SELECT statement is used to retrieve table data. To retrieve data you need what you want to select and from where you want to select it. The SELECT statement lists the columns you want as part of the resulting data, or result set. The FROM
+            statement tells what table you are getting the data or columns from.</p>
+
+        <h2>The SELECT Statement Syntax</h2>
+
+        <h3 class='syntax'>SELECT select_list <br> [FROM table_source]</h3>
+
+
+        <h2>There are 4 ways to code the select list in the SELECT statement.</h2>
+
+        <h3>1. All columns with an asterisk</h3>
+        <pre>
+ SELECT * 
+ FROM products
+</pre>
+        <table class='results'>
+            <tr>
+                <th>prod_id</th>
+                <th>prod_name</th>
+                <th>prod_category</th>
+                <th>prod_price</th>
+            </tr>
+            <tr>
+                <td>t12</td>
+                <td> bouncy ball </td>
+                <td>toy </td>
+                <td>2.99</td>
+            </tr>
+            <tr>
+                <td>t15</td>
+                <td> jacks </td>
+                <td>toy </td>
+                <td> 3.99</td>
+            </tr>
+            <tr>
+                <td>t18</td>
+                <td> doll </td>
+                <td>toy </td>
+                <td> 5.99</td>
+            </tr>
+            <tr>
+                <td>t21</td>
+                <td> top </td>
+                <td>toy </td>
+                <td> 1.99</td>
+            </tr>
+            <tr>
+                <td>s10</td>
+                <td> jump rope </td>
+                <td>null </td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>s13</td>
+                <td> hockey puck </td>
+                <td>sports </td>
+                <td>1.99</td>
+            </tr>
+            <tr>
+                <td>s17</td>
+                <td> mitt </td>
+                <td>sports </td>
+                <td>5.99</td>
+            </tr>
+            <tr>
+                <td>s22</td>
+                <td> bat </td>
+                <td>sports </td>
+                <td>2.99</td>
+            </tr>
+            <tr>
+                <td>s24</td>
+                <td> baseball </td>
+                <td>sports </td>
+                <td>1.99</td>
+            </tr>
+        </table>
+        <p>The wildcard asterisk (*) is a fast way to list all the columns of the table during development but should be avoided when writing queries for production. Retrieving unnecessary columns slows down performance. It’s better to list only the columns
+            you need for a given query.</p>
+
+        <h3>2. By column name (each column separated with a comma)</h3>
+        <pre>
+ SELECT prod_name, prod_price
+ FROM products
+</pre>
+        <table class='results'>
+            <tr>
+                <th>prod_name</th>
+                <th> prod_price</th>
+            </tr>
+            <tr>
+                <td>bouncy ball </td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>jacks </td>
+                <td> 3.99</td>
+            </tr>
+            <tr>
+                <td>doll </td>
+                <td> 5.99</td>
+            </tr>
+            <tr>
+                <td>top </td>
+                <td>1.99</td>
+            </tr>
+            <tr>
+                <td>jump rope </td>
+                <td>2.99</td>
+            </tr>
+            <tr>
+                <td>hockey puck </td>
+                <td>1.99</td>
+            </tr>
+            <tr>
+                <td>mitt </td>
+                <td> 5.99</td>
+            </tr>
+            <tr>
+                <td>bat </td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>baseball </td>
+                <td> 1.99</td>
+            </tr>
+        </table>
+        <h3>3. Columns created with calculations</h3>
+        <pre>
+ SELECT prod_name, prod_price + 2.00 
+ FROM products
+</pre>
+        <table class='results'>
+            <tr>
+                <th>prod_name</th>
+                <th>prod_price + 2.00</th>
+            </tr>
+            <tr>
+                <td>bouncy ball </td>
+                <td>4.99</td>
+            </tr>
+            <tr>
+                <td>jacks </td>
+                <td>5.99</td>
+            </tr>
+            <tr>
+                <td>doll </td>
+                <td>7.99</td>
+            </tr>
+            <tr>
+                <td>top </td>
+                <td>3.99</td>
+            </tr>
+            <tr>
+                <td>jump rope </td>
+                <td>4.99</td>
+            </tr>
+            <tr>
+                <td>hockey puck </td>
+                <td>3.99</td>
+            </tr>
+            <tr>
+                <td>mitt </td>
+                <td>7.99</td>
+            </tr>
+            <tr>
+                <td>bat </td>
+                <td>4.99</td>
+            </tr>
+            <tr>
+                <td>baseball </td>
+                <td>3.99</td>
+            </tr>
+        </table>
+        <p>By default, the result set column header is the same name as the column, calculation or function. Notice “prod_price + 2.00” is the column header for the calculated column. You can rename a column to clarify the data in that column in the result
+            set. The AS keyword allows you to rename the column, this is known as an alias The string following the AS keyword replaced the column name, calculation or function. If there is spaces in the alias string you need to place quotes around it.</p>
+        <pre>
+ SELECT prod_name, prod_price + 2.00 AS ‘Markup Price’
+ FROM products
+</pre>
+        <table class='results'>
+            <tr>
+                <th>prod_name </th>
+                <th>Markup Price</th>
+            </tr>
+            <tr>
+                <td>bouncy ball </td>
+                <td>4.99</td>
+            </tr>
+            <tr>
+                <td>jacks </td>
+                <td>5.99</td>
+            </tr>
+            <tr>
+                <td>doll </td>
+                <td>7.99</td>
+            </tr>
+            <tr>
+                <td>top </td>
+                <td>3.99</td>
+            </tr>
+            <tr>
+                <td>jump rope </td>
+                <td>4.99</td>
+            </tr>
+            <tr>
+                <td>hockey puck </td>
+                <td>3.99</td>
+            </tr>
+            <tr>
+                <td>mitt </td>
+                <td>7.99</td>
+            </tr>
+            <tr>
+                <td>bat </td>
+                <td>4.99</td>
+            </tr>
+            <tr>
+                <td>baseball </td>
+                <td>3.99</td>
+            </tr>
+        </table>
+        <p>When making calculations in the SELECT statement, you can use any of the following arithmetic operators:</p>
+        <pre>
+ *  Multiplication		
+ /  Division		
+ %  Modulus		
+ +  Addition
+ -  Subtraction 
+</pre>
+        <p>If more than one arithmetic operator is used they follow the order of precedence as they are listed in the table above.</p>
+
+        <h3>4. Columns created with functions</h3>
+        <pre>
+ SELECT prod_name, ROUND(prod_price) AS nearest_dollar
+ FROM products 
+</pre>
+        <table class='results'>
+            <tr>
+                <th>prod_name</th>
+                <th>nearest_dollar</th>
+            </tr>
+            <tr>
+                <td>bouncy ball</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>jacks</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>doll</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>top</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>jump rope</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>hockey puck</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>mitt</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>bat</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>baseball</td>
+                <td>4</td>
+            </tr>
+        </table>
+
+        <p>SELECT statement uses the ROUND function with price as the parameter to round the price up to the nearest dollar. The alias is the string ‘nearest_dollar’.</p>
+
+        <p>The DISTINCT keyword can be used with SELECT to eliminate duplicate rows in a result set. For example without the DISTINCT keyword this SELECT statement would result in all prices of each product listed.</p>
+        <pre>
+ SELECT prod_price
+ FROM products
+</pre>
+        <table class='results'>
+            <tr>
+                <th>prod_price</th>
+            </tr>
+            <tr>
+                <td>2.99</td>
+            </tr>
+            <tr>
+                <td>3.99</td>
+            </tr>
+            <tr>
+                <td>5.99</td>
+            </tr>
+            <tr>
+                <td>1.99</td>
+            </tr>
+            <tr>
+                <td>2.99</td>
+            </tr>
+            <tr>
+                <td>1.99</td>
+            </tr>
+            <tr>
+                <td>5.99</td>
+            </tr>
+            <tr>
+                <td>2.99</td>
+            </tr>
+            <tr>
+                <td>1.99</td>
+            </tr>
+        </table>
+
+        <p>With the DISTINCT keyword all duplicate prices would be eliminated.</p>
+        <pre>
+ SELECT DISTINCT(prod_price)
+ FROM products  
+</pre>
+        <table class='results'>
+            <tr>
+                <th>prod_price</th>
+            </tr>
+            <tr>
+                <td>2.99</td>
+            </tr>
+            <tr>
+                <td>3.99</td>
+            </tr>
+            <tr>
+                <td>5.99</td>
+            </tr>
+            <tr>
+                <td>1.99</td>
+            </tr>
+        </table>
+
+        <h2>The WHERE Clause</h2>
+
+        <p>The WHERE clause lets you retrieve just the data you want. So only part of the table or column data shows up in the result set depending on the criteria in your WHERE clause. The WHERE clause filters the data.</p>
+
+        <h3>The SELECT Statement Syntax with WHERE:</h3>
+
+        <h3 class='syntax'>SELECT select_list<br> [FROM table_source]<br> [WHERE search_conditions]<br></h3>
+
+        <p>You can use comparison operators to restrict information in the result set. </p>
+        <pre>
+ =	   	   Equal to
+ &lt;		   Less than
+ &lt;=		   Less than or equal to
+ > 		   Greater than
+ >= 		   Greater than or equal to
+ &lt;> or !=	   Not equal to
+</pre>
+        <p>If you wanted to restrict your result set to only those products who have a price greater than $5.00, you could use this WHERE clause.</p>
+        <pre>
+ SELECT prod_name, prod_price
+ FROM products
+ WHERE prod_price > 5.00 
+</pre>
+        <table class='results'>
+            <tr>
+                <th>prod_name</th>
+                <th> prod_price</th>
+            </tr>
+            <tr>
+                <td>doll </td>
+                <td> 5.99</td>
+            </tr>
+            <tr>
+                <td>mitt </td>
+                <td> 5.99</td>
+            </tr>
+        </table>
+
+        <p>Or those products that are less than or equal to 2.99.</p>
+        <pre>
+ SELECT prod_name, prod_price
+ FROM products
+ WHERE prod_price &lt;= 2.99 
+</pre>
+        <table class='results'>
+            <tr>
+                <th>prod_name </th>
+                <th>prod_price</th>
+            </tr>
+            <tr>
+                <td>bouncy ball </td>
+                <td>2.99</td>
+            </tr>
+            <tr>
+                <td>top </td>
+                <td>1.99</td>
+            </tr>
+            <tr>
+                <td>jump rope </td>
+                <td>2.99</td>
+            </tr>
+            <tr>
+                <td>hockey puck </td>
+                <td>1.99</td>
+            </tr>
+            <tr>
+                <td>bat </td>
+                <td>2.99</td>
+            </tr>
+            <tr>
+                <td>baseball </td>
+                <td>1.99</td>
+            </tr>
+        </table>
+
+        <p>Or those products that are not equal to 2.99.</p>
+        <pre>
+ SELECT prod_name, prod_price
+ FROM products
+ WHERE prod_price &lt;> 2.99 
+</pre>
+        <table class='results'>
+            <tr>
+                <th>prod_name </th>
+                <th>prod_price</th>
+            </tr>
+            <tr>
+                <td>jacks </td>
+                <td>3.99</td>
+            </tr>
+            <tr>
+                <td>doll </td>
+                <td>5.99</td>
+            </tr>
+            <tr>
+                <td>top </td>
+                <td>1.99</td>
+            </tr>
+            <tr>
+                <td>hockey puck </td>
+                <td>1.99</td>
+            </tr>
+            <tr>
+                <td>mitt </td>
+                <td>5.99</td>
+            </tr>
+            <tr>
+                <td>baseball </td>
+                <td>1.99</td>
+            </tr>
+        </table>
+
+        <p>You can also use multiple conditions with logical operators. Use AND and OR to combine two or more search condition and NOT to negate a search condition.</p>
+        <p>If you have multiple conditions (or a compound condition), there is an order of precedence. First the NOT runs, then the AND, and then the OR. Use parenthesis to override this order of precedence.</p>
+        <pre>
+ AND    Both conditions have to be true for it to show up in the result set
+ OR     One of the conditions has to be true for it to show up in the result set
+ NOT    Negates the condition. 
+</pre>
+
+        <p>Select all products with their prices that have a price equal to 5.99 and also have the name of “doll”. There are two products that are 5.99 but only one with the name doll. Both conditions have to be true for the result to show up.</p>
+        <pre>
+ SELECT prod_name, prod_price
+ FROM products
+ WHERE prod_price = 5.99 AND prod_name = “doll” 
+</pre>
+        <table class='results'>
+            <tr>
+                <th>prod_name </th>
+                <th>prod_price</th>
+            </tr>
+            <tr>
+                <td>doll </td>
+                <td>5.99</td>
+            </tr>
+        </table>
+
+        <p>Select all products with their prices that have a price equal to 5.99 or has a name equal to “bat”. We get both products that are equal to 5.99 and a product name equal to “bat”. So either condition can be true for the result to show up.</p>
+        <pre>
+ SELECT prod_name, prod_price
+ FROM products
+ WHERE prod_price = 5.99 OR prod_name = “bat” 
+</pre>
+        <table class='results'>
+            <tr>
+                <td>prod_name </td>
+                <td>prod_price</td>
+            </tr>
+            <tr>
+                <td>doll </td>
+                <td>5.99</td>
+            </tr>
+            <tr>
+                <td>mitt </td>
+                <td>5.99</td>
+            </tr>
+            <tr>
+                <td>bat </td>
+                <td>2.99</td>
+            </tr>
+        </table>
+        <p>Select all products with their prices that do not have a price equal to 5.99. Reverses, or negates the condition and returns the opposite; all products with their prices that are not equal to 5.99.</p>
+        <pre>
+ SELECT prod_name, prod_price
+ FROM products
+ WHERE NOT prod_price = 5.99 
+</pre>
+        <table class='results'>
+            <tr>
+                <td>prod_name </td>
+                <td> prod_price</td>
+            </tr>
+            <tr>
+                <td>bouncy ball </td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>jacks </td>
+                <td>3.99</td>
+            </tr>
+            <tr>
+                <td>top </td>
+                <td> 1.99</td>
+            </tr>
+            <tr>
+                <td>jump rope </td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>hockey puck </td>
+                <td> 1.99</td>
+            </tr>
+            <tr>
+                <td>bat </td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>baseball </td>
+                <td> 1.99</td>
+            </tr>
+        </table>
+        <p>The IN operator can test an expression to a list of expressions in an IN phrase. </p>
+
+        <p>Select all products and their prices that have a price of 2.99, 1.99 or 5.99.</p>
+        <pre>
+ SELECT prod_name, prod_price
+ FROM products
+ WHERE prod_price IN (2.99, 1.99, 5.99)
+</pre>
+        <table class='results'>
+            <tr>
+                <td>prod_name </td>
+                <td> prod_price</td>
+            </tr>
+            <tr>
+                <td>bouncy ball </td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>doll </td>
+                <td> 5.99</td>
+            </tr>
+            <tr>
+                <td>top </td>
+                <td> 1.99</td>
+            </tr>
+            <tr>
+                <td>jump rope </td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>hockey puck </td>
+                <td> 1.99</td>
+            </tr>
+            <tr>
+                <td>mitt </td>
+                <td> 5.99</td>
+            </tr>
+            <tr>
+                <td>bat </td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>baseball </td>
+                <td> 1.99</td>
+            </tr>
+        </table>
+
+        <p>The BETWEEN operator can compare an expression with a range of values. Select all products and their prices that have a price ranging between 1.99 and 3.99.</p>
+        <pre>
+ SELECT prod_name, prod_price 
+ FROM products 
+ WHERE prod_price BETWEEN 1.99 AND 3.99
+</pre>
+        <table class='results'>
+            <tr>
+                <td>prod_name </td>
+                <td> prod_price</td>
+            </tr>
+            <tr>
+                <td>bouncy ball </td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>jacks </td>
+                <td> 3.99</td>
+            </tr>
+            <tr>
+                <td>top </td>
+                <td> 1.99</td>
+            </tr>
+            <tr>
+                <td>jump rope </td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>hockey puck </td>
+                <td> 1.99</td>
+            </tr>
+            <tr>
+                <td>bat </td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>baseball </td>
+                <td> 1.99</td>
+            </tr>
+        </table>
+
+        <p>The LIKE operator matches string patterns to a test expression. It uses two characters to represent characters. The _ underscore is a wild card to one character and the % percent is a wild card to any number of characters.</p>
+
+        <p>Select all products and their prices that begin with ‘b’ and have any number of character after the ‘b’.</p>
+        <pre>
+ SELECT prod_name, prod_price
+ FROM products
+ WHERE prod_name LIKE “b%” 
+</pre>
+        <table class='results'>
+            <tr>
+                <td>prod_name </td>
+                <td> prod_price</td>
+            </tr>
+            <tr>
+                <td>bouncy ball</td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>bat </td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>baseball </td>
+                <td> 1.99</td>
+            </tr>
+        </table>
+
+        <p>Select all products and their prices that end with ‘ll’ and have any number of character before the ‘ll’.</p>
+        <pre>
+ SELECT prod_name, prod_price
+ FROM products
+ WHERE prod_name LIKE “%ll” 
+</pre>
+        <table class='results'>
+            <tr>
+                <td>prod_name </td>
+                <td> prod_price</td>
+            </tr>
+            <tr>
+                <td>bouncy ball</td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>doll </td>
+                <td> 5.99</td>
+            </tr>
+            <tr>
+                <td>baseball </td>
+                <td> 1.99</td>
+            </tr>
+        </table>
+
+        <p>Select all products and their prices that have one character before an ‘o’ and any number of character after the ‘o’.</p>
+
+        <pre>
+ SELECT prod_name, prod_price
+ FROM products
+ WHERE prod_name LIKE “_o%” 
+</pre>
+        <table class='results'>
+            <tr>
+                <td>prod_name </td>
+                <td> prod_price</td>
+            </tr>
+            <tr>
+                <td>bouncy ball</td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>doll </td>
+                <td> 5.99</td>
+            </tr>
+            <tr>
+                <td>top </td>
+                <td> 1.99</td>
+            </tr>
+            <tr>
+                <td>hockey puck </td>
+                <td> 1.99</td>
+            </tr>
+        </table>
+
+        <P>The REGEXP operator allows much more complex string patterns to test expressions. Regular Expressions have many different symbols and are beyond the scope of this course, but here is an example.</P>
+
+        <P>In this example the | bar pattern represents ‘matching any of the patterns’. So only product names that have a ‘ck’ or an ‘all’ string within them will show up. </P>
+        <pre>
+ SELECT prod_name, prod_price
+ FROM products
+ WHERE prod_name REGEXP 'ck|all'; 
+</pre>
+
+        <table class='results'>
+            <tr>
+                <td>prod_name </td>
+                <td> prod_price</td>
+            </tr>
+            <tr>
+                <td>bouncy ball</td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>jacks </td>
+                <td> 3.99</td>
+            </tr>
+            <tr>
+                <td>hockey puck </td>
+                <td> 1.99</td>
+            </tr>
+            <tr>
+                <td>baseball </td>
+                <td> 1.99</td>
+            </tr>
+        </table>
+
+        <h3>There are other patterns like:</h3>
+        <pre>
+ ^      matches the beginning of a string
+ $      matches the end of a string
+ […]    any character inside the square brackets
+ p1|p2  matches any of the patterns p1 or p2 
+</pre>
+
+        <p>The IS NULL or IS NOT NULL will find all nulls or all that are not null as well. We only had one null in our table; the product category of the jump rope row.</p>
+        <p>Because NULLs are not values (they have no value), it is not possible to use comparison operators (=, < or >) with NULL.
+        <table class='results'>
+            <tr>
+                <td>prod_id </td>
+                <td>prod_name </td>
+                <td> prod_category </td>
+                <td>prod_price</td>
+            </tr>
+            <tr>
+                <td>t12 </td>
+                <td> bouncy ball </td>
+                <td> toy </td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>t15 </td>
+                <td> jacks </td>
+                <td> toy </td>
+                <td> 3.99</td>
+            </tr>
+            <tr>
+                <td>t18 </td>
+                <td> doll </td>
+                <td> toy </td>
+                <td> 5.99</td>
+            </tr>
+            <tr>
+                <td>t21 </td>
+                <td> top </td>
+                <td>toy </td>
+                <td> 1.99</td>
+            </tr>
+            <tr>
+                <td>s10 </td>
+                <td> jump rope </td>
+                <td> null </td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>s13 </td>
+                <td> hockey puck </td>
+                <td> sports</td>
+                <td> 1.99</td>
+            </tr>
+            <tr>
+                <td>s17 </td>
+                <td> mitt </td>
+                <td> sports </td>
+                <td> 5.99</td>
+            </tr>
+            <tr>
+                <td>s22 </td>
+                <td> bat </td>
+                <td>sports </td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>s24 </td>
+                <td> baseball </td>
+                <td> sports</td>
+                <td> 1.99</td>
+            </tr>
+        </table>
+        <pre>
+ SELECT prod_name, prod_price
+ FROM products
+ WHERE prod_category IS NULL
+</pre>
+
+        <table class='results'>
+            <tr>
+                <td>prod_name </td>
+                <td> prod_price</td>
+            </tr>
+            <tr>
+                <td>jump rope</td>
+                <td> 2.99</td>
+            </tr>
+        </table>
+        <pre>
+ SELECT prod_name, prod_price
+ FROM products
+ WHERE prod_category IS NOT NULL
+</pre>
+
+        <table class='results'>
+            <tr>
+                <td>prod_name </td>
+                <td> prod_price</td>
+            </tr>
+            <tr>
+                <td>bouncy ball</td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>jacks </td>
+                <td> 3.99</td>
+            </tr>
+            <tr>
+                <td>doll </td>
+                <td> 5.99</td>
+            </tr>
+            <tr>
+                <td>top </td>
+                <td> 1.99</td>
+            </tr>
+            <tr>
+                <td>hockey puck </td>
+                <td> 1.99</td>
+            </tr>
+            <tr>
+                <td>mitt </td>
+                <td> 5.99</td>
+            </tr>
+            <tr>
+                <td>bat </td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>baseball </td>
+                <td> 1.99</td>
+            </tr>
+        </table>
+        <p>ORDER BY clause will sort your result set. You can specify one or more column names to sort the result set.</p>
+
+        <h3>The SELECT Statement Syntax with ORDER BY:</h3>
+
+        <h3 class='syntax'>
+            SELECT select_list<br> [FROM table_source]<br> [WHERE search_conditions]<br> [ORDER BY order_by_list]<br>
+        </h3>
+        <p>With this ORDER BY the result set is sorted alphabetically by product name.</p>
+        <pre>
+ SELECT prod_name, prod_price
+ FROM products
+ WHERE prod_price > 1.99
+ ORDER BY prod_name
+</pre>
+
+        <table class='results'>
+            <tr>
+                <th>prod_name </th>
+                <th>prod_price</th>
+            </tr>
+            <tr>
+                <td>bat </td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>bouncy ball</td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>doll </td>
+                <td> 5.99</td>
+            </tr>
+            <tr>
+                <td>jacks </td>
+                <td> 3.99</td>
+            </tr>
+            <tr>
+                <td>jump rope </td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>mitt </td>
+                <td> 5.99</td>
+            </tr>
+        </table>
+
+
+        <p>With this ORDER BY the result set is sorted numerically by product price.</p>
+
+        <pre>
+ SELECT prod_name, prod_price
+ FROM products
+ ORDER BY prod_price
+</pre>
+
+        <table class='results'>
+            <tr>
+                <th>prod_name </th>
+                <th>prod_price</th>
+            </tr>
+            <tr>
+                <td>top </td>
+                <td> 1.99</td>
+            </tr>
+            <tr>
+                <td>hockey puck </td>
+                <td> 1.99</td>
+            </tr>
+            <tr>
+                <td>baseball</td>
+                <td> 1.99</td>
+            </tr>
+            <tr>
+                <td>jump rope </td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>bat </td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>jacks </td>
+                <td> 3.99</td>
+            </tr>
+            <tr>
+                <td>doll </td>
+                <td> 5.99</td>
+            </tr>
+            <tr>
+                <td>mitt </td>
+                <td> 5.99</td>
+            </tr>
+        </table>
+
+
+        <p>With this ORDER BY the result set is sorted numerically by product price then within the product price it is also sorted by product name.</p>
+
+        <pre>
+ SELECT prod_name, prod_price
+ FROM products
+ ORDER BY prod_price, prod_name
+</pre>
+
+        <table class='results'>
+            <tr>
+                <th>prod_name </th>
+                <th>prod_price</th>
+            </tr>
+            <tr>
+                <td>baseball</td>
+                <td> 1.99</td>
+            </tr>
+            <tr>
+                <td>hockey puck </td>
+                <td> 1.99</td>
+            </tr>
+            <tr>
+                <td>top </td>
+                <td> 1.99</td>
+            </tr>
+            <tr>
+                <td>bat </td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>bouncy ball </td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>jump rope </td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>jacks </td>
+                <td> 3.99</td>
+            </tr>
+            <tr>
+                <td>doll </td>
+                <td> 5.99</td>
+            </tr>
+            <tr>
+                <td>mitt </td>
+                <td> 5.99</td>
+            </tr>
+        </table>
+
+
+        <p>You can reverse the sort from the default ascending (ASC) to descending using the keyword DESC. The ASC keyword is assumed unless DESC is used. Now the prices are from largest price to smallest price.</p>
+        <pre>
+ SELECT prod_name, prod_price
+ FROM products
+ ORDER BY prod_price DESC
+</pre>
+        <table class='results'>
+            <tr>
+                <th>prod_name </th>
+                <th> prod_price</th>
+            </tr>
+            <tr>
+                <td>mitt </td>
+                <td> 5.99</td>
+            </tr>
+            <tr>
+                <td>doll </td>
+                <td> 5.99</td>
+            </tr>
+            <tr>
+                <td>jacks </td>
+                <td> 3.99</td>
+            </tr>
+            <tr>
+                <td>bat </td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>jump rope </td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>bouncy ball </td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>baseball </td>
+                <td> 1.99</td>
+            </tr>
+            <tr>
+                <td>hockey puck </td>
+                <td> 1.99</td>
+            </tr>
+            <tr>
+                <td>top </td>
+                <td> 1.99</td>
+            </tr>
+        </table>
+
+        <p>The LIMIT clause specifies the maximum number of rows that will be returned.</p>
+
+        <h3>The SELECT Statement Syntax with LIMIT:</h3>
+        <h3 class='syntax'>
+            SELECT select_list<br> [FROM table_source]<br> [WHERE search_conditions]<br> [ORDER BY order_by_list]<br> [LIMIT row_limit]<br>
+        </h3>
+
+        <p>So in this statement the result set is limited to 4 rows, even though there are 9 products in the table that would have been a part of the result set if there was no LIMIT.</p>
+
+        <pre>
+ SELECT prod_name, prod_price
+ FROM products
+ LIMIT 4
+</pre>
+
+        <table class='results'>
+            <tr>
+                <td>prod_name </td>
+                <td> prod_price</td>
+            </tr>
+            <tr>
+                <td>bouncy ball</td>
+                <td> 2.99</td>
+            </tr>
+            <tr>
+                <td>jacks </td>
+                <td> 3.99</td>
+            </tr>
+            <tr>
+                <td>doll </td>
+                <td> 5.99</td>
+            </tr>
+            <tr>
+                <td>top </td>
+                <td> 1.99</td>
+            </tr>
+        </table>
+
+        <p>Remember we have to type in the clauses in a specific order. SELECT, then FROM, then WHERE, then ORDER BY, and then LIMIT</p>
+
+        <h3>This is the order of how you must write the code.</h3>
+        <h3 class='syntax'>
+            SELECT <br> FROM <br> WHERE <br> ORDER BY <br> LIMIT <br>
+        </h3>
+
+        <h3>But the order in which the system actually executes the clauses is different. This is referred to as the Order of Execution.</h3>
+
+        <h3 class='syntax'>
+            FROM<br> WHERE
+            <br> SELECT
+            <br> ORDER BY<br> LIMIT
+            <br>
+        </h3>
+
+        <p>The data from the entire table is retrieved, then that is filtered by the WHERE criteria. The columns, calculations or functions that will show up are determined in SELECT. Then that resulting data is sorted then limited.</p>
+
+        <p>This is why an alias that was set up in the SELECT clause can used in an ORDER BY but not a WHERE.</p>
+
+        <pre>
+ SELECT prod_name, prod_price + 2.00 AS mark_up
+ FROM products
+ WHERE prod_price > 3.99
+ ORDER BY mark_up
+</pre>
+
+        <table class='results'>
+            <tr>
+                <td>prod_name </td>
+                <td> prod_price</td>
+            </tr>
+            <tr>
+                <td>bouncy ball</td>
+                <td> 4.99</td>
+            </tr>
+            <tr>
+                <td>jump rope</td>
+                <td> 4.99</td>
+            </tr>
+            <tr>
+                <td>bat</td>
+                <td> 4.99</td>
+            </tr>
+            <tr>
+                <td>jacks </td>
+                <td> 5.99</td>
+            </tr>
+            <tr>
+                <td>doll </td>
+                <td> 5.99</td>
+            </tr>
+            <tr>
+                <td>mitt </td>
+                <td> 7.99</td>
+            </tr>
+        </table>
+    </main>
+</body>
+
+</html>

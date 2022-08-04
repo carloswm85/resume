@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Poly:ital@0;1&display=swap');
+
+@import 'normalize';
+
+@import 'variables';
+
+@import 'small';
+
+@media only screen and (min-width: 768px) {
+	@import 'medium';
+}
+
+@media only screen and (min-width: 950px) {
+	@import 'large';
+}
+
+/*
+	The partials files are:
+		_normalize.scss
+		_small.scss
+		_medium.scss
+		_large.scss
+		_variables.scss
+*/

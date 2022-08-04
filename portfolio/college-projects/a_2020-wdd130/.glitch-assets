@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <title>Site Plan</title>
+    <link type="text/css" rel="stylesheet" href="../css/courses.css">
+</head>
+
+<body>
+    <header>
+        <h1>[Dry Oar] Site Plan</h1>
+        <h2>FirstName LastName</h2>
+        <h2>WDD 130-[section]</h2>
+        <!-- In the header above, add your name and class number. For example if you are in section 3 you would put WDD 100.03 -->
+    </header>
+    <main>
+
+        <h2>Overview</h2>>
+        <hr>
+        <h3>Purpose</h3>
+        <p>[Your purpose here]</h2>
+        
+
+        <h3>Audience</h2>
+        <p>[Your audience here]</p>
+        
+
+        <h2>Branding</h2>
+        <h3>Website Logo</h3>
+        <!-- You are not required to use this logo for your site…but you must have a logo for your website.  I can offer additional logos to use, or you can create your own-->
+        <img src="" alt="Logo image">
+        <h2>
+
+ 
+
+    </main>
+
+   
+
+
+</body>
+
+
+{"name":"image.png","date":"2018-05-30T18:22:59.936Z","url":"https://cdn.glitch.com/ce157a30-32b9-4d91-93c9-e3168e11c594%2Fimage.png","type":"image/png","size":14529,"imageWidth":432,"imageHeight":84,"thumbnail":"https://cdn.glitch.com/ce157a30-32b9-4d91-93c9-e3168e11c594%2Fthumbnails%2Fimage.png","thumbnailWidth":330,"thumbnailHeight":65,"dominantColor":null,"uuid":"ZpAYsFcc0SdugPRE"}
+{"name":"wireframe-boxes-labels.jpg","date":"2018-05-30T19:56:15.064Z","url":"https://cdn.glitch.com/ce157a30-32b9-4d91-93c9-e3168e11c594%2Fwireframe-boxes-labels.jpg","type":"image/jpeg","size":192305,"imageWidth":900,"imageHeight":994,"thumbnail":"https://cdn.glitch.com/ce157a30-32b9-4d91-93c9-e3168e11c594%2Fthumbnails%2Fwireframe-boxes-labels.jpg","thumbnailWidth":299,"thumbnailHeight":330,"dominantColor":"rgb(252,251,251)","uuid":"xZqdCt7R8CkTlRs1"}
+{"name":"IMG_5684.jpg","date":"2018-12-27T03:08:49.047Z","url":"https://cdn.glitch.com/e7d21069-86b1-4294-9067-59ab154d710e%2FIMG_5684.jpg","type":"image/jpeg","size":1463853,"imageWidth":2448,"imageHeight":3264,"thumbnail":"https://cdn.glitch.com/e7d21069-86b1-4294-9067-59ab154d710e%2Fthumbnails%2FIMG_5684.jpg","thumbnailWidth":248,"thumbnailHeight":330,"dominantColor":"rgb(153,189,227)","uuid":"SPE6R7TR8czAF7pM"}
+{"uuid":"ZpAYsFcc0SdugPRE","deleted":true}
+{"name":"youtube.png","date":"2020-01-31T19:30:18.581Z","url":"https://cdn.glitch.com/b0ce8490-7c4d-44f3-b2b1-a3506679abd4%2Fyoutube.png","type":"image/png","size":1511,"imageWidth":64,"imageHeight":64,"thumbnail":"https://cdn.glitch.com/b0ce8490-7c4d-44f3-b2b1-a3506679abd4%2Fyoutube.png","thumbnailWidth":64,"thumbnailHeight":64,"uuid":"vJ83vMQN5BzBy3si"}
+{"name":"facebook.png","date":"2020-01-31T19:30:32.252Z","url":"https://cdn.glitch.com/b0ce8490-7c4d-44f3-b2b1-a3506679abd4%2Ffacebook.png","type":"image/png","size":1285,"imageWidth":64,"imageHeight":64,"thumbnail":"https://cdn.glitch.com/b0ce8490-7c4d-44f3-b2b1-a3506679abd4%2Ffacebook.png","thumbnailWidth":64,"thumbnailHeight":64,"uuid":"zBdLZoHsSYCLOxKP"}
+{"name":"instagram.png","date":"2020-01-31T19:30:42.437Z","url":"https://cdn.glitch.com/b0ce8490-7c4d-44f3-b2b1-a3506679abd4%2Finstagram.png","type":"image/png","size":1614,"imageWidth":64,"imageHeight":64,"thumbnail":"https://cdn.glitch.com/b0ce8490-7c4d-44f3-b2b1-a3506679abd4%2Finstagram.png","thumbnailWidth":64,"thumbnailHeight":64,"uuid":"emfm7YSdCZoyqqzf"}
+{"name":"del.jpg","date":"2020-03-07T15:01:05.551Z","url":"https://cdn.glitch.com/2088673e-e699-4c93-8ed7-e09fff8d3725%2Fdel.jpg","type":"image/jpeg","size":130717,"imageWidth":940,"imageHeight":254,"thumbnail":"https://cdn.glitch.com/2088673e-e699-4c93-8ed7-e09fff8d3725%2Fthumbnails%2Fdel.jpg","thumbnailWidth":330,"thumbnailHeight":90,"uuid":"ZNmfMG0FC9chmL9M"}
+{"uuid":"ZNmfMG0FC9chmL9M","deleted":true}
+{"name":"del.jpg","date":"2020-03-07T15:32:32.478Z","url":"https://cdn.glitch.com/2088673e-e699-4c93-8ed7-e09fff8d3725%2Fdel.jpg","type":"image/jpeg","size":130613,"imageWidth":2000,"imageHeight":1050,"thumbnail":"https://cdn.glitch.com/2088673e-e699-4c93-8ed7-e09fff8d3725%2Fthumbnails%2Fdel.jpg","thumbnailWidth":330,"thumbnailHeight":174,"uuid":"YVw9PBs5MvW8W9S7"}
+</html>

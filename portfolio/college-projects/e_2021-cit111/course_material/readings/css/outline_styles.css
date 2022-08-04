@@ -1,0 +1,273 @@
+@font-face {
+    font-family: 'ralewaysemibold';
+    src: url('https://cit111byui.github.io/text/fonts/raleway-semibold-webfont.woff2') format('woff2'),
+         url('https://cit111byui.github.io/text/fonts/raleway-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
+    padding: 15px;
+    background-color: #FFFFFF;
+
+}
+
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    
+
+}
+.nav {
+    width: 200px;
+    z-index: 1;
+    border: 2px solid black;
+    margin: 20px 120px 20px 100px;
+    position: fixed;
+    top: 20px;
+    left: 5px;
+    overflow-x: hidden;
+}
+
+/* Accordian Nav */
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+  font-family: 'ralewaysemibold', Helvetica, sans-serif;
+  background-color: #F5F5F5;
+  color: #444;
+  cursor: pointer;
+  padding: 5px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  font-size: .9em;
+}
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 0 15px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.panel a {
+    font-family: 'ralewaysemibold', Helvetica, sans-serif;
+    text-decoration: none;
+    color: black;
+}
+.panel a:hover {
+    color: gray;
+}
+.accordion:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 12px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
+}
+.accordian p {
+    line-height: 1.1em;
+}
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+#text {
+  margin-left: 360px; /* Same width as the sidebar + left position in px */
+  font-size: 12px; /* Increased text to enable scrolling */
+  padding: 0px 60px 0px 40px;
+}
+h1 {
+    font-family: 'ralewaysemibold', Helvetica, sans-serif;
+    font-size: 2.25em;
+    margin-top: 10px;
+}
+
+h2 {
+    font-family: 'ralewaysemibold', Helvetica, sans-serif;
+    font-size: 1.75em;
+    margin-top: 35px;
+}
+
+h3 {
+    font-family: 'ralewaysemibold', Helvetica, sans-serif;
+    font-size: 1.1em;
+    margin: 0;
+    padding: 5px;
+    margin-left: 20px;
+}
+
+table+h3 {
+    margin-top: 20px;
+}
+
+.results {
+    background-color: #F5F5F5;
+    margin-left: 75px;
+}
+
+.results th,
+.results td {
+    text-align: left;
+    padding: 8px;
+    font-size: 1.2em;
+}
+
+.results th+th,
+.results td+td {
+    border-left: 1px solid #ddd;
+}
+
+.results th {
+    border-bottom: 1px solid black;
+}
+
+.results td {
+    border-bottom: 1px solid #ddd;
+}
+
+p,
+code {
+    font-family: Georgia, serif;
+    font-size: 1em;
+}
+
+#text p {
+    line-height: 1.2em;
+}
+
+#text p {
+    font-size: 1.2em;
+}
+#text img {
+    width: 100%;
+}
+
+pre {
+    background-color: #F5F5F5;
+    max-width: 1000px;
+    overflow: auto;
+    font-size: 1.2em;
+}
+
+.syntax {
+    background-color: transparent;
+    margin-top: 15px;
+    border-top: 1px solid #ddd;
+    font-family: monospace, Arial, sans-serif;
+    font-weight: bold;
+}
+
+.question-form p {
+    display: flex;
+}
+
+.question {
+    margin: 3px;
+}
+
+.question p {
+    margin: 0;
+}
+
+.question-form p input {
+    padding: 8px;
+    display: inline-block;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    width: 3em;
+    height: 1em;
+    align-self: center;
+}
+
+.erd-data {
+    display: grid;
+    grid-template-columns: 50% 30%;
+    grid-gap: 25px;
+    font-size: 1.5em;
+}
+
+.img-holder {
+    grid-column: 2/3;
+    grid-row: 1/4;
+    width: 50%;
+    padding-left: 30px;
+}
+
+#table-1 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    width: 100%;
+}
+
+#table-2 {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    width: 100%;
+}
+
+#table-3 {
+    grid-column: 1/2;
+    grid-row: 3/4;
+    width: 100%;
+}
+
+.multi-table {
+    background-color: #F5F5F5;
+    margin-top: 10px;
+}
+
+.multi-table th,
+.multi-table td {
+    text-align: left;
+    padding: 8px;
+    font-size: .75em;
+}
+
+.multi-table th+th,
+.multi-table td+td {
+    border-left: 1px solid #ddd;
+}
+
+.multi-table th {
+    border-bottom: 1px solid black;
+}
+
+.multi-table td {
+    border-bottom: 1px solid #ddd;
+}
+
+.narrowimg {
+    width: 70%;
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+@media only screen and (max-width: 800px) {
+    
+    #text {
+    margin-left: 40px; /* Same width as the sidebar + left position in px */
+  font-size: 12px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+    }
+    .nav {
+    position: static;
+    width: 350px;
+    margin: 20px 80px 20px 80px;
+    
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    }
+}
+ 

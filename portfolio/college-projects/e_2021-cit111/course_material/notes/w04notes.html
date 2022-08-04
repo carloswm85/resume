@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>W04 Teaching Notes</title>
+  <link rel="stylesheet" type="text/css" href="notes.css">
+</head>
+<body>
+  <p><strong style="font-family: sans-serif; font-size: 1rem;">Note:</strong><span
+      style="font-family: sans-serif; font-size: 1rem;"> The weekly Teaching Notes only identify week-specific
+      considerations. Please refer to the </span><a style="font-family: sans-serif; font-size: 1rem;"
+      title="General Teaching Notes" href="https://byui.instructure.com/courses/1521/pages/general-teaching-notes"
+      target="_blank" rel="noopener"
+      data-api-endpoint="https://byui.instructure.com/api/v1/courses/1521/pages/general-teaching-notes"
+      data-api-returntype="Page">General Teaching Notes</a><span style="font-family: sans-serif; font-size: 1rem;"> for
+      repeating course facilitation expectations.</span></p>
+  <div class="objectives">
+    <h2>Week 04 Outcomes</h2>
+    <ul>
+      <li>Learn about a relational database modeling system (CASE tool)</li>
+      <li>Understand what a relational database is and how the keys are used in relationships</li>
+      <li>Understand what an entity is and how they are related to other entities</li>
+      <li>Understand what attributes might belong to an entity and the datatypes of those attributes</li>
+    </ul>
+  </div>
+  <div class="beforeTheWeekBegins">
+    <h2>Before the Week Begins</h2>
+    <ul>
+      <li>Students will go over preparation materials and complete the preparation check before the first class of the
+        week.</li>
+      <li>Consider reviewing the teaching tips and suggestions in the CIT111 - W04 Course Group discussion <a
+          href="https://byui.instructure.com/courses/70298/discussion_topics/1457734"
+          data-api-endpoint="https://byui.instructure.com/api/v1/courses/70298/discussion_topics/1457734"
+          data-api-returntype="Discussion">https://byui.instructure.com/courses/70298/discussion_topics/1457734</a>.
+      </li>
+    </ul>
+  </div>
+  <div class="duringTheWeek">
+    <h2>During the Week</h2>
+      <h3>First of the week:</h3>
+      <ul>
+        <li>The students should have completed the preparation materials and check before the beginning of the week and
+          be ready for learning, activities, and discussions.</li>
+      </ul>
+        <ul>
+          <h4>(W04 - Relational Databases)</h4>
+          <a href="https://cit111byui.github.io/case_studies/w04_relational_databases.pdf" target="_blank">Online Draft</a><br>
+          <li>Take the ERD you showed last week with their gathered data and now show them the tables with data. Explain
+            again the tables and relationships involved. Explain that this is what makes a relational database
+            relational. Talk about primary and foreign keys that were used. Show the design view of a table and also go
+            over Not Null, Default values and Auto-increment and what they mean. Look at the data in each table and
+            understand how primary keys won't repeat, but foreign keys might with a many relationship.</li>
+        </ul>
+          <ul>
+                <h4>(W04 - Ward Design)</h4>
+                <li>The following is a video that shows steps to design ward data into an ERD. Let the students lead the
+                  design by asking them questions and let them ask you questions, the video is just for ideas. It's more
+                  fun if they have discussion about it and are not just watching you do it.</li><br>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/lWhgHu13f94" frameborder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+                <br>
+                <li>This is a great place to cover referential integrity by explaining that you can't delete a ward when there are members that are in that ward and you can't add a member to a ward that doesn't exist.</li>
+                <li>Remind students of the quiz the second class of the week.&nbsp;</li>
+          </ul>
+            <h3>Mid-week</h3>
+              <ul>
+                <li>Have them complete their quiz by themselves once and then with others for the second attempt. The
+                  discussions and debates during the second attempt as a group is a great 'teach one another' activity.
+                  The two scores will be averaged for their final quiz score.</li>
+              </ul>
+              <ul>
+                <h4>(W04 - Database Design Practice):</h4>
+                <a href="https://cit111byui.github.io/case_studies/w04_database_design_practice.pdf" target="_blank">Online Draft</a><br>
+                <li>Show them a website that uses a database to populate the content on the web pages. Show them how
+                  they might attempt to reverse engineer the database structure. Show the entities and attributes of the
+                  entities. They will be doing this in their homework this week. For example you could show them:
+                  <a href="https://www.churchofjesuschrist.org/music/index/hymns" target="_blank">https://www.churchofjesuschrist.org/music/index/hymns</a> and talk about the entities and attributes that
+                  might be needed.</li>
+                  <li>Let them come up with ideas for entities, attributes, and relationships as practice for their homework.</li>
+                <li>Here's a very simplistic ERD that might be created from that site:</li>
+                <li><img src="../text/images/hymnserd.png" alt="hymns ERD" width='500px'></li>
+                <li>For SQL practice/overview with the hymns example there are DML (Insert, Select) and DDL (Create, Drop) statements available in Digging Deeper this week.</li>
+              </ul>
+            <h3>End of the Week</h3>
+              <ul>
+                <li style="list-style-type: none;"></li>
+                <li>The homework due Saturday (W04 - Database Design) will be
+                  <ul>
+                    <li>creating an ERD of any database-driven website that they choose.</li>
+                  </ul>
+                </li>
+              </ul>
+  </div>
+  <div class="gradingFeedback">
+    <h2>Grading/Feedback</h2>
+    <ul>
+      <li><strong>Instructor:</strong> The check and quiz are auto-graded. The homework will be creating an ERD and
+        submiting an image of that ERD. Be very lenient on their design, but give good feedback on how their entities
+        and attributes and relationships are set up.</li>
+    </ul>
+  </div>
+  <div class="lookingAhead">
+    <h2>Looking Ahead</h2>
+    <ul>
+      <li>Remind students that they have readings and videos to watch and a check to complete before the first class
+        next week.</li>
+    </ul>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+
+@media only screen and (min-width: 950px) {
+  h1 {
+    color: red;
+  }
+  
+  .navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .navigation a {
+    width: calc(100% / 6);
+  }
+    
+  body {
+    margin: 30px auto;
+    width: 60em; 
+  }
+
+  main {
+    border: 1px solid white;
+  }
+
+  header, footer {
+    margin: 0 -2%;
+  }
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link id="custom-css" rel="stylesheet" href="https://carloswm85.github.io/css/public-styles/dark-orange.css">
+	<link rel="icon" href="../../favicon.png" type="image/png">
+
+	<!-- highlight.js -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/vs2015.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/javascript.min.js"></script>
+	<script>
+		hljs.highlightAll();
+
+	</script>
+
+	<title>WDD330 - Week 11</title>
+</head>
+
+<body>
+	<div class="go-back">
+		<a href="../../">&#8666;</a>
+	</div>
+
+	<h1>Week 11</h1>
+
+
+	<!-- Assignment Section -->
+	<section class="border-bottom">
+		<h2>Assignments and Projects</h2>
+		<ol>
+			<li>Weekly Report: <a href="report.html" target="_blank">Here &#8663;</a></li>
+			<li>Team Activity:
+				<ul>
+					<li>Instructions: <a href="../../course-content/ponder/team11.html" target="_blank">team11.html &#8663;</a></li>
+		</ol>
+	</section>
+
+	<!-- Extra Section -->
+	<section class="border-bottom">
+		<h2>Notes</h2>
+
+		<ul>
+			<li><span class="yellow">AJAX Request Methods</span>:
+				<ul>
+					<li><b>GET</b> → Requests a representation of the specified resource. Requests using GET should only retrieve data.</li>
+					<li><b>HEAD</b> → Asks for a response identical to a GET request, but without the response body.</li>
+					<li><b>POST</b> → Submits an entity to the specified resource, often causing a change in state or side effects on the server.</li>
+					<li><b>PUT</b> → Replaces all current representations of the target resource with the request payload.</li>
+					<li><b>DELETE</b> → Deletes the specified resource.</li>
+					<li><b>CONNECT</b> → Establishes a tunnel to the server identified by the target resource.</li>
+					<li><b>OPTIONS</b> → Describes the communication options for the target resource.</li>
+					<li><b>TRACE</b> → Performs a message loop-back test along the path to the target resource.</li>
+					<li><b>PATCH</b> → Applies partial modifications to a resource.</li>
+
+					<li>More notes:
+						<ul>
+							<li>One thing to note is that PUT should be idempotent, doing the same PUT request multiple times should ideally produce the same result as doing a single PUT request. However, POST is not idempotent, so doing several POST requests should (or will) create multiple new records.</li>
+						</ul>
+					</li>
+
+					<li>Links:
+						<ul>
+							<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods" target="_blank">MDN HTTP request methods &#8663;</a></li>
+							<li><a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods" target="_blank">Hypertext Transfer Protocol &#8663;</a></li>
+						</ul>
+					</li>
+
+				</ul>
+			</li>
+		</ul>
+	</section>
+
+	<!-- Footer -->
+	<footer>
+		<p>
+			By Carlos - Last edit: <span class="last-edit"></span>
+		</p>
+	</footer>
+</body>
+
+<script src="../../source/js/other.js"></script>
+
+</html>

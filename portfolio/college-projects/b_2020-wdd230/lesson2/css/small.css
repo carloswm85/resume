@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Mono|Supermercado+One&display=swap');
+
+body {
+  background-color: #e9ecef;
+  padding: 5%;
+  max-width: 950px;
+  text-align: center;
+  color: #000000;
+  margin: 0 auto;
+}
+
+footer, header {
+  font-weight: bold;
+  background-color: floralwhite;
+  border: 1px solid #000000;
+  border-radius: 10px;
+}
+
+main {
+  width: 100%;
+  text-align: left;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
+}
+
+h1 {
+  font-family: 'Supermercado One', cursive;
+  font-size: 3em;
+  font-weight: lighter;
+}
+
+h2 {
+  border-bottom: solid 1px #000000;
+  height: 60px;
+}
+
+h2, h3, a, .link-site {
+  text-align: center;
+}
+
+p, ul, h2, h3 {
+  font-family: 'PT Mono', monospace;
+}
+
+nav {
+  margin-bottom: 30px;
+}
+
+a {
+  font-weight: bold;
+  color: blue;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  min-width: 50%;
+  margin: 0 auto;
+  height: auto;
+  border: blue 1px solid;
+}
+
+div {
+  background-color: floralwhite;
+  padding: 5%;
+  margin: 5% auto;
+  width: 90%;
+  border: solid 1px #000000;
+  border-radius: 10px;
+}

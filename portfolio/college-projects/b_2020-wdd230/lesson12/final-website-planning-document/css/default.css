@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Poly:ital@0;1&display=swap');
+
+h1, h2, h3 {
+  font-family: 'Poly', serif;
+}
+
+h1 {
+  font-size: 3em;
+  line-height: normal;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 2em;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+h4 {
+  font-size: 1.5em;
+  font-style: italic;
+}
+
+body {
+  font-family:'Open Sans';
+  max-width: 70em;
+  margin: 3em auto;
+  background-color: #f7ab34;
+  line-height: 1.5em;
+}
+
+main {
+  max-width: 950px;
+  margin: 1em auto;
+}
+
+header, footer {
+  padding: 2em 3em;
+  background-color: #2bbed8;
+  border: solid 1px black;
+}
+
+footer p {
+  text-align: center;
+  font-size: 1.5em;
+  font-family:    'Poly', serif
+  ;
+}
+
+ul a, li a {
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  line-height: 1.8em;
+}
+
+table {
+  width: 100%;
+}
+
+table, th, tr, td {
+  border-collapse: collapse;
+  border: 1px solid;
+}
+
+td {
+  text-align: center;
+  padding: 2em;
+}
+
+img {
+  display: block;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+section {
+  border: black dashed 2px;
+  background-color: #9df6e6;
+  margin: 1em 0;
+  padding: 1.5em 3.5em;
+}
+
+/* CLASSES */
+
+.span-bold {
+  font-weight: bold;
+}
+
+.span-italic {
+  font-style: italic;
+}
+
+.span-header-font {
+  font-family: 'Poly', serif;
+}
+
+.span-resize-icon {
+  font-size: 1.5em;
+}
+
+.color-palette {
+  display: block;
+  border: solid 1px black;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.header-paragraph {
+  font-size: 1.2em;
+  font-style: italic;
+}
+
+.bigger-image {
+  max-width: 850px;
+}
+
+.go-up {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: block;
+  width: 4em;
+  border-radius: 50px;
+  text-align: center;
+  padding: 1em;
+  font-size: 1.5em;
+  background-color: #0770b5;
+  border: black 1px solid;
+  text-decoration: none;  
+}
+
+.link-white {
+  color: white;
+  text-decoration: none;
+}

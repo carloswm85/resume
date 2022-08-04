@@ -1,0 +1,15 @@
+@media only screen and (min-width: 60em) {
+  body {
+    margin: 30px auto;
+    width: 60em;
+    
+  }
+
+  main {
+    border: 1px solid white;
+  }
+
+  header, footer {
+    margin: 0 -2%;
+  }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../css/single-style.css">
+	<link rel="stylesheet" href="../../source/css/table-style.css">
+	<link rel="icon" href="../favicon.png" type="image/png">
+	<title>Navigating the DOM Tree</title>
+</head>
+<body class="single-style">
+	<table class="tg">
+		<thead>
+			<tr>
+				<th class="tg-qjj0" colspan="4">Navigating the DOM Tree</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="tg-7u20">Identifying</td>
+				<td class="tg-7u20">Getting </td>
+				<td class="tg-7u20">Setting</td>
+				<td class="tg-aodu">Other</td>
+			</tr>
+			<tr>
+				<td class="tg-lvnx" colspan="4">ELEMENTS</td>
+			</tr>
+			<tr>
+				<td class="tg-7s7t">const b = document.body;<br>typeof b;<br>b.nodeType;<br>b.nodeName;<br><br>lista[0];<br>lista.childNodes;<br>lista.children;<br>lista.firstChild;<br>lista.lastChild;<br><br>b.parentNode;<br>n.nextSiblingl;<br>n.previousSibling;</td>
+				<td class="tg-7s7t">var value;<br>const doc = document;<br><br>value = doc.getElementbyId('someId');<br>lista = doc.getElementsByTagName('li');<br><br>value = doc.getElementsByClassName('someClass');<br><br>value = doc.querySelector('#someId');<br><br>value = doc.querySelectorAll('.someClass');<br>value = doc.querySelector('li#someOtherId');<br><br>// Finding value<br>const textNode = element.firstChild;<br><br>textNode.nodeValue;<br>// or in IE8<br>textNode.textContent;<br><br>// Getting all child elements as string<br>lista.innerHTML;</td>
+				<td class="tg-7s7t">lista.insertBefore(newValue, oldValue);<br>lista.removeChild(newValue);<br><br>// Create in 3 steps<br>const newEl = doc.createElement('li');<br>const texto = doc.createTextNode('My texto');<br>newEl.appendChild(texto);<br>// Make a function out of this.</td>
+				<td class="tg-d1y6">lista.children.length;</td>
+			</tr>
+			<tr>
+				<td class="tg-lvnx" colspan="4">ATTRIBUTES</td>
+			</tr>
+			<tr>
+				<td class="tg-7s7t">value.className;<br><br>value.classList.contains('class1');<br><br>value.id;</td>
+				<td class="tg-7s7t">value.getAttribute('class');<br>value.getAttribute('src');<br>// etc.<br><br>// GET all applied styles<br>getComputedStyle(value);<br>getComputedStule(value).getPropertyCSSValue('color').cssText;</td>
+				<td class="tg-7s7t">value.setAttribute('id', 'amazon');<br><br><br>value.classList.add('warrior');<br>value.classList.remove('warrior');<br><br>value.classList.toggle('class1');</td>
+				<td class="tg-d1y6">// STYLE<br>const el = doc.querySelector('#someId');<br>el.style.color = "red";<br>el.style.display = 'none';</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<!-- Footer -->
+	<footer>
+		<p>
+			By Carlos - Last edit: <span class="last-edit"></span>
+		</p>
+	</footer>
+	
+	<script src="../../source/js/other.js"></script>
+</body>
+</html>

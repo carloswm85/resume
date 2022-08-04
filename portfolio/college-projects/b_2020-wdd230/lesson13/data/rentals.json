@@ -1,0 +1,58 @@
+{
+  "rentals": [
+    {
+      "type": "~Honda Metropolitan Scooter 2",
+      "capacity": 1,
+      "reservationHalf": 20,
+      "reservationFull": 30,
+      "walkinHalf": 25,
+      "walkinFull": 35,
+      "features": "49cc"
+    },
+    {
+      "type": "~Honda Dio Scooter",
+      "capacity": 2,
+      "reservationHalf": 30,
+      "reservationFull": 40,
+      "walkinHalf": 35,
+      "walkinFull": 45,
+      "features": "110cc"
+    },
+    {
+      "type": "~Honda PCX150 Scooter",
+      "capacity": 2,
+      "reservationHalf": 40,
+      "reservationFull": 50,
+      "walkinHalf": 45,
+      "walkinFull": 55,
+      "features": "149cc"
+    },
+    {
+      "type": "Honda Pioneer 1000 ATV",
+      "capacity": 4,
+      "reservationHalf": 50,
+      "reservationFull": 70,
+      "walkinHalf": 60,
+      "walkinFull": 80,
+      "features": "N/A"
+    },
+    {
+      "type": "Jeep Wrangler 4d",
+      "capacity": 5,
+      "reservationHalf": 70,
+      "reservationFull": 100,
+      "walkinHalf": 85,
+      "walkinFull": 125,
+      "features": "Manual a/c"
+    },
+    {
+      "type": "Jeep Wrangler 2d",
+      "capacity": 4,
+      "reservationHalf": 60,
+      "reservationFull": 85,
+      "walkinHalf": 70,
+      "walkinFull": 90,
+      "features": "Manual Open"
+    }
+  ]
+}

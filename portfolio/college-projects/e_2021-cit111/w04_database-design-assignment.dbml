@@ -1,0 +1,89 @@
+Project cit111_w04 {
+  database_type: 'MySQL'
+}
+
+// MAIN TABLES
+table category {
+  category_id int [pk, not null]
+
+  name varchar(50) [not null]
+  description varchar(250) [not null]
+}
+
+table article {
+  article_id int [pk, not null]
+  
+  category_id int [not null]
+  content_id int [not null]
+  person_id int [not null]
+  
+  name varchar(50) [not null]
+  alphabet char(1) [not null]
+  subcategory int [not null]
+  date_article datetime [not null]
+  date_review datetime [not null]
+}
+
+table content {
+  content_id int [pk, not null]
+
+	takeaways_id int [null]
+	videolist_id int [null]
+	related_terms_id int [null]
+	related_articles_id int [null]
+
+  definition text [not null]
+	section_one text [not null]
+	section_two text [null]
+}
+
+table person {
+	person_id int [pk, not null]
+	
+	role enum [not null]
+	profession varchar(50) [not null]
+	date_birth date [null]
+	date_deceased date [null]
+}
+
+// SECONDARY TABLES
+table takeaways {
+		takeaways_id int [pk, null]
+
+		takeaway text [not null]
+}
+
+table videolist {
+		videolist_id int [pk, null]
+		video_id int [not null]
+}
+
+table video {
+	video_id int [pk, null]
+	
+	name varchar() [not null]
+	description varchar(50) [not null]
+	length time [not null]
+}
+
+table related_terms {
+	related_terms_id int [pk, null]
+
+	name varchar() [not null]
+	description varchar(50) [not null]
+}
+
+table related_articles {
+	related_articles_id int [pk, null]
+
+	name varchar() [not null]
+	description varchar(50) [not null]
+}
+
+
+// ENUMS
+enum role {
+	author
+	reviewer
+	other
+}

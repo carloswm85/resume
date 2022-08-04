@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://carloswm85.github.io/css/public-styles/dark-orange.css">
+	<link rel="icon" href="../favicon.png" type="image/png">
+
+	<link rel="stylesheet" href="../libraries/highlight/styles/default.min.css">
+	<script src="../libraries/highlight/highlight.min.js"></script>
+	<script>
+		hljs.highlightAll();
+
+	</script>
+
+	<title>WDD330 - Week 05</title>
+</head>
+
+<body>
+	<div class="go-back">
+		<a href="../../../">&#8666;</a>
+	</div>
+
+	<h1>Week 05</h1>
+	<p>This week readings assignment:</p>
+
+	<!-- Instructions -->
+	<section class="border-bottom">
+		<p><a href="https://byui-cit.github.io/cit261/prepare/week05.html">https://byui-cit.github.io/cit261/prepare/week05.html &#8663;</a></p>
+	</section>
+
+	<!-- Raw Files -->
+	<section class="border-bottom" id="raw">
+		<h2>Reading Exercise (raw and interpreted) Files</h2>
+		<p>Open the console for reading some code.</p>
+
+		<ul>
+			<li><a href="script.js" target="_blank">script.js &#8663;</a></li>
+		</ul>
+	</section>
+
+	<!-- Reading Section -->
+	<section class="border-bottom">
+		<h2>Readings</h2>
+
+		<ol>
+			<li>JavaScript: Novice to Ninja:
+				<ul>
+
+					<!-- Notes #1 -->
+					<li> <span class="yellow"> Ch10: Testing and Debugging</span>:
+						<ul>
+
+							<li>Importance:
+								<ul>
+									<li>A ninja programmer should ensure that the code they write fails loudly in <span class="cyan">development</span> so any errors can be identified and fixed quickly.</li>
+									<li>In <span class="cyan">production</span> a ninja programmer should try to make the code fail gracefully (although not completely silently; we still need to know there's an error), so the user experience is not affected, if possible.</li>
+									<li>This is achieved by making sure exceptions are caught and dealt with, and code is tested rigorously.</li>
+								</ul>
+							</li>
+
+							<li><span class="orange">Strict Mode</span>, <code class="code-inline code-style">'use strict';</code>
+								<ul>
+									<li>Produces more exceptions and warnings, and prohibits the use of some deprecated features. It avoids "poor style".</li>
+									<li>Improves code clarity and speed, since it follows conventions.</li>
+									<li>Encourages a better quality of programming.</li>
+									<li>Implementing</li>
+									<li><span class="lime">Implementation</span> using self-invoking functions: This is just one way of doing so:
+										<pre><code class="language-javascript">
+	(function() {
+		'use strict';
+		// All your code would go inside this function
+	}());
+										</code></pre>
+									</li>
+								</ul>
+							</li>
+
+							<li><span class="orange">Feature Detection</span>, the recommended way of determining API's feature browser support.:
+								<pre><code class="language-javascript">
+	if (window.holoDeck) {
+		virtualReality.activate();	}
+								</code></pre>
+								This ensures that no error occurs if the browser doesn’t support the method, because referencing a nonexistent object such as window.virtualReality will return undefined. As it’s a falsy value, the if block won’t run, but calling the method virtualReality.activate() outside of the if block would cause an exception to be thrown. Feature detection guarantees that the method is only called if it actually exists and fails gracefully, without any exceptions being thrown, if the method doesn’t exist.
+							</li>
+
+							<li><span class="orange">Debugging Options</span>
+								<ul>
+									<li><i>Trusty Alert Pop-up</i>: Just use a simple <code class="code-inline code-style">alert()</code> inside your code.</li>
+									<li><i>Using the console</i>: <code class="code-inline code-style">console.log()</code>, <code class="code-inline code-style">console.trace()</code></li>
+									<li><i>Browser Debugging Tools</i> :
+										<ul>
+											<li><code class="code-inline code-style">debugger;</code> keyword: It halts the program, until the play button is pressed. Remember to remove this line of code before shipping.</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+
+							<li><span class="orange">Error Handling</span>:
+
+								<ul>
+									<li> <span class="lime">Error Objects</span>
+										<ul>
+											<li><code class="code-inline code-style">new Error();</code> </li>
+											<li><code class="code-inline code-style">new EvalError();</code> </li>
+											<li><code class="code-inline code-style">new RangeError();</code> </li>
+											<li><code class="code-inline code-style">new ReferenceError();</code> </li>
+											<li><code class="code-inline code-style">new SyntaxError();</code> </li>
+											<li><code class="code-inline code-style">new TypeError();</code> </li>
+											<li><code class="code-inline code-style">new URIError();</code> </li>
+											<li><code class="code-inline code-style">new InternalError();</code> </li>
+											<li><code class="code-inline code-style">new Error();</code> </li>
+											<li>Main <i>error</i> object properties:
+												<ul>
+													<li><code class="code-inline code-style">name</code> </li>
+													<li><code class="code-inline code-style">message</code> </li>
+													<li><code class="code-inline code-style">stack</code> </li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+
+									<li><span class="lime">Throwing Exceptions</span>: <code class="code-inline code-style">throw new Error('Something has gone badly wrong!');</code> This line of code will halt the program. Example:
+										<pre><code class="language-javascript">
+	function squareRoot(number) {
+		'use strict';
+		if (number < 0) {
+			throw new RangeError('You cannot find the square root of negative numbers')
+		}
+		return Math.sqrt(number);
+	};
+										</code></pre>
+									</li>
+
+									<li> <span class="lime">Exception Handling</span>: When an exception occurs, the program terminates with an error message. This is ideal in development as it allows us to identify and fix errors. In production, however, it will appear as if the program has crashed, which does not reflect well on a ninja programmer.
+										<ul>
+											<li><code class="code-inline code-style">try</code>, <code class="code-inline code-style">catch</code> and <code class="code-inline code-style">finally</code>, example:
+
+												<pre><code class="language-javascript">
+	function imaginarySquareRoot(number) {
+		'use strict';
+		let answer;
+		try {
+			answer = String(squareRoot(number));
+		} catch(error) {
+			answer = squareRoot(-number)+"i";
+		} finally {
+			return `+ or - ${answer}`;
+		}
+	}
+												</code></pre>
+
+											</li>
+										</ul>
+
+									</li>
+								</ul>
+
+							</li>
+
+							<li> <span class="orange">Testing</span>:
+
+								<ul>
+
+									<li><span class="lime">Using functions</span>: A test can simply be a function that tests a piece of code runs as it should. For example, we could test that the squareRoot() function that we wrote earlier returns the correct answer with the following function:
+										<pre><code class="language-javascript">
+	function itSquareRoots4() {
+		return squareRoot(4) === 2;
+	}
+										</code></pre>
+										Returns <code class="code-inline code-style">true</code>.
+									</li>
+
+									<li> <span class="lime">TDD (Test-Driven Development)</span>: is the process of writing tests before any actual code. Obviously these tests will initially fail, because there is no code to test. The next step is to write some code to make the tests pass. After this, the code is refactored to make it faster, more readable, and remove any repetition. The code is continually tested at each stage to make sure it continues to work. This process should be followed in small piecemeal chunks every time a new feature is implemented, resulting in the following workflow:
+										<ol>
+											<li>Write tests (that initially fail).</li>
+											<li>Write code to pass the tests.</li>
+											<li>Refactor the code.</li>
+											<li>Test refactored code.</li>
+											<li>Write more tests for new features.</li>
+										</ol>
+
+
+									</li>
+
+								</ul>
+
+							</li>
+
+
+
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+			<hr>
+
+			<li> <span class="yellow">Eloquent JavaScript</span> :
+				<ul>
+					<li>Sandbox exercises for <a href="http://eloquentjavascript.net/code" target="blank_">chapter 8</a>:
+						<ul>
+							<li>TODO or not TODO</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ol>
+	</section>
+
+	<!-- Vocabulary Section -->
+	<section class="border-bottom" id="vocabulary">
+		<h2>Vocabulary, Main Concepts</h2>
+
+		<ul>
+			<li><i>Exception</i> : Error that produces a return value that can then be used by the program to deal with the error. For example, trying to call a method that is nonexistent will result in a reference error that raises an exception.</li>
+			<li><i>Stack Trace</i> : Sequence of functions or method calls that lead to the point where the error ocurred.</li>
+			<li><i>Warning</i> : It occurs if there's an error in the code that isn't enough to cause the program to crash. This means that the program will continue to run, althoguh possibly incorrectly.</li>
+			<li><i>TDD</i> : Test-driven development is the practice of writing tests that fail, then writing the code that passes the test, then refactoring the code every time a new feature is implemented</li>
+			<li><i>Modules</i> : A module is a self-contained piece of code that provides functions and methods that can then be used in other files and by other modules. This helps to keep code organized in separate, reusable files, which improves code maintainability. The code in a module should have a single purpose, and group together functions with distinct functionality. For example, you might keep any functions used for Ajax in their own module. This could then be used in any projects where Ajax was required. Keeping code modular helps to make it more loosely coupled and interchangeable, meaning you can easily swap one module for another without affecting other parts of a project. Indeed, small single-purpose modules are the exact opposite of large monolithic libraries as they enable developers to use only the modules that are needed, avoiding any wasted code. Modules also allow a public API to be exposed, while keeping the implementation hidden away inside the module.</li>
+			<li><i>Coupling</i> : The coupling of code refers to how dependent certain elements or modules of code are on each other. Two pieces of code are said to be tightly coupled if one relies on the other to run. This often occurs if a piece of code makes hard-coded references to another piece of code, requiring it to be used. This will often mean that changes to one piece of code will necessitate changes in the other. On the other hand, two pieces of code are said to loosely coupled if one piece of code can be easily substituted by another without affecting the final outcome.</li>
+		</ul>
+
+	</section>
+
+	<!-- Assignment Section -->
+	<section class="border-bottom">
+		<h2>Assignments and Projects</h2>
+		<ol>
+			<li>Weekly Report: <a href="report.html">Here &#8667;</a></li>
+			<li>Team Activity:
+				<ul>
+					<li> Instructions: <a href="../course-content/ponder/team05.html" target="_blank">team05.html &#8663;</a> </li>
+					<li>Instructions? <a href="../course-content/ponder/team05-calc.html" target="_blank">team05-calc.html &#8663;</a> </li>
+					<li>Team:
+						<ul>
+							<li>Team solution: <a href="team/main-team.html" target="_blank">main-team.html &#8663;</a> </li>
+							<li>Team code 1: <a href="team/main-team.js" target="_blank">main-team.js &#8663;</a> </li>
+							<li>Team code 2: <a href="team/hikes.js" target="_blank">hikes.js &#8663;</a> </li>
+						</ul>
+					</li>
+					<li>Teacher's
+						<ul>
+							<li>Teacher's solution: <a href="team/teachers/app5.js" target="_blank">teachers/app5.js &#8663;</a></li>
+							<li>Teacher's solution: <a href="team/teachers/hikes.js" target="_blank">teachers/hikes.js &#8663;</a></li>
+							<li>Teacher's solution: <a href="team/teachers/hiking-complete.html" target="_blank">teachers/hiking-complete.html &#8663;</a></li>
+						</ul>
+					</li>
+				</ul>
+			<li>Quiz Ninja Project: <a href="ninja/index.html">Here &#8667;</a></li>
+		</ol>
+	</section>
+
+	<ul>
+		<!-- Extra Section -->
+		<section class="border-bottom">
+			<h2>Extra Stuffs and Notes</h2>
+			<ol>
+				<li>Tools:
+					<ul>
+						<li> <span class="lime">Linters</span> (style/quality code detection):
+
+					</ul>
+					<ul>
+						<li>JS Lint: <a href="http://jslint.com/" target="_blank">here &#8663;</a></li>
+						<li>JS Hint: <a href="http://jshint.com/" target="_blank">here &#8663;</a></li>
+						<li>ES Lint: <a href="http://eslint.org/" target="_blank">here &#8663;</a></li>
+						<li>Linting tools are also useful for enforcing a programming <i>style guide</i>. This is particularly useful when you are working in a team, as it ensures everybody follows the same conventions.</li>
+					</ul>
+				</li>
+
+				<li> <span class="lime">Feature detection</span>:
+					<ul>
+						<li>Modernizr: <a href="https://modernizr.com/docs" target="_blank">here &#8663;</a></li>
+						<li>Can I Use?: <a href="http://caniuse.com" target="_blank">here &#8663;</a></li>
+						<li>The “old-school” way of checking for browser support was known as <i>browser
+								sniffing</i>.</li>
+					</ul>
+				</li>
+
+				<li> <span class="lime">TDD Frameworks</span>: They make it easy to create and run tests by providing helper methods for common test assertions.
+					<ul>
+						<li>Jest: <a href="https://jestjs.io/" target="_blank">here &#8663;</a> at <code class="code-inline code-style">npm install -g jest</code></li>
+					</ul>
+				</li>
+
+	</ul>
+
+	</li>
+	</ol>
+	</section>
+
+	<!-- Footer -->
+	<footer>
+		<p>
+			By Carlos - Last edit: <span class="last-edit"></span>
+		</p>
+	</footer>
+</body>
+
+<script src="../../source/js/other.js"></script>
+
+</html>

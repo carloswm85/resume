@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang='en-us'>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Week 1 - What is Data?</title>
+    <link href="../text/css/outline_styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <main>
+       <nav>
+         <div class="tab">
+              <a href="../text/week1.html"><button class="tablinks">1 Data</button></a>
+              <a href="../text/week2.html"><button class="tablinks">2 Questions</button></a>
+              <a href="../text/week3.html"><button class="tablinks">3 Datatypes</button></a>
+              <a href="../text/week4.html"><button class="tablinks">4 Relational</button></a>
+              <a href="../text/week5.html"><button class="tablinks">5 Design</button></a>
+              <a href="../text/week6.html"><button class="tablinks">6 Inserting</button></a>
+              <a href="../text/week7.html"><button class="tablinks">7 Queries</button></a>
+              <a href="../text/week8.html"><button class="tablinks">8 Functions</button></a>
+              <a href="../text/week9.html"><button class="tablinks">9 Joins</button></a>
+              <a href="../text/week10.html"><button class="tablinks">10 Aggregates</button></a>
+              <a href="../text/week11.html"><button class="active" class="tablinks">11 More</button></a>
+              </div>
+       </nav> 
+      <div id='text'>
+        <h1>11 Additional Topics</h1>
+        <h2>SUBQUERY</h2>
+        <p>A subquery is a query inside another query. The subquery executes first and then the result of that query is used as a value in the main query, which then runs. A subquery can be nested inside a WHERE, HAVING, FROM or SELECT clause. They can also be placed inside other statements such as an INSERT statement.</p>
+        <h3>Subquery in an INSERT statement:</h3>
+        <pre>
+  INSERT INTO product
+  VALUES (999, "Haro Mountain Madhem - 2020", 2020, 450.00,
+     (SELECT brand_id
+      FROM brand
+      WHERE brand_name = "Haro"),
+     (SELECT category_id
+      FROM category
+      WHERE category_name = "Mountain Bikes"));
+        </pre>
+        <p>The two subqueries run first returning the value 2 for brand_id of Haro and the value 6 for the category_id of Montain Bikes. Then with those two values the INSERT runs and a new bike is placed in the product table with the proper brand_id and category_id foreign keys entered.</p>
+        <h3>Subquery in a WHERE clause</h3>
+        <pre>
+ SELECT product_name, list_price
+ FROM product
+ WHERE list_price > (SELECT AVG(list_price) FROM product);
+        </pre>
+        <p>The subquery runs first which finds the average of all the list prices in the product table. Then that single value result becomes the value in the WHERE clause and only those product names and list prices show up that are above the average of all the bikes&mdash;the value that the subquery returned.</p>
+        <h3>Subquery in a SELECT clause</h3>
+        <pre>
+ SELECT product_name, list_price,
+   (SELECT SUM(quantity)
+    FROM cust_order_item
+    WHERE product_id = 20) AS Total_Quantity_Sold
+ FROM product
+ WHERE product_id = 20;
+        </pre>
+        <p>The subquery runs returning all quantities added up of the product with product_id of 20 from all the order items. Then the main query runs using that result as it&rsquo;s 3<sup>rd</sup> column of the result set. It returns one row with the product name, the price and then the total quantity of how many of the product have been sold.</p>
+        <h2 id="dikd"><a href="https://content.byui.edu/file/c2693726-a64c-4151-ad97-247b6a35d89b/1/Working%20with%20Subqueries.pdf" target="_blank">Working with Subqueries</button></a></h2>
+        
+        <h2>INDEX</h2>
+        <p>An index provides a way to retrieve data more quickly from a table based on values in specific columns. The database management system can go directly to a specific row with an index rather than having to go row by row until it is found without an index. Indexes do use extra resources and time when updating or deleting rows with indexes, so don&rsquo;t create an index for a column unless you know you will be searching on that column often. Indexes are automatically created for primary keys and unique keys.</p>
+        <h3>To create an index:</h3>
+        <h3 class="syntax">
+ CREATE INDEX index_name
+            ON table_name (column)</h3>
+
+        <pre>
+ CREATE INDEX bike ON product(product_name);
+        </pre>
+        <p>This would create an index called bike on product_name.</p>
+        <h2 id="dikd"><a href="https://content.byui.edu/file/c2693726-a64c-4151-ad97-247b6a35d89b/1/SQL%20Indexes%20Explained.pdf" target="_blank">SQL Indexes Explained</button></a></h2>
+
+        <h2>VIEW</h2>
+        <p>A view is a virtual table based on the results from a query from one or more base tables. The view table will always refer back to the base table(s) for the most current data, so it&rsquo;s not a point in time copy and doesn&rsquo;t store any data itself. So it always shows up-to-date data. The data is recreated every time the view is referenced; or in other words, the query used to define it is rerun.</p>
+        <p>Views come in handy when you have a complex query that you know you will need again and again so you create view from that query and then you have access to the view table without having to run the query again and again. You can also protect your base tables by having this extra layer of security between the user and the base table(s) because of the views. Because the view only contains selected data and are not permanent, users cannot mess up the data and views are often used in applications where the user only gets access to data through these views. You can also make sure only certain data is access by certain users with views.</p>
+        <h3 class="syntax">
+        CREATE VIEW view_name AS
+        SELECT column, &hellip;
+        FROM table
+        </h3>
+        <pre>
+ CREATE VIEW employees_limited AS
+ SELECT emp_no, first_name, last_name
+ FROM employees;
+        </pre>
+        <p>This creates a view called employees_limited using the three columns from the employees table. If there were other columns like salary or social security number in the employees table then the view limits it to just those three columns.</p>
+        <p>Then you can use the view just like you use tables in the FROM clause.</p>
+        <pre>
+ SELECT emp_no, last_name
+ FROM employees_limited
+ WHERE last_name = "Simmel";
+        </pre>
+    <h2 id="dikd"><a href="https://content.byui.edu/file/c2693726-a64c-4151-ad97-247b6a35d89b/1/SQL%20Views.pdf" target="_blank">SQL Views</button></a></h2>
+
+    </main>
+         </div>
+    <footer>
+        <hr>
+        <p>CIT 111 - Introduction to Databases - BYUI - andersonju</p>
+    </footer>
+    
+    <script type="text/javascript" src="scripts/script.js">
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+@media only screen and (min-width: 48em) { /* = 768px */
+	div {
+		grid-template-columns: 1fr 1fr;
+		margin: auto 1em;
+	}
+}

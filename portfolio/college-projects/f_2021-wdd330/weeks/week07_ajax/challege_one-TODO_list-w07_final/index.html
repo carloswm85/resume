@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="../../css/styles.css">
+	<link rel="stylesheet" href="./style/style.css">
+	<link rel="icon" href="favicon.png" type="image/png">
+
+<title>ToDo App</title>
+</head>
+
+<body>
+	<header>
+		<h1>ToDo App</h1>
+	</header>
+
+	<!-- TODO: https://www.w3schools.com/css/css_form.asp -->
+	<!-- TODO: https://subscription.packtpub.com/book/web-development/9781783552092/1/ch01lvl1sec12/its-all-about-javascript/ -->
+
+	<main>
+		<form action="./scripts/localStorage.js" class="checkbox-list border-bottom" id="todos">
+			<label class="checkbox-label" id="checkbox-1" for="option1">
+				<input type="checkbox" id="option1" name="option1" value="value1">
+				<span class="checkbox-option">Option_1</span>
+			</label>
+			<br>
+
+			<label class="checkbox-label" id="checkbox-2" for="option2">
+				<input type="checkbox" id="option2" name="option2" value="value2">
+				<span class="checkbox-option">Option_2</span>
+			</label>
+			<br>
+
+			<label class="checkbox-label" id="checkbox-3" for="option3">
+				<input type="checkbox" id="option3" name="option3" value="value3">
+				<span class="checkbox-option">Option_3</span>
+			</label>
+			<br>
+			
+			<input type="submit" value="Save List" class="form-button">
+		</form>
+
+		<section class="border-bottom equal-padding">
+			<form action="./scripts/script.js" class="form-row">
+				<input type="button" value="All" id="search-button" class="form-button">
+				<input type="button" value="Active" id="search-button" class="form-button">
+				<input type="button" value="Done" id="search-button" class="form-button">
+			</form>
+			<div class="display-container">
+				<p class="display">Information is displayed here.</p>
+			</div>
+		</section>		
+	</main>
+	
+	<footer>
+		<form action="./scripts/script.js" class="form-row">
+			<input type="text" name="search" id="search" placeholder="Search..." class="form-searchbox">
+			<input type="button" value="+" id="search-button" class="form-button">
+		</form>
+	</footer>
+
+<script src="./scripts/app.js" type="module"></script>
+</body>
+
+</html>

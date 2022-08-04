@@ -1,0 +1,417 @@
+/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
+
+/*----------- apply a natural box layout model to all elements --------------*/
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+/* HTML ELEMENTS */
+h1, h2, h3, p, a, table, span, li, form {
+	color: white;
+	text-shadow: $fontBorder;
+	font-family: $fontParagraph;
+	margin: 0;
+}
+h2 {
+	margin: 0 0 0.8em 0;
+	font-weight: 700;
+	padding: 0 0.5em;
+	text-align: center;
+}
+header {
+	border-top: 1px solid $colorPrimary2;
+	border-bottom: 1px solid $colorPrimary2;
+
+	.header-top {
+		display: flex;
+	}
+
+	button {
+		border: $colorPrimary2 solid 1px;
+		text-shadow: $fontBorder;
+		margin: auto 20px auto auto;
+		font-size: 2.6em;
+		color: white;
+		width: 56px;
+		height: 56px;
+		background-color: $colorTransparent;
+	}
+
+	nav {
+		grid-area: 3 / 1 / 4 / 4;
+		border-bottom: 1px solid $colorPrimary2;
+		ul {
+			width: 100%;
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+			text-decoration: none;
+		}
+		li a {
+			text-decoration: none;
+			text-align: center;
+			font-weight: 700;
+			display: block;
+			padding: 1rem;
+			border-top: 1px solid $colorPrimary4;
+		}
+
+		li a:hover {
+			background-color:$colorPrimary4
+		}
+	}
+}
+footer {
+	margin: 0;
+	padding-top: 1em;
+	p {
+		font-size: 1.5em;
+		line-height: 2em;
+	}
+	.footer-social {
+		display: flex;
+		justify-content: space-evenly;
+		img {
+			width: 80px;
+			height: auto;
+		}
+	}
+	.footer-bot {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-top: 1em;
+		padding-bottom: 1em;
+		span {
+			font-size: 1.2em;
+			margin: 0.2em 0;
+		}
+	}
+}
+form {
+	padding: 1em 0;
+	margin: 0;
+	fieldset {
+		border: none;
+	}
+	div {
+		margin: 0.5em 0;
+		text-align: center;
+	}
+	input, select {
+		color: gray;
+		font-size: 1.3em;
+		height: 2.5em;
+	}
+	select.location {
+		width: 100%;
+	}
+	.time {
+		width: 49%;
+	}
+	.scooters {
+		width: 60%;
+		float: left;
+	}
+	.submit-button {
+		background-color: $colorComplement2;
+		color: white;
+		font-weight: 700;
+		font-size: 1.5em;
+		text-shadow: $fontBorder;
+		border: 2px solid white;
+		width: 100px;
+		float: right;
+	}
+}
+table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	width: 100%;
+	font-weight: 600;
+	text-shadow: $fontBorder;
+	td, thead {
+		border: 2px solid white;
+	}
+	tr {
+		height: 2em;
+	}
+	.centered {
+		text-align: center;
+	}
+	.margined {	
+		padding-left: 4px;
+	}
+}
+section {
+	padding: 0;
+	margin: 0;
+}
+img, picture {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+/* TESTING ZONE */
+.test {
+	border: dashed red 2px;
+}
+
+/* CLASSES */
+/* For All */
+.max-sized {
+	max-width: 950px;
+	margin: 0 auto;
+}
+.div-centered {
+	margin: 0 auto;
+}
+
+/* Logo */
+.logo-box {
+	display: flex;
+	padding: 0.5em;
+	width: 230px;
+	h1 {
+		margin: 0.1em 0 0 0.3em;
+	}
+	span {
+		margin: 0.1em 0 0 1.8em;
+	}
+	picture {
+		width: 70px;
+		height: auto;
+	}
+}
+
+/* Navigation */
+a.current {
+	font-size: 1.1em;
+	text-shadow: none;
+}
+.hide, .form-hide {
+	display: none;
+}
+
+/* HOME Page */
+.table-weather{
+	max-width: 470px;
+	margin-bottom: 1em;;	
+}
+.table-forecast {
+	max-width: 450px;
+}
+.container-rentals {
+	background-color: $colorPrimary3;
+}
+
+/* RENTALS Page */
+.table-rentals-2 {
+	max-width: 680px;
+	line-height: 1.5em;
+}
+
+/* RESERVATIONS Page */
+.container-information {
+	padding: 1.2em 0;
+	ul {
+		padding: 1em;
+		border: 1px solid black;
+		background-color: white;
+		padding-left: 2em;
+		margin-bottom: 0;
+	}
+	li {
+		color: black;
+		text-shadow: none;
+		font-size: 1.2em;
+		a {
+			text-shadow: none;
+			color: blue;
+		}
+	}
+	
+}
+.container-picture-separator {
+	margin: auto;
+}
+.container-reservation-form {
+	border: white solid 2px;
+	margin: 1em auto;
+	margin-bottom: 0;
+	border-radius: 10px;
+	background-color: $colorPrimary4;
+	padding-top: 1em;
+	h2 {
+		margin: 0;
+	}
+	legend {
+		background-color: $colorPrimary0;
+		border: 1px solid black;
+		color: white;
+		font-family: $fontParagraph;
+		font-size: 1.1em;
+		font-weight: 700;
+		text-shadow: $fontBorder;
+		padding: 0.5em 1em;
+	}
+	fieldset {
+		max-width: 650px;
+		border-radius: 10px;
+		margin: 0 auto 1em auto;
+		background-color: white;
+		border: 1px solid black;
+		padding-bottom: 1em;
+	}
+	fieldset, p {
+		font-weight: 700;	
+		color: black;
+		text-shadow: none;
+	}
+	fieldset > p {
+		line-height: 1.5em;
+	}
+	.top {
+		max-width: 400px;
+		display: block;
+		margin: 1.5em auto auto auto;
+		input, select, textarea {
+			color: gray;
+			display: block;
+			width: 100%;
+			margin: 0.2EM auto;
+			background-color: rgba(0, 0, 0, 0.1);
+			border-radius: 5px;
+		}
+		textarea {
+			height: 250px;
+			line-height: 2em;
+		}
+	}
+	.closer {
+		margin-top: 0.5em;
+	}
+	.submit-button {
+		display: block;
+		width: 96%;
+		max-width: 280px;
+		float: none;
+		margin: 10px auto;
+	}
+
+	input:required, select:required {
+		border-left: red solid 5px;
+	}
+
+	input:required:valid, select:required:valid {
+		border-left: green solid 5px;
+	}
+}
+.extra-padding-vertical {
+	padding: 1em 0;
+}
+
+/* TOURS Page */
+.container-tours-information {
+	padding: 1.2em 1em;
+	background-color: white;
+	border: 1px solid black;
+	padding-left: 2em;
+	padding-bottom: 2.5em;
+	h2, h3, p, a, li {
+		line-height: 1.5em;
+		color: rgb(71, 68, 68);
+		text-shadow: none;
+	}
+	h2 {
+		font-size: 1.5em;
+		margin-top: 1em;
+	}
+	h3 {
+		margin-top: 1.2em;
+	}
+	ul {
+		margin-top: 0.4em;
+	}
+}
+
+/* CONTACT Page */
+.container-map {
+	padding: 0;
+	margin-bottom: 1em;
+	#map {
+		height: 400px;
+		width: 100%;
+	}
+	ol {
+		padding: 1em;
+		border: 1px solid black;
+		background-color: white;
+		padding-left: 2em;
+		margin-bottom: 0;
+	}
+	li, h2 {
+		color: black;
+		text-shadow: none;
+		font-size: 1.2em;
+	}
+}
+
+/* Other Pages */
+.information {
+	margin: 0;
+	padding: 0.5em 0;
+	text-align: center;
+	font-size: 1.2em;
+	background-color: red;
+	span {margin: 0;}
+}
+.container-thanks {
+	background-color: white;
+	padding: 1em;
+	border: 1px solid black
+	;
+	p {
+		color: black;
+		font-size: 1.2em;
+		text-shadow: none;
+	}
+}
+.container-credits {
+	background-color: white;
+	border: solid 1px black;
+	padding: 1em;
+	padding-left: 2em;
+	h3, li,a {
+		color: black;
+		text-shadow: none;
+	}
+}
+
+/* TEST CODE */
+.border-red {
+	border: red 1px solid;
+}
+
+/* BACKGROUND Gradients */
+.background-blue {
+	background: #00baef;
+	background: -moz-linear-gradient(top,  #00baef 0%, #036d8b 100%);
+	background: -webkit-linear-gradient(top,  #00baef 0%,#036d8b 100%);
+	background: linear-gradient(to bottom,  #00baef 0%,#036d8b 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00baef', endColorstr='#036d8b',GradientType=0 );
+}
+.background-blue-2 {
+	background: #00baef;
+	background: -moz-linear-gradient(top,  #00baef 0%, #7db9e8 100%);
+	background: -webkit-linear-gradient(top,  #00baef 0%,#7db9e8 100%);
+	background: linear-gradient(to bottom,  #00baef 0%,#7db9e8 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00baef', endColorstr='#7db9e8',GradientType=0 );
+}
+.background-green {
+	background: #83cf00;
+	background: -moz-linear-gradient(top,  #83cf00 0%, #9ffc00 100%);
+	background: -webkit-linear-gradient(top,  #83cf00 0%,#9ffc00 100%);
+	background: linear-gradient(to bottom,  #83cf00 0%,#9ffc00 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#83cf00', endColorstr='#9ffc00',GradientType=0 );
+}

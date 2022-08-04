@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Form demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .title {
+        text-align: center;
+      }
+      form {
+        border: 1px solid;
+        max-width: 340px;
+        margin: auto;
+        padding: 1em;
+        border-radius: 5px;
+      }
+      label {
+        display: block;
+      }
+      input,
+      textarea {
+        width: 100%;
+        font-size: 1.2em;
+        padding: 0.4em;
+      }
+
+      textarea {
+        height: 5em;
+      }
+      button {
+        display: block;
+        padding: 0.8em;
+        width: 50%;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <!--   HTML comment -->
+    <h1 class="title">Contact Us</h1>
+    <form>
+      <p>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" />
+      </p>
+      <p>
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email" />
+      </p>
+      <p>
+        <label for="message">Message:</label>
+        <textarea name="message" id="message"></textarea>
+      </p>
+      <button type="submit">Send</button>
+    </form>
+  </body>
+</html>

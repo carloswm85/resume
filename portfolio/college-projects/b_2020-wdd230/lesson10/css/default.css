@@ -1,0 +1,597 @@
+/* In default.css (OR small.css)
+there's no @media query to add */
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans|Oswald&display=swap');
+
+:root {
+  --primary-color: #dadada;
+  --secondary-color: #353E42;
+  --tertiary-color: #ffffff;
+  --accent1-color: #445ba9;
+  /*--accent1-color: #6495ED;*/
+  --accent2-color: #E0C54E;
+  --accent3-color: #40c057;
+  --accent4-color: #9c2c13;
+
+  --heading-font: 'Oswald', sans-serif;
+  --paragraph-font: 'Noto Sans', sans-serif;
+}
+
+/* BANNER */
+.banner {
+  border-bottom: 3px var(--secondary-color) solid;
+  padding: 1em;
+  text-align: center;
+  font-family: var(--paragraph-font);
+  margin-bottom: 1em;
+  background-color: yellow;
+  display: block;
+}
+
+body {
+  background-color: var(--primary-color);
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  background-color: #353E42;
+  padding: 0 10px;
+}
+
+
+/* BRAND HEADER SECTION */
+.brand-container {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  align-content: space-around;
+}
+
+.brand-logo-container {
+  flex-grow: 1;
+}
+
+.brand-logo-picture {
+  filter: invert(1);
+  margin: auto;
+  width: 210px;
+  height: auto;
+}
+
+.brand-title-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+}
+
+.brand-title-container > h1 {
+  text-align: center;
+  margin: 0;
+  font-size: 3em;
+}
+
+.brand-title-container > p {
+  text-align: center;
+  margin: 0;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5rem;
+  color: white;
+}
+
+
+/* NAVIGATION BAR */
+/* nav > ul (.navigation) > li > a (.ham) */
+.navigation {
+  font-size: 1.5em;
+  margin: 0.5em 0;
+  height: 100%;
+}
+
+.navigation a:first-child {
+  display: block;
+}
+
+.navigation > a {
+  font-family: var(--paragraph-font);
+  color: white;
+  text-align: center;
+  display: none;
+  margin: 0;
+  padding: 0.5em 0;
+  text-decoration: none;
+}
+
+.navigation a:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.navigation .current-page {
+  color: var(--accent3-color);
+}
+
+/* the onclick JS toggles the .reponsive class from display none (.navigation li) to display block because the responsive class is added to the end of the class list like this in HTML.
+  <ul class="navigation responsive">
+*/
+.responsive a {
+  display: block;
+}
+
+/* HEADERS */
+h1, h2, h3 {
+  font-family: var(--heading-font);
+}
+
+h1 {
+  color: white;
+}
+
+.section-style {
+  height: auto;
+  padding: 3%;
+  margin: 3%;
+  background-color: var(--tertiary-color);
+}
+
+p {
+  font-family: 'Noto Sans', sans-serif;
+  line-height: 1.5;
+  margin-top: 0;
+}
+
+.subpage-title {
+  text-align: center;
+  margin: 20px auto;
+  font-size: 2em;
+}
+
+/* SUMMARY SECTION */
+.summary-picture-file {
+  width: 100%;
+  height: auto;
+}
+
+.summary-information {
+  background-color: var(--primary-color);
+  border: var(--accent1-color) solid 1px;
+  padding: 0.5em;
+  text-align: center;
+}
+
+.summary-title {
+  padding-bottom: 0.2em;
+  border-bottom: 1px solid black;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.summary-information p {
+  font-weight: 600;
+  margin: 0.5em;
+  font-size: 1em;
+}
+
+.summary-information {
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-weight: 900;
+  /*text-shadow: horizontal-offset vertical-offset 'blur' colour; */
+}
+
+/* FORECAST SECTION */
+.forecast {
+  background: var(--secondary-color);
+  display: none;
+}
+
+.forecast-title {
+  padding-bottom: 0.2em;
+  text-align: center;
+  font-size: 1.5em;
+  margin: 0;
+  color: var(--primary-color);
+}
+
+.forecast-table {
+  font-family: var(--paragraph-font);
+  font-size: 1.2em;
+  color: var(--primary-color);
+  margin: 0 auto;
+  margin-top: 0.5em;
+  border-collapse: collapse;
+}
+
+.forecast-table td:hover {
+  background: var(--accent1-color);
+}
+
+.table-header {
+  padding: 0.6em;
+  border-top: var(--primary-color) solid 1px;
+}
+
+.table-cell {
+  padding: 0.6em;
+  border-top: var(--primary-color) solid 1px;
+  border-bottom: var(--primary-color) solid 1px;
+}
+
+.forecast-icon {
+  display: block;
+}
+
+/* ARTICLE SECTION */
+.article {
+  display: flex;
+  flex-direction: column;
+  padding: 0.8em;
+  padding-top: 1.2em;
+  text-align: justify;
+}
+
+.article-title {
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-bottom: 0.2em;
+}
+
+.article-authorship {
+  margin-top: 0;
+  font-style: italic;
+}
+
+.article-picture {
+  order: 2;
+  display: inline;
+  text-align: center;
+}
+
+.article-picture-file {
+  max-height: 280px;
+}
+
+.article-section-title {
+  display: block;
+  padding: 0;
+  margin: 0 auto;
+}
+
+/* FOOTER */
+footer {
+  color: #ffffff;
+  margin: 0;
+  padding: 1em;
+  background-color: #353E42;
+}
+
+/* FOOTER TOP */
+.footer-top {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-top p {
+  text-align: center;
+}
+
+/* FOOTER CONTACT */
+.footer-top-contact {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.location-icon {
+  display: inline;
+  width: 16px;
+  height: auto;
+  filter: invert(100%);
+}
+
+.footer-address > p:first-child {
+  font-weight: bolder;
+}
+
+.footer-address > p {
+  margin: 0;
+}
+
+.footer-communication > p:first-child {
+  margin-top: 1em;
+}
+
+.footer-communication > p {
+  margin: 0;
+}
+
+.entity-contact {
+  font-size: 1.5em;
+}
+
+/* SOCIAL MEDIA */
+.footer-social { 
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 1em 0;
+}
+
+.footer-social a {
+  display: grid;
+}
+
+.logo-social {
+  justify-self: center;
+  margin: auto;
+  max-width: 60px;
+}
+
+/* FOOTER MAP */
+.footer-top-map {
+  margin: 1em 0;
+}
+
+.footer-map {
+  width: 100%;
+}
+
+/* FOOTER BOT*/
+.footer-bot {
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  padding: 1em;
+}
+
+.footer-bot > p {
+  text-align: center;
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.bot-home a {
+  color: var(--primary-color);
+  font-weight: bold;
+  width: 100%;
+}
+
+.bot-home:hover {
+  background-color: var(--secondary-color);
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* GALLERY */
+.gallery-container {
+  display: grid;
+}
+
+.gallery-img {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid black;
+}
+
+.gallery-item {
+  border: solid 1px black;
+  padding: 0;
+}
+
+.gallery-item > figcaption {
+  font-family: var(--paragraph-font);
+  text-align: center;
+  margin: 0;
+  padding: 0.3em;
+}
+
+/*---------- FORM ------------------------*/
+form fieldset {
+  margin: 0;
+  border: none;
+  border-top: 1px solid var(--accent1-color);
+  border-radius: 0px;
+  padding: .5rem 2% 2em 2%;
+  font-family: var(--paragraph-font);
+}
+
+form legend {
+  color: var(--accent1-color);
+  margin: 0 1rem;
+  padding: 0 .5rem;
+  font-family: var(--heading-font);
+  font-size: 1.4em;
+}
+
+form label.top,
+.div-label {
+  display: block;
+  max-width: 30rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+  color: var(--accent4-color);
+  font-size: 0.8rem;
+  font-size: 1em;
+}
+
+form label.top input,
+form label.top select {
+  margin-top: 0.5em;
+  display: block;
+  font-size: 1rem;
+  border: solid 1px #999;
+  border-radius: 4px;
+  padding: 2%;
+  color: #555;
+  width: 96%;
+  max-width: 30rem;
+  background-color: rgb(0, 0, 0, 0.1);
+}
+
+form label.sbs {
+  display: block;
+  width: 100%;
+  max-width: 30rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-left: 3em solid;
+  color: var(--primary-color);
+  margin-bottom: 1em;
+}
+
+.div-label span {
+  color: var(--secondary-color);
+  margin-left: 0.7em;
+  display: inline;
+}
+
+
+.fieldset-3 {
+  padding: 0;
+}
+
+textarea {
+  border-color: var(--primary-color);
+  display: block;
+  width: 80%;
+  height: 10em;
+  margin: 1.5em auto;
+  padding: 0;
+}
+
+.submit-button-container {
+  width: 100%;
+}
+
+form input.submit-button {
+  display: block;
+  margin: 0.2em auto 3em auto;
+  width: 90%;
+  max-width: 20rem;
+  border: none;
+  background-color: var(--accent4-color);
+  font-family: var(--paragraph-font);
+  color: white;
+  border-radius: 1rem;
+  padding: 0.75rem 1.5rem;  
+}
+
+.slide {
+  -webkit-appearance: none;
+  margin: 0 10%;
+  border-radius: 10px;
+  height: 0.5em;
+  background: var(--accent4-color);
+  width: 80%;
+  margin-bottom: 1em;
+}
+
+/* HIDE ARROWS IN INPUT TYPE NUMBER */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* How to identify fields using CSS */
+form label.top input:required {
+  border-left: red solid 6px;
+}
+
+form label.top input:required:valid {
+  border-left: green solid 6px;
+}
+
+/* Wireframes */
+.wireframes {
+  display: block;
+  margin: 2em auto;
+}
+
+.wireframes-link-container p{
+  margin-top: 2em;
+  text-align: center;
+}
+
+.wireframes-link {
+  
+  text-align: center;
+}
+
+/* HOME PAGE */
+/* Article */
+.weather-story-section {
+  padding: 0 1em;
+  text-align: justify;
+  margin-bottom: 3em;
+  max-width: 600px;
+  margin: 0 auto 2.5em auto;
+}
+
+.signature {
+  text-align: right;
+  font-style: italic;
+}
+
+.weather-story-picture {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 1em auto;
+}
+
+.weather-story-section h2 {
+  margin-top: 1.5em;
+  margin-bottom: 0.8em;
+  text-align: center;
+}
+
+/* Towns Information */
+.towns-container *{
+  text-align: center;
+}
+
+.town-stats-section > div > h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secondary-color);
+  color: var(--tertiary-color);
+  height: 2.5em;
+  margin-bottom: 0em;
+}
+
+.towns-container section {
+  border-bottom: solid 1px var(--secondary-color);
+  margin-top: 0;
+  padding: 0.5em;
+  background-color: var(--tertiary-color);
+}
+
+.towns-container img {
+  margin-top: 1em;
+  width: 100%;
+  max-width: 500px;
+}
+
+.towns-container p, h2, h3 {
+  margin: 0;
+}
+
+.towns-container h2, h3 {
+  margin: 0.5em 0;
+}
+
+.towns-container :last-child {
+  border-bottom: none;
+}

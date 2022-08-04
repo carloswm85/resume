@@ -1,0 +1,895 @@
+/* css Zen Garden default style v1.02 */
+/* css released under Creative Commons License - http://creativecommons.org/licenses/by-nc-sa/1.0/  */
+/* This file based on 'Tranquille' by Dave Shea */
+/* You may use this file as a foundation for any new work, but you may find it easier to start from scratch. */
+/* Not all elements are defined in this file, so you'll most likely want to refer to the xhtml as well. */
+/* Your images should be linked as if the CSS file sits in the same folder as the images. ie. no paths. */
+/*!
+ * Bootstrap Reboot v4.5.3 (https://getbootstrap.com/)
+ * Copyright 2011-2020 The Bootstrap Authors
+ * Copyright 2011-2020 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ * Forked from Normalize.css, licensed MIT (https://github.com/necolas/normalize.css/blob/master/LICENSE.md)
+ */
+ @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Fira+Code:wght@300;400;500;600;700&family=MuseoModerno:wght@300;500;700&display=swap");
+ @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Fira+Code:wght@300;400;500;600;700&family=MuseoModerno:wght@300;500;700&display=swap");
+ *,
+ *::before,
+ *::after {
+   box-sizing: border-box;
+ }
+ 
+ html {
+   font-family: sans-serif;
+   line-height: 1.15;
+   -webkit-text-size-adjust: 100%;
+   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+ }
+ 
+ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+   display: block;
+ }
+ 
+ body {
+   margin: 0;
+   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+   font-size: 1rem;
+   font-weight: 400;
+   line-height: 1.5;
+   color: #212529;
+   text-align: left;
+   background-color: #fff;
+ }
+ 
+ [tabindex="-1"]:focus:not(:focus-visible) {
+   outline: 0 !important;
+ }
+ 
+ hr {
+   box-sizing: content-box;
+   height: 0;
+   overflow: visible;
+ }
+ 
+ h1, h2, h3, h4, h5, h6 {
+   margin-top: 0;
+   margin-bottom: 0.5rem;
+ }
+ 
+ p {
+   margin-top: 0;
+   margin-bottom: 1rem;
+ }
+ 
+ abbr[title],
+ abbr[data-original-title] {
+   text-decoration: underline;
+   -webkit-text-decoration: underline dotted;
+   text-decoration: underline dotted;
+   cursor: help;
+   border-bottom: 0;
+   -webkit-text-decoration-skip-ink: none;
+   text-decoration-skip-ink: none;
+ }
+ 
+ address {
+   margin-bottom: 1rem;
+   font-style: normal;
+   line-height: inherit;
+ }
+ 
+ ol,
+ ul,
+ dl {
+   margin-top: 0;
+   margin-bottom: 1rem;
+ }
+ 
+ ol ol,
+ ul ul,
+ ol ul,
+ ul ol {
+   margin-bottom: 0;
+ }
+ 
+ dt {
+   font-weight: 700;
+ }
+ 
+ dd {
+   margin-bottom: 0.5rem;
+   margin-left: 0;
+ }
+ 
+ blockquote {
+   margin: 0 0 1rem;
+ }
+ 
+ b,
+ strong {
+   font-weight: bolder;
+ }
+ 
+ small {
+   font-size: 80%;
+ }
+ 
+ sub,
+ sup {
+   position: relative;
+   font-size: 75%;
+   line-height: 0;
+   vertical-align: baseline;
+ }
+ 
+ sub {
+   bottom: -0.25em;
+ }
+ 
+ sup {
+   top: -0.5em;
+ }
+ 
+ a {
+   color: #007bff;
+   text-decoration: none;
+   background-color: transparent;
+ }
+ 
+ a:hover {
+   color: #0056b3;
+   text-decoration: underline;
+ }
+ 
+ a:not([href]):not([class]) {
+   color: inherit;
+   text-decoration: none;
+ }
+ 
+ a:not([href]):not([class]):hover {
+   color: inherit;
+   text-decoration: none;
+ }
+ 
+ pre,
+ code,
+ kbd,
+ samp {
+   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+   font-size: 1em;
+ }
+ 
+ pre {
+   margin-top: 0;
+   margin-bottom: 1rem;
+   overflow: auto;
+   -ms-overflow-style: scrollbar;
+ }
+ 
+ figure {
+   margin: 0 0 1rem;
+ }
+ 
+ img {
+   vertical-align: middle;
+   border-style: none;
+ }
+ 
+ svg {
+   overflow: hidden;
+   vertical-align: middle;
+ }
+ 
+ table {
+   border-collapse: collapse;
+ }
+ 
+ caption {
+   padding-top: 0.75rem;
+   padding-bottom: 0.75rem;
+   color: #6c757d;
+   text-align: left;
+   caption-side: bottom;
+ }
+ 
+ th {
+   text-align: inherit;
+   text-align: -webkit-match-parent;
+ }
+ 
+ label {
+   display: inline-block;
+   margin-bottom: 0.5rem;
+ }
+ 
+ button {
+   border-radius: 0;
+ }
+ 
+ button:focus {
+   outline: 1px dotted;
+   outline: 5px auto -webkit-focus-ring-color;
+ }
+ 
+ input,
+ button,
+ select,
+ optgroup,
+ textarea {
+   margin: 0;
+   font-family: inherit;
+   font-size: inherit;
+   line-height: inherit;
+ }
+ 
+ button,
+ input {
+   overflow: visible;
+ }
+ 
+ button,
+ select {
+   text-transform: none;
+ }
+ 
+ [role=button] {
+   cursor: pointer;
+ }
+ 
+ select {
+   word-wrap: normal;
+ }
+ 
+ button,
+ [type=button],
+ [type=reset],
+ [type=submit] {
+   -webkit-appearance: button;
+ }
+ 
+ button:not(:disabled),
+ [type=button]:not(:disabled),
+ [type=reset]:not(:disabled),
+ [type=submit]:not(:disabled) {
+   cursor: pointer;
+ }
+ 
+ button::-moz-focus-inner,
+ [type=button]::-moz-focus-inner,
+ [type=reset]::-moz-focus-inner,
+ [type=submit]::-moz-focus-inner {
+   padding: 0;
+   border-style: none;
+ }
+ 
+ input[type=radio],
+ input[type=checkbox] {
+   box-sizing: border-box;
+   padding: 0;
+ }
+ 
+ textarea {
+   overflow: auto;
+   resize: vertical;
+ }
+ 
+ fieldset {
+   min-width: 0;
+   padding: 0;
+   margin: 0;
+   border: 0;
+ }
+ 
+ legend {
+   display: block;
+   width: 100%;
+   max-width: 100%;
+   padding: 0;
+   margin-bottom: 0.5rem;
+   font-size: 1.5rem;
+   line-height: inherit;
+   color: inherit;
+   white-space: normal;
+ }
+ 
+ progress {
+   vertical-align: baseline;
+ }
+ 
+ [type=number]::-webkit-inner-spin-button,
+ [type=number]::-webkit-outer-spin-button {
+   height: auto;
+ }
+ 
+ [type=search] {
+   outline-offset: -2px;
+   -webkit-appearance: none;
+ }
+ 
+ [type=search]::-webkit-search-decoration {
+   -webkit-appearance: none;
+ }
+ 
+ ::-webkit-file-upload-button {
+   font: inherit;
+   -webkit-appearance: button;
+ }
+ 
+ output {
+   display: inline-block;
+ }
+ 
+ summary {
+   display: list-item;
+   cursor: pointer;
+ }
+ 
+ template {
+   display: none;
+ }
+ 
+ [hidden] {
+   display: none !important;
+ }
+ 
+ /*# sourceMappingURL=bootstrap-reboot.css.map */
+ /* Screen change limits */
+ /* SOLAR SYSTEM VARIABLES */
+ body {
+   background-color: radial-gradient(ellipse at bottom, #0d3f6d 0%, #121417 100%);
+ }
+ 
+ /* ----------------------------------- SMALL DEVICES: Initial Setup */
+ html {
+   overflow-x: hidden;
+   padding: 2vh 0;
+ }
+ 
+ /* This is just for centering the main components */
+ .page-wrapper,
+ .intro,
+ .supporting,
+ .sidebar {
+   margin: 0 auto;
+ }
+ .page-wrapper p,
+ .page-wrapper h1,
+ .page-wrapper h2,
+ .page-wrapper h3,
+ .intro p,
+ .intro h1,
+ .intro h2,
+ .intro h3,
+ .supporting p,
+ .supporting h1,
+ .supporting h2,
+ .supporting h3,
+ .sidebar p,
+ .sidebar h1,
+ .sidebar h2,
+ .sidebar h3 {
+   color: whitesmoke;
+ }
+ 
+ p {
+   font-family: "Fira Code", monospace;
+   font-weight: 500;
+ }
+ 
+ h1 {
+   font-family: "MuseoModerno", cursive;
+   font-size: 2.5em;
+   text-shadow: 2px 2px #3a3b3c;
+ }
+ 
+ h2 {
+   font-family: "MuseoModerno", cursive;
+   font-size: 2.5em;
+   text-shadow: 2px 2px #3a3b3c;
+ }
+ 
+ h3 {
+   font-family: "Caveat", cursive;
+   font-size: 2.5em;
+   text-shadow: 2px 2px #3a3b3c;
+ }
+ 
+ li {
+   font-family: "Fira Code", monospace;
+   font-weight: 500;
+   color: white;
+ }
+ 
+ a, .sidebar ul {
+   font-family: "Fira Code", monospace;
+   font-weight: 500;
+ }
+ 
+ abbr {
+   font-style: italic;
+ }
+ 
+ a {
+   color: #fecc51;
+   font-style: bold;
+   font-size: 1.1em;
+   text-decoration: dotted;
+   display: inline-block;
+   border: 1px solid #effbf2;
+   padding: 0 0.5em 0 0.5em;
+   border-radius: 0.5em;
+ }
+ 
+ a:hover {
+   color: #82f8fc;
+ }
+ 
+ a:active {
+   color: #0d3f6d;
+ }
+ 
+ a:visited {
+   color: #82f8fc;
+ }
+ 
+ ul {
+   list-style-type: none;
+   font-family: "Fira Code", monospace;
+   font-weight: 500;
+ }
+ 
+ /* This is the bigger the content of the page will get */
+ body > .page-wrapper {
+   max-width: 65em;
+ }
+ 
+ /* Setting 3 contained elements inside #css-zen-garden */
+ .intro,
+ .supporting,
+ .sidebar {
+   padding: 1em;
+ }
+ 
+ /* Setting up only the child elements */
+ .intro > *,
+ .supporting > *,
+ .sidebar > * > * {
+   margin: 0.5em;
+ }
+ 
+ .supporting footer {
+   display: flex;
+   flex-direction: column;
+   margin-top: 4em;
+ }
+ 
+ footer a {
+   font-size: x-large;
+   flex-grow: 1;
+   text-align: center;
+   margin: 0.3em 0;
+   padding: 0.2em 0;
+   border-width: 2px;
+ }
+ footer a:hover {
+   background-color: #effbf2;
+   color: #0d3f6d;
+ }
+ 
+ /* SIDEBAR content */
+ .design-selection > *,
+ .design-archives > *,
+ .zen-resources > * {
+   text-align: center;
+ }
+ .design-selection > * li,
+ .design-archives > * li,
+ .zen-resources > * li {
+   line-height: 2.9em;
+   margin: 0.5em 0;
+ }
+ .design-selection > * li a,
+ .design-archives > * li a,
+ .zen-resources > * li a {
+   background-color: #121417;
+   text-decoration: none;
+ }
+ 
+ .design-selection,
+ .design-archives,
+ .zen-resources {
+   padding: 1em;
+ }
+ .design-selection ul,
+ .design-archives ul,
+ .zen-resources ul {
+   padding: 0;
+ }
+ 
+ .design-selection li,
+ .design-archives ul,
+ .zen-resources ul {
+   border-radius: 0.5em;
+   margin: 0.5em 0;
+   background-color: rgba(238, 238, 238, 0.25);
+   padding: 1em;
+   border-radius: 20px;
+ }
+ 
+ h3::before {
+   display: inline-block;
+   padding-right: 8px;
+   content: url("../assets/spaceship-sm.png");
+ }
+ 
+ /* ---------------------- BACKGROUND: THE DEEP SPACE */
+ body {
+   background: radial-gradient(circle at bottom, #000024 0%, #03072C 20%, #080B36 40%, #0F1843 60%, #172355 80%, #222C55 100%);
+ }
+ 
+ /* STARS */
+ .extra1 {
+   width: 1px;
+   height: 1px;
+   position: fixed;
+   top: 0;
+   box-shadow: 83vw 71px #fff , 45vw 18vh #fff , 97vw 48vh #fff , 82vw 12vh #fff , 87vw 2vh #fff , 12vw 18vh #fff , 34vw 49vh #fff , 82vw 28vh #fff , 70vw 55vh #fff , 63vw 53vh #fff , 87vw 89vh #fff , 79vw 44vh #fff , 89vw 6vh #fff , 19vw 83vh #fff , 100vw 15vh #fff , 54vw 57vh #fff , 69vw 28vh #fff , 72vw 60vh #fff , 94vw 4vh #fff , 44vw 57vh #fff , 48vw 37vh #fff , 19vw 8vh #fff , 50vw 4vh #fff , 23vw 65vh #fff , 33vw 88vh #fff , 69vw 19vh #fff , 6vw 19vh #fff , 80vw 91vh #fff , 21vw 58vh #fff , 65vw 2vh #fff , 64vw 31vh #fff , 49vw 15vh #fff , 92vw 24vh #fff , 79vw 53vh #fff , 53vw 37vh #fff , 17vw 71vh #fff , 74vw 44vh #fff , 79vw 57vh #fff , 97vw 23vh #fff , 32vw 76vh #fff , 57vw 75vh #fff , 93vw 85vh #fff , 48vw 94vh #fff , 80vw 60vh #fff , 25vw 26vh #fff , 48vw 5vh #fff , 10vw 42vh #fff , 62vw 12vh #fff , 89vw 23vh #fff , 61vw 55vh #fff , 86vw 71vh #fff , 16vw 24vh #fff , 73vw 93vh #fff , 79vw 60vh #fff , 66vw 91vh #fff , 38vw 12vh #fff , 100vw 14vh #fff , 82vw 33vh #fff , 49vw 71vh #fff , 32vw 84vh #fff , 83vw 84vh #fff , 36vw 81vh #fff , 83vw 94vh #fff , 75vw 45vh #fff , 100vw 72vh #fff , 27vw 35vh #fff , 3vw 27vh #fff , 35vw 98vh #fff , 76vw 46vh #fff , 78vw 75vh #fff , 78vw 39vh #fff , 88vw 43vh #fff , 42vw 48vh #fff , 97vw 39vh #fff , 29vw 98vh #fff , 66vw 16vh #fff , 42vw 41vh #fff , 12vw 75vh #fff , 88vw 54vh #fff , 85vw 50vh #fff , 20vw 82vh #fff , 24vw 70vh #fff , 20vw 74vh #fff , 47vw 30vh #fff , 38vw 21vh #fff , 1vw 49vh #fff , 99vw 55vh #fff , 8vw 25vh #fff , 29vw 34vh #fff , 51vw 10vh #fff , 27vw 43vh #fff , 12vw 82vh #fff , 50vw 46vh #fff , 30vw 17vh #fff , 55vw 38vh #fff , 39vw 49vh #fff , 80vw 88vh #fff , 71vw 4vh #fff , 28vw 61vh #fff , 68vw 90vh #fff , 11vw 99vh #fff , 38vw 9vh #fff , 88vw 88vh #fff , 59vw 69vh #fff , 4vw 53vh #fff , 38vw 56vh #fff , 25vw 86vh #fff , 98vw 79vh #fff , 55vw 78vh #fff , 90vw 79vh #fff , 79vw 7vh #fff , 93vw 14vh #fff , 56vw 50vh #fff , 87vw 41vh #fff , 5vw 92vh #fff , 38vw 16vh #fff , 30vw 92vh #fff , 60vw 81vh #fff , 40vw 14vh #fff , 53vw 86vh #fff , 61vw 92vh #fff , 26vw 96vh #fff , 51vw 25vh #fff , 62vw 8vh #fff , 57vw 19vh #fff , 89vw 73vh #fff , 46vw 10vh #fff , 3vw 90vh #fff , 72vw 90vh #fff , 30vw 41vh #fff , 31vw 48vh #fff , 25vw 29vh #fff , 10vw 57vh #fff , 72vw 59vh #fff , 32vw 27vh #fff , 44vw 78vh #fff , 72vw 51vh #fff , 88vw 87vh #fff , 15vw 76vh #fff , 9vw 36vh #fff , 4vw 51vh #fff , 96vw 3vh #fff , 82vw 26vh #fff , 23vw 69vh #fff , 45vw 81vh #fff , 21vw 38vh #fff , 70vw 63vh #fff , 6vw 92vh #fff , 33vw 28vh #fff , 72vw 29vh #fff , 27vw 10vh #fff , 6vw 14vh #fff , 67vw 92vh #fff , 56vw 20vh #fff , 90vw 53vh #fff , 40vw 15vh #fff , 15vw 52vh #fff , 40vw 46vh #fff , 3vw 63vh #fff , 89vw 36vh #fff , 45vw 9vh #fff , 49vw 87vh #fff , 93vw 16vh #fff , 6vw 47vh #fff , 25vw 28vh #fff , 95vw 90vh #fff , 91vw 38vh #fff , 91vw 95vh #fff , 71vw 29vh #fff , 20vw 59vh #fff , 36vw 74vh #fff , 26vw 75vh #fff , 53vw 17vh #fff , 22vw 66vh #fff , 78vw 20vh #fff , 91vw 14vh #fff , 36vw 91vh #fff , 37vw 58vh #fff , 12vw 29vh #fff , 67vw 67vh #fff , 53vw 87vh #fff , 96vw 71vh #fff , 89vw 19vh #fff , 52vw 17vh #fff , 77vw 22vh #fff , 75vw 69vh #fff , 44vw 6vh #fff , 18vw 40vh #fff , 41vw 37vh #fff , 12vw 55vh #fff , 46vw 67vh #fff , 45vw 20vh #fff , 5vw 47vh #fff , 80vw 43vh #fff , 35vw 81vh #fff , 43vw 37vh #fff , 95vw 47vh #fff , 81vw 24vh #fff , 77vw 53vh #fff , 64vw 73vh #fff , 11vw 81vh #fff , 33vw 32vh #fff , 47vw 21vh #fff , 93vw 89vh #fff , 10vw 3vh #fff , 72vw 13vh #fff , 52vw 56vh #fff , 36vw 55vh #fff , 40vw 29vh #fff , 73vw 7vh #fff , 36vw 92vh #fff , 96vw 8vh #fff , 15vw 24vh #fff , 22vw 47vh #fff , 80vw 76vh #fff , 55vw 36vh #fff , 54vw 87vh #fff , 15vw 90vh #fff , 19vw 57vh #fff , 68vw 97vh #fff , 75vw 34vh #fff , 74vw 11vh #fff , 92vw 40vh #fff , 48vw 6vh #fff , 75vw 57vh #fff , 62vw 91vh #fff , 85vw 12vh #fff , 7vw 7vh #fff , 100vw 5vh #fff , 99vw 85vh #fff , 22vw 4vh #fff , 37vw 31vh #fff , 23vw 36vh #fff , 84vw 68vh #fff , 40vw 47vh #fff , 88vw 36vh #fff , 12vw 10vh #fff , 25vw 58vh #fff , 2vw 29vh #fff , 46vw 17vh #fff , 30vw 12vh #fff , 11vw 16vh #fff , 57vw 54vh #fff , 94vw 20vh #fff , 80vw 3vh #fff , 46vw 25vh #fff , 41vw 19vh #fff , 26vw 61vh #fff , 14vw 76vh #fff , 100vw 85vh #fff , 33vw 71vh #fff , 2vw 57vh #fff , 60vw 37vh #fff , 78vw 18vh #fff , 3vw 69vh #fff , 59vw 64vh #fff , 45vw 8vh #fff , 22vw 49vh #fff , 93vw 13vh #fff , 13vw 97vh #fff , 28vw 93vh #fff , 64vw 55vh #fff , 69vw 5vh #fff , 11vw 47vh #fff , 47vw 85vh #fff , 90vw 58vh #fff , 96vw 93vh #fff , 26vw 52vh #fff , 99vw 7vh #fff , 81vw 27vh #fff , 45vw 39vh #fff , 26vw 63vh #fff , 59vw 49vh #fff , 43vw 73vh #fff , 62vw 46vh #fff , 10vw 16vh #fff , 21vw 33vh #fff , 73vw 50vh #fff , 25vw 38vh #fff , 1vw 4vh #fff , 95vw 54vh #fff , 28vw 68vh #fff , 48vw 13vh #fff , 45vw 35vh #fff , 98vw 19vh #fff , 3vw 11vh #fff , 85vw 66vh #fff , 47vw 57vh #fff , 94vw 76vh #fff , 55vw 70vh #fff , 88vw 88vh #fff , 46vw 52vh #fff , 99vw 36vh #fff , 51vw 74vh #fff , 17vw 92vh #fff , 3vw 75vh #fff , 31vw 82vh #fff , 30vw 68vh #fff , 72vw 88vh #fff , 80vw 29vh #fff , 30vw 55vh #fff , 60vw 39vh #fff , 47vw 79vh #fff , 84vw 36vh #fff , 22vw 64vh #fff , 49vw 75vh #fff , 85vw 31vh #fff , 13vw 21vh #fff , 87vw 68vh #fff , 90vw 33vh #fff , 93vw 85vh #fff , 95vw 10vh #fff , 71vw 94vh #fff , 70vw 28vh #fff , 29vw 32vh #fff , 56vw 55vh #fff , 21vw 89vh #fff , 88vw 4vh #fff , 95vw 72vh #fff , 63vw 40vh #fff , 74vw 25vh #fff , 7vw 42vh #fff , 43vw 92vh #fff , 55vw 84vh #fff , 40vw 57vh #fff , 94vw 34vh #fff , 55vw 60vh #fff , 82vw 56vh #fff , 74vw 55vh #fff , 70vw 71vh #fff , 17vw 22vh #fff , 46vw 4vh #fff , 64vw 52vh #fff , 73vw 20vh #fff , 62vw 56vh #fff , 17vw 16vh #fff , 66vw 83vh #fff , 62vw 59vh #fff , 51vw 92vh #fff , 44vw 20vh #fff , 69vw 73vh #fff , 66vw 80vh #fff , 95vw 83vh #fff , 55vw 56vh #fff , 97vw 42vh #fff , 66vw 88vh #fff , 70vw 45vh #fff , 22vw 91vh #fff , 41vw 86vh #fff , 75vw 84vh #fff , 29vw 48vh #fff , 50vw 24vh #fff , 62vw 1vh #fff , 57vw 75vh #fff , 25vw 12vh #fff , 94vw 4vh #fff , 25vw 59vh #fff , 71vw 7vh #fff , 84vw 13vh #fff , 45vw 68vh #fff , 13vw 15vh #fff , 99vw 12vh #fff , 8vw 49vh #fff , 81vw 96vh #fff , 59vw 100vh #fff , 87vw 11vh #fff , 14vw 47vh #fff , 49vw 77vh #fff , 7vw 23vh #fff , 77vw 15vh #fff , 20vw 39vh #fff , 88vw 86vh #fff , 92vw 76vh #fff , 73vw 15vh #fff , 45vw 5vh #fff , 29vw 56vh #fff , 73vw 24vh #fff , 11vw 70vh #fff , 22vw 100vh #fff , 46vw 46vh #fff , 20vw 80vh #fff , 56vw 1vh #fff , 17vw 10vh #fff , 46vw 23vh #fff , 7vw 4vh #fff , 79vw 38vh #fff , 40vw 20vh #fff , 10vw 10vh #fff , 46vw 96vh #fff , 6vw 42vh #fff , 60vw 53vh #fff , 93vw 61vh #fff , 61vw 85vh #fff , 61vw 21vh #fff , 21vw 75vh #fff , 45vw 86vh #fff , 37vw 11vh #fff , 15vw 9vh #fff , 86vw 42vh #fff , 4vw 7vh #fff , 81vw 81vh #fff , 48vw 2vh #fff , 34vw 22vh #fff , 39vw 84vh #fff , 4vw 11vh #fff , 55vw 90vh #fff , 32vw 96vh #fff , 44vw 46vh #fff , 6vw 59vh #fff , 92vw 82vh #fff , 24vw 42vh #fff , 40vw 85vh #fff , 49vw 21vh #fff , 93vw 67vh #fff , 40vw 42vh #fff , 78vw 99vh #fff , 32vw 3vh #fff , 50vw 13vh #fff , 77vw 99vh #fff , 19vw 45vh #fff , 60vw 61vh #fff , 78vw 56vh #fff , 1vw 92vh #fff , 22vw 57vh #fff , 25vw 97vh #fff , 76vw 35vh #fff , 37vw 88vh #fff , 66vw 22vh #fff , 5vw 71vh #fff , 65vw 92vh #fff , 14vw 62vh #fff , 71vw 92vh #fff , 51vw 54vh #fff , 22vw 51vh #fff , 54vw 56vh #fff , 34vw 61vh #fff , 34vw 67vh #fff , 25vw 46vh #fff , 86vw 32vh #fff , 78vw 14vh #fff , 58vw 46vh #fff , 22vw 44vh #fff , 80vw 63vh #fff , 8vw 50vh #fff , 1vw 95vh #fff , 55vw 19vh #fff , 74vw 37vh #fff , 10vw 46vh #fff , 84vw 68vh #fff , 79vw 16vh #fff , 56vw 27vh #fff , 93vw 45vh #fff , 65vw 63vh #fff , 19vw 3vh #fff , 95vw 45vh #fff , 81vw 60vh #fff , 59vw 51vh #fff , 19vw 5vh #fff , 5vw 21vh #fff , 53vw 16vh #fff , 9vw 39vh #fff , 67vw 87vh #fff , 81vw 2vh #fff , 12vw 3vh #fff , 3vw 69vh #fff , 52vw 34vh #fff , 91vw 76vh #fff , 53vw 63vh #fff , 59vw 72vh #fff , 66vw 11vh #fff , 34vw 28vh #fff , 25vw 39vh #fff , 89vw 70vh #fff , 19vw 44vh #fff , 94vw 21vh #fff , 27vw 23vh #fff , 17vw 12vh #fff , 41vw 66vh #fff , 6vw 44vh #fff , 69vw 77vh #fff , 28vw 58vh #fff , 62vw 41vh #fff , 27vw 48vh #fff , 98vw 76vh #fff , 85vw 44vh #fff , 42vw 61vh #fff , 16vw 71vh #fff , 6vw 95vh #fff , 97vw 52vh #fff , 42vw 92vh #fff , 2vw 62vh #fff , 21vw 77vh #fff , 11vw 21vh #fff , 75vw 90vh #fff , 47vw 84vh #fff , 46vw 5vh #fff , 16vw 61vh #fff , 22vw 17vh #fff , 80vw 82vh #fff , 33vw 68vh #fff;
+   animation: animationStars 180s linear infinite;
+   transform: translateY(110vh);
+ }
+ .extra1::before {
+   content: " ";
+   position: absolute;
+   top: 16px;
+   left: 58vw;
+   width: 2px;
+   height: 2px;
+   box-shadow: 51vw 31px #fff , 32vw 44vh #fff , 91vw 34vh #fff , 5vw 44vh #fff , 4vw 82vh #fff , 27vw 34vh #fff , 68vw 58vh #fff , 58vw 94vh #fff , 37vw 93vh #fff , 59vw 72vh #fff , 27vw 31vh #fff , 95vw 29vh #fff , 10vw 24vh #fff , 98vw 2vh #fff , 2vw 22vh #fff , 46vw 36vh #fff , 18vw 29vh #fff , 47vw 60vh #fff , 41vw 50vh #fff , 70vw 75vh #fff , 81vw 25vh #fff , 68vw 78vh #fff , 96vw 22vh #fff , 11vw 67vh #fff , 38vw 93vh #fff , 71vw 35vh #fff , 44vw 74vh #fff , 58vw 84vh #fff , 53vw 43vh #fff , 11vw 65vh #fff , 37vw 46vh #fff , 68vw 57vh #fff , 97vw 40vh #fff , 30vw 81vh #fff , 100vw 47vh #fff , 4vw 50vh #fff , 34vw 81vh #fff , 28vw 33vh #fff , 77vw 39vh #fff , 95vw 50vh #fff , 73vw 95vh #fff , 87vw 5vh #fff , 12vw 10vh #fff , 38vw 78vh #fff , 75vw 28vh #fff , 98vw 3vh #fff , 30vw 64vh #fff , 95vw 18vh #fff , 9vw 95vh #fff , 50vw 13vh #fff , 62vw 85vh #fff , 48vw 66vh #fff , 35vw 62vh #fff , 31vw 91vh #fff , 97vw 1vh #fff , 79vw 67vh #fff , 66vw 78vh #fff , 45vw 34vh #fff , 54vw 83vh #fff , 99vw 42vh #fff , 3vw 27vh #fff , 24vw 70vh #fff , 99vw 74vh #fff , 74vw 15vh #fff , 39vw 71vh #fff , 61vw 74vh #fff , 95vw 84vh #fff , 15vw 7vh #fff , 81vw 2vh #fff , 86vw 51vh #fff , 19vw 83vh #fff , 37vw 87vh #fff , 3vw 3vh #fff , 24vw 80vh #fff , 79vw 87vh #fff , 56vw 72vh #fff , 8vw 88vh #fff , 87vw 66vh #fff , 42vw 63vh #fff , 48vw 66vh #fff , 11vw 63vh #fff , 63vw 23vh #fff , 31vw 40vh #fff , 28vw 60vh #fff , 47vw 30vh #fff , 97vw 69vh #fff , 41vw 90vh #fff , 86vw 60vh #fff , 95vw 71vh #fff , 71vw 61vh #fff , 92vw 41vh #fff , 3vw 44vh #fff , 5vw 87vh #fff , 62vw 72vh #fff , 90vw 42vh #fff , 87vw 23vh #fff , 76vw 78vh #fff , 37vw 67vh #fff , 15vw 52vh #fff , 33vw 89vh #fff , 44vw 82vh #fff , 16vw 27vh #fff , 26vw 85vh #fff , 82vw 62vh #fff , 11vw 30vh #fff , 9vw 8vh #fff , 97vw 41vh #fff , 21vw 13vh #fff , 7vw 72vh #fff , 20vw 91vh #fff , 37vw 84vh #fff , 76vw 61vh #fff , 65vw 3vh #fff , 73vw 84vh #fff , 3vw 4vh #fff , 79vw 27vh #fff , 54vw 78vh #fff , 92vw 8vh #fff , 95vw 24vh #fff , 3vw 46vh #fff , 63vw 73vh #fff , 14vw 22vh #fff , 12vw 4vh #fff , 84vw 70vh #fff , 57vw 44vh #fff , 1vw 67vh #fff , 32vw 65vh #fff , 35vw 23vh #fff , 3vw 57vh #fff , 11vw 50vh #fff , 2vw 58vh #fff , 94vw 45vh #fff , 13vw 59vh #fff , 86vw 95vh #fff , 32vw 29vh #fff , 25vw 89vh #fff , 68vw 27vh #fff , 85vw 95vh #fff , 81vw 59vh #fff , 73vw 30vh #fff , 82vw 84vh #fff , 98vw 6vh #fff , 76vw 81vh #fff , 92vw 55vh #fff , 95vw 9vh #fff , 42vw 59vh #fff , 70vw 5vh #fff , 40vw 60vh #fff , 82vw 88vh #fff , 42vw 88vh #fff;
+ }
+ .extra1::after {
+   content: " ";
+   position: absolute;
+   bottom: 61px;
+   right: 58vw;
+   width: 3px;
+   height: 3px;
+   box-shadow: 76vw 25px #fff , 58vw 40vh #fff , 28vw 88vh #fff , 64vw 61vh #fff , 2vw 71vh #fff , 3vw 57vh #fff , 4vw 71vh #fff , 84vw 29vh #fff , 59vw 70vh #fff , 32vw 73vh #fff , 15vw 20vh #fff , 23vw 99vh #fff , 63vw 88vh #fff , 76vw 96vh #fff , 73vw 43vh #fff , 81vw 15vh #fff , 8vw 53vh #fff , 52vw 92vh #fff , 65vw 86vh #fff , 68vw 93vh #fff , 86vw 23vh #fff , 97vw 6vh #fff , 100vw 67vh #fff , 43vw 44vh #fff , 73vw 5vh #fff , 45vw 40vh #fff , 61vw 23vh #fff , 45vw 11vh #fff , 40vw 15vh #fff , 89vw 12vh #fff , 65vw 62vh #fff , 44vw 99vh #fff , 47vw 42vh #fff , 52vw 70vh #fff , 44vw 97vh #fff , 37vw 8vh #fff , 97vw 69vh #fff , 20vw 36vh #fff , 39vw 70vh #fff , 57vw 69vh #fff , 26vw 87vh #fff , 85vw 4vh #fff , 44vw 56vh #fff , 80vw 2vh #fff , 100vw 47vh #fff , 92vw 22vh #fff , 11vw 80vh #fff , 78vw 53vh #fff , 29vw 67vh #fff , 17vw 98vh #fff;
+ }
+ 
+ .extra2 {
+   width: 1px;
+   height: 1px;
+   position: fixed;
+   top: 0;
+   box-shadow: 16vw 32px #fff , 66vw 73vh #fff , 82vw 66vh #fff , 99vw 61vh #fff , 87vw 100vh #fff , 57vw 57vh #fff , 4vw 16vh #fff , 71vw 10vh #fff , 22vw 49vh #fff , 38vw 38vh #fff , 69vw 85vh #fff , 67vw 70vh #fff , 60vw 29vh #fff , 80vw 8vh #fff , 82vw 68vh #fff , 68vw 73vh #fff , 29vw 21vh #fff , 37vw 97vh #fff , 78vw 70vh #fff , 38vw 33vh #fff , 14vw 86vh #fff , 88vw 7vh #fff , 83vw 35vh #fff , 33vw 100vh #fff , 54vw 90vh #fff , 99vw 94vh #fff , 31vw 50vh #fff , 32vw 86vh #fff , 47vw 22vh #fff , 93vw 97vh #fff , 12vw 79vh #fff , 48vw 50vh #fff , 38vw 72vh #fff , 67vw 91vh #fff , 55vw 77vh #fff , 57vw 44vh #fff , 70vw 98vh #fff , 57vw 62vh #fff , 3vw 73vh #fff , 45vw 74vh #fff , 79vw 16vh #fff , 11vw 4vh #fff , 77vw 83vh #fff , 6vw 66vh #fff , 67vw 57vh #fff , 81vw 34vh #fff , 95vw 60vh #fff , 11vw 45vh #fff , 43vw 6vh #fff , 65vw 23vh #fff , 69vw 65vh #fff , 22vw 20vh #fff , 18vw 42vh #fff , 13vw 39vh #fff , 98vw 67vh #fff , 88vw 45vh #fff , 7vw 71vh #fff , 81vw 96vh #fff , 74vw 27vh #fff , 72vw 68vh #fff , 37vw 33vh #fff , 32vw 46vh #fff , 7vw 77vh #fff , 9vw 18vh #fff , 34vw 26vh #fff , 17vw 74vh #fff , 84vw 63vh #fff , 61vw 2vh #fff , 80vw 8vh #fff , 43vw 69vh #fff , 30vw 29vh #fff , 91vw 38vh #fff , 29vw 92vh #fff , 64vw 54vh #fff , 36vw 44vh #fff , 44vw 79vh #fff , 4vw 79vh #fff , 59vw 84vh #fff , 48vw 95vh #fff , 72vw 80vh #fff , 44vw 44vh #fff , 15vw 69vh #fff , 65vw 64vh #fff , 56vw 60vh #fff , 71vw 46vh #fff , 81vw 86vh #fff , 39vw 88vh #fff , 83vw 41vh #fff , 66vw 16vh #fff , 50vw 11vh #fff , 52vw 96vh #fff , 1vw 51vh #fff , 28vw 44vh #fff , 36vw 81vh #fff , 82vw 84vh #fff , 44vw 73vh #fff , 88vw 28vh #fff , 49vw 95vh #fff , 19vw 89vh #fff , 30vw 33vh #fff , 47vw 55vh #fff , 34vw 90vh #fff , 90vw 72vh #fff , 6vw 78vh #fff , 48vw 83vh #fff , 37vw 89vh #fff , 7vw 76vh #fff , 42vw 74vh #fff , 26vw 72vh #fff , 61vw 34vh #fff , 30vw 83vh #fff , 25vw 36vh #fff , 18vw 8vh #fff , 12vw 55vh #fff , 78vw 64vh #fff , 42vw 75vh #fff , 97vw 24vh #fff , 29vw 59vh #fff , 50vw 40vh #fff , 24vw 87vh #fff , 21vw 94vh #fff , 93vw 69vh #fff , 40vw 48vh #fff , 60vw 95vh #fff , 73vw 94vh #fff , 88vw 99vh #fff , 9vw 86vh #fff , 54vw 2vh #fff , 57vw 59vh #fff , 21vw 64vh #fff , 2vw 2vh #fff , 62vw 27vh #fff , 20vw 23vh #fff , 7vw 97vh #fff , 67vw 62vh #fff , 28vw 18vh #fff , 17vw 68vh #fff , 10vw 45vh #fff , 11vw 36vh #fff , 65vw 43vh #fff , 25vw 95vh #fff , 44vw 51vh #fff , 81vw 93vh #fff , 60vw 40vh #fff , 18vw 86vh #fff , 70vw 72vh #fff , 19vw 63vh #fff , 85vw 39vh #fff , 77vw 74vh #fff , 30vw 36vh #fff , 59vw 65vh #fff , 71vw 55vh #fff , 66vw 98vh #fff , 29vw 54vh #fff , 9vw 35vh #fff , 72vw 2vh #fff , 72vw 72vh #fff , 90vw 54vh #fff , 36vw 76vh #fff , 28vw 4vh #fff , 61vw 20vh #fff , 74vw 40vh #fff , 78vw 76vh #fff , 15vw 6vh #fff , 46vw 64vh #fff , 87vw 72vh #fff , 61vw 59vh #fff , 21vw 61vh #fff , 39vw 15vh #fff , 58vw 55vh #fff , 1vw 54vh #fff , 18vw 21vh #fff , 81vw 98vh #fff , 29vw 80vh #fff , 67vw 61vh #fff , 32vw 71vh #fff , 25vw 18vh #fff , 84vw 80vh #fff , 68vw 8vh #fff , 11vw 70vh #fff , 16vw 3vh #fff , 85vw 55vh #fff , 46vw 19vh #fff , 92vw 41vh #fff , 31vw 57vh #fff , 29vw 33vh #fff , 5vw 73vh #fff , 88vw 82vh #fff , 33vw 95vh #fff , 67vw 69vh #fff , 74vw 98vh #fff , 80vw 88vh #fff , 13vw 42vh #fff , 6vw 14vh #fff , 10vw 33vh #fff , 37vw 41vh #fff , 63vw 50vh #fff , 70vw 44vh #fff , 62vw 87vh #fff , 95vw 21vh #fff , 76vw 34vh #fff , 92vw 7vh #fff , 89vw 43vh #fff , 66vw 34vh #fff , 83vw 56vh #fff , 22vw 78vh #fff , 23vw 60vh #fff , 37vw 97vh #fff , 44vw 2vh #fff , 41vw 40vh #fff , 24vw 49vh #fff , 8vw 34vh #fff , 28vw 7vh #fff , 79vw 50vh #fff , 6vw 30vh #fff , 59vw 3vh #fff , 66vw 98vh #fff , 30vw 24vh #fff , 10vw 97vh #fff , 30vw 54vh #fff , 43vw 61vh #fff , 52vw 44vh #fff , 25vw 78vh #fff , 92vw 55vh #fff , 21vw 93vh #fff , 15vw 96vh #fff , 51vw 14vh #fff , 4vw 42vh #fff , 12vw 57vh #fff , 62vw 19vh #fff , 28vw 75vh #fff , 15vw 90vh #fff , 5vw 13vh #fff , 32vw 24vh #fff , 80vw 88vh #fff , 16vw 62vh #fff , 81vw 17vh #fff , 1vw 92vh #fff , 19vw 60vh #fff , 54vw 89vh #fff , 89vw 69vh #fff , 98vw 68vh #fff , 46vw 97vh #fff , 50vw 32vh #fff , 64vw 93vh #fff , 3vw 34vh #fff , 91vw 80vh #fff , 94vw 19vh #fff , 80vw 10vh #fff , 38vw 69vh #fff , 88vw 24vh #fff , 69vw 77vh #fff , 80vw 6vh #fff , 88vw 62vh #fff , 93vw 77vh #fff , 83vw 33vh #fff , 82vw 3vh #fff , 78vw 31vh #fff , 95vw 79vh #fff , 80vw 41vh #fff , 18vw 48vh #fff , 84vw 25vh #fff , 97vw 76vh #fff , 56vw 60vh #fff , 80vw 32vh #fff , 78vw 49vh #fff , 51vw 3vh #fff , 96vw 50vh #fff , 22vw 93vh #fff , 35vw 96vh #fff , 44vw 82vh #fff , 94vw 48vh #fff , 43vw 77vh #fff , 45vw 19vh #fff , 97vw 51vh #fff , 31vw 13vh #fff , 50vw 66vh #fff , 27vw 52vh #fff , 88vw 76vh #fff , 57vw 28vh #fff , 72vw 45vh #fff , 65vw 91vh #fff , 44vw 89vh #fff , 73vw 83vh #fff , 42vw 44vh #fff , 40vw 53vh #fff , 82vw 71vh #fff , 49vw 100vh #fff , 64vw 1vh #fff , 38vw 7vh #fff , 82vw 89vh #fff , 12vw 23vh #fff , 86vw 39vh #fff , 76vw 47vh #fff , 86vw 91vh #fff , 72vw 63vh #fff , 55vw 38vh #fff , 88vw 30vh #fff , 6vw 100vh #fff , 33vw 92vh #fff , 7vw 96vh #fff , 75vw 71vh #fff , 98vw 98vh #fff , 54vw 72vh #fff , 97vw 22vh #fff , 67vw 76vh #fff , 95vw 30vh #fff , 35vw 78vh #fff , 69vw 100vh #fff , 84vw 15vh #fff , 88vw 13vh #fff , 97vw 18vh #fff , 88vw 46vh #fff , 94vw 27vh #fff , 70vw 85vh #fff , 30vw 29vh #fff , 2vw 28vh #fff , 100vw 58vh #fff , 40vw 39vh #fff , 76vw 74vh #fff , 100vw 100vh #fff , 14vw 1vh #fff , 93vw 50vh #fff , 40vw 93vh #fff , 36vw 74vh #fff , 68vw 86vh #fff , 91vw 36vh #fff , 13vw 21vh #fff , 71vw 50vh #fff , 84vw 68vh #fff , 7vw 57vh #fff , 26vw 28vh #fff , 5vw 75vh #fff , 76vw 56vh #fff , 91vw 23vh #fff , 23vw 29vh #fff , 23vw 15vh #fff , 84vw 55vh #fff , 25vw 81vh #fff , 77vw 17vh #fff , 33vw 12vh #fff , 32vw 33vh #fff , 14vw 53vh #fff , 32vw 81vh #fff , 15vw 25vh #fff , 41vw 47vh #fff , 11vw 47vh #fff , 42vw 33vh #fff , 40vw 59vh #fff , 93vw 23vh #fff , 4vw 78vh #fff , 33vw 27vh #fff , 59vw 3vh #fff , 35vw 37vh #fff , 77vw 21vh #fff , 81vw 68vh #fff , 89vw 43vh #fff , 78vw 20vh #fff , 63vw 92vh #fff , 25vw 68vh #fff , 10vw 21vh #fff , 97vw 93vh #fff , 96vw 82vh #fff , 56vw 12vh #fff , 57vw 77vh #fff , 39vw 14vh #fff , 50vw 65vh #fff , 23vw 46vh #fff , 57vw 41vh #fff , 13vw 66vh #fff , 53vw 14vh #fff , 40vw 32vh #fff , 20vw 41vh #fff , 59vw 8vh #fff , 63vw 57vh #fff , 21vw 88vh #fff , 92vw 74vh #fff , 94vw 37vh #fff , 97vw 96vh #fff , 56vw 60vh #fff , 42vw 60vh #fff , 90vw 16vh #fff , 67vw 42vh #fff , 82vw 33vh #fff , 12vw 35vh #fff , 51vw 40vh #fff , 14vw 84vh #fff , 16vw 44vh #fff , 60vw 1vh #fff , 57vw 82vh #fff , 73vw 61vh #fff , 63vw 48vh #fff , 12vw 2vh #fff , 3vw 34vh #fff , 77vw 36vh #fff , 18vw 32vh #fff , 99vw 65vh #fff , 20vw 72vh #fff , 100vw 44vh #fff , 88vw 37vh #fff , 13vw 15vh #fff , 19vw 89vh #fff , 75vw 66vh #fff , 72vw 91vh #fff , 90vw 45vh #fff , 48vw 56vh #fff , 75vw 75vh #fff , 69vw 25vh #fff , 60vw 90vh #fff , 5vw 8vh #fff , 93vw 61vh #fff , 59vw 87vh #fff , 88vw 60vh #fff , 35vw 1vh #fff , 2vw 85vh #fff , 53vw 23vh #fff , 8vw 4vh #fff , 56vw 14vh #fff , 58vw 63vh #fff , 21vw 27vh #fff , 81vw 48vh #fff , 13vw 62vh #fff , 17vw 42vh #fff , 29vw 73vh #fff , 82vw 88vh #fff , 28vw 21vh #fff , 54vw 46vh #fff , 86vw 56vh #fff , 5vw 36vh #fff , 49vw 32vh #fff , 50vw 93vh #fff , 3vw 55vh #fff , 80vw 75vh #fff , 11vw 58vh #fff , 81vw 67vh #fff , 95vw 99vh #fff , 88vw 46vh #fff , 5vw 32vh #fff , 19vw 33vh #fff , 2vw 81vh #fff , 70vw 23vh #fff , 21vw 76vh #fff , 55vw 57vh #fff , 63vw 34vh #fff , 77vw 42vh #fff , 4vw 90vh #fff , 99vw 18vh #fff , 58vw 86vh #fff , 32vw 75vh #fff , 67vw 94vh #fff , 6vw 88vh #fff , 3vw 1vh #fff , 92vw 57vh #fff , 68vw 38vh #fff , 81vw 75vh #fff , 36vw 45vh #fff , 42vw 93vh #fff , 6vw 12vh #fff , 58vw 41vh #fff , 91vw 92vh #fff , 74vw 80vh #fff , 1vw 29vh #fff , 61vw 59vh #fff , 45vw 54vh #fff , 61vw 34vh #fff , 20vw 19vh #fff , 2vw 14vh #fff , 13vw 35vh #fff , 67vw 16vh #fff , 58vw 53vh #fff , 88vw 24vh #fff , 12vw 83vh #fff , 46vw 84vh #fff , 30vw 16vh #fff , 39vw 53vh #fff , 23vw 14vh #fff , 90vw 71vh #fff , 40vw 31vh #fff , 1vw 16vh #fff , 64vw 7vh #fff , 91vw 35vh #fff , 40vw 63vh #fff , 68vw 94vh #fff , 27vw 59vh #fff , 62vw 33vh #fff , 65vw 56vh #fff , 44vw 70vh #fff , 20vw 55vh #fff , 48vw 33vh #fff , 56vw 38vh #fff , 22vw 70vh #fff , 52vw 50vh #fff , 77vw 71vh #fff , 28vw 24vh #fff , 10vw 68vh #fff , 95vw 19vh #fff , 33vw 48vh #fff , 87vw 54vh #fff , 96vw 92vh #fff , 100vw 33vh #fff;
+   animation: animationStars 180s linear infinite;
+   animation-delay: -90s;
+   transform: translateY(110vh);
+ }
+ .extra2::before {
+   content: " ";
+   position: absolute;
+   top: 75px;
+   left: 61vw;
+   width: 2px;
+   height: 2px;
+   box-shadow: 66vw 32px #fff , 94vw 47vh #fff , 17vw 45vh #fff , 35vw 43vh #fff , 62vw 26vh #fff , 77vw 1vh #fff , 90vw 5vh #fff , 20vw 67vh #fff , 1vw 54vh #fff , 94vw 12vh #fff , 46vw 53vh #fff , 18vw 10vh #fff , 87vw 5vh #fff , 59vw 23vh #fff , 19vw 16vh #fff , 10vw 64vh #fff , 86vw 32vh #fff , 95vw 36vh #fff , 35vw 16vh #fff , 55vw 11vh #fff , 23vw 8vh #fff , 17vw 20vh #fff , 99vw 75vh #fff , 41vw 7vh #fff , 79vw 66vh #fff , 32vw 53vh #fff , 88vw 60vh #fff , 75vw 20vh #fff , 75vw 15vh #fff , 86vw 13vh #fff , 41vw 92vh #fff , 91vw 34vh #fff , 40vw 68vh #fff , 51vw 70vh #fff , 5vw 89vh #fff , 78vw 85vh #fff , 87vw 44vh #fff , 39vw 69vh #fff , 1vw 2vh #fff , 84vw 65vh #fff , 47vw 9vh #fff , 30vw 7vh #fff , 68vw 87vh #fff , 57vw 72vh #fff , 75vw 48vh #fff , 41vw 46vh #fff , 72vw 77vh #fff , 90vw 13vh #fff , 8vw 94vh #fff , 36vw 88vh #fff , 88vw 51vh #fff , 19vw 51vh #fff , 52vw 29vh #fff , 4vw 94vh #fff , 60vw 46vh #fff , 5vw 24vh #fff , 7vw 64vh #fff , 2vw 90vh #fff , 92vw 48vh #fff , 49vw 25vh #fff , 23vw 71vh #fff , 5vw 18vh #fff , 38vw 9vh #fff , 21vw 97vh #fff , 21vw 92vh #fff , 9vw 39vh #fff , 16vw 94vh #fff , 89vw 77vh #fff , 71vw 92vh #fff , 77vw 72vh #fff , 28vw 71vh #fff , 37vw 76vh #fff , 58vw 55vh #fff , 31vw 100vh #fff , 88vw 1vh #fff , 4vw 46vh #fff , 75vw 57vh #fff , 90vw 30vh #fff , 100vw 97vh #fff , 81vw 37vh #fff , 94vw 33vh #fff , 1vw 18vh #fff , 62vw 43vh #fff , 19vw 10vh #fff , 30vw 32vh #fff , 17vw 28vh #fff , 97vw 51vh #fff , 65vw 100vh #fff , 95vw 48vh #fff , 82vw 5vh #fff , 49vw 60vh #fff , 23vw 67vh #fff , 7vw 83vh #fff , 99vw 98vh #fff , 85vw 3vh #fff , 59vw 38vh #fff , 37vw 90vh #fff , 11vw 44vh #fff , 85vw 73vh #fff , 82vw 86vh #fff , 37vw 58vh #fff , 32vw 67vh #fff , 56vw 31vh #fff , 75vw 94vh #fff , 80vw 45vh #fff , 93vw 17vh #fff , 27vw 13vh #fff , 59vw 35vh #fff , 49vw 93vh #fff , 91vw 53vh #fff , 47vw 14vh #fff , 59vw 96vh #fff , 15vw 64vh #fff , 2vw 32vh #fff , 49vw 31vh #fff , 45vw 92vh #fff , 36vw 15vh #fff , 83vw 64vh #fff , 45vw 30vh #fff , 82vw 18vh #fff , 18vw 81vh #fff , 32vw 96vh #fff , 84vw 98vh #fff , 41vw 75vh #fff , 39vw 81vh #fff , 65vw 43vh #fff , 77vw 4vh #fff , 25vw 34vh #fff , 18vw 4vh #fff , 18vw 84vh #fff , 51vw 71vh #fff , 28vw 6vh #fff , 23vw 74vh #fff , 91vw 1vh #fff , 70vw 74vh #fff , 49vw 71vh #fff , 53vw 65vh #fff , 94vw 50vh #fff , 7vw 98vh #fff , 29vw 81vh #fff , 62vw 23vh #fff , 63vw 91vh #fff , 56vw 28vh #fff , 10vw 83vh #fff , 33vw 16vh #fff , 7vw 71vh #fff , 79vw 91vh #fff , 61vw 18vh #fff , 10vw 40vh #fff , 89vw 97vh #fff;
+ }
+ .extra2::after {
+   content: " ";
+   position: absolute;
+   bottom: 31px;
+   right: 43vw;
+   width: 3px;
+   height: 3px;
+   box-shadow: 10vw 85px #fff , 16vw 23vh #fff , 14vw 11vh #fff , 43vw 87vh #fff , 71vw 75vh #fff , 96vw 81vh #fff , 13vw 32vh #fff , 51vw 14vh #fff , 73vw 98vh #fff , 87vw 4vh #fff , 95vw 96vh #fff , 49vw 22vh #fff , 60vw 61vh #fff , 86vw 31vh #fff , 2vw 77vh #fff , 8vw 40vh #fff , 72vw 35vh #fff , 64vw 5vh #fff , 68vw 15vh #fff , 40vw 65vh #fff , 76vw 89vh #fff , 75vw 7vh #fff , 7vw 95vh #fff , 14vw 13vh #fff , 4vw 30vh #fff , 6vw 22vh #fff , 36vw 36vh #fff , 70vw 64vh #fff , 27vw 97vh #fff , 28vw 52vh #fff , 43vw 70vh #fff , 52vw 72vh #fff , 70vw 8vh #fff , 91vw 80vh #fff , 4vw 52vh #fff , 71vw 72vh #fff , 81vw 82vh #fff , 99vw 19vh #fff , 64vw 96vh #fff , 57vw 19vh #fff , 3vw 11vh #fff , 14vw 65vh #fff , 65vw 73vh #fff , 35vw 28vh #fff , 13vw 17vh #fff , 68vw 92vh #fff , 38vw 41vh #fff , 39vw 76vh #fff , 12vw 54vh #fff , 96vw 90vh #fff;
+ }
+ 
+ .extra1,
+ .extra2 {
+   z-index: -2;
+ }
+ 
+ @keyframes animationStars {
+   from {
+	 transform: translateY(-100vh);
+   }
+   to {
+	 transform: translateY(100vh);
+   }
+ }
+ /* ----------------- SOLAR SYSTEM */
+ /* Icons made by <a href="https://www.flaticon.com/authors/monkik" title="monkik">monkik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a> */
+ /* Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a> MOON */
+ #css-zen-garden::before {
+   content: " ";
+   display: block;
+   position: absolute;
+   right: -3em;
+   top: -5em;
+   height: 20rem;
+   width: 20rem;
+   background: radial-gradient(#fff57b, #ffe469, #fecc51, #fcb033, #fa961b, #fa8607, #cf1010, #ff0000);
+   border-radius: 50%;
+   z-index: -1;
+ }
+ 
+ #css-zen-garden::after {
+   content: " ";
+   display: block;
+   position: absolute;
+   right: -4em;
+   top: -6em;
+   height: 22rem;
+   width: 22rem;
+   background: radial-gradient(#ff0000, #ffff00);
+   border-radius: 50%;
+   z-index: -2;
+   animation: sun-shines 10s linear infinite;
+ }
+ 
+ @keyframes sun-shines {
+   0% {
+	 opacity: 0.9;
+   }
+   20% {
+	 opacity: 0.6;
+   }
+   40% {
+	 opacity: 0.2;
+   }
+   60% {
+	 opacity: 0.6;
+   }
+   80% {
+	 opacity: 0.75;
+   }
+   100% {
+	 opacity: 0.9;
+   }
+ }
+ #zen-intro > header > h2::after {
+   content: url(assets/svg/018-mercury.svg);
+   width: 2rem;
+   float: right;
+   animation: translation 20s linear infinite;
+   animation-delay: -6s;
+ }
+ 
+ #zen-preamble > p:nth-child(3)::after {
+   content: url(assets/svg/036-venus.svg);
+   width: 4rem;
+   float: right;
+   animation: translation 60s linear infinite;
+   animation-delay: -6s;
+ }
+ 
+ #zen-explanation > p:nth-child(2) > abbr:nth-child(2)::before {
+   content: url(assets/svg/006-planet-earth.svg);
+   width: 4rem;
+   float: right;
+   position: absolute;
+   animation: translation 95s linear infinite;
+   animation-delay: 0;
+ }
+ 
+ #zen-explanation > p:nth-child(2) > abbr:nth-child(2)::after {
+   content: url(assets/svg/moon.svg);
+   width: 2rem;
+   float: right;
+   position: absolute;
+   margin-left: 40px;
+   animation: translation 95s linear infinite;
+   animation-delay: 0;
+ }
+ 
+ #zen-explanation > p:nth-child(3)::after {
+   content: url(assets/svg/017-mars.svg);
+   width: 2rem;
+   float: right;
+   animation: translation 85s linear infinite;
+   animation-delay: -6s;
+ }
+ 
+ #zen-participation > p:nth-child(2)::after {
+   content: url(assets/svg/012-jupiter.svg);
+   width: 20rem;
+   float: right;
+   position: absolute;
+   animation: translation 60s linear infinite;
+   animation-delay: -6s;
+ }
+ 
+ #zen-requirements > p:nth-child(2)::after {
+   content: url(assets/svg/028-saturn.svg);
+   width: 16rem;
+   float: right;
+   position: absolute;
+   animation: translation 140s linear infinite;
+   animation-delay: -6s;
+ }
+ 
+ #design-selection::before {
+   content: url(assets/svg/035-uranus.svg);
+   width: 12rem;
+   float: right;
+   position: absolute;
+   animation: translation 50s linear infinite;
+   animation-delay: -6s;
+ }
+ 
+ #zen-resources::before {
+   content: url(assets/svg/022-neptune.svg);
+   width: 10rem;
+   float: right;
+   position: absolute;
+   animation: translation 75s linear infinite;
+   animation-delay: -6s;
+ }
+ 
+ @keyframes translation {
+   0% {
+	 transform: translate(-100vw, -10vh);
+   }
+   100% {
+	 transform: translate(100vw, 20vh);
+   }
+ }
+ @media screen and (min-width: 50rem) {
+   html {
+	 padding: 10vh 0 10vh 0;
+   }
+ 
+   .intro > *,
+ .supporting > *,
+ .sidebar > * > * {
+	 background-color: rgba(238, 238, 238, 0.25);
+	 padding: 1em;
+	 border-radius: 20px;
+	 transition-duration: 300ms;
+	 position: relative;
+   }
+ 
+   .intro > *:hover,
+ .supporting > *:hover,
+ .sidebar > * > *:hover {
+	 background-color: rgba(238, 238, 238, 0.1);
+	 position: relative;
+   }
+ 
+   p {
+	 font-weight: 700;
+   }
+ 
+   h1 {
+	 font-size: 3.5em;
+   }
+ 
+   h2 {
+	 font-size: 3em;
+   }
+ 
+   h3 {
+	 font-size: 2.5em;
+   }
+ 
+   .sidebar {
+	 display: block;
+	 position: relative;
+	 width: 100%;
+   }
+ 
+   .intro {
+	 display: grid;
+	 gap: 0.5em;
+	 grid-template-columns: repeat(7, 1fr);
+   }
+   .intro header {
+	 grid-column: 1/4;
+	 grid-row: 1/2;
+   }
+   .intro .summary {
+	 grid-column: 4/8;
+	 grid-row: 1/2;
+   }
+   .intro .preamble {
+	 grid-column: 2/8;
+	 grid-row: 2/3;
+   }
+ 
+   .supporting {
+	 display: grid;
+	 gap: 0.5em;
+	 grid-template-columns: repeat(7, 1fr);
+   }
+   .supporting .explanation {
+	 grid-column: 1/5;
+	 grid-row: 1/2;
+   }
+   /* .supporting #zen-explanation::before {
+	 content: url('data:image/svg+xml;utf8,<svg height="500px" width="500px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M182 400 Q90 100, 250 40, Q410 100, 318 400" style="fill:red;stroke:black;"/><circle cx="250" cy="200" r="40" style="fill:blue;stroke:black;"/><polygon points="330,300 400,350 400,400 370,370 300,370" style="fill:red;stroke:black;" /><polygon points="170,300 100,350 100,400 130,370 200,370" style="fill:red;stroke:black;" /><path d="M181 400, 319 400" style="stroke:black;"/><polygon points="220,400 280,400 290,420 210,420" style="fill:red;stroke:black;" /></svg>');
+	 display: block;
+	 width: 500px;
+	 height: 500px;
+	 background-color: transparent;
+	 position: absolute;
+	 right: -420px;
+	 top: 0;
+   } */
+   .supporting .participation {
+	 grid-column: 3/8;
+	 grid-row: 2/3;
+   }
+   .supporting .benefits {
+	 grid-column: 1/5;
+	 grid-row: 3/4;
+   }
+   .supporting .requirements {
+	 grid-column: 3/8;
+	 grid-row: 4/5;
+   }
+   .supporting footer {
+	 grid-column: 1/8;
+	 grid-row: 5/6;
+   }
+ 
+   .supporting footer {
+	 flex-direction: row;
+	 justify-content: space-around;
+	 background-color: transparent;
+   }
+   .supporting footer a {
+	 margin: 0.3em 0.5em;
+   }
+   .supporting footer:hover {
+	 background-color: transparent;
+   }
+ 
+   .design-selection,
+ .design-archives,
+ .zen-resources {
+	 background-color: transparent;
+   }
+   .design-selection ul,
+ .design-archives ul,
+ .zen-resources ul {
+	 margin: 0 auto;
+	 max-width: 35em;
+   }
+ }
+ p {
+   font-family: "Fira Code", monospace;
+   font-weight: 500;
+ }
+ 
+ h1 {
+   font-family: "MuseoModerno", cursive;
+   font-size: 2.5em;
+   text-shadow: 2px 2px #3a3b3c;
+ }
+ 
+ h2 {
+   font-family: "MuseoModerno", cursive;
+   font-size: 2.5em;
+   text-shadow: 2px 2px #3a3b3c;
+ }
+ 
+ h3 {
+   font-family: "Caveat", cursive;
+   font-size: 2.5em;
+   text-shadow: 2px 2px #3a3b3c;
+ }
+ 
+ li {
+   font-family: "Fira Code", monospace;
+   font-weight: 500;
+   color: white;
+ }
+ 
+ a, .sidebar ul {
+   font-family: "Fira Code", monospace;
+   font-weight: 500;
+ }
+ 
+ /*# sourceMappingURL=style.css.map */
+ 

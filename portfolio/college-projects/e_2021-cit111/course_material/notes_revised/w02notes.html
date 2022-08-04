@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>W02 Teaching Notes</title>
+    <link rel="stylesheet" type="text/css" href="notes.css">
+  </head>
+  <body>
+
+<div class="objectives">
+<p><strong>Note:</strong> The weekly Teaching Notes only identify week-specific considerations. Please refer to the <a title="General Teaching Notes" href="https://byui.instructure.com/courses/1521/pages/general-teaching-notes" target="_blank" rel="noopener" data-api-endpoint="https://byui.instructure.com/api/v1/courses/1521/pages/general-teaching-notes" data-api-returntype="Page">General Teaching Notes</a> for repeating course facilitation expectations.</p>
+<h2>Week 02 Outcomes</h2>
+<ul>
+<li>Understand data-driven decision making</li>
+<li>Understand how data can help people and organizations</li>
+<li>Understand the use of spreadsheets and how to use them effectively</li>
+<li>Understand the limitations of spreadsheets</li>
+</ul>
+</div>
+<div class="beforeTheWeekBegins">
+<h2>Before the Week Begins</h2>
+<ul>
+<li>Students will go over preparation materials and complete the preparation check before the first class of the week.</li>
+<li>Consider reviewing the teaching tips and suggestions in the CIT111 - W02 Course Group Discussion <a href="https://byui.instructure.com/courses/70298/discussion_topics/1457734" data-api-endpoint="https://byui.instructure.com/api/v1/courses/70298/discussion_topics/1457734" data-api-returntype="Discussion">https://byui.instructure.com/courses/70298/discussion_topics/1457734</a>.</li>
+</ul>
+</div>
+<div class="duringTheWeek">
+<h2>During the Week</h2>
+<ul>
+<li><h3>First of the week:</h3>
+<ul>
+<li>The students should have completed the preparations materials and check before the first class of the week and be ready for learning, activities, and discussions. (W02 - Preparation Check) Have the preparation check be due before the first class of the week.</li>
+</ul>
+</li>
+</ul>
+<h3>(W02 - Spreadsheets):</h3>
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li>Have a discussion about ways data might be organized to help with decision making.</li>
+<li>Have students look at different ways students stored their data in a spreadsheet from last week. [Some had grids, some recorded tables vertically some horizontally, Ask them how they'd identify which image went with which student, some seperated them in tabs, some had it in one spreadsheet, etc.] Once they are done, talk about how each row should be one entity (record) and each column one attribute (field) of that entity or record; otherwise when sorting or adjusting column widths the data can become inefficient. (It would be helpful to demonstrate this with poorly put together spreadsheets. Also, talk about the first row of the spreadsheet as the column headers to tell what is in each row. Help them understand they can make new tabs (new worksheets) for each new table of information. This is better than putting all the tables on one worksheet because column widths and sorting and filtering are clarified.</li>
+<li>Talk about data consistency, data integrity and data redundancy. For example with Data Integrity, you shouldn't be able to add images that don't belong to a student, but our spreadsheet would let us do that. With Data Consistency you could enter a date where there should be a last name and spreadsheets don't restrict the user by default. Data Redundancy may be demonstrated with how they might have to repeat the student's names again on the 2nd sheet so you know which images belong to that student. If we have a name change we have to do it in two different places this is data redundancy. (You can demonstrate things like linking cells between tables or data validation within Excel if you'd like, but the purpose is not to teach Excel but use a tool they might be more familiar with to introduce database topics they will see later.)</li>
+<li>Talk about sorting and filtering the data to make it easier to find our answer. Excel has the Filter and Sort options you can use to show this. This will help them understand ORDER BY and WHERE in SQL later.</li>
+</ul>
+</li>
+</ul>
+<h3>(W02 - Asking Questions of the Data):</h3>
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li>Have a discussion about how to use this data. How can we make money on it? How can we help people with it? How can we provide value in some way with it? This is why a goal, vision or mission is important to base the direction you want to go with the information you get from the data.</li>
+<li>Show them the Statement of Work for this fictitious company. <a href="https://cit111byui.github.io/datagatheringsow.pdf">https://cit111byui.github.io/datagatheringsow.pdf</a></li>
+<li>How might they query or ask questions of the data in the spreadsheets (here are some question ideas):
+<ul>
+<li>What was the top distraction category for our group? What was the top distraction category for our class?</li>
+<li>What was the top worry category for our group> What was the top worry category for our class?</li>
+<li>Which group had the most selfies?</li>
+<li>Did males or females have the most group type images?</li>
+<li>Which major had the most documentation type images?</li>
+</ul>
+</li>
+
+</ul>
+</li>
+</ul>
+<p style="padding-left: 40px;">Students will notice at this point how hard and time consuming it is to get some of the questions answered. Point out the fact that they might have several hundred students or more to keep track of. Later when we do an SQL query to get the same information, it will become apparent to them the advantages of a database over a spreadsheet for in-depth data retrieval on related tables.</p>
+<h3>(W02 - Database vs. Spreadsheet):</h3>
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li>Have them watch this video to prepare them for next week and let them start to understand why we can't just use spreadsheets for all data:<br><br><iframe width="560" height="315" src="https://www.youtube.com/embed/x4Xt0M1mHbc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li>
+</ul>
+</li>
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li>Remind students of the quiz, there will be a quiz each second class of the week.&nbsp;</li>
+</ul>
+</li>
+</ul>
+
+<li><h3>Mid-week</h3>
+<ul>
+<li>Have them complete their quiz by themselves once and then with others for the second attempt. The discussions and debates during the second attempt as a group are great 'teach one another' opportunities. The two scores will be averaged for their final quiz score.</li>
+</ul>
+</li>
+<ul>
+<li>Install Workbench.</li>
+<p><span style="font-size: 18pt;">Windows &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;</span><a class="" title="Link" href="https://content.byui.edu/items/62fa16c5-985a-44c3-b479-c4d335bc0cda/1/How%20to%20install%20MySQL%20and%20MySQL%20Workbench%20on%20Windows%2010.mp4?.vi=htmlFiveViewer" data-preview-alt="">Video to Install for Windows (start at 18 seconds into the video, end at 4:10)</a></p>
+<p><a href="https://content.byui.edu/file/62fa16c5-985a-44c3-b479-c4d335bc0cda/1/Installing%20MySQL%20%20and%20MySQL%20Workbench%20on%20Windows.pdf">MySQL and MySQL Workbench Installation for Windows</a></p>
+<p><span style="font-size: 18pt;">OSX &nbsp;&nbsp; &nbsp;&nbsp;</span><a class="" title="Link" href="https://video.byui.edu/media/Podcast+How+to+Install+MySQL+and+MySQL+Workbench+for+a+Mac/0_oxz4cje2" data-preview-alt="">Video to Install for OSX (start at 30 seconds into the video, end at 6:30)</a></p>
+<p><a href="https://content.byui.edu/file/62fa16c5-985a-44c3-b479-c4d335bc0cda/1/Installing%20MySQL%20on%20OSX.pdf">MySQL Installing for OSX</a></p>
+<p><a href="https://content.byui.edu/file/62fa16c5-985a-44c3-b479-c4d335bc0cda/1/Installing%20MySQL%20Workbench%20on%20OSX.pdf">MySQL Workbench Installation for OSX</a></p>
+<h3>End of the Week</h3>
+<li>
+<h3>W02 - Exploring Workbench</h3>
+<li>Give the students time to work on their "Exploring Workbench" videos/assignment.</li>
+<li>The homework due Saturday will be
+<ul>
+<li>the students watching the "Exploring Workbench" Videos and following instructions and submitting two screenshots.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="gradingFeedback">
+<h2>Grading/Feedback</h2>
+<ul>
+<li><strong>Instructor:</strong> The check and quiz are auto-graded. The submitted homework (W02 - Exploring Workbench) will be checking their 2 screenshots. One screen shot is showing the two new patterns in 'PK Column Name: %table%_id and 'Column Name:' %column%. The second screen shot should show their schema list (they should not have a store schema and the mysql schema should be hidden.)</li><br>
+<img src="../text/images/modelpreferences.png" alt="ERD for data gathering tables in relational database design" width="700px"> </li>
+</ul>
+</div>
+<div class="lookingAhead">
+<h2>Looking Ahead</h2>
+<ul>
+<li>Remind students that they have readings and videos to watch and a check to complete before the first class of the week to be prepared for the next week.</li>
+</ul>
+</div>
+  
+  </body>
+</html>

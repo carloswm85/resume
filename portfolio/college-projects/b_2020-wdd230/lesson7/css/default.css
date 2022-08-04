@@ -1,0 +1,378 @@
+/* In default.css (OR small.css)
+there's no @media query to add */
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans|Oswald&display=swap');
+
+:root {
+  --primary-color: #dadada;
+  --secondary-color: #353E42;
+  --tertiary-color: #ffffff;
+  --accent1-color: #6495ED;
+  --accent2-color: #E0C54E;
+  --accent3-color: #40c057;
+
+  --heading-font: 'Oswald', sans-serif;
+  --paragraph-font: 'Noto Sans', sans-serif;
+}
+
+/* BANNER */
+.banner {
+  border-bottom: 3px var(--secondary-color) solid;
+  padding: 1em;
+  text-align: center;
+  font-family: var(--paragraph-font);
+  margin-bottom: 1em;
+  background-color: yellow;
+  display: block;
+}
+
+body {
+  background-color: var(--primary-color);
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  background-color: #353E42;
+  padding: 0 10px;
+}
+
+
+/* BRAND HEADER SECTION */
+.brand-container {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  align-content: space-around;
+}
+
+.brand-logo-container {
+  flex-grow: 1;
+}
+
+.brand-logo-picture {
+  filter: invert(1);
+  margin: auto;
+  width: 210px;
+  height: auto;
+}
+
+.brand-title-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+}
+
+.brand-title-container > h1 {
+  text-align: center;
+  margin: 0;
+  font-size: 3em;
+}
+
+.brand-title-container > p {
+  text-align: center;
+  margin: 0;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5rem;
+  color: white;
+}
+
+
+/* NAVIGATION BAR */
+/* nav > ul (.navigation) > li > a (.ham) */
+.navigation {
+  font-size: 1.5em;
+  margin: 0.5em 0;
+  height: 100%;
+}
+
+.navigation a:first-child {
+  display: block;
+}
+
+.navigation > a {
+  font-family: var(--paragraph-font);
+  color: white;
+  text-align: center;
+  display: none;
+  margin: 0;
+  padding: 0.5em 0;
+  text-decoration: none;
+}
+
+.navigation a:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.navigation .current-page {
+  color: var(--accent3-color);
+}
+
+/* the onclick JS toggles the .reponsive class from display none (.navigation li) to display block because the responsive class is added to the end of the class list like this in HTML.
+  <ul class="navigation responsive">
+*/
+.responsive a {
+  display: block;
+}
+
+/* HEADERS */
+h1, h2, h3 {
+  font-family: var(--heading-font);
+}
+
+h1 {
+  color: white;
+}
+
+.section-style {
+  height: auto;
+  padding: 3%;
+  margin: 3%;
+  background-color: var(--tertiary-color);
+}
+
+p {
+  font-family: 'Noto Sans', sans-serif;
+  line-height: 1.5;
+  margin-top: 0;
+}
+
+.subpage-title {
+  text-align: center;
+  margin: 20px auto;
+  font-size: 2em;
+}
+
+/* SUMMARY SECTION */
+.summary-picture-file {
+  width: 100%;
+  height: auto;
+}
+
+.summary-information {
+  background-color: var(--primary-color);
+  border: var(--accent1-color) solid 1px;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.summary-title {
+  padding-bottom: 0.2em;
+  border-bottom: 1px solid black;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.summary-information p {
+  font-weight: 600;
+  margin: 0.5em;
+  font-size: 1em;
+}
+
+.summary-information {
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-weight: 900;
+  /*text-shadow: horizontal-offset vertical-offset 'blur' colour; */
+}
+
+/* FORECAST SECTION */
+.forecast {
+  background: var(--secondary-color);
+  display: none;
+}
+
+.forecast-title {
+  padding-bottom: 0.2em;
+  text-align: center;
+  font-size: 1.5em;
+  margin: 0;
+  color: var(--primary-color);
+}
+
+.forecast-table {
+  font-family: var(--paragraph-font);
+  font-size: 1.2em;
+  color: var(--primary-color);
+  margin: 0 auto;
+  margin-top: 0.5em;
+  border-collapse: collapse;
+}
+
+.forecast-table td:hover {
+  background: var(--accent1-color);
+}
+
+.table-header {
+  padding: 0.6em;
+  border-top: var(--primary-color) solid 1px;
+}
+
+.table-cell {
+  padding: 0.6em;
+  border-top: var(--primary-color) solid 1px;
+  border-bottom: var(--primary-color) solid 1px;
+}
+
+/* ARTICLE SECTION */
+.article {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5em;
+}
+
+.article-title {
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-bottom: 0.2em;
+}
+
+.article-authorship {
+  margin-top: 0;
+  font-style: italic;
+}
+
+.article-picture {
+  order: 2;
+  display: inline;
+  text-align: center;
+}
+
+.article-picture-file {
+  max-height: 280px;
+}
+
+/* FOOTER */
+footer {
+  color: #ffffff;
+  margin: 0;
+  padding: 1em;
+  background-color: #353E42;
+}
+
+/* FOOTER TOP */
+.footer-top {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-top p {
+  text-align: center;
+}
+
+/* FOOTER CONTACT */
+.footer-top-contact {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.location-icon {
+  display: inline;
+  width: 16px;
+  height: auto;
+  filter: invert(100%);
+}
+
+.footer-address > p:first-child {
+  font-weight: bolder;
+}
+
+.footer-address > p {
+  margin: 0;
+}
+
+.footer-communication > p:first-child {
+  margin-top: 1em;
+}
+
+.footer-communication > p {
+  margin: 0;
+}
+
+.entity-contact {
+  font-size: 1.5em;
+}
+
+/* SOCIAL MEDIA */
+.footer-social { 
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 1em 0;
+}
+
+.footer-social a {
+  display: grid;
+}
+
+.logo-social {
+  justify-self: center;
+  margin: auto;
+  max-width: 60px;
+}
+
+/* FOOTER MAP */
+.footer-top-map {
+  margin: 1em 0;
+}
+
+.footer-map {
+  width: 100%;
+}
+
+/* FOOTER BOT*/
+.footer-bot {
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  margin: 0 -1em;
+  padding: 1em;
+}
+
+.footer-bot > p {
+  text-align: center;
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.bot-home a {
+  color: var(--primary-color);
+  font-weight: bold;
+  width: 100%;
+}
+
+.bot-home:hover {
+  background-color: var(--secondary-color);
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* GALLERY */
+.gallery-container {
+  display: grid;
+}
+
+.gallery-img {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid black;
+}
+
+.gallery-item {
+  border: solid 1px black;
+  padding: 0;
+}
+
+.gallery-item > figcaption {
+  font-family: var(--paragraph-font);
+  text-align: center;
+  margin: 0;
+  padding: 0.3em;
+}

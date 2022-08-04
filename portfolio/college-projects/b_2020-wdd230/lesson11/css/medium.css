@@ -1,0 +1,156 @@
+/* IN medium.css*/
+
+@media only screen and (min-width: 48em) { /* = 768px */
+
+  .navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  
+  .navigation a {
+    display: block;
+    width: calc(100% / 6);
+  }
+
+  .navigation a:first-child {
+    display: none;
+  }
+
+  .forecast {
+    display: block;
+  }
+
+  .summary {
+    position: relative;
+    display: block;
+  }
+
+  .summary-picture-tag {
+    position: absolute;
+    display: contents;
+  }
+  
+  .summary-information {
+    background-color: rgba(218, 218, 218, 0.5);
+    top: 4.5em;
+    left: 4.5em;
+    position: absolute;
+    width: 30%;
+  }
+
+  .brand-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .brand-logo-container {
+    flex: auto;
+    flex-grow: 0.5;
+    width: 20%;
+    height: auto;
+  }
+
+  .brand-logo-picture {
+    float: right;
+  }
+
+  .brand-title-container {
+    width: 20%;
+    height: auto;
+  }
+
+  .brand-title-container > h1 {
+    text-align: left;
+  }
+
+  .brand-title-container > p {
+    text-align: left;
+  }
+
+  /* EVENTS */
+
+
+  /* ARTICLE */
+  .article {
+    display: block;
+  }
+
+  .article-picture-file {
+    float: left;
+    margin-right: 1.5em;
+    max-height: 350px;
+  }
+
+  .article-section-title {
+    margin-bottom: 0.8em;
+  }
+
+  .article-title {
+    display: block;
+    text-align: center;
+  }
+
+  /* FOOTER TOP */
+  .footer-top {
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .footer-top-map {
+    flex: 2;
+    order: 1;
+  }
+
+  .footer-top-contact {
+    flex: 1;
+    order: 2;
+    flex-direction: row;
+    margin: 1.5em;
+  }
+
+  /* FOOTER BOT*/
+  .footer-bot {
+    border: 1px solid var(--secondary-color);
+  }
+
+  /* GALLERY */
+  .gallery-container {
+    grid-template-columns: 1fr 1fr;
+    justify-items: right;
+  }
+
+  /* FORM */
+  .slide {
+    margin: 0 20%;
+    width: 60%;
+  }
+
+  /* HOME PAGE */
+  /* Article */
+  .weather-story-section h2 {
+    margin-top: 1em;
+    font-size: 2.2em;
+  }
+
+  /* Towns Information */
+  .towns-container {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0.5em;
+  }
+
+  .towns-container section {
+    display: flex;
+  }
+
+  .towns-container :nth-child(odd) {
+    flex-direction: row-reverse;
+  }
+
+  .towns-container img, div {
+    margin: auto;
+    font-size: 1em;
+  }
+}

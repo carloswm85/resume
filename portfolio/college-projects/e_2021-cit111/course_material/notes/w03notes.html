@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>W03 Teaching Notes</title>
+  <link rel="stylesheet" type="text/css" href="notes.css">
+</head>
+
+<body>
+
+
+  <div class="objectives">
+    <p><strong>Note:</strong> The weekly Teaching Notes only identify week-specific considerations. Please refer to the
+      <a title="General Teaching Notes" href="https://byui.instructure.com/courses/1521/pages/general-teaching-notes"
+        target="_blank" rel="noopener"
+        data-api-endpoint="https://byui.instructure.com/api/v1/courses/1521/pages/general-teaching-notes"
+        data-api-returntype="Page">General Teaching Notes</a> for repeating course facilitation expectations.</p>
+    <h2>Week 03 Outcomes</h2>
+    <ul>
+      <li>Learn the purpose of a database</li>
+      <li>Describe the different types of databases</li>
+      <li>Learn the different architectures and hardware of a database system</li>
+      <li>Learn about data storage and the different types of data (data types)</li>
+      <li>Become familiar with SQL</li>
+      <li>Understand the different between DDL and DML statements</li>
+    </ul>
+  </div>
+  <div class="beforeTheWeekBegins">
+    <h2>Before the Week Begins</h2>
+    <ul>
+      <li>Students will go over preparation materials and complete the preparation check before class on Monday.</li>
+
+      <li>Consider reviewing the teaching tips and suggestions in the CIT111 - W03 Course Group discussion <a
+          href="https://byui.instructure.com/courses/70298/discussion_topics/1457734"
+          data-api-endpoint="https://byui.instructure.com/api/v1/courses/70298/discussion_topics/1457734"
+          data-api-returntype="Discussion">https://byui.instructure.com/courses/70298/discussion_topics/1457734</a>.
+      </li>
+    </ul>
+  </div>
+  <div class="duringTheWeek">
+    <h2>During the Week</h2>
+      <h3>First of the week:</h3>
+        <ul>
+          <li>The students should have completed the preparation materials and check before the first class of the week
+          and be ready for learning, activities, and discussions.</li>
+          </ul>
+        <ul>
+          <h4>(W03 - Big Data)</h4>
+          <a href="https://cit111byui.github.io/case_studies/w03_big_data.pdf" target="_blank">Online Draft</a><br>
+          <li><a class="" href="https://www.youtube.com/watch?v=kAZ8lK224Kw"
+              data-preview-alt="THE HUMAN FACE OF BIG DATA | Trailer | PBS">THE HUMAN FACE OF BIG DATA | Trailer |
+              PBS</a></li>
+          <li>Discuss how data is helping to build the kingdom (gather Israel) with Geneology data. President Nelson has
+            said that "the gathering is &ldquo;<em>the greatest</em>&nbsp;challenge,&nbsp;<em>the
+              greatest</em>&nbsp;cause, and&nbsp;<em>the greatest</em> work on earth today". Databases play a huge role
+            in this process.&nbsp;</li>
+          <li><a href="https://www.familysearch.org">https://www.familysearch.org</a></li>
+          <li><a href="https://www.familysearch.org/discovery/about">https://www.familysearch.org/discovery/about</a>
+          </li>
+          <li>Have groups discuss ways 'Big Data' companies might use data to personalize your experience with them.
+            Adding personalization takes a lot of storage.&nbsp; What data might they need to store about each user?
+            Give each group a company to discuss and then share: Amazon, Facebook, Expedia, Google, etc.</li>
+        </ul>
+        <ul>
+          <h4>(W03 - ERD and Datatypes Intro):</h4>
+          <a href="https://cit111byui.github.io/case_studies/w03_erd_and_datatypes_intro.pdf" target="_blank">Online Draft</a><br>
+          <li>Show the ERD that goes with the data they collected the first week of class.</li>
+          <img src="../text/images/gatherdata-erd.png" alt="ERD for data gathering tables in relational database design"
+            width="500px">
+          <li>Show the students how the data they had in their spreadsheet might look as tables in the database by
+            looking at the ERD you will use. Look at the datatypes you chose and why. Look at the datatype drop down for
+            other types of data and discuss what you might store in some of the other datatypes. Point out how the way
+            the table columns are used in the ERD will reduce data redundancy. They will be learning about the
+            relationships next week. You can leave the relationship crows feet off if you would like or let them know it
+            will be explained next week. This week we just want to show the column attribute arrangements and datatypes
+            used in the ERD.</li>
+        </ul>
+      <ul>
+        <li>Remind students of the quiz the second class of the week, there will be a quiz the second day of each week.
+        </li><br>
+      </ul>
+      <h3>Mid-week</h3>
+      <ul>
+        <li>The quiz this week will be on datatypes and database models.</li>
+        <li>Have them complete their quiz by themselves once and then with others for the second attempt. The
+          discussions and debates during the second attempt as a group is a great 'teach one another' activity. The two
+          scores will be averaged for their final quiz score.</li>
+      </ul>
+        <ul>
+          <h4>(W03 - SQL Overview Practice)</h4>
+          <li>Use the following datawinter database to demonstrate an overview of SQL.</li>
+          <a href="https://cit111byui.github.io/datagathered_dump.sql">datagathered_dump.sql</a>
+
+          <li>When showing the sql code remember, the students do not need to be able to create any of this code.
+            The purpose is just to show them the code and explain what each does and the purpose of each. Let them know
+            we will learn how to code later in our course. You can let the students download the dump file (W03 - Import datagathered.sql) 
+            and practice
+            with it as you show them the statements. I typed the first few with them and went over common syntax errors
+            like forgetting the semi-colon between statements. Also showing how to run just one statement at a time in
+            Workbench. The queries that use aggregates, group bys, and joins I just showed them and didn't have them
+            type them in. The point is to show how detailed of questions we can ask the query, not to teach the SQL
+            statements at this point.</li>
+          <li>This is also a good chance to talk about datatypes and how they allow different data to be entered. For
+            example, the worry_category is VARCHAR and the dist_category followed the categorization of the data gather
+            sheets with ENUM. The query showing the top worries has a result set that is not as succinct since the data
+            entry person wasn't limited on what they could enter. There are misspellings and categories that didn't fit
+            with the worry_category as represented in the data gathering sheet.
+          </li>
+          <li>Here is a video of what I'd go over with them in class.</li><br>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/ePcRIOo7Djo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <li><br>
+            <a href="../sql_code/w03_sql_overview_practice.sql">SQL CODE FOR PRACTICE</a>
+          </li>
+        </ul>
+        <h3>End of the Week</h3>
+      <ul>
+        <li>The homework due Saturday (W03 - SQL Overview) will be
+          <ul>
+            <li>Completing the SQL Overview Assignment after reading 'Simply SQL' by Rudy Limeback.</li>
+          </ul>
+        </li>
+      </ul>
+   
+  </div>
+  <div class="gradingFeedback">
+    <h2>Grading/Feedback</h2>
+    <ul>
+      <li><strong>Instructor:</strong> The check and quiz are auto-graded. The homework will also be auto-graded this week. 
+        It will be a Canvas quiz based on the things they learned from the first chapter in 'Simply SQL' by Rudy Limeback.</li>
+    </ul>
+  </div>
+  <div class="lookingAhead">
+    <h2>Looking Ahead</h2>
+    <ul>
+      <li>Remind students that they have readings and videos to watch and a check to complete before the first day of
+        class to be prepared for the next week.</li>
+    </ul>
+  </div>
+  </div>
+
+</body>
+
+</html>

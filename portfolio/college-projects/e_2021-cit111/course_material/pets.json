@@ -1,0 +1,22 @@
+{
+   "pets": [
+    {
+      "name": "Meowsy",
+      "species" : "cat",
+      "food": "tuna" 
+    },
+    {
+      "name": "Barky",
+      "species" : "dog",
+      "food": "bones"
+    },
+    {
+      "name": "Purrpaws",
+      "species" : "cat",
+      "food": "mice"
+    }
+  ]
+}
+  
+
+ 

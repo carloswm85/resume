@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <title>Fancy Button</title>
+  <script>
+  		function showCongratulations(theButtonClicked){
+  			document.getElementById("result_display").innerHTML = "Congratulations, you did it!<p>You got the page to update!</p>"
+        theButtonClicked.innerHTML = "Click Me Again!";
+  		}
+  </script>
+
+  <style>
+    body{
+      color:white;
+      background-color: DarkSlateBlue;  
+    }
+    #result_display{
+      background-color: DarkGrey;
+      width:300px;
+      height:150px;
+      position: relative;
+      top:10px;
+      left:10px;
+      padding:5px;
+    }
+  </style>
+</head>
+
+<body>
+	<button onclick="showCongratulations(this)">Click Me!</button>
+	<section id="result_display"></section>
+</body>
+</html>

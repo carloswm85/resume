@@ -1,0 +1,50 @@
+/* IN large.css */
+
+@media only screen and (min-width: 64em) { /* = 1024px */
+  .banner {
+    border: 3px var(--secondary-color) solid;
+    border-radius: 0 0 20px 20px;
+    margin-top: -2em;
+    padding: 1em;
+    text-align: center;
+    font-family: var(--paragraph-font);
+    margin-bottom: 1em;
+    background-color: yellow;
+    display: block;
+  }
+  body {
+    margin: 30px auto;
+    width: 60em; 
+  }
+
+  main {
+    border: 1px solid white;
+  }
+
+  header, footer {
+    margin: 0 -2%;
+  }
+
+  /* ARTICLE */
+  .article-picture {
+    float: right;
+  }
+
+  /*  CLEAR ARTICLE PICTURE */
+  .clear-container {
+    overflow: auto;
+  }
+
+    /* GALLERY */
+    .gallery-container {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  
+
+  /* BOX SHADOW, IMAGE GALLERY PICTURES */
+  .gallery-item > img:hover {
+    box-shadow: 0 0 50px #333;
+  }
+}
+
+

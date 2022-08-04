@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!-- SCOOTS' WEBSITE -->
+<!-- Rentals Page -->
+<html lang="en">
+
+<!-- HEAD -->
+<head>
+	<!-- Non VISIBLE -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="~Scoots. Motor scooter rental company. This site provide information about: Services, requirements, rental process of scooter in the Mexican island of Cozumel.">	
+
+	<!-- Files -->
+	<link rel="stylesheet" href="scss/styles.css">
+
+	<!-- VISIBLE -->
+	<title>~Scoots - Rent Your Ride - RENTALS PAGE</title>
+	<link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+</head>
+
+<!-- BODY -->
+<body>
+	<!-- HEADER -->
+	<header class="background-blue">
+		<div class="max-sized">
+			<div class="header-top">
+				<div class="logo-box">
+					<!-- Logo -->
+					<picture class="logo-item">
+						<img class="logo-image" src="img/logo-70.svg" alt="Scoot's Scooter Rental Company logo.">
+					</picture>
+					
+					<div>
+						<h1 class="logo-title">~Scoots</h1>
+						<span class="logo-subtitle">Rent Your Ride</span>
+					</div>
+				</div>
+					
+				<button  onclick="toggleMenu()">&#9776;</button>
+			</div>
+					
+			<!-- Hamburguer nav -->
+			<nav id="primaryNav" class="hide">
+				<ul>				
+					<li><a href="index.html" class="">Home</a></li>
+					<li><a href="rentals.html" class="current">Rentals</a></li>
+					<li><a href="reservations.html" class="">Reservations</a></li>
+					<li><a href="tours.html" class="">Tours</a></li>
+					<li><a href="contact.html" class="">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<!-- MAIN -->
+	<main class="background-blue-2">
+		<div class="max-sized">
+			
+			<section class="container-rentals-2">
+
+				<picture>
+					<source media="(min-width: 700px)" srcset="img/rentals/type-rentals-950.png">
+					<source media="(min-width: 518px)" srcset="img/rentals/type-rentals-768.png">
+					<img src="img/rentals/type-rentals-360.png" alt="Available rental vehicles.">
+				</picture>
+
+				<h2>Type of Rentals</h2>
+				
+				<!-- Rentals information -->
+				<table class="table-rentals-2">
+					<thead>
+					  <tr>
+						<th colspan="6">Max Person and Price Chart (Includes Taxes)</th>
+					  </tr>
+					</thead>
+					<tbody>
+					  <tr class="centered">
+						<td colspan="2"></td>
+						<td colspan="2">Reservation</td>
+						<td colspan="2">Walk-In</td>
+					  </tr>
+					  <tr class="centered">
+						<td>Rental Type</td>
+						<td>Max.<br>Persons</td>
+						<td>Half Day<br>(3 hrs)</td>
+						<td>Full Day</td>
+						<td>Half Day<br>(3 hrs)</td>
+						<td>Full Day</td>
+					  </tr>
+					  <tr>
+						<td id="type-0"></td>
+						<td class="centered" id="capacity-0"></td>
+						<td class="centered">$ <span id="reservation-half-0"></span></td>
+						<td class="centered">$ <span id="reservation-full-0"></span></td>
+						<td class="centered">$ <span id="walkin-half-0"></span></td>
+						<td class="centered">$ <span id="walkin-full-0"></span></td>
+					  </tr>
+					  <tr>
+						<td id="type-1"></td>
+						<td class="centered" id="capacity-1"></td>
+						<td class="centered">$ <span id="reservation-half-1"></span></td>
+						<td class="centered">$ <span id="reservation-full-1"></span></td>
+						<td class="centered">$ <span id="walkin-half-1"></span></td>
+						<td class="centered">$ <span id="walkin-full-1"></span></td>
+					  </tr>
+					  <tr>
+						<td id="type-2"></td>
+						<td class="centered" id="capacity-2"></td>
+						<td class="centered">$ <span id="reservation-half-2"></span></td>
+						<td class="centered">$ <span id="reservation-full-2"></span></td>
+						<td class="centered">$ <span id="walkin-half-2"></span></td>
+						<td class="centered">$ <span id="walkin-full-2"></span></td>
+					  </tr>
+					  <tr>
+						<td id="type-3"></td>
+						<td class="centered" id="capacity-3"></td>
+						<td class="centered">$ <span id="reservation-half-3"></span></td>
+						<td class="centered">$ <span id="reservation-full-3"></span></td>
+						<td class="centered">$ <span id="walkin-half-3"></span></td>
+						<td class="centered">$ <span id="walkin-full-3"></span></td>
+					  </tr>
+					  <tr>
+						<td id="type-4"></td>
+						<td class="centered" id="capacity-4"></td>
+						<td class="centered">$ <span id="reservation-half-4"></span></td>
+						<td class="centered">$ <span id="reservation-full-4"></span></td>
+						<td class="centered">$ <span id="walkin-half-4"></span></td>
+						<td class="centered">$ <span id="walkin-full-4"></span></td>
+					  </tr>
+					  <tr>
+						<td id="type-5"></td>
+						<td class="centered" id="capacity-5"></td>
+						<td class="centered">$ <span id="reservation-half-5"></span></td>
+						<td class="centered">$ <span id="reservation-full-5"></span></td>
+						<td class="centered">$ <span id="walkin-half-5"></span></td>
+						<td class="centered">$ <span id="walkin-full-5"></span></td>
+					  </tr>
+					</tbody>
+				</table>		
+					
+				
+			</section> <!-- END container-rentals -->
+
+		</div>
+		
+
+	</main>
+
+	<!-- FOOTER -->
+	<footer class="background-blue">
+		<div class="max-sized">
+
+			<div class="logo-box div-centered">
+				<!-- Logo -->
+				<picture class="logo-item">
+					<img class="logo-image" src="img/logo-70.svg" alt="Scoot's Scooter Rental Company logo.">
+				</picture>
+				
+				<div>
+					<h1 class="logo-title">~Scoots</h1>
+					<span class="logo-subtitle">Rent Your Ride</span>
+				</div>
+			</div>
+	
+	
+			<h2>Find us in Social Media</h2>
+			<!-- Contact information -->
+			<div class="footer-social">
+			  <a class="anchor-social" href="https://www.facebook.com"><img class="logo-social" src="img/social/facebook.svg" alt="Facebook social media link and logo."></a>
+			  <a class="anchor-social" href="https://twitter.com"><img class="logo-social" src="img/social/twitter.svg" alt="Twitter social media link and logo."></a>
+			  <a class="anchor-social" href="https://web.whatsapp.com"><img class="logo-social" src="img/social/whatsapp.svg" alt="WhatsApp social media link and logo."></a>
+			</div>
+	
+			<!-- Social Media -->
+			<div class="footer-bot">
+				<span>&copy; ~Scoots 2020</span>
+				<span>Site by Carlos W. Mercado</span>
+				<span id="currentDate"></span>
+				<span><a href="credits.html" class="">Resource Credits</a></span>
+			</div>
+
+		</div>	
+	</footer>
+	
+	<!-- SCRIPTS -->
+	<script src="js/script.js"></script>
+	<script src="js/rentals.js"></script>
+</body>
+</html>

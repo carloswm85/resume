@@ -1,0 +1,97 @@
+html {
+	background-color: #000;
+	color: aliceblue;
+}
+
+.tg {
+	border-collapse: collapse;
+	border-color: #93a1a1;
+	border-spacing: 0;
+}
+
+.tg td {
+	background-color: #fdf6e3;
+	border-color: #93a1a1;
+	border-style: solid;
+	border-width: 1px;
+	color: #002b36;
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	overflow: hidden;
+	padding: 10px 5px;
+	word-break: normal;
+}
+
+.tg th {
+	background-color: #657b83;
+	border-color: #93a1a1;
+	border-style: solid;
+	border-width: 1px;
+	color: #fdf6e3;
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	overflow: hidden;
+	padding: 10px 5px;
+	word-break: normal;
+}
+
+.tg .tg-7u20 {
+	background-color: #eee8d5;
+	border-color: inherit;
+	font-family: "Lucida Console", Monaco, monospace !important;
+	;
+	font-weight: bold;
+	text-align: left;
+	vertical-align: top
+}
+
+.tg .tg-d1y6 {
+	background-color: #eee8d5;
+	font-family: "Lucida Console", Monaco, monospace !important;
+	;
+	font-size: 16px;
+	text-align: left;
+	vertical-align: top
+}
+
+.tg .tg-qjj0 {
+	border-color: inherit;
+	font-family: "Lucida Console", Monaco, monospace !important;
+	;
+	font-size: 20px;
+	text-align: center;
+	vertical-align: top
+}
+
+.tg .tg-aodu {
+	background-color: #eee8d5;
+	font-family: "Lucida Console", Monaco, monospace !important;
+	;
+	font-style: italic;
+	font-weight: bold;
+	text-align: left;
+	vertical-align: top
+}
+
+.tg .tg-lvnx {
+	background-color: #c0c0c0;
+	border-color: inherit;
+	font-family: "Lucida Console", Monaco, monospace !important;
+	;
+	font-size: 18px;
+	font-style: italic;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: top
+}
+
+.tg .tg-7s7t {
+	background-color: #eee8d5;
+	border-color: inherit;
+	font-family: "Lucida Console", Monaco, monospace !important;
+	;
+	font-size: 16px;
+	text-align: left;
+	vertical-align: top
+}

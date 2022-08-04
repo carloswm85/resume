@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans|Oswald&display=swap');
+
+:root {
+  --primary-color: #dadada;
+  --secondary-color: #353E42;
+  --tertiary-color: #ffff;
+  --accent1-color: #6495ED;
+  --accent2-color: #E0C54E;
+
+  --heading-font: 'Oswald', sans-serif;
+  --paragraph-font: 'Noto Sans', sans-serif;
+}
+
+body {
+  background-color: var(--primary-color);
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  background-color: #353E42;
+  padding: 0 10px;
+}
+
+
+/* BRAND HEADER SECTION */
+.brand-container {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  align-content: space-around;
+}
+
+.brand-logo-container {
+  flex-grow: 1;
+}
+
+.brand-logo-picture {
+  filter: invert(1);
+  margin: auto;
+  width: 210px;
+  height: auto;
+}
+
+.brand-title-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+}
+
+.brand-title-container > h1 {
+  text-align: center;
+  margin: 0;
+  font-size: 3em;
+}
+
+.brand-title-container > p {
+  text-align: center;
+  margin: 0;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5rem;
+  color: white;
+}
+
+
+/* NAVIGATION BAR */
+/* nav > ul (.navigation) > li > a (.ham) */
+.navigation {
+  font-size: 1.5em;
+  color: var(--primary-color);
+  margin: 0.5em 0;
+  height: 100%;
+}
+
+.navigation a:first-child {
+  display: block;
+}
+
+.navigation > a {
+  font-family: var(--paragraph-font);
+  color: var(--primary-color);
+  text-align: center;
+  display: none;
+  margin: 0;
+  padding: 0.5em 0;
+}
+
+.navigation a:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+/* the onclick JS toggles the .reponsive class from display none (.navigation li) to display block because the responsive class is added to the end of the class list like this in HTML.
+  <ul class="navigation responsive">
+*/
+.responsive a {
+  display: block;
+}
+
+footer {
+  color: #ffffff;
+  margin: 0;
+  padding: 1em;
+  background-color: #353E42;
+}
+
+footer > p {
+  text-align: center;
+  font-size: 1.2em;
+}
+
+footer > p > a {
+  color: #dadada;
+  text-decoration: underline;
+}
+
+h1, h2, h3 {
+  font-family: var(--heading-font);
+}
+
+h1 {
+  color: var(--primary-color);
+}
+
+.section-style {
+  height: auto;
+  padding: 3%;
+  margin: 3%;
+  background-color: var(--tertiary-color);
+}
+
+p {
+  font-family: 'Noto Sans', sans-serif;
+  line-height: 1.5;
+}
+
+.subpage-title {
+  text-align: center;
+  margin: 20px auto;
+  font-size: 2em;
+}

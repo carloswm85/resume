@@ -1,0 +1,28 @@
+$fontHeading: 'Poly', serif;
+$fontParagraph: 'Open Sans';
+
+$fontBorder: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+/* This variable quickly adds border through
+text-shadow property. */
+
+
+$colorPrimary0: #00BAEF;	/* Main Primary color */
+$colorPrimary1: #01465A;
+$colorPrimary2: #036D8B;
+$colorPrimary3: #1D92B3;
+$colorPrimary4: #69D4F2;
+
+$colorSecondary0: #9FFC00;	/* Main Secondary color */
+$colorSecondary1: #548500;
+$colorSecondary2: #83CF00;
+$colorSecondary3: #A3F020;
+$colorSecondary4: #C6FC69;
+
+
+$colorComplement0: #FF9200;	/* Main Complement color */
+$colorComplement1: #905200;
+$colorComplement2: #E08000;
+$colorComplement3: #FFA022;
+$colorComplement4: #FFBF6A;
+
+$colorTransparent: rgba($color: #000000, $alpha: 0);

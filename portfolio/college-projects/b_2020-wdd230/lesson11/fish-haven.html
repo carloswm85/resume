@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <!-- META -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hurricane Parrot, has local weather forecasts for Idaho State from the most accurate weather forecasting technology featuring up to the minute weather reports for selected cities. The current page is for the Fish Haven area.  Here you will find the following information for the Fish Haven area: current weather conditions, forecast for the following 5 days, upcoming events, and a weekly selected article for and from the local people.">
+
+  <!-- LINK -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/default.css">
+  <link rel="stylesheet" href="css/medium.css">
+  <link rel="stylesheet" href="css/large.css">
+
+  <title> Hurricame Parrot - Fish Haven's Weather Forecast Site </title>
+</head>
+
+<body>
+  <div class="banner">Saturday = Preston Pancakes in the Park! 9:00 a.m. Saturday at the city park pavilion.</div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="brand-container">
+      <a href="/lesson11/" target="_blank">
+        <picture class="brand-logo-container">
+            <img class="brand-logo-picture" src="images/thunder2.png" alt="Site logo. The logo is one small cloud with one little thunder coming out of the middle of it.">
+        </picture>
+      </a>
+      <div class="brand-title-container">
+        <h1 class="brand-title"> Hurricane Parrot </h1>
+        <div class="brand-motto">Idaho's Weather Forecast Site</div>
+      </div>
+    </div>
+
+    <nav class="navigation">
+      <a class="ham" href="#">&#9776; Menu</a>
+      <a class="" href="/lesson11/">Home</a>
+      <a class="" href="preston.html">Preston</a>
+      <a class="" href="soda-springs.html">Soda Springs</a>
+      <a class="current-page" href="fish-haven.html">Fish Haven</a>
+      <a class="" href="storm-center.html">Storm Center</a>
+      <a class="" href="gallery.html">Gallery</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2 class="subpage-title">Fish Haven, Idaho</h2>
+
+    <!-- SUMMARY -->
+    <div class="section-style summary">
+      <picture class="summary-picture-tag">
+        <source media="(min-width:64em)" srcset="images/fish-haven/fish-haven-large.jpg">
+        <source media="(min-width:48em)" srcset="images/fish-haven/fish-haven-medium.jpg">
+        <img class="summary-picture-file clearfix"
+          src="images/fish-haven/fish-haven-small.jpg"
+          alt="Woman rising her arms while standing near a cliff in a Summer midday. Photo by Min An from Pexels.">
+      </picture>
+
+      <!-- Weather summary chart -->
+      <section class="summary-information">
+        <h3 class="summary-title">Weather Summary</h3>
+        <p>Currently:   <span class="weather-data" id="weather-fish-haven-1"> </span> </p>
+        <p>High:        <span class="weather-data" id="weather-fish-haven-2"> </span> &#8457;</p>
+        <p>Wind Chill:  <span class="weather-data" id="weather-fish-haven-3"> </span> </p>
+        <p>Humidity:    <span class="weather-data" id="weather-fish-haven-4"> </span> % </p>
+        <p>Wind Speed:  <span class="weather-data" id="weather-fish-haven-5"> </span> mph </p>
+      </section>
+    </div>
+
+    <section class="section-style forecast">
+      <h3 class="forecast-title">5 Day Forecast</h3>
+      <table class="forecast-table">
+        <tr class="table-row">
+          <th class="table-header" id="forecast-fish-haven-day-0">a</th>
+          <th class="table-header" id="forecast-fish-haven-day-1">b</th>
+          <th class="table-header" id="forecast-fish-haven-day-2">c</th>
+          <th class="table-header" id="forecast-fish-haven-day-3">d</th>
+          <th class="table-header" id="forecast-fish-haven-day-4">e</th>
+        </tr>
+        <tr class="table-row" id="forecast-row">
+          <td class="table-cell"> <span id="forecast-fish-haven-temp-0"></span> &#8457; <img class="forecast-icon" id="forecast-fish-haven-img-0" src="_loadable" alt="_loadable"> </td>
+          <td class="table-cell"> <span id="forecast-fish-haven-temp-1"></span> &#8457; <img class="forecast-icon" id="forecast-fish-haven-img-1" src="_loadable" alt="_loadable"> </td>
+          <td class="table-cell"> <span id="forecast-fish-haven-temp-2"></span> &#8457; <img class="forecast-icon" id="forecast-fish-haven-img-2" src="_loadable" alt="_loadable"> </td>
+          <td class="table-cell"> <span id="forecast-fish-haven-temp-3"></span> &#8457; <img class="forecast-icon" id="forecast-fish-haven-img-3" src="_loadable" alt="_loadable"> </td>
+          <td class="table-cell"> <span id="forecast-fish-haven-temp-4"></span> &#8457; <img class="forecast-icon" id="forecast-fish-haven-img-4" src="_loadable" alt="_loadable"> </td>
+        </tr>
+      </table>
+    </section>
+
+    <div class="section-style events">
+      <h2 class="events-title section-title">UPCOMING EVENTS</h2>
+        <ul class="events-list-fish-haven">
+          <!-- Events go here -->
+        </ul>
+    </div>    
+
+    <section class="section-style article clear-container">
+      <h2 class="article-section-title section-title">LOCAL STORIES FROM FISH HAVEN</h2>
+      <article class="article">
+        <picture class="article-picture ">
+          <img class="article-picture-file" src="images/fish-haven/fish-haven-article.jpg" alt="Man sitting dangerously on the edge of a cliff. Photo by Marius Venter from Pexels.">
+          <!-- Photo by Binyamin Mellish from Pexels -->
+        </picture>
+
+        <h3 class="article-title">"Waiting for the Weather to Change."</h3>
+        <p class="article-authorship">By John Michael Dumbo</p>
+        <p>John R. Maloy is a peculiar man. As you can see in the picture next to this article, he has some peculiar taste for what a relaxing time is (the picture was taken last year, somewhere in South Africa). Mister Maloy is the well-known local rock climber who has spent the last 35 years of his life (since he was 8 years old) climbing rocks around the World.</p>
+        <p>At the age of eleven, he made a National Record for being the youngest man on record the 3,000 height feet Yosemite's El Capitán (that record has been already broken since, though). Five years later he would break another record, but this time, an international one, for been the first 16 years old man (in fact the youngest man) to complete the full Seven Summits Challenge (this challenge consisting of climbing the summit of all seven highest peeks on the Seven Continents).</p>
+        <p class="article-to-be-continued">To be continued...</p>
+      </article>      
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+
+    <!-- FOOTER TOP -->
+    <div class="footer-top">
+
+      <div class="footer-top-contact">
+        <div class="footer-address">
+          <p class="contact-address one">Hurricane Parrot</p>
+          <p class="contact-address"> <img class="location-icon" src="images/location2.png" alt="This is a little icon, for the addres of Hurricane Parrot.">30 N 1st E</p>
+          <!-- location-icon png from pngtree.com -->
+          <p class="contact-address">Preston, ID 83263</p>
+        </div>
+
+        <div class="footer-communication">
+          <p class="communication-number"><span class="entity-contact">&#9742;</span>&#160; 999-999-9999</p>
+          <p class="communication-mail"><span class="entity-contact"> &#9993; </span>hurricaneparrot@forecast.com</p>
+        </div>
+
+        <div class="footer-social">
+          <a class="anchor-socialmedia" href="https://www.facebook.com">
+            <img class="logo-social" src="images/facebook.svg" alt="Facebook social media link and logo."></a>
+          <a class="anchor-socialmedia" href="https://www.pinterest.com">
+            <img class="logo-social" src="images/pinterest.svg" alt="Pinterest social media link and logo."></a>
+          <a class="anchor-socialmedia" href="https://twitter.com">
+            <img class="logo-social" src="images/twitter.svg" alt="Twitter social media link and logo."></a>
+          <a class="anchor-socialmedia" href="https://web.whatsapp.com">
+            <img class="logo-social" src="images/whatsapp.svg" alt="WhatsApp social media link and logo."></a>
+        </div>
+      </div>
+
+      <div class="footer-top-map">
+        <iframe class="footer-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d46051.898877399486!2d-111.82320239769696!3d43.83004510343361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53540a4b807a98b1%3A0x4a49d8d1d2181c73!2sRexburg%2C%20ID%2C%20USA!5e0!3m2!1sen!2sar!4v1590166981624!5m2!1sen!2sar" width="400" height="300" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+      </div>
+    </div>
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bot">
+      <p>&copy; Hurricane Parrot 2020 | Soda Springs' Forecast Weather | Carlos W. Mercado</p>
+      <p class="bot-date">
+        <span id="currentDate"></span>
+        <span> | <a href="terms.html" class="terms-link"> Terms and Conditios of use</a></span>
+      </p>
+      <p class="bot-home"><a href="../">GO BACK HOME</a></p>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="js/script.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+  <script src="js/webfontload.js"></script>  
+  <script src="js/fish-haven-data.js"></script>
+</body>
+
+</html>

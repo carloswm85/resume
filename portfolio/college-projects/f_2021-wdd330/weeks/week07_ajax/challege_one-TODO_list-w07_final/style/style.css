@@ -1,0 +1,33 @@
+h1 {
+	text-align: center;
+	text-decoration: underline;
+}
+
+main {
+	/* border: 1px solid red; */
+}
+
+form {
+	width: 100%;
+	margin: 0;
+	border: unset;
+}
+
+.checkbox-label {
+	display: block;
+	border: 1px solid yellow;
+	width: 100%;
+	padding: 0.5em;
+}
+
+.equal-padding {
+	padding-top: 1em;
+}
+
+.display-container {
+	border: 1px solid red;
+}
+
+.display {
+	text-align: center;
+}

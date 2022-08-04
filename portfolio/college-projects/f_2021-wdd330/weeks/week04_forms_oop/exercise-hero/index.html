@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<style>
+		.error {
+			background: #f99;
+			border: #900 1px solid;
+			display: none;
+		}
+
+		label, input[type=text] {
+			width: 350px;
+		}
+	</style>
+
+	<title>Hero</title>
+</head>
+<body>
+	<form action="" id="hero">
+
+		<!-- text input field -->
+		<label for="heroName">Name:
+			<input type="text" name="heroName" id="heroName" autofocus placeholder="Does not accept Y on submit" maxlength=32 required>
+		</label>
+		<hr>
+
+		<!-- text input field -->
+		<label for="heroSurname" id="surname">Surname:
+			<input type="text" name="heroSurname" id="heroSurname" autofocus placeholder="Does not accept X on typing" maxlength=32 required>
+		</label>
+		<hr>
+
+		<!-- passwored name -->
+		<label for="realName">Real Name:
+			<input type="password" name="realName" id="realName">
+		</label>
+		<hr>
+
+		<!-- checkboxes -->
+		<p>Super Powers:</p>
+		<label for='flight'>Flight:
+			<input type='checkbox' id='flight' value='Flight' name='powers'>
+		</label>
+		<label for='strength'>Super Strength:
+			<input type='checkbox' id='strength' value='Strength' name='powers'>
+		</label>
+		<label for='speed'>Super Speed:
+			<input type='checkbox' id='speed' value='Super Speed' name='powers'>
+		</label>
+		<label for='energy'>Energy Blasts:
+			<input type='checkbox' id='energy' value='Energy Blasts' name='powers' checked>
+		</label>
+		<label for='telekinesis'>Telekinesis:
+			<input type='checkbox' id='telekinesis' value='Telekinesis' name='powers'>
+		</label>
+		<hr>
+
+		<!-- radio buttons -->
+		<p>What type of hero are you?</p>
+		<label for='hero'>Hero:
+			<input type='radio' name='category' value='Hero' id='hero'>
+		</label>
+		<label for='villain'>Villain:
+			<input type='radio' name='category' value='Villain' id='villain'>
+		</label>
+		<label for='anti-hero'>Anti-Hero:
+			<input type='radio' name='category' value='Antihero' id='anti-hero'>
+		</label>
+		<hr>
+
+		<label for="age">Age:
+			<input type="number" name="age" id="age" min="0" step="1">
+		</label>
+		<hr>
+
+		<!-- other input fields -->
+		<label for="">Hidden field:
+			<input type="hidden" name="example">
+		</label>
+		<hr>
+
+		<label for="">File (it does not really work): 
+			<input type="file" name="example2" id="file">
+		</label>
+		<hr>
+
+		<label for='City'>Base of Operations:
+			<select name='city' id='city'>
+				<option value='' selected>Choose a City</option>
+				<option value='Metropolis'>Metropolis</option>
+				<option value='Gotham City'>Gotham City</option>
+				<option value='Keystone City'>Keystone City</option>
+				<option value='Coast City'>Coast City</option>
+				<option value='Star City'>Star City</option>
+			</select>
+		</label>
+		<hr>
+
+		<label for='origin'>Origin Story:
+			<textarea id='origin' name='origin' rows='5' cols='60'></textarea>
+		</label>
+		<hr>
+
+		<button type="submit" disabled id="submit">Submit</button>
+		<button type="reset" disabled>Reset</button>
+		<button type="button" disabled>Click Me</button>
+	</form>
+
+	<script src="main-hero.js"></script>
+</body>
+</html>

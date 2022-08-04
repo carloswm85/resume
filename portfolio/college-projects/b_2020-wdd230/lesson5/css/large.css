@@ -1,0 +1,31 @@
+@media only screen and (min-width: 75em) { /* 1200px */
+  .banner {
+    border: 3px var(--secondary-color) solid;
+    border-radius: 0 0 20px 20px;
+    margin-top: -2em;
+    padding: 1em;
+    text-align: center;
+    font-family: var(--paragraph-font);
+    margin-bottom: 1em;
+    background-color: yellow;
+    display: block;
+  }
+  body {
+    margin: 30px auto;
+    width: 60em; 
+  }
+
+  main {
+    border: 1px solid white;
+  }
+
+  header, footer {
+    margin: 0 -2%;
+  }
+
+  /* ARTICLE */
+  .article-picture {
+    display: block;
+    float: right;
+  }
+}

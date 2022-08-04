@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="icon" href="../favicon.png" type="image/png">
+	<link id="custom-css" rel="stylesheet" href="https://carloswm85.github.io/css/public-styles/dark-orange.css">
+	<link rel="stylesheet" href="../libraries/highlight/styles/default.min.css">
+	<script src="../libraries/highlight/highlight.min.js"></script>
+	<script>
+		hljs.highlightAll();
+
+	</script>
+
+	<title>WDD330 - Week 03</title>
+</head>
+
+<body>
+	<div class="go-back">
+		<a href="../../../">&#8666;</a>
+	</div>
+
+	<h1>Week 03</h1>
+	<p>This week readings assignment:</p>
+
+	<!-- Instructions -->
+	<section class="border-bottom">
+		<p><a href="https://byui-cit.github.io/cit261/prepare/week03.html">https://byui-cit.github.io/cit261/prepare/week03.html &#8663;</a></p>
+	</section>
+
+	<!-- Raw Files -->
+	<section class="border-bottom">
+		<h2>Reading Exercise (raw and interpreted) Files</h2>
+		<p>Open the console for reading some code.</p>
+
+		<ul>
+			<li><a href="script.js" target="_blank">script.js &#8663;</a></li>
+			<li><a href="heroes.html" target="_blank">heroes.html &#8663;</a></li>
+		</ul>
+	</section>
+
+	<!-- Reading Section -->
+	<section class="border-bottom">
+		<h2>Readings</h2>
+
+		<ol>
+			<li>Other readings:
+				<ul>
+					<!-- Notes #1 -->
+					<li><a href="https://javascript.info/object-methods" target="blank_">Object Methods: this &#8663;</a>
+						<ul>
+							<li>Object represent <b>entities</b> of the real world.</li>
+							<li>Here's an <i>object literal</i>: <code class="code-inline code-style">user = { sayHi() { alert( this.userName ); } };</code></li>
+							<li>Object's actions are represented in JS by <b>functions</b> <i>stored as</i> <b>object properties</b>.
+								<ul>
+									<li>For example, we can use a Function Expression to create a function and assign it to the property user instance as <code class="code-inline code-style">user.sayHi = function() { ... };</code>, and then make a call to it as <code class="code-inline code-style">user.sayHi();</code>.</li>
+								</ul>
+							<li>A function that is a property of an object is called its <i>method</i>.</li>
+							<li><span class="cyan">The value of</span> <code class="code-inline code-style">this</code> <span class="cyan">is the object instance “before the dot”</span>, the one used to call the method, or the one that called the method. <code class="code-inline code-style">user.sayHi();</code> prints out the user name.
+								<ul>
+									<li>Methods allow objects to “act” like <code class="code-inline code-style">object.doSomething()</code></li>
+								</ul>
+							</li>
+							<li>In JavaScript, keyword <code class="code-inline code-style">this</code> behaves unlike most other programming languages. It can be used in any function, even if it’s not a method of an object. The value of <code class="code-inline code-style">this</code> is evaluated during the run-time, depending on the context.</li>
+							<li>The concept of <span class="cyan">run-time evaluated</span> <code class="code-inline code-style">this</code> has both pluses and minuses. On the one hand, a function can be reused for different objects. On the other hand, the greater flexibility creates more possibilities for mistakes.
+								<ul>
+									<li>When a function is declared, it may use <code class="code-inline code-style">this</code>, but that <code class="code-inline code-style">this</code> has no value until the function is called.</li>
+									<li>A function can be copied between objects.</li>
+									<li>When a function is called in the “method” syntax: <code class="code-inline code-style">object.method()</code>, the value of <code class="code-inline code-style">this</code> during the call is object.</li>
+									<li>Note that arrow functions are special: they have no <code class="code-inline code-style">this</code>. When <code class="code-inline code-style">this</code> is accessed inside an arrow function, it is taken from outside.</li>
+								</ul>
+							</li>
+							<li>Example on <i class="lime">chaining</i> :
+								<pre><code class="language-javascript">
+let ladder = { step: 0,
+	up() {
+		this.step++;
+		return this;
+	},
+	down() {
+		this.step--;
+		return this;
+	},
+	showStep() {
+		alert( this.step );
+		return this;
+	}
+};
+
+ladder.up().up().down().up().down().showStep();
+								</code></pre>
+							</li>
+						</ul>
+					</li>
+
+					<hr>
+
+					<!-- Notes #2 -->
+					<li><a href="https://zellwk.com/blog/this/" target="blank_">"This" in Javascript &#8663;</a>:
+						<ul>
+							<li>
+								<code class="code-inline code-style">this</code> is a keyword whose value changes depending on how a function gets called. There six different ways where <code class="code-inline code-style">this</code> can take on new values. They are with their references:
+								<ol>
+									<li>Global context → Browser Window object</li>
+									<li>Object construction → Object instance</li>
+									<li>An object method → Object, then object instance</li>
+									<li>A simple function → Browser Window object</li>
+									<li>An arrow function → Always the same as <code class="code-inline code-style">this</code> in the immediate scope</li>
+									<li>An event listener → Set to the element that fired the event in the event listener</li>
+								</ol>
+							</li>
+							<li>Make a variable <code class="code-style code-inline">self</code> or <code class="code-style code-inline">that</code> in case you need an auxiliary variable for storing <code class="code-style code-inline">this</code>, at some scenario.</li>
+							<li><code class="code-inline code-style">bind</code>, <code class="code-inline code-style">call</code> and <code class="code-inline code-style">apply</code> can also be use to change the value of <code class="code-inline code-style">this</code> within the function.</li>
+							<li><code class="code-inline code-style">bind()</code> is a method that is present in every function. It allows you to change the <code class="code-inline code-style">this</code> context. This method takes in any number of arguments and returns the bound function. The first parameter you pass into <code class="code-inline code-style">bind</code> becomes <code class="code-inline code-style">this</code> in the bound function. Once you have created a bound function, you can call it anytime you wish. Example: <code class="code-inline code-style">const boundFunc = myFunction.bind( {someKey: 'someStringValue'}, // and any number of arguments...)</code> </li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+			<hr>
+
+			<li>JavaScript: Novice to Ninja:
+				<ul>
+
+					<!-- Notes #3 -->
+					<li> <span class="yellow"> Ch5: Objects</span>:
+						<ul>
+							<li>Six <span class="orange">primitive data types</span>: strings, numbers, booleans, symbols, undefined, null, or <b>object</b>.
+								<ul>
+									<li>New PDT:
+										<ul>
+											<li>Symbol: Primitive which cannot be recreated nor mutated. <code class="code-inline code-style">const s1 = Symbol('Spiderman');</code> and <code class="code-inline code-style">const s2 = Symbol('Spiderman');</code> are completely different. They can be reused again and again by any object.</li>
+											<li>A new property can be added to an object using a symbol as a key if the square bracket notation is used.</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li><span class="orange">Object types</span>: built-in (array, function), and user defined.</li>
+							<li><span class="orange">Object Literals (OL)</span>: An object in JavaScript is a self-contained set of related values and functions. They act as a collection of named properties that map to any JavaScript value data type (see above). This is the preferred way of creating objects.</li>
+							<li> If a property’s value is a function, it is known as a <b>method</b>.</li>
+							<li><span class="orange">Calling Methods</span>: <code class="code-inline code-style">superman.fly()</code> or <code class="code-inline code-style">superman['fly']()</code></li>
+							<li>Objects are assigned <span class="orange">by reference</span>. This means that if a variable is assigned to an object that already exists, it will simply point to the exact same space in memory. So any changes made using either reference will affect the same object.</li>
+							<li>OL can be passed as a parameter to a function. This is useful when passing a "package of values/parameters". → <code class="code-inline code-style">greet( {greeting: `What's up dude`, age: 10, name: `Bart` } );</code></li>
+							<li><span class="orange">Object Literal Pattern</span> or <span class="orange">Namespacing</span>: Objects containing several methods and properties, which can be used as small libraries, so not to confuse their value names with other value names from other namespaces, libraries or whatever. This is used for avoiding code clashes. Example, with namespace <code class="code-inline code-style">myMaths</code>:
+								<pre><code class="language-javascript">
+	const myMaths = {
+		square(x) {
+			return x * x;
+		},
+		mean(array,callback) {
+			if (callback) {
+				array.map( callback );
+			}
+			const total = array.reduce((a, b) => a + b);
+			return total/array.length;
+		}
+	};
+							</code></pre>
+							</li>
+							<li><span class="orange">Other built-in objects</span>: They're global.
+								<ul>Examples:
+									<li>JSON (JavaScript Object Notation), portable data format.</li>
+									<li>Math, a number of mathematical constants, for mathematical calculations.</li>
+									<li>Date, for date objects.</li>
+									<li>RegExp, for Regular Expressions.</li>
+
+								</ul>
+							<li>Using <span class="orange">namespaces</span>: Any references to the functions need to be replaced with <code class="code-inline code-style">namespace.function()</code> <i>outside</i> the object, or <code class="code-inline code-style">this.function()</code> <i>inside</i> the object.</li>
+						</ul>
+					</li>
+
+					<hr>
+
+					<!-- Notes #4 -->
+					<li> <span class="yellow">Ch6: DOM</span>:
+						<ul>
+							<li><span class="orange">DOM</span> (Document Object Model): It represents the HTML document as a network of connected nodes that form a tree-like structure. Nodes are: HTML tags, text inside these tags, attributes of a tag. <code class="code-inline code-style">HTML</code> tag is the <span class="cyan">root</span> node. And everything inside of it is its child. Different parts of the web page can be modified by using a special built-in object called <code class="code-inline code-style">document</code>.</li>
+							<li>DOM diagram of <a href="heroes.html">heroes.html</a> file: <a href="img/heroes-dom-diagram.png" target="_blank">heroes-dom-diagram.png &#8663;</a></li>
+							<li>Nodes Numerical Code. After using <code class="code-inline code-style">typeof body;</code> a number is returned. Cases"
+								<ul>
+									<li>code <b>1</b> for node of type <i>element</i></li>
+									<li><b>2</b> for <i>attribute</i></li>
+									<li><b>3</b> for <i>text</i></li>
+									<li><b>8</b> for <i>comment</i></li>
+									<li><b>9</b> for <i></i>body</li>
+								</ul>
+							</li>
+							<li>Regarding nodes: <a href="img/code1.png" target="_blank">This line of code... &#8663;</a> → Reads like: <code class="code-inline code-style">li</code> contains text "Wonder Woman", which is held inside a <i>text node</i>, which is the first child of the <code class="code-inline code-style">li</code> element node.
+								<ul>
+									<li>Using <code class="code-inline code-style">const TextNode = wonderwoman.firstChild;</code> we can get the content of the text node, using <code class="code-inline code-style">textNode.nodeValue;</code></li>
+									<li>So: HTML element ← Text node ← Text string, which is a nodeValue</li>
+									<li>We can also find this value using: <code class="code-inline code-style">wonderWoman.textContent;</code></li>
+									<li><code class="code-inline code-style">innerText</code> property is used in IE8.</li>
+								</ul>
+							</li>
+							<li> <span class="cyan">Table with useful functions, on <i>how to navigate the DOM Tree</i></span>: <a href="table-navigate-DOM.html" target="_blank">here &#8663;</a>
+
+							</li>
+						</ul>
+					</li>
+
+					<hr>
+
+					<!-- Notes #5 -->
+					<li> <span class="yellow">Ch7: Events</span>:
+						<ul>
+							<li><i>Event handlers/listeners</i> are used to handle out events on the page. Every time a page is clicked, a callback function will be called, and this function is automatically passed an event object as a parameter that contains information about the event.</li>
+							<li>When thinking about <i>object events</i> consider: event properties, event methods, event types.</li>
+							<li><i>What kind of information does that event object contain?</i> Examples:
+								<code class="code-inline code-style">event.type</code>,
+								<code class="code-inline code-style">event.target</code>,
+								<code class="code-inline code-style">event.screenX</code>,
+								<code class="code-inline code-style">event.screenY</code>,
+								<code class="code-inline code-style">event.pageX</code>,
+								<code class="code-inline code-style">event.pageY</code>,
+								<code class="code-inline code-style">event.clientX</code>,
+								<code class="code-inline code-style">event.clientY</code>, etc.
+							</li>
+							<li>Examples and problems:
+								<ol>
+									<li>Inline event handlers: <a href="img/inline-handler.png" target="_blank">Example &#8663;</a> Do not use.</li>
+									<li>Older event handlers: <code class="code-inline code-style">document.onclick = function() { console.log('clicked!') };</code> Do not use.</li>
+									<li>Recommended event handlers → <i>Event Listeners</i>. They allow multiple functions to be attached independently to different events. DO use. Examples:
+										<ul>
+											<li>Attached to the global object (usually the whole browser window): <code class="code-inline code-style">addEventListener('click' () => alert('clicked!'));</code> Example: <a href="event-handlers/index.html" target="_blank">html-1 &#8663;</a> and <a href="event-handlers/main.js" target="_blank">js-1 &#8663;</a></li>
+											<li>Attached to node objects: <code class="code-inline code-style">document.body.addEventListener("eventType", callbackFunction, thirdParameter);</code> Example: <a href="event-handlers/index2.html" target="_blank">html-2 &#8663;</a> and <a href="event-handlers/main2.js" target="_blank">js-2 &#8663;</a></li>
+										</ul>
+								</ol>
+							</li>
+							<li>Event listeners are part of the DOM. DOM is an interface, that allows to use JS to interact with the webpage.</li>
+							<li>All nodes objects have event handler properties. That so: <code class="code-inline code-style">document.onclick = function() { console.log('Clicked!'); }</code> </li>
+							<li>Events classification:
+								<ol>
+									<li>Mouse events: click, dblclick, mousedown, mouseup, mouseover, mouseout, mousemove.</li>
+									<li>Keyboard events: keydown (when is pressed and held down), keypress (when a character is printed to the screen), keyup (when is released).</li>
+									<li>Touch events: touchstart, touchend, touchmove, touchenter, touchleave, touchcancel.</li>
+								</ol>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+			<hr>
+
+			<li>Eloquent JavaScript:
+				<ul>
+					<li>Sandbox exercises for <a href="http://eloquentjavascript.net/code" target="blank_">chapter 14-15</a>:
+						<ul>
+							<li><i>I'll finish it on w04.</i></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ol>
+	</section>
+
+	<!-- Vocabulary Section -->
+	<section class="border-bottom" id="vocabulary">
+		<h2>Vocabulary</h2>
+
+		<ul>
+			<li>Object: Collection of key-value pairs inside curly braces.</li>
+			<li>Object property: Any JS value. If it's a function, it's known as a method.</li>
+			<li>DOM, node objects, node list.</li>
+			<li>JQuery: JS framework.</li>
+		</ul>
+
+	</section>
+
+	<!-- Assignment Section -->
+	<section class="border-bottom">
+		<h2>Assignments and Projects</h2>
+		<ol>
+			<li>Weekly Report: <a href="report.html">Here &#8667;</a></li>
+			<li>Team Activity: <a href="team/index-START-mine.html">Here &#8667;</a></li>
+			<li>Quiz Ninja Project: <a href="ninja.html">Here &#8667;</a></li>
+		</ol>
+	</section>
+
+	<!-- Extra Section -->
+	<section class="border-bottom">
+		<h2>Extra Stuffs and Notes</h2>
+		<ol>
+			<li>I've decided to make the entire "Quiz Ninja Project" from the book "From Novice to Ninja".</li>
+		</ol>
+	</section>
+
+	<!-- Footer -->
+	<footer>
+		<p>
+			By Carlos - Last edit: <span class="last-edit"></span>
+		</p>
+	</footer>
+</body>
+
+<script src="../../source/js/other.js"></script>
+
+</html>
