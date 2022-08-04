@@ -21491,12 +21491,36 @@ section.resume-section .resume-section-content {
     padding-bottom: 5rem;
   }
 }
-.color-red {
-  color: red;
+.color-bahama_blue {
+  color: #0863a3;
 }
 
-.color-red_orange {
-  color: #d84924;
+.color-black {
+  color: black;
+}
+
+.color-blue {
+  color: #0000ff;
+}
+
+.color-blue_magenta {
+  color: #563d7c;
+}
+
+.color-blue_three {
+  color: #545fe6;
+}
+
+.color-blue_two {
+  color: #2449d8;
+}
+
+.color-green {
+  color: rgb(33, 223, 33);
+}
+
+.color-magenta {
+  color: #662079;
 }
 
 .color-orange {
@@ -21505,22 +21529,6 @@ section.resume-section .resume-section-content {
 
 .color-orange_two {
   color: #ed7c24;
-}
-
-.color-blue {
-  color: #0000ff;
-}
-
-.color-blue_two {
-  color: #2449d8;
-}
-
-.color-blue_three {
-  color: #545fe6;
-}
-
-.color-bahama_blue {
-  color: #0863a3;
 }
 
 .color-pink {
@@ -21535,12 +21543,12 @@ section.resume-section .resume-section-content {
   color: purple;
 }
 
-.color-blue_magenta {
-  color: #563d7c;
+.color-red {
+  color: red;
 }
 
-.color-magenta {
-  color: #662079;
+.color-red_orange {
+  color: #d84924;
 }
 
 .color-yellow {
@@ -21549,10 +21557,6 @@ section.resume-section .resume-section-content {
 
 .color-yellow_two {
   color: #ead41c;
-}
-
-.color-black {
-  color: black;
 }
 
 .text-primary {
